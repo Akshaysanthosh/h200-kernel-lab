@@ -1,0 +1,87 @@
+
+template<int MT,int S,int WK>
+__global__ __launch_bounds__(WK*32) void rr_small_kernel(const int4* wp,const __nv_bfloat16* x,float* out,int m) {
+  constexpr int KU=128/S/WK, NI=MT*32;
+  const int tid=threadIdx.x,lane=tid&31,warp=tid>>5,rank=blockIdx.x%S,row=blockIdx.x/S*16;
+  const int gw=(rank*16+row/16)*WK+warp;
+  extern __shared__ __align__(16) unsigned char sm[];
+  float4* recv=(float4*)sm;
+  float4* part=recv+S*NI;
+  const uint32_t rb=rr_smem(sm+(S+WK)*NI*16);
+  int4 w[KU][8];uint4 xx[KU][MT][2];
+#pragma unroll
+  for(int k=0;k<KU;k++) {
+#pragma unroll
+    for(int j=0;j<8;j++) {
+      const int4* p=wp+((k*(16*S*WK)+gw)*8+j)*32+lane;
+      asm volatile("ld.global.nc.L1::no_allocate.v4.s32 {%0,%1,%2,%3}, [%4];":"=r"(w[k][j].x),"=r"(w[k][j].y),"=r"(w[k][j].z),"=r"(w[k][j].w):"l"(p));
+    }
+#pragma unroll
+    for(int n=0;n<MT;n++) {
+      const __nv_bfloat16* p=x+min(n*8+(lane>>2),m-1)*8192+((rank*WK+warp)*KU+k)*64+(lane&3)*16;
+#pragma unroll
+      for(int h=0;h<2;h++) asm volatile("ld.global.nc.v4.u32 {%0,%1,%2,%3}, [%4];":"=r"(xx[k][n][h].x),"=r"(xx[k][n][h].y),"=r"(xx[k][n][h].z),"=r"(xx[k][n][h].w):"l"(p+h*8));
+    }
+  }
+  if(rank==0 && tid==0) {rr_init(rb,1);asm volatile("fence.proxy.async.shared::cta;" :::"memory");}
+  if(rank==0 && warp==0) __syncwarp();
+  if(rank==0 && tid==0) {rr_expect(rb,(S-1)*NI*16);asm volatile("fence.mbarrier_init.release.cluster;" :::"memory");}
+  asm volatile("barrier.cluster.arrive.relaxed.aligned;" :::"memory");
+  float c[2][MT][4]={};
+#pragma unroll
+  for(int k=0;k<KU;k++) {
+#pragma unroll
+    for(int n=0;n<MT;n++) {
+      uint32_t b[8]={xx[k][n][0].x,xx[k][n][0].y,xx[k][n][0].z,xx[k][n][0].w,xx[k][n][1].x,xx[k][n][1].y,xx[k][n][1].z,xx[k][n][1].w};
+#pragma unroll
+      for(int q=0;q<4;q++) {
+#pragma unroll
+        for(int h=0;h<2;h++) {
+          const int4 a=w[k][q+h*4];
+          asm volatile("mma.sync.aligned.m16n8k16.row.col.f32.bf16.bf16.f32 {%0,%1,%2,%3}, {%4,%5,%6,%7}, {%8,%9}, {%0,%1,%2,%3};"
+                       :"+f"(c[h][n][0]),"+f"(c[h][n][1]),"+f"(c[h][n][2]),"+f"(c[h][n][3]):"r"(a.x),"r"(a.y),"r"(a.z),"r"(a.w),"r"(b[2*q]),"r"(b[2*q+1]));
+        }
+      }
+    }
+  }
+#pragma unroll
+  for(int n=0;n<MT;n++) part[warp*NI+n*32+lane]=make_float4(c[0][n][0]+c[1][n][0],c[0][n][1]+c[1][n][1],c[0][n][2]+c[1][n][2],c[0][n][3]+c[1][n][3]);
+  __syncthreads();
+  asm volatile("barrier.cluster.wait.acquire.aligned;" :::"memory");
+  for(int v=tid;v<NI;v+=WK*32) {
+    float4 sum=make_float4(0,0,0,0);
+#pragma unroll
+    for(int k=0;k<WK;k++) rr_add(sum,part[k*NI+v]);
+    if(rank==0)recv[v]=sum;
+    else rr_push(rr_map(rr_smem(recv+rank*NI+v),0),sum,rr_map(rb,0));
+  }
+  if(rank==0) {
+    __syncthreads();rr_wait(rb,0);
+    for(int v=tid;v<NI;v+=WK*32) {
+      float4 sum=make_float4(0,0,0,0);
+#pragma unroll
+      for(int s=0;s<S;s++) rr_add(sum,recv[s*NI+v]);
+      const int ln=v%32,tok=(v/32)*8+(ln&3)*2,wr=row+(ln>>2);
+      if(tok<m){out[tok*256+wr]=sum.x;out[tok*256+wr+8]=sum.z;}
+      if(tok+1<m){out[(tok+1)*256+wr]=sum.y;out[(tok+1)*256+wr+8]=sum.w;}
+    }
+  }
+}
+
+template<int MT,int S,int WK>
+int rr_small_t(int64_t w,int64_t x,int64_t out,int m,int64_t stream,int query) {
+  auto fn=rr_small_kernel<MT,S,WK>;
+  constexpr int bytes=(S+WK)*MT*512+16;
+  static bool configured=false;
+  if(!configured){cudaFuncSetAttribute(fn,cudaFuncAttributeMaxDynamicSharedMemorySize,bytes);cudaFuncSetAttribute(fn,cudaFuncAttributeNonPortableClusterSizeAllowed,1);configured=true;}
+  if(query==2){cudaFuncAttributes fa;cudaFuncGetAttributes(&fa,fn);return fa.numRegs*1000+fa.localSizeBytes;}
+  cudaLaunchConfig_t cfg={};cfg.gridDim=dim3(16*S);cfg.blockDim=dim3(WK*32);cfg.dynamicSmemBytes=bytes;cfg.stream=(cudaStream_t)stream;
+  cudaLaunchAttribute at;at.id=cudaLaunchAttributeClusterDimension;at.val.clusterDim={S,1,1};cfg.attrs=&at;cfg.numAttrs=1;
+  return (int)cudaLaunchKernelEx(&cfg,fn,(const int4*)w,(const __nv_bfloat16*)x,(float*)out,m);
+}
+int rr_small(int64_t w,int64_t x,int64_t out,int m,int s,int wk,int64_t stream,int query) {
+#define RSM(S,W) if(s==S && wk==W) {if(m<=8)return rr_small_t<1,S,W>(w,x,out,m,stream,query);if(m<=16)return rr_small_t<2,S,W>(w,x,out,m,stream,query);if(m<=32)return rr_small_t<4,S,W>(w,x,out,m,stream,query);}
+RSM(8,8) RSM(16,8) RSM(16,4)
+return -99;
+}
+

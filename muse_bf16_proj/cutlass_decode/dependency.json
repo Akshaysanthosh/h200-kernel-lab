@@ -1,0 +1,13 @@
+{
+  "repository": "https://github.com/NVIDIA/cutlass",
+  "tag": "v3.9.2",
+  "commit": "ad7b2f5e84fcfa124cb02b91d5bd26d238c0459e",
+  "license": "BSD-3-Clause",
+  "header_root": "vendor/cutlass/include",
+  "license_sha256": "42fec630f410aa308f70a51a89fadcd19586fa620f9831a32bee528a9a10000e",
+  "overlay_sha256": {
+    "v1/sm90_mma_tma_gmma_ss_warpspecialized.hpp": "3b1e1e11f559ed3d3b4639cd6f9a161c4615af88359e11c2dbdea54b5fff5007",
+    "include/cutlass/gemm/collective/sm90_mma_tma_gmma_ss_warpspecialized.hpp": "d3301a1f08a13dbc8675e1f0596258ba97565cafd9fbdbb7c92eb5fc9017db35",
+    "include/cutlass/gemm/kernel/sm90_gemm_tma_warpspecialized.hpp": "d0c6d35fad847dc40d4550c8f569c28e722621425952a82becf5527955921b68"
+  }
+}

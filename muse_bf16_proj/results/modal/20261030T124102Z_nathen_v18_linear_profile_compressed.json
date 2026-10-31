@@ -1,0 +1,234 @@
+{
+  "passed": true,
+  "official_score": false,
+  "gpu": "NVIDIA H200",
+  "torch": "2.14.1+cu130",
+  "ncu": "/usr/local/cuda/bin/ncu",
+  "profiles": [
+    {
+      "layer": "pooler",
+      "m": 1,
+      "graph_us": 17.472000792622566,
+      "kernels": [
+        {
+          "name": "void v18s_gemv<1, 1, 1, 1, 0, 0, 1024, 0, 4096, 8192, 2, 16, 8, 1, 6>(int4 const*, __nv_bfloat16 const*, void*, unsigned int const*, int, int, int, int, int, int, unsigned int, unsigned int, unsigned int, unsigned int)",
+          "us": 13.92100000000005
+        },
+        {
+          "name": "void v18s_gemv<1, 1, 1, 1, 0, 0, 1024, 0, 4096, 8192, 2, 16, 8, 1, 6>(int4 const*, __nv_bfloat16 const*, void*, unsigned int const*, int, int, int, int, int, int, unsigned int, unsigned int, unsigned int, unsigned int)",
+          "us": 13.217000000000098
+        },
+        {
+          "name": "void v18s_gemv<1, 1, 1, 1, 0, 0, 1024, 0, 4096, 8192, 2, 16, 8, 1, 6>(int4 const*, __nv_bfloat16 const*, void*, unsigned int const*, int, int, int, int, int, int, unsigned int, unsigned int, unsigned int, unsigned int)",
+          "us": 15.167999999999893
+        }
+      ]
+    },
+    {
+      "layer": "pooler",
+      "m": 8,
+      "graph_us": 17.74400006979704,
+      "kernels": [
+        {
+          "name": "void smallm2_gemv<1, 1, 1, 1, 0, 0, 1024, 0, 4096, 8192, 2, 16, 8, 1, 6>(int4 const*, __nv_bfloat16 const*, void*, unsigned int const*, int, int, int, int, int, int, unsigned int, unsigned int, unsigned int, unsigned int)",
+          "us": 13.729000000000042
+        },
+        {
+          "name": "void smallm2_gemv<1, 1, 1, 1, 0, 0, 1024, 0, 4096, 8192, 2, 16, 8, 1, 6>(int4 const*, __nv_bfloat16 const*, void*, unsigned int const*, int, int, int, int, int, int, unsigned int, unsigned int, unsigned int, unsigned int)",
+          "us": 13.53599999999983
+        },
+        {
+          "name": "void smallm2_gemv<1, 1, 1, 1, 0, 0, 1024, 0, 4096, 8192, 2, 16, 8, 1, 6>(int4 const*, __nv_bfloat16 const*, void*, unsigned int const*, int, int, int, int, int, int, unsigned int, unsigned int, unsigned int, unsigned int)",
+          "us": 13.440000000000055
+        }
+      ]
+    },
+    {
+      "layer": "pooler",
+      "m": 16,
+      "graph_us": 17.791999503970146,
+      "kernels": [
+        {
+          "name": "void dd_cap2_b_cpssm_gemv<1, 2, 1, 2, 0, 0, 256, 0, 4096, 8192, 1, 8, 16, 1, 2>(int4 const*, __nv_bfloat16 const*, void*, unsigned int const*, int, int, int, int, int, int, unsigned int, unsigned int, unsigned int, unsigned int)",
+          "us": 14.048000000000002
+        },
+        {
+          "name": "void dd_cap2_b_cpssm_gemv<1, 2, 1, 2, 0, 0, 256, 0, 4096, 8192, 1, 8, 16, 1, 2>(int4 const*, __nv_bfloat16 const*, void*, unsigned int const*, int, int, int, int, int, int, unsigned int, unsigned int, unsigned int, unsigned int)",
+          "us": 13.537000000000035
+        },
+        {
+          "name": "void dd_cap2_b_cpssm_gemv<1, 2, 1, 2, 0, 0, 256, 0, 4096, 8192, 1, 8, 16, 1, 2>(int4 const*, __nv_bfloat16 const*, void*, unsigned int const*, int, int, int, int, int, int, unsigned int, unsigned int, unsigned int, unsigned int)",
+          "us": 13.696999999999889
+        }
+      ]
+    },
+    {
+      "layer": "pooler",
+      "m": 32,
+      "graph_us": 20.38400061428547,
+      "kernels": [
+        {
+          "name": "void r3_pool32_pooler_d9_cap2_a_m32x_gemv<1, 4, 1, 1, 0, 0, 256, 0, 4096, 8192, 1, 8, 16, 1, 7, 1, 1>(int4 const*, __nv_bfloat16 const*, void*, unsigned int const*, int, int, int, int, int, int, unsigned int, unsigned int, unsigned int, unsigned int)",
+          "us": 16.22400000000016
+        },
+        {
+          "name": "void r3_pool32_pooler_d9_cap2_a_m32x_gemv<1, 4, 1, 1, 0, 0, 256, 0, 4096, 8192, 1, 8, 16, 1, 7, 1, 1>(int4 const*, __nv_bfloat16 const*, void*, unsigned int const*, int, int, int, int, int, int, unsigned int, unsigned int, unsigned int, unsigned int)",
+          "us": 17.82399999999984
+        },
+        {
+          "name": "void r3_pool32_pooler_d9_cap2_a_m32x_gemv<1, 4, 1, 1, 0, 0, 256, 0, 4096, 8192, 1, 8, 16, 1, 7, 1, 1>(int4 const*, __nv_bfloat16 const*, void*, unsigned int const*, int, int, int, int, int, int, unsigned int, unsigned int, unsigned int, unsigned int)",
+          "us": 15.903999999999996
+        }
+      ]
+    },
+    {
+      "layer": "qkv_gate",
+      "m": 1,
+      "graph_us": 13.75999953597784,
+      "kernels": [
+        {
+          "name": "void v18d_native_gemv<1, 1, 1, 2, 2, 0, 256, 0, 2304, 8192, 1, 4, 8, 4>(int4 const*, __nv_bfloat16 const*, void*, unsigned int const*, int, int, int, int, int, int, unsigned int, unsigned int, unsigned int, unsigned int)",
+          "us": 9.823999999999955
+        },
+        {
+          "name": "void v18d_native_gemv<1, 1, 1, 2, 2, 0, 256, 0, 2304, 8192, 1, 4, 8, 4>(int4 const*, __nv_bfloat16 const*, void*, unsigned int const*, int, int, int, int, int, int, unsigned int, unsigned int, unsigned int, unsigned int)",
+          "us": 9.249000000000024
+        },
+        {
+          "name": "void v18d_native_gemv<1, 1, 1, 2, 2, 0, 256, 0, 2304, 8192, 1, 4, 8, 4>(int4 const*, __nv_bfloat16 const*, void*, unsigned int const*, int, int, int, int, int, int, unsigned int, unsigned int, unsigned int, unsigned int)",
+          "us": 9.633000000000038
+        }
+      ]
+    },
+    {
+      "layer": "qkv_gate",
+      "m": 16,
+      "graph_us": 14.272000174969435,
+      "kernels": [
+        {
+          "name": "void r3_qkv16_qkv_gate_push_d9_cap6_a_m32x_q_gemv<1, 2, 1, 1, 5, 0, 128, 0, 2304, 8192, 1, 4, 8, 4, 7, 1, 0>(int4 const*, __nv_bfloat16 const*, void*, unsigned int const*, int, int, int, int, int, int, unsigned int, unsigned int, unsigned int, unsigned int)",
+          "us": 10.623000000000047
+        },
+        {
+          "name": "void r3_qkv16_qkv_gate_push_d9_cap6_a_m32x_q_gemv<1, 2, 1, 1, 5, 0, 128, 0, 2304, 8192, 1, 4, 8, 4, 7, 1, 0>(int4 const*, __nv_bfloat16 const*, void*, unsigned int const*, int, int, int, int, int, int, unsigned int, unsigned int, unsigned int, unsigned int)",
+          "us": 9.951000000000022
+        },
+        {
+          "name": "void r3_qkv16_qkv_gate_push_d9_cap6_a_m32x_q_gemv<1, 2, 1, 1, 5, 0, 128, 0, 2304, 8192, 1, 4, 8, 4, 7, 1, 0>(int4 const*, __nv_bfloat16 const*, void*, unsigned int const*, int, int, int, int, int, int, unsigned int, unsigned int, unsigned int, unsigned int)",
+          "us": 9.951000000000022
+        }
+      ]
+    },
+    {
+      "layer": "qkv_gate",
+      "m": 32,
+      "graph_us": 16.095999628305435,
+      "kernels": [
+        {
+          "name": "void m32x_q_gemv<1, 4, 1, 1, 5, 0, 128, 0, 2304, 8192, 1, 4, 8, 4, 7, 1, 0>(int4 const*, __nv_bfloat16 const*, void*, unsigned int const*, int, int, int, int, int, int, unsigned int, unsigned int, unsigned int, unsigned int)",
+          "us": 13.47199999999998
+        },
+        {
+          "name": "void m32x_q_gemv<1, 4, 1, 1, 5, 0, 128, 0, 2304, 8192, 1, 4, 8, 4, 7, 1, 0>(int4 const*, __nv_bfloat16 const*, void*, unsigned int const*, int, int, int, int, int, int, unsigned int, unsigned int, unsigned int, unsigned int)",
+          "us": 11.872000000000071
+        },
+        {
+          "name": "void m32x_q_gemv<1, 4, 1, 1, 5, 0, 128, 0, 2304, 8192, 1, 4, 8, 4, 7, 1, 0>(int4 const*, __nv_bfloat16 const*, void*, unsigned int const*, int, int, int, int, int, int, unsigned int, unsigned int, unsigned int, unsigned int)",
+          "us": 11.935999999999922
+        }
+      ]
+    },
+    {
+      "layer": "unpooler",
+      "m": 16,
+      "graph_us": 17.696000635623932,
+      "kernels": [
+        {
+          "name": "void dd_cap2_b_cpssm_gemv<1, 2, 1, 2, 0, 0, 256, 0, 8192, 4096, 2, 4, 16, 1, 2>(int4 const*, __nv_bfloat16 const*, void*, unsigned int const*, int, int, int, int, int, int, unsigned int, unsigned int, unsigned int, unsigned int)",
+          "us": 13.952999999999975
+        },
+        {
+          "name": "void dd_cap2_b_cpssm_gemv<1, 2, 1, 2, 0, 0, 256, 0, 8192, 4096, 2, 4, 16, 1, 2>(int4 const*, __nv_bfloat16 const*, void*, unsigned int const*, int, int, int, int, int, int, unsigned int, unsigned int, unsigned int, unsigned int)",
+          "us": 13.665000000000077
+        },
+        {
+          "name": "void dd_cap2_b_cpssm_gemv<1, 2, 1, 2, 0, 0, 256, 0, 8192, 4096, 2, 4, 16, 1, 2>(int4 const*, __nv_bfloat16 const*, void*, unsigned int const*, int, int, int, int, int, int, unsigned int, unsigned int, unsigned int, unsigned int)",
+          "us": 15.682000000000016
+        }
+      ]
+    },
+    {
+      "layer": "unpooler",
+      "m": 32,
+      "graph_us": 19.61600035429001,
+      "kernels": [
+        {
+          "name": "void m32w_gemm<32, 64, 4, 2, 2, true, 1>(CUtensorMap_st, uint4 const*, unsigned int const*, __nv_bfloat16*, int, int, int, int, unsigned int, unsigned int)",
+          "us": 15.646999999999935
+        },
+        {
+          "name": "void m32w_gemm<32, 64, 4, 2, 2, true, 1>(CUtensorMap_st, uint4 const*, unsigned int const*, __nv_bfloat16*, int, int, int, int, unsigned int, unsigned int)",
+          "us": 15.295000000000073
+        },
+        {
+          "name": "void m32w_gemm<32, 64, 4, 2, 2, true, 1>(CUtensorMap_st, uint4 const*, unsigned int const*, __nv_bfloat16*, int, int, int, int, unsigned int, unsigned int)",
+          "us": 15.200000000000045
+        }
+      ]
+    },
+    {
+      "layer": "o",
+      "m": 8,
+      "graph_us": 9.344000369310379,
+      "kernels": [
+        {
+          "name": "void v18s_gemv<1, 1, 1, 2, 0, 0, 256, 0, 8192, 1024, 1, 8, 2, 1, 6>(int4 const*, __nv_bfloat16 const*, void*, unsigned int const*, int, int, int, int, int, int, unsigned int, unsigned int, unsigned int, unsigned int)",
+          "us": 5.599999999999909
+        },
+        {
+          "name": "void v18s_gemv<1, 1, 1, 2, 0, 0, 256, 0, 8192, 1024, 1, 8, 2, 1, 6>(int4 const*, __nv_bfloat16 const*, void*, unsigned int const*, int, int, int, int, int, int, unsigned int, unsigned int, unsigned int, unsigned int)",
+          "us": 5.023000000000138
+        },
+        {
+          "name": "void v18s_gemv<1, 1, 1, 2, 0, 0, 256, 0, 8192, 1024, 1, 8, 2, 1, 6>(int4 const*, __nv_bfloat16 const*, void*, unsigned int const*, int, int, int, int, int, int, unsigned int, unsigned int, unsigned int, unsigned int)",
+          "us": 5.05600000000004
+        }
+      ]
+    }
+  ],
+  "resources": [
+    {
+      "layer": "pooler",
+      "m": 1,
+      "regs": 58,
+      "local_bytes": 0,
+      "occupancy_query": 1,
+      "max_esc": 6,
+      "packed_bytes": 50331648,
+      "cfg": [
+        2,
+        16,
+        8,
+        1
+      ]
+    },
+    {
+      "layer": "o",
+      "m": 8,
+      "regs": 48,
+      "local_bytes": 0,
+      "occupancy_query": 5,
+      "max_esc": 3,
+      "packed_bytes": 12582912,
+      "cfg": [
+        1,
+        8,
+        2,
+        1
+      ]
+    }
+  ],
+  "ncu_returncode": 9,
+  "ncu_output": "==PROF== Connected to process 1514 (/usr/bin/python3.12)\n\n==ERROR== An error was reported by the driver:\n==ERROR== Failed to lock GPU clock frequencies! Try locking the clocks externally (e.g. using 'nvidia-smi --lock-gpu-clocks=tdp,tdp') or profile without fixed frequencies (see '--clock-control').\n==ERROR== Failed to profile \"v18s_gemv\" in process 1514\n==PROF== Trying to shutdown target application\n==ERROR== The application returned an error code (9).\n",
+  "source_sha256": "6faa2ae8519e3b9c19b27c2fdf47a2a057c7be89c72583ecfd270175c2144ae7"
+}

@@ -1,0 +1,202 @@
+{
+  "board": "muse_bf16_proj",
+  "call_id": "kc-a239cef06bac4e75",
+  "cluster": "sfo3",
+  "content_hash": "9d8b56021c54c78af70a5f5214a41c1ac610d69c78c4e474a6df556d5f5979e1",
+  "created_at": 1793345798.0326498,
+  "dedicated": false,
+  "duplicate_of": null,
+  "finished_at": 1793345828.7227352,
+  "id": "a239cef06bac4e75",
+  "limits": {
+    "scored": {
+      "per_day": 10,
+      "used": 2,
+      "left": 8
+    },
+    "checks": {
+      "per_day": 20,
+      "used": 6,
+      "left": 14
+    }
+  },
+  "mode": "check",
+  "output": {
+    "log": "[LOCAL_PATH] /open-kernel-challenge/muse_bf16_proj/profiles/submission.a239cef06bac4e75.log"
+  },
+  "payload_ref": "muse_bf16_proj/9d8b56021c54c78af70a5f5214a41c1ac610d69c78c4e474a6df556d5f5979e1.py",
+  "result": {
+    "checks": {
+      "flagged": [],
+      "ok": true,
+      "rejected": []
+    },
+    "error": null,
+    "evaluator": {
+      "code_sha256": "986ed3ebb096eab83d16797609f4c0e7895248d6bce33252d25dd306cbe5d018",
+      "files": {
+        "challenge/checks.py": "9a046c3c38db28b325dcd1557baecdf6bc9ef941d2175f9a900ba4c230bb8055",
+        "challenge/nvfp4.py": "cfdf37c7bc14b10f7353aba7d4632f4767401b92b4b073941a8030d9a961aaaf",
+        "configs/muse-spark-open.yaml": "98f07230e4e64fe91b7c76d9a3ce04948053c043d494d5f1fae56cfe2de033af",
+        "harness/eval.py": "0051a1bfac67a9f1fad06086b306653c6643b2bb253e15a794aa672312f070a9",
+        "harness/runner.py": "c905e5c80264c6d27620b6fc7d55b162dccdb8ed7282f8a513a4d2e6f2f226f2",
+        "harness/static_checks.py": "c5588b69e9e86229459a525c61b30096f6f13ff2add6cadf98f272c4ac8ca0c2",
+        "harness/worker.py": "950437610f57ddffbc1176b65d9c2ae909c47bf67b1e3fe0716a81946986f568",
+        "problems/muse_bf16_proj/baseline.py": "39f52ea5b65505958aa9dee9c8129dd394cbba4e670046f862b5a88ce91a0574",
+        "problems/muse_bf16_proj/reference.py": "e62491abc9ddcad33f5faba8b0ee74cf6370b7be5dd2dc05031742f3ebf7147d",
+        "problems/muse_bf16_proj/task.yml": "18e9da6357144b0a1348434a18bd2d1938b1948d9f2130876f6b6706588470c9"
+      },
+      "image": "localhost:30500/kc/judge@sha256:9a7f287b80d772c6f636bbcb57422c619fe326e2aabc53803b85007bca93f68e"
+    },
+    "flags": [],
+    "gpu": "H200",
+    "log_tail": "}, tritongpu-schedule-loops, tritongpu-pipeline{dump-intermediate-steps=false num-stages=3}, canonicalize{cse-between-iterations=false    max-iterations=10 max-num-rewrites=-1 region-simplify=normal test-convergence=false top-down=true}, triton-loop-aware-cse, tritongpu-optimize-dot-operands{hoist-layout-conversion=true}, tritongpu-coalesce-async-copy, triton-nvidia-optimize-tmem-layouts, triton-nvidia-tmem-load-reduce, triton-nvidia-tma-lowering, tritongpu-remove-layout-conversions, triton-nvidia-interleave-tmem, tritongpu-reduce-data-duplication, tritongpu-reorder-instructions, triton-loop-aware-cse, symbol-dce, triton-nvidia-gpu-fence-insertion{compute-capability=90}, triton-nvidia-mma-lowering, sccp, cse, canonicalize{cse-between-iterations=false    max-iterations=10 max-num-rewrites=-1 region-simplify=normal test-convergence=false top-down=true})\",\n      disable_threading: true,\n      verify_each: true\n    }\n  }\n#-}\n/tmp/muse_bf16_proj-59r96w6s/run/submission.py:97:1: error: Failures have been detected while processing an MLIR pass pipeline\ndef _packed_mm(X,S,E,W,P,M:tl.constexpr,N:tl.constexpr,K:tl.constexpr,BASE:tl.constexpr,\n^\n/tmp/muse_bf16_proj-59r96w6s/run/submission.py:97:1: note: Pipeline failed while executing [`TritonGPUReduceDataDuplication` on 'builtin.module' operation]: reproducer generated at `std::errs, please share the reproducer above with Triton project.`\nTraceback (most recent call last):\n  File \"/tmp/muse_bf16_proj-59r96w6s/run/worker.py\", line 484, in child_main\n    out = kernel()(state.get(\"data\"))\n          ^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/tmp/muse_bf16_proj-59r96w6s/run/worker.py\", line 415, in \u003clambda\u003e\n    return functools.partial(lambda k, p, d: k(d, p), fn, state[\"prep\"])\n                                             ^^^^^^^\n  File \"/tmp/muse_bf16_proj-59r96w6s/run/submission.py\", line 149, in kernel_fn\n    _packed_mm[(triton.cdiv(m,16),triton.cdiv(n,32),split)](x,sm,ep,w,part,m,n,k,base,16,32,64,split)\n  File \"/opt/sglang/lib/python3.12/site-packages/triton/runtime/jit.py\", line 374, in \u003clambda\u003e\n    return lambda *args, **kwargs: self.run(grid=grid, warmup=False, *args, **kwargs)\n                                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/opt/sglang/lib/python3.12/site-packages/triton/runtime/jit.py\", line 757, in run\n    kernel = self._do_compile(key, signature, device, constexprs, options, attrs, warmup)\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/opt/sglang/lib/python3.12/site-packages/triton/runtime/jit.py\", line 902, in _do_compile\n    kernel = self.compile(src, target=target, options=options.__dict__)\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/opt/sglang/lib/python3.12/site-packages/triton/compiler/compiler.py\", line 327, in compile\n    next_module = compile_ir(module, metadata)\n                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/opt/sglang/lib/python3.12/site-packages/triton/backends/nvidia/compiler.py\", line 602, in \u003clambda\u003e\n    stages[\"ttgir\"] = lambda src, metadata: self.make_ttgir(src, metadata, options, capability)\n                                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/opt/sglang/lib/python3.12/site-packages/triton/backends/nvidia/compiler.py\", line 337, in make_ttgir\n    pm.run(mod, 'make_ttgir')\nRuntimeError: PassManager::run failed\n/tmp/muse_bf16_proj-59r96w6s/run/submission.py:82:54: error: 'ttg.local_alloc' op element type bit width must be a multiple of 8\n    dense = tl.load(W + rows * K + kk, (rows \u003c N) \u0026 (code == 15), other=0)\n                                                     ^\n/tmp/muse_bf16_proj-59r96w6s/run/submission.py:107:11: note: called from\n        w=_unpack(S,E,W,nn[None,:],ks[:,None],N,K,BASE)\n          ^\nmodule {\n  tt.func public @_packed_mm(%arg0: !tt.ptr\u003cbf16\u003e {tt.divisibility = 16 : i32}, %arg1: !tt.ptr\u003ci8\u003e {tt.divisibility = 16 : i32}, %arg2: !tt.ptr\u003ci8\u003e {tt.divisibility = 16 : i32}, %arg3: !tt.ptr\u003cbf16\u003e {tt.divisibility = 16 : i32}, %arg4: !tt.ptr\u003cf32\u003e {tt.divisibility = 16 : i32}) attributes {noinline = false} {\n    %cst = arith.constant dense\u003c4096\u003e : tensor\u003c1x32xi32\u003e\n    %cst_0 = arith.constant dense\u003c2048\u003e : tensor\u003c1x32xi32\u003e\n    %cst_1 = arith.constant dense\u003c2\u003e : tensor\u003c64x1xi32\u003e\n    %cst_2 = arith.constant dense\u003c4\u003e : tensor\u003c64x1xi32\u003e\n    %cst_3 = arith.constant dense\u003c15\u003e : tensor\u003c64x32xi32\u003e\n    %cst_4 = arith.constant dense\u003c110\u003e : tensor\u003c64x32xi32\u003e\n    %cst_5 = arith.constant dense\u003c7\u003e : tensor\u003c64x32xi32\u003e\n    %cst_6 = arith.constant dense\u003c127\u003e : tensor\u003c64x32xi16\u003e\n    %cst_7 = arith.constant dense\u003c128\u003e : tensor\u003c64x32xi16\u003e\n    %cst_8 = arith.constant dense\u003c8\u003e : tensor\u003c64x32xi16\u003e\n    %cst_9 = arith.constant dense\u003c0\u003e : tensor\u003c64x32xi8\u003e\n    %cst_10 = arith.constant dense\u003c0.000000e+00\u003e : tensor\u003c64x32xbf16\u003e\n    %cst_11 = arith.constant dense\u003c0.000000e+00\u003e : tensor\u003c16x64xbf16\u003e\n    %c1_i32 = arith.constant 1 : i32\n    %c0_i32 = arith.constant 0 : i32\n    %cst_12 = arith.constant dense\u003c1024\u003e : tensor\u003c1x32xi32\u003e\n    %cst_13 = arith.constant dense\u003c1024\u003e : tensor\u003c16x1xi32\u003e\n    %cst_14 = arith.constant dense\u003c5\u003e : tensor\u003c16x1xi32\u003e\n    %c5_i32 = arith.constant 5 : i32\n    %cst_15 = arith.constant dense\u003c4096\u003e : tensor\u003c16x1xi32\u003e\n    %c64_i32 = arith.constant 64 : i32\n    %cst_16 = arith.constant dense\u003c0.000000e+00\u003e : tensor\u003c16x32xf32\u003e\n    %c1024_i32 = arith.constant 1024 : i32\n    %c32_i32 = arith.constant 32 : i32\n    %c16_i32 = arith.constant 16 : i32\n    %0 = tt.get_program_id x : i32\n    %1 = arith.muli %0, %c16_i32 : i32\n    %2 = tt.make_range {end = 16 : i32, start = 0 : i32} : tensor\u003c16xi32\u003e\n    %3 = tt.splat %1 : i32 -\u003e tensor\u003c16xi32\u003e\n    %4 = arith.addi %3, %2 : tensor\u003c16xi32\u003e\n    %5 = tt.get_program_id y : i32\n    %6 = arith.muli %5, %c32_i32 : i32\n    %7 = tt.make_range {end = 32 : i32, start = 0 : i32} : tensor\u003c32xi32\u003e\n    %8 = tt.splat %6 : i32 -\u003e tensor\u003c32xi32\u003e\n    %9 = arith.addi %8, %7 : tensor\u003c32xi32\u003e\n    %10 = tt.get_program_id z : i32\n    %11 = arith.muli %10, %c1024_i32 : i32\n    %12 = tt.make_range {end = 64 : i32, start = 0 : i32} : tensor\u003c64xi32\u003e\n    %13 = tt.splat %11 : i32 -\u003e tensor\u003c64xi32\u003e\n    %14 = arith.addi %13, %12 : tensor\u003c64xi32\u003e\n    %15 = scf.for %arg5 = %c0_i32 to %c16_i32 step %c1_i32 iter_args(%arg6 = %cst_16) -\u003e (tensor\u003c16x32xf32\u003e)  : i32 {\n      %32 = arith.muli %arg5, %c64_i32 : i32\n      %33 = tt.splat %32 : i32 -\u003e tensor\u003c64xi32\u003e\n      %34 = arith.addi %14, %33 : tensor\u003c64xi32\u003e\n      %35 = tt.expand_dims %4 {axis = 1 : i32} : tensor\u003c16xi32\u003e -\u003e tensor\u003c16x1xi32\u003e\n      %36 = arith.muli %35, %cst_15 : tensor\u003c16x1xi32\u003e\n      %37 = tt.splat %arg0 : !tt.ptr\u003cbf16\u003e -\u003e tensor\u003c16x1x!tt.ptr\u003cbf16\u003e\u003e\n      %38 = tt.addptr %37, %36 : tensor\u003c16x1x!tt.ptr\u003cbf16\u003e\u003e, tensor\u003c16x1xi32\u003e\n      %39 = tt.expand_dims %34 {axis = 0 : i32} : tensor\u003c64xi32\u003e -\u003e tensor\u003c1x64xi32\u003e\n      %40 = tt.broadcast %38 : tensor\u003c16x1x!tt.ptr\u003cbf16\u003e\u003e -\u003e tensor\u003c16x64x!tt.ptr\u003cbf16\u003e\u003e\n      %41 = tt.broadcast %39 : tensor\u003c1x64xi32\u003e -\u003e tensor\u003c16x64xi32\u003e\n      %42 = tt.addptr %40, %41 : tensor\u003c16x64x!tt.ptr\u003cbf16\u003e\u003e, tensor\u003c16x64xi32\u003e\n      %43 = arith.cmpi slt, %35, %cst_14 : tensor\u003c16x1xi32\u003e\n      %44 = tt.broadcast %43 : tensor\u003c16x1xi1\u003e -\u003e tensor\u003c16x64xi1\u003e\n      %45 = tt.load %42, %44, %cst_11 : tensor\u003c16x64x!tt.ptr\u003cbf16\u003e\u003e\n      %46 = tt.expand_dims %9 {axis = 0 : i32} : tensor\u003c32xi32\u003e -\u003e tensor\u003c1x32xi32\u003e\n      %47 = tt.expand_dims %34 {axis = 1 : i32} : tensor\u003c64xi32\u003e -\u003e tensor\u003c64x1xi32\u003e\n      %48 = arith.muli %46, %cst : tensor\u003c1x32xi32\u003e\n      %49 = tt.splat %arg1 : !tt.ptr\u003ci8\u003e -\u003e tensor\u003c1x32x!tt.ptr\u003ci8\u003e\u003e\n      %50 = tt.addptr %49, %48 : tensor\u003c1x32x!tt.ptr\u003ci8\u003e\u003e, tensor\u003c1x32xi32\u003e\n      %51 = tt.broadcast %50 : tensor\u003c1x32x!tt.ptr\u003ci8\u003e\u003e -\u003e tensor\u003c64x32x!tt.ptr\u003ci8\u003e\u003e\n      %52 = tt.broadcast %47 : tensor\u003c64x1xi32\u003e -\u003e tensor\u003c64x32xi32\u003e\n      %53 = tt.addptr %51, %52 : tensor\u003c64x32x!tt.ptr\u003ci8\u003e\u003e, tensor\u003c64x32xi32\u003e\n      %54 = arith.cmpi slt, %46, %cst_12 : tensor\u003c1x32xi32\u003e\n      %55 = tt.broadcast %54 : tensor\u003c1x32xi1\u003e -\u003e tensor\u003c64x32xi1\u003e\n      %56 = tt.load %53, %55, %cst_9 : tensor\u003c64x32x!tt.ptr\u003ci8\u003e\u003e\n      %57 = arith.extui %56 : tensor\u003c64x32xi8\u003e to tensor\u003c64x32xi16\u003e\n      %58 = arith.muli %46, %cst_0 : tensor\u003c1x32xi32\u003e\n      %59 = tt.splat %arg2 : !tt.ptr\u003ci8\u003e -\u003e tensor\u003c1x32x!tt.ptr\u003ci8\u003e\u003e\n      %60 = tt.addptr %59, %58 : tensor\u003c1x32x!tt.ptr\u003ci8\u003e\u003e, tensor\u003c1x32xi32\u003e\n      %61 = arith.divsi %47, %cst_1 : tensor\u003c64x1xi32\u003e\n      %62 = tt.broadcast %60 : tensor\u003c1x32x!tt.ptr\u003ci8\u003e\u003e -\u003e tensor\u003c64x32x!tt.ptr\u003ci8\u003e\u003e\n      %63 = tt.broadcast %61 : tensor\u003c64x1xi32\u003e -\u003e tensor\u003c64x32xi32\u003e\n      %64 = tt.addptr %62, %63 : tensor\u003c64x32x!tt.ptr\u003ci8\u003e\u003e, tensor\u003c64x32xi32\u003e\n      %65 = tt.load %64, %55, %cst_9 : tensor\u003c64x32x!tt.ptr\u003ci8\u003e\u003e\n      %66 = arith.remsi %47, %cst_1 : tensor\u003c64x1xi32\u003e\n      %67 = arith.muli %66, %cst_2 : tensor\u003c64x1xi32\u003e\n      %68 = arith.extui %65 : tensor\u003c64x32xi8\u003e to tensor\u003c64x32xi32\u003e\n      %69 = tt.broadcast %67 : tensor\u003c64x1xi32\u003e -\u003e tensor\u003c64x32xi32\u003e\n      %70 = arith.shrui %68, %69 : tensor\u003c64x32xi32\u003e\n      %71 = arith.andi %70, %cst_3 : tensor\u003c64x32xi32\u003e\n      %72 = arith.addi %71, %cst_4 : tensor\u003c64x32xi32\u003e\n      %73 = arith.shli %72, %cst_5 : tensor\u003c64x32xi32\u003e\n      %74 = arith.andi %57, %cst_6 : tensor\u003c64x32xi16\u003e\n      %75 = arith.extui %74 : tensor\u003c64x32xi16\u003e to tensor\u003c64x32xi32\u003e\n      %76 = arith.ori %73, %75 : tensor\u003c64x32xi32\u003e\n      %77 = arith.andi %57, %cst_7 : tensor\u003c64x32xi16\u003e\n      %78 = arith.shli %77, %cst_8 : tensor\u003c64x32xi16\u003e\n      %79 = arith.extui %78 : tensor\u003c64x32xi16\u003e to tensor\u003c64x32xi32\u003e\n      %80 = arith.ori %76, %79 : tensor\u003c64x32xi32\u003e\n      %81 = tt.splat %arg3 : !tt.ptr\u003cbf16\u003e -\u003e tensor\u003c1x32x!tt.ptr\u003cbf16\u003e\u003e\n      %82 = tt.addptr %81, %48 : tensor\u003c1x32x!tt.ptr\u003cbf16\u003e\u003e, tensor\u003c1x32xi32\u003e\n      %83 = tt.broadcast %82 : tensor\u003c1x32x!tt.ptr\u003cbf16\u003e\u003e -\u003e tensor\u003c64x32x!tt.ptr\u003cbf16\u003e\u003e\n      %84 = tt.addptr %83, %52 : tensor\u003c64x32x!tt.ptr\u003cbf16\u003e\u003e, tensor\u003c64x32xi32\u003e\n      %85 = arith.cmpi eq, %71, %cst_3 : tensor\u003c64x32xi32\u003e\n      %86 = arith.andi %55, %85 : tensor\u003c64x32xi1\u003e\n      %87 = tt.load %84, %86, %cst_10 : tensor\u003c64x32x!tt.ptr\u003cbf16\u003e\u003e\n      %88 = arith.trunci %80 : tensor\u003c64x32xi32\u003e to tensor\u003c64x32xi16\u003e\n      %89 = tt.bitcast %88 : tensor\u003c64x32xi16\u003e -\u003e tensor\u003c64x32xbf16\u003e\n      %90 = arith.select %85, %87, %89 : tensor\u003c64x32xi1\u003e, tensor\u003c64x32xbf16\u003e\n      %91 = tt.dot %45, %90, %arg6, inputPrecision = tf32 : tensor\u003c16x64xbf16\u003e * tensor\u003c64x32xbf16\u003e -\u003e tensor\u003c16x32xf32\u003e\n      scf.yield %91 : tensor\u003c16x32xf32\u003e\n    }\n    %16 = arith.muli %10, %c5_i32 : i32\n    %17 = tt.expand_dims %4 {axis = 1 : i32} : tensor\u003c16xi32\u003e -\u003e tensor\u003c16x1xi32\u003e\n    %18 = tt.splat %16 : i32 -\u003e tensor\u003c16x1xi32\u003e\n    %19 = arith.addi %18, %17 : tensor\u003c16x1xi32\u003e\n    %20 = arith.muli %19, %cst_13 : tensor\u003c16x1xi32\u003e\n    %21 = tt.splat %arg4 : !tt.ptr\u003cf32\u003e -\u003e tensor\u003c16x1x!tt.ptr\u003cf32\u003e\u003e\n    %22 = tt.addptr %21, %20 : tensor\u003c16x1x!tt.ptr\u003cf32\u003e\u003e, tensor\u003c16x1xi32\u003e\n    %23 = tt.expand_dims %9 {axis = 0 : i32} : tensor\u003c32xi32\u003e -\u003e tensor\u003c1x32xi32\u003e\n    %24 = tt.broadcast %22 : tensor\u003c16x1x!tt.ptr\u003cf32\u003e\u003e -\u003e tensor\u003c16x32x!tt.ptr\u003cf32\u003e\u003e\n    %25 = tt.broadcast %23 : tensor\u003c1x32xi32\u003e -\u003e tensor\u003c16x32xi32\u003e\n    %26 = tt.addptr %24, %25 : tensor\u003c16x32x!tt.ptr\u003cf32\u003e\u003e, tensor\u003c16x32xi32\u003e\n    %27 = arith.cmpi slt, %17, %cst_14 : tensor\u003c16x1xi32\u003e\n    %28 = arith.cmpi slt, %23, %cst_12 : tensor\u003c1x32xi32\u003e\n    %29 = tt.broadcast %27 : tensor\u003c16x1xi1\u003e -\u003e tensor\u003c16x32xi1\u003e\n    %30 = tt.broadcast %28 : tensor\u003c1x32xi1\u003e -\u003e tensor\u003c16x32xi1\u003e\n    %31 = arith.andi %29, %30 : tensor\u003c16x32xi1\u003e\n    tt.store %26, %15, %31 : tensor\u003c16x32x!tt.ptr\u003cf32\u003e\u003e\n    tt.return\n  }\n}\n\n{-#\n  external_resources: {\n    mlir_reproducer: {\n      pipeline: \"builtin.module(convert-triton-to-tritongpu{enable-source-remat=false num-ctas=1 num-warps=4 target=cuda:90 threads-per-warp=32}, tritongpu-coalesce, tritongpu-F32DotTC{emu-tf32=true}, triton-nvidia-gpu-plan-cta, tritongpu-remove-layout-conversions, tritongpu-optimize-thread-locality, tritongpu-accelerate-matmul, tritongpu-remove-layout-conversions, tritongpu-optimize-dot-operands{hoist-layout-conversion=true}, triton-nvidia-optimize-descriptor-encoding, triton-loop-aware-cse, tritongpu-fuse-nested-loops, canonicalize{cse-between-iterations=false    max-iterations=10 max-num-rewrites=-1 region-simplify=normal test-convergence=false top-down=true}, triton-licm, canonicalize{cse-between-iterations=false    max-iterations=10 max-num-rewrites=-1 region-simplify=normal test-convergence=false top-down=true}, tritongpu-combine-tensor-select-and-if, nvgpu-warp-specialization{dump-intermediate-steps=false num-stages=3}, tritongpu-assign-latencies{num-stages=3}, tritongpu-schedule-loops, tritongpu-pipeline{dump-intermediate-steps=false num-stages=3}, canonicalize{cse-between-iterations=false    max-iterations=10 max-num-rewrites=-1 region-simplify=normal test-convergence=false top-down=true}, triton-loop-aware-cse, tritongpu-optimize-dot-operands{hoist-layout-conversion=true}, tritongpu-coalesce-async-copy, triton-nvidia-optimize-tmem-layouts, triton-nvidia-tmem-load-reduce, triton-nvidia-tma-lowering, tritongpu-remove-layout-conversions, triton-nvidia-interleave-tmem, tritongpu-reduce-data-duplication, tritongpu-reorder-instructions, triton-loop-aware-cse, symbol-dce, triton-nvidia-gpu-fence-insertion{compute-capability=90}, triton-nvidia-mma-lowering, sccp, cse, canonicalize{cse-between-iterations=false    max-iterations=10 max-num-rewrites=-1 region-simplify=normal test-convergence=false top-down=true})\",\n      disable_threading: true,\n      verify_each: true\n    }\n  }\n#-}\n/tmp/muse_bf16_proj-59r96w6s/run/submission.py:97:1: error: Failures have been detected while processing an MLIR pass pipeline\ndef _packed_mm(X,S,E,W,P,M:tl.constexpr,N:tl.constexpr,K:tl.constexpr,BASE:tl.constexpr,\n^\n/tmp/muse_bf16_proj-59r96w6s/run/submission.py:97:1: note: Pipeline failed while executing [`TritonGPUReduceDataDuplication` on 'builtin.module' operation]: reproducer generated at `std::errs, please share the reproducer above with Triton project.`\nTraceback (most recent call last):\n  File \"/tmp/muse_bf16_proj-59r96w6s/run/worker.py\", line 484, in child_main\n    out = kernel()(state.get(\"data\"))\n          ^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/tmp/muse_bf16_proj-59r96w6s/run/worker.py\", line 415, in \u003clambda\u003e\n    return functools.partial(lambda k, p, d: k(d, p), fn, state[\"prep\"])\n                                             ^^^^^^^\n  File \"/tmp/muse_bf16_proj-59r96w6s/run/submission.py\", line 149, in kernel_fn\n    _packed_mm[(triton.cdiv(m,16),triton.cdiv(n,32),split)](x,sm,ep,w,part,m,n,k,base,16,32,64,split)\n  File \"/opt/sglang/lib/python3.12/site-packages/triton/runtime/jit.py\", line 374, in \u003clambda\u003e\n    return lambda *args, **kwargs: self.run(grid=grid, warmup=False, *args, **kwargs)\n                                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/opt/sglang/lib/python3.12/site-packages/triton/runtime/jit.py\", line 757, in run\n    kernel = self._do_compile(key, signature, device, constexprs, options, attrs, warmup)\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/opt/sglang/lib/python3.12/site-packages/triton/runtime/jit.py\", line 902, in _do_compile\n    kernel = self.compile(src, target=target, options=options.__dict__)\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/opt/sglang/lib/python3.12/site-packages/triton/compiler/compiler.py\", line 327, in compile\n    next_module = compile_ir(module, metadata)\n                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/opt/sglang/lib/python3.12/site-packages/triton/backends/nvidia/compiler.py\", line 602, in \u003clambda\u003e\n    stages[\"ttgir\"] = lambda src, metadata: self.make_ttgir(src, metadata, options, capability)\n                                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/opt/sglang/lib/python3.12/site-packages/triton/backends/nvidia/compiler.py\", line 337, in make_ttgir\n    pm.run(mod, 'make_ttgir')\nRuntimeError: PassManager::run failed\n",
+    "machine": {
+      "gpu_after": {
+        "clocks.max.sm": 1980,
+        "clocks.mem": 3201,
+        "clocks.sm": 1980,
+        "driver_version": "580.159.03",
+        "name": "NVIDIA H200",
+        "power.draw": 120.65,
+        "power.limit": 700,
+        "temperature.gpu": 32
+      },
+      "gpu_before": {
+        "clocks.max.sm": 1980,
+        "clocks.mem": 3201,
+        "clocks.sm": 1980,
+        "driver_version": "580.159.03",
+        "name": "NVIDIA H200",
+        "power.draw": 123.97,
+        "power.limit": 700,
+        "temperature.gpu": 31
+      },
+      "node": "n-djsogg5ih26gwdcnhyhbnqzfkb"
+    },
+    "passed": false,
+    "records": [
+      {
+        "baseline_copies": 16,
+        "baseline_prepare_pad": 26141184,
+        "copies": 12,
+        "error": null,
+        "event": "setup",
+        "first": "baseline",
+        "prepare_pad": 12821504,
+        "prepare_s": 0.062599635,
+        "status": "pass"
+      },
+      {
+        "case": {
+          "layer": "qkv_gate",
+          "m": 1,
+          "seed": 5630033670880667344
+        },
+        "event": "test",
+        "index": 0,
+        "message": "relative L2 error 0.000e+00 (worst row 0.000e+00)",
+        "status": "pass"
+      },
+      {
+        "case": {
+          "layer": "pooler",
+          "m": 7,
+          "seed": 5630153601733910144
+        },
+        "event": "test",
+        "index": 1,
+        "message": "RuntimeError: PassManager::run failed",
+        "status": "fail"
+      },
+      {
+        "case": {
+          "layer": "o",
+          "m": 33,
+          "seed": 5630273532587152945
+        },
+        "event": "test",
+        "index": 2,
+        "message": "relative L2 error 7.921e-05 (worst row 1.931e-04); 2 probe rows exact to 0.0e+00",
+        "status": "pass"
+      },
+      {
+        "case": {
+          "layer": "unpooler",
+          "m": 130,
+          "seed": 5630393463440395747
+        },
+        "event": "test",
+        "index": 3,
+        "message": "relative L2 error 1.402e-04 (worst row 2.826e-04); 12 probe rows exact to 0.0e+00",
+        "status": "pass"
+      },
+      {
+        "case": {
+          "layer": "unpooler",
+          "m": 5,
+          "seed": 5630993117706609772
+        },
+        "event": "test",
+        "index": 4,
+        "message": "RuntimeError: PassManager::run failed",
+        "status": "fail"
+      },
+      {
+        "case": {
+          "layer": "router",
+          "m": 8,
+          "seed": 5630513394293638550
+        },
+        "event": "test",
+        "index": 5,
+        "message": "relative L2 error 2.380e-06 (worst row 2.559e-06); 1 probe rows exact to 2.3e-06",
+        "status": "pass"
+      },
+      {
+        "case": {
+          "dist": "outliers",
+          "layer": "router",
+          "m": 9,
+          "seed": 5630633325146881354
+        },
+        "event": "test",
+        "index": 6,
+        "message": "relative L2 error 2.469e-06 (worst row 2.629e-06); 2 probe rows exact to 2.4e-06",
+        "status": "pass"
+      },
+      {
+        "case": {
+          "dist": "outliers",
+          "layer": "qkv_gate",
+          "m": 512,
+          "seed": 5630753256000124159
+        },
+        "event": "test",
+        "index": 7,
+        "message": "relative L2 error 2.092e-04 (worst row 5.570e-04); 53 probe rows exact to 0.0e+00",
+        "status": "pass"
+      },
+      {
+        "case": {
+          "dist": "outliers",
+          "layer": "unpooler",
+          "m": 1000,
+          "seed": 5630873186853366965
+        },
+        "event": "test",
+        "index": 8,
+        "message": "relative L2 error 1.422e-04 (worst row 3.177e-04); 136 probe rows exact to 0.0e+00",
+        "status": "pass"
+      }
+    ],
+    "returncode": 112,
+    "score_us": null,
+    "speedup": null,
+    "speedup_ci": null,
+    "status": "ok"
+  },
+  "started_at": 1793345802.646317,
+  "status": "done",
+  "team": "Akshaysanthosh"
+}

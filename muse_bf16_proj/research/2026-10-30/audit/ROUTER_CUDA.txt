@@ -1,0 +1,207 @@
+
+#include <cuda.h>
+#include <cuda_runtime.h>
+#include <cuda_bf16.h>
+#include <stdint.h>
+#include <algorithm>
+#define RD __device__ __forceinline__
+RD uint32_t rr_smem(const void* p) { return (uint32_t)__cvta_generic_to_shared(p); }
+RD void rr_init(uint32_t b, int n) { asm volatile("mbarrier.init.shared::cta.b64 [%0], %1;" ::"r"(b),"r"(n):"memory"); }
+RD void rr_expect(uint32_t b, int n) { asm volatile("mbarrier.arrive.expect_tx.shared::cta.b64 _, [%0], %1;" ::"r"(b),"r"(n):"memory"); }
+RD void rr_wait(uint32_t b, int ph) {
+  asm volatile("{ .reg .pred p; wait: mbarrier.try_wait.parity.acquire.cluster.shared::cta.b64 p, [%0], %1; @!p bra wait; }" ::"r"(b),"r"(ph):"memory");
+}
+RD void rr_sync() { asm volatile("barrier.cluster.arrive.release.aligned; barrier.cluster.wait.acquire.aligned;" :::"memory"); }
+RD uint32_t rr_map(uint32_t a, int r) { uint32_t b; asm("mapa.shared::cluster.u32 %0, %1, %2;":"=r"(b):"r"(a),"r"(r));return b; }
+RD void rr_push(uint32_t d, float4 v, uint32_t b) {
+  asm volatile("st.async.shared::cluster.mbarrier::complete_tx::bytes.v4.f32 [%0], {%1,%2,%3,%4}, [%5];" ::"r"(d),"f"(v.x),"f"(v.y),"f"(v.z),"f"(v.w),"r"(b):"memory");
+}
+RD float4 rr_pull(uint32_t d) {
+  float4 v; asm volatile("ld.shared::cluster.v4.f32 {%0,%1,%2,%3}, [%4];":"=f"(v.x),"=f"(v.y),"=f"(v.z),"=f"(v.w):"r"(d):"memory");return v;
+}
+RD void rr_add(float4& a,float4 b) { a.x+=b.x;a.y+=b.y;a.z+=b.z;a.w+=b.w; }
+RD uint64_t rr_desc(uint32_t a) { return (uint64_t)((a&0x3ffff)>>4)|((uint64_t)64<<32)|((uint64_t)1<<62); }
+RD void rr_tma(uint32_t dst, const void* tm, int k,int r,uint32_t bar) {
+  asm volatile("cp.async.bulk.tensor.2d.shared::cluster.global.mbarrier::complete_tx::bytes [%0], [%1, {%2,%3}], [%4];" ::"r"(dst),"l"(tm),"r"(k),"r"(r),"r"(bar):"memory");
+}
+@@MMA@@
+
+template<int BN,int S,int ST,int SW,int RED,int PIPE>
+__global__ __launch_bounds__((PIPE&2)?256:128) void rr_kernel(const __grid_constant__ CUtensorMap tw,
+                                               const __grid_constant__ CUtensorMap tx, float* out, int m) {
+  constexpr int NR=SW?64:BN, TM=SW?BN:64;
+  constexpr int WB=NR*128, XB=TM*128, SB=WB*2+XB;
+  constexpr int NF=64*BN, NV=NF/4, OWN=NV/S;
+  extern __shared__ __align__(1024) unsigned char sm[];
+  const int tid=threadIdx.x, lane=tid&31, warp=tid>>5, rank=blockIdx.x%S;
+  const int row=blockIdx.x/S*NR, tok=blockIdx.y*TM;
+  const uint32_t base=rr_smem(sm), bars=base+ST*SB, empty=bars+ST*8, rb=(empty+((PIPE&2)?ST*8:0)+15)&~15u;
+  const uint32_t recv=rb+16;
+  const int kb=rank*(128/S);
+  auto load=[&](int i) {
+    const int st=i%ST;
+    const uint32_t b=bars+st*8, d=base+st*SB;
+    rr_expect(b,SB);
+    rr_tma(d,&tw,0,((row/NR)*128+kb+i)*NR*2,b);
+    rr_tma(d+2*WB,&tx,(kb+i)*64,tok,b);
+  };
+  if(tid==((PIPE&2)?128:0)) {
+#pragma unroll
+    for(int i=0;i<ST;i++) { rr_init(bars+i*8,1); if constexpr(PIPE&2) rr_init(empty+i*8,4); }
+    asm volatile("fence.proxy.async.shared::cta;" :::"memory");
+    if constexpr(PIPE&4) {
+    if constexpr(RED>=1) {
+      rr_init(rb,1);asm volatile("fence.proxy.async.shared::cta;" :::"memory");rr_expect(rb,(S-1)*OWN*16);
+      asm volatile("fence.mbarrier_init.release.cluster;" :::"memory");
+    }
+    }
+#pragma unroll
+    for(int i=0;i<ST && i<128/S;i++) load(i);
+    if constexpr(!(PIPE&4)) {
+    if constexpr(RED>=1) {
+      rr_init(rb,1);asm volatile("fence.proxy.async.shared::cta;" :::"memory");rr_expect(rb,(S-1)*OWN*16);
+      asm volatile("fence.mbarrier_init.release.cluster;" :::"memory");
+    }
+    }
+  }
+  __syncthreads();
+  if constexpr(RED>=1) asm volatile("barrier.cluster.arrive.relaxed.aligned;" :::"memory");
+  if constexpr(PIPE&2) {
+    if(tid>=128) {
+      if(tid==128) {
+        for(int i=ST;i<128/S;i++) {
+          rr_wait(empty+(i%ST)*8,((i/ST)-1)&1);
+          load(i);
+        }
+      }
+      if constexpr(RED>=1) asm volatile("barrier.cluster.wait.acquire.aligned;" :::"memory");
+      if constexpr(RED!=2) rr_sync();
+      return;
+    }
+  }
+  float acc[BN/2];
+#pragma unroll
+  for(int j=0;j<BN/2;j++) asm volatile("mov.b32 %0, 0;":"=f"(acc[j]));
+  int prev=0;
+#pragma unroll 1
+  for(int i=0;i<128/S;i++) {
+    const int st=i%ST;
+    rr_wait(bars+st*8,(i/ST)&1);
+    const uint32_t w=base+st*SB, x=w+2*WB;
+#pragma unroll
+    for(int j=0;j<BN/2;j++) asm volatile("":"+f"(acc[j])::"memory");
+    asm volatile("wgmma.fence.sync.aligned;" :::"memory");
+#pragma unroll
+    for(int q=0;q<4;q++) {
+      const uint64_t dx=rr_desc(x+q*32),dh=rr_desc(w+q*32),dl=rr_desc(w+WB+q*32);
+      if constexpr(SW) { @@CALL_H@@; @@CALL_L@@; }
+      else { @@CALL_NH@@; @@CALL_NL@@; }
+    }
+    asm volatile("wgmma.commit_group.sync.aligned;" :::"memory");
+    if constexpr(PIPE&1) asm volatile("wgmma.wait_group.sync.aligned 1;" :::"memory");
+    else asm volatile("wgmma.wait_group.sync.aligned 0;" :::"memory");
+#pragma unroll
+    for(int j=0;j<BN/2;j++) asm volatile("":"+f"(acc[j])::"memory");
+    if constexpr(PIPE&2) {
+      if constexpr(PIPE&1) {
+        if(i>0 && prev+ST<128/S && lane==0) asm volatile("mbarrier.arrive.shared::cta.b64 _, [%0];" ::"r"(empty+(prev%ST)*8):"memory");
+      } else {
+        if(i+ST<128/S && lane==0) asm volatile("mbarrier.arrive.shared::cta.b64 _, [%0];" ::"r"(empty+st*8):"memory");
+      }
+    } else if constexpr(PIPE&1) {
+      if(i>0 && prev+ST<128/S && tid==0) load(prev+ST);
+    } else {
+      if(i+ST<128/S && tid==0) load(i+ST);
+    }
+    prev=i;
+  }
+  asm volatile("wgmma.wait_group.sync.aligned 0;" :::"memory");
+  auto emit=[&](int v,float4 z) {
+    const int t=v%128, j=v/128, ln=t&31, wr=t>>5;
+    const int ar=wr*16+(ln>>2),bc=j*8+(ln&3)*2;
+    const float vv[4]={z.x,z.y,z.z,z.w};
+#pragma unroll
+    for(int c=0;c<4;c++) {
+      const int a=ar+(c/2)*8, b=bc+(c&1);
+      const int tr=tok+(SW?b:a), wc=row+(SW?a:b);
+      if(tr<m) out[tr*256+wc]=vv[c];
+    }
+  };
+  if constexpr(S==1) {
+#pragma unroll
+    for(int j=0;j<BN/8;j++) emit(j*128+tid,make_float4(acc[4*j],acc[4*j+1],acc[4*j+2],acc[4*j+3]));
+  } else if constexpr(RED==0) {
+    float4* part=(float4*)sm;
+#pragma unroll
+    for(int j=0;j<BN/8;j++) part[j*128+tid]=make_float4(acc[4*j],acc[4*j+1],acc[4*j+2],acc[4*j+3]);
+    rr_sync();
+    for(int t=tid;t<OWN;t+=128) {
+      const int v=rank*OWN+t;
+      float4 sum=make_float4(0,0,0,0);
+#pragma unroll
+      for(int r=0;r<S;r++) rr_add(sum,rr_pull(rr_map(base+v*16,r)));
+      emit(v,sum);
+    }
+    rr_sync();
+  } else {
+    asm volatile("barrier.cluster.wait.acquire.aligned;" :::"memory");
+#pragma unroll
+    for(int j=0;j<BN/8;j++) {
+      const int v=j*128+tid, dst=v/OWN, local=v%OWN;
+      const float4 val=make_float4(acc[4*j],acc[4*j+1],acc[4*j+2],acc[4*j+3]);
+      const uint32_t addr=recv+(rank*OWN+local)*16;
+      if(dst==rank) *(float4*)(sm+(addr-base))=val;
+      else rr_push(rr_map(addr,dst),val,rr_map(rb,dst));
+    }
+    if constexpr(PIPE&2) asm volatile("bar.sync 1, 128;" :::"memory"); else __syncthreads();
+    rr_wait(rb,0);
+    for(int t=tid;t<OWN;t+=128) {
+      float4 sum=make_float4(0,0,0,0);
+#pragma unroll
+      for(int r=0;r<S;r++) rr_add(sum,*(float4*)(sm+recv-base+(r*OWN+t)*16));
+      emit(rank*OWN+t,sum);
+    }
+    if constexpr(RED!=2) rr_sync();
+  }
+}
+
+typedef CUresult (*RR_Encode)(CUtensorMap*, CUtensorMapDataType, cuuint32_t, void*, const cuuint64_t*, const cuuint64_t*,
+ const cuuint32_t*, const cuuint32_t*, CUtensorMapInterleave, CUtensorMapSwizzle, CUtensorMapL2promotion, CUtensorMapFloatOOBfill);
+static int rr_map_host(CUtensorMap* tm,int64_t p,int inner,int outer,int box) {
+  static RR_Encode enc=nullptr;
+  if(!enc) { cudaDriverEntryPointQueryResult q; if(cudaGetDriverEntryPointByVersion("cuTensorMapEncodeTiled",(void**)&enc,12000,cudaEnableDefault,&q)!=cudaSuccess||!enc) return -100; }
+  cuuint64_t dims[2]={(uint64_t)inner,(uint64_t)outer},stride[1]={(uint64_t)inner*2};
+  cuuint32_t sz[2]={64,(uint32_t)box},es[2]={1,1};
+  return (int)enc(tm,CU_TENSOR_MAP_DATA_TYPE_BFLOAT16,2,(void*)p,dims,stride,sz,es,CU_TENSOR_MAP_INTERLEAVE_NONE,
+                 CU_TENSOR_MAP_SWIZZLE_128B,CU_TENSOR_MAP_L2_PROMOTION_L2_256B,CU_TENSOR_MAP_FLOAT_OOB_FILL_NONE);
+}
+
+template<int BN,int S,int ST,int SW,int RED,int PIPE>
+int rr_launch_t(int64_t w,int64_t x,int64_t out,int m,int64_t stream,int query) {
+  constexpr int NR=SW?64:BN, TM=SW?BN:64;
+  constexpr int bytes=ST*(2*NR+TM)*128+ST*8*((PIPE&2)?2:1)+48+(RED>=1?64*BN*4:0);
+  auto fn=rr_kernel<BN,S,ST,SW,RED,PIPE>;
+  static bool configured=false;
+  if(!configured) {
+    cudaError_t e=cudaFuncSetAttribute(fn,cudaFuncAttributeMaxDynamicSharedMemorySize,bytes);
+    if(e!=cudaSuccess) return -(int)e;
+    e=cudaFuncSetAttribute(fn,cudaFuncAttributeNonPortableClusterSizeAllowed,1);
+    if(e!=cudaSuccess)return -(int)e;
+    configured=true;
+  }
+  if(query==2){cudaFuncAttributes fa;cudaFuncGetAttributes(&fa,fn);return fa.numRegs*1000+fa.localSizeBytes;}
+  cudaLaunchConfig_t cfg={};
+  cfg.gridDim=dim3(256/NR*S,(m+TM-1)/TM,1);cfg.blockDim=dim3((PIPE&2)?256:128);cfg.dynamicSmemBytes=bytes;cfg.stream=(cudaStream_t)stream;
+  cudaLaunchAttribute attr[1];attr[0].id=cudaLaunchAttributeClusterDimension;attr[0].val.clusterDim={S,1,1};
+  if(S>1){cfg.attrs=attr;cfg.numAttrs=1;}
+  if(query==1){int n=0;cudaError_t e=cudaOccupancyMaxActiveClusters(&n,fn,&cfg);return e==cudaSuccess?n:-(int)e;}
+  CUtensorMap tw,tx;
+  int e=rr_map_host(&tw,w,64,256*128*2,NR*2);if(e)return e;
+  e=rr_map_host(&tx,x,8192,m,TM);if(e)return e;
+  cudaError_t err=cudaLaunchKernelEx(&cfg,fn,tw,tx,(float*)out,m);
+  return err==cudaSuccess?0:(int)err;
+}
+int rr_launch(int id,int64_t w,int64_t x,int64_t out,int m,int64_t stream,int query) {
+ switch(id){@@CASES@@ default:return -99;}
+}
+@@SCALAR@@

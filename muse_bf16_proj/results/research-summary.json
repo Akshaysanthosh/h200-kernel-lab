@@ -1,0 +1,30 @@
+{
+  "job_id": "35d40255820f4df4",
+  "passed": true,
+  "tests_passed": 9,
+  "tests_total": 9,
+  "speedup": 1.2274118693095961,
+  "speedup_ci": [
+    1.2090006912699522,
+    1.24582304734924
+  ],
+  "time_reduction_vs_sglang_pct": 18.527755433676262,
+  "score_us": 3935.761190509967,
+  "flags": [],
+  "rank": 766,
+  "previous_rank": 1246,
+  "source_sha256": "9ea10c81639eb23d6c9eb832465190328664fd655e89e9ff81732b94e10b8a36",
+  "limits": {
+    "scored": {
+      "per_day": 10,
+      "used": 3,
+      "left": 7
+    },
+    "checks": {
+      "per_day": 20,
+      "used": 20,
+      "left": 0
+    }
+  },
+  "paid_gpu_spend": 0
+}

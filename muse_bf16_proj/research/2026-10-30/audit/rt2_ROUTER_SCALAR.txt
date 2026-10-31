@@ -1,0 +1,70 @@
+
+template<int M, int NT, int ST>
+__global__ void rt2_scalar_kernel(const float* __restrict__ w, const __nv_bfloat16* __restrict__ x,
+                                float* __restrict__ y, int m) {
+  constexpr int K=8192;
+  int tid=threadIdx.x, row=blockIdx.x, lane=tid&31, warp=tid>>5;
+  float acc[M][4]={};
+  float4 ww[ST];
+  uint2 xx[ST][M];
+  auto ld=[&](int slot,int i) {
+    ww[slot]=reinterpret_cast<const float4*>(w+row*K)[i];
+    #pragma unroll
+    for(int t=0;t<M;t++) {
+      if(t<m) xx[slot][t]=reinterpret_cast<const uint2*>(x+t*K)[i];
+    }
+  };
+  #pragma unroll
+  for(int s=0;s<ST;s++) ld(s,tid+s*NT);
+  #pragma unroll 1
+  for(int base=tid;base<K/4;base+=ST*NT) {
+    #pragma unroll
+    for(int s=0;s<ST;s++) {
+      float4 v=ww[s];
+      uint2 a[M];
+      #pragma unroll
+      for(int t=0;t<M;t++) a[t]=xx[s][t];
+      if(base+(s+ST)*NT<K/4) ld(s,base+(s+ST)*NT);
+      #pragma unroll
+      for(int t=0;t<M;t++) if(t<m) {
+        __nv_bfloat162 z0=*reinterpret_cast<__nv_bfloat162*>(&a[t].x);
+        __nv_bfloat162 z1=*reinterpret_cast<__nv_bfloat162*>(&a[t].y);
+        float2 f0=__bfloat1622float2(z0),f1=__bfloat1622float2(z1);
+        acc[t][0]=fmaf(v.x,f0.x,acc[t][0]);
+        acc[t][1]=fmaf(v.y,f0.y,acc[t][1]);
+        acc[t][2]=fmaf(v.z,f1.x,acc[t][2]);
+        acc[t][3]=fmaf(v.w,f1.y,acc[t][3]);
+      }
+    }
+  }
+  __shared__ float sums[M][NT/32];
+  #pragma unroll
+  for(int t=0;t<M;t++) if(t<m) {
+    float v=(acc[t][0]+acc[t][1])+(acc[t][2]+acc[t][3]);
+    #pragma unroll
+    for(int d=16;d;d>>=1) v+=__shfl_down_sync(0xffffffff,v,d);
+    if(lane==0) sums[t][warp]=v;
+  }
+  __syncthreads();
+  if(warp==0) {
+    #pragma unroll
+    for(int t=0;t<M;t++) if(t<m) {
+      float v=lane<NT/32?sums[t][lane]:0.f;
+      #pragma unroll
+      for(int d=16;d;d>>=1) v+=__shfl_down_sync(0xffffffff,v,d);
+      if(lane==0) y[t*256+row]=v;
+    }
+  }
+}
+
+int rt2_scalar(int64_t w,int64_t x,int64_t out,int m,int64_t stream,int query) {
+  auto kern=rt2_scalar_kernel<1,512,2>;
+  if(query==2) {
+    cudaFuncAttributes fa;
+    if(cudaFuncGetAttributes(&fa,kern)!=cudaSuccess) return -10;
+    return fa.numRegs*1000+(int)std::min<size_t>(fa.localSizeBytes,999);
+  }
+  if(m!=1) return -5;
+  kern<<<256,512,0,(cudaStream_t)stream>>>((const float*)w,(const __nv_bfloat16*)x,(float*)out,m);
+  return cudaGetLastError()==cudaSuccess?0:-8;
+}

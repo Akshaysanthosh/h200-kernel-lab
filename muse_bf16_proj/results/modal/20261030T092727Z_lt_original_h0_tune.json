@@ -1,0 +1,1886 @@
+{
+  "candidate": "candidates/lt/lt_original_h0.py",
+  "passed": true,
+  "official_score": false,
+  "method": "CUDA events captured inside graph after cache flush; two-stage search, fresh-seed validation",
+  "gpu": "NVIDIA H200",
+  "shapes": [
+    {
+      "layer": "pooler",
+      "m": 8,
+      "control_ratio": 0.9888060088179023,
+      "base_us": 29.680000618100166,
+      "tested": 16,
+      "choices": [
+        {
+          "transposed": true,
+          "rank": 0,
+          "us": 29.77599948644638,
+          "info": "ready=1,algo=66,tile=10,stages=35,splitK=2,reduction=2,workspace=262160",
+          "confirmed_ratio": 1.000542860682085,
+          "base_us": 29.823999851942062,
+          "confirmed_us": 29.904000461101532
+        },
+        {
+          "transposed": false,
+          "rank": 1,
+          "us": 30.24000022560358,
+          "info": "ready=1,algo=66,tile=10,stages=35,splitK=2,reduction=2,workspace=262160",
+          "confirmed_ratio": 0.9851301179025078,
+          "base_us": 29.920000582933426,
+          "confirmed_us": 30.46399913728237
+        },
+        {
+          "transposed": true,
+          "rank": 1,
+          "us": 30.400000512599945,
+          "info": "ready=1,algo=66,tile=393,stages=35,splitK=4,reduction=2,workspace=524304",
+          "confirmed_ratio": 1.0,
+          "base_us": 29.93600070476532,
+          "confirmed_us": 29.952000826597214
+        }
+      ],
+      "all_trials": [
+        {
+          "transposed": false,
+          "rank": 0,
+          "us": 30.767999589443207,
+          "info": "ready=1,algo=66,tile=393,stages=35,splitK=3,reduction=2,workspace=393232"
+        },
+        {
+          "transposed": false,
+          "rank": 1,
+          "us": 30.24000022560358,
+          "info": "ready=1,algo=66,tile=10,stages=35,splitK=2,reduction=2,workspace=262160"
+        },
+        {
+          "transposed": false,
+          "rank": 2,
+          "us": 31.039999797940254,
+          "info": "ready=1,algo=66,tile=448,stages=35,splitK=4,reduction=2,workspace=524304"
+        },
+        {
+          "transposed": false,
+          "rank": 3,
+          "us": 31.15200065076351,
+          "info": "ready=1,algo=66,tile=486,stages=35,splitK=6,reduction=2,workspace=786448"
+        },
+        {
+          "transposed": false,
+          "rank": 4,
+          "us": 31.520001590251923,
+          "info": "ready=1,algo=66,tile=537,stages=35,splitK=6,reduction=2,workspace=786448"
+        },
+        {
+          "transposed": false,
+          "rank": 5,
+          "us": 36.17599979043007,
+          "info": "ready=1,algo=66,tile=573,stages=35,splitK=6,reduction=2,workspace=786448"
+        },
+        {
+          "transposed": false,
+          "rank": 6,
+          "us": 33.583998680114746,
+          "info": "ready=1,algo=66,tile=27,stages=35,splitK=3,reduction=2,workspace=393232"
+        },
+        {
+          "transposed": false,
+          "rank": 7,
+          "us": 32.416000962257385,
+          "info": "ready=1,algo=66,tile=196,stages=35,splitK=4,reduction=2,workspace=524304"
+        },
+        {
+          "transposed": true,
+          "rank": 0,
+          "us": 29.77599948644638,
+          "info": "ready=1,algo=66,tile=10,stages=35,splitK=2,reduction=2,workspace=262160"
+        },
+        {
+          "transposed": true,
+          "rank": 1,
+          "us": 30.400000512599945,
+          "info": "ready=1,algo=66,tile=393,stages=35,splitK=4,reduction=2,workspace=524304"
+        },
+        {
+          "transposed": true,
+          "rank": 2,
+          "us": 30.592000111937523,
+          "info": "ready=1,algo=66,tile=448,stages=35,splitK=6,reduction=2,workspace=786448"
+        },
+        {
+          "transposed": true,
+          "rank": 3,
+          "us": 31.088000163435936,
+          "info": "ready=1,algo=66,tile=486,stages=35,splitK=6,reduction=2,workspace=786448"
+        },
+        {
+          "transposed": true,
+          "rank": 4,
+          "us": 30.447999946773052,
+          "info": "ready=1,algo=66,tile=537,stages=35,splitK=6,reduction=2,workspace=786448"
+        },
+        {
+          "transposed": true,
+          "rank": 5,
+          "us": 33.80800038576126,
+          "info": "ready=1,algo=66,tile=573,stages=35,splitK=6,reduction=2,workspace=786448"
+        },
+        {
+          "transposed": true,
+          "rank": 6,
+          "us": 36.17599979043007,
+          "info": "ready=1,algo=66,tile=27,stages=35,splitK=3,reduction=2,workspace=393232"
+        },
+        {
+          "transposed": true,
+          "rank": 7,
+          "us": 44.144000858068466,
+          "info": "ready=1,algo=66,tile=12,stages=35,splitK=1,reduction=0,workspace=0"
+        }
+      ]
+    },
+    {
+      "layer": "pooler",
+      "m": 16,
+      "control_ratio": 0.994728539967767,
+      "base_us": 30.192000791430473,
+      "tested": 16,
+      "choices": [
+        {
+          "transposed": true,
+          "rank": 1,
+          "us": 29.999999329447746,
+          "info": "ready=1,algo=66,tile=394,stages=35,splitK=4,reduction=2,workspace=1048592",
+          "confirmed_ratio": 1.0091086907928672,
+          "base_us": 30.24000022560358,
+          "confirmed_us": 30.016000382602215
+        },
+        {
+          "transposed": true,
+          "rank": 0,
+          "us": 30.271999537944794,
+          "info": "ready=1,algo=66,tile=312,stages=35,splitK=2,reduction=2,workspace=524304",
+          "confirmed_ratio": 1.0061099921813796,
+          "base_us": 30.288000591099262,
+          "confirmed_us": 30.17600066959858
+        },
+        {
+          "transposed": false,
+          "rank": 1,
+          "us": 30.7200001552701,
+          "info": "ready=1,algo=66,tile=312,stages=35,splitK=2,reduction=2,workspace=524304",
+          "confirmed_ratio": 0.9801462395135074,
+          "base_us": 30.09600006043911,
+          "confirmed_us": 30.704000033438206
+        }
+      ],
+      "all_trials": [
+        {
+          "transposed": false,
+          "rank": 0,
+          "us": 30.848000198602676,
+          "info": "ready=1,algo=66,tile=394,stages=35,splitK=3,reduction=2,workspace=786448"
+        },
+        {
+          "transposed": false,
+          "rank": 1,
+          "us": 30.7200001552701,
+          "info": "ready=1,algo=66,tile=312,stages=35,splitK=2,reduction=2,workspace=524304"
+        },
+        {
+          "transposed": false,
+          "rank": 2,
+          "us": 31.50399960577488,
+          "info": "ready=1,algo=66,tile=449,stages=35,splitK=4,reduction=2,workspace=1048592"
+        },
+        {
+          "transposed": false,
+          "rank": 3,
+          "us": 31.82400017976761,
+          "info": "ready=1,algo=66,tile=487,stages=35,splitK=6,reduction=2,workspace=1572880"
+        },
+        {
+          "transposed": false,
+          "rank": 4,
+          "us": 31.775999814271927,
+          "info": "ready=1,algo=66,tile=538,stages=35,splitK=6,reduction=2,workspace=1572880"
+        },
+        {
+          "transposed": false,
+          "rank": 5,
+          "us": 33.84000062942505,
+          "info": "ready=1,algo=66,tile=27,stages=35,splitK=3,reduction=2,workspace=786448"
+        },
+        {
+          "transposed": false,
+          "rank": 6,
+          "us": 36.031998693943024,
+          "info": "ready=1,algo=66,tile=574,stages=35,splitK=6,reduction=2,workspace=1572880"
+        },
+        {
+          "transposed": false,
+          "rank": 7,
+          "us": 32.83200040459633,
+          "info": "ready=1,algo=66,tile=196,stages=35,splitK=4,reduction=2,workspace=1048592"
+        },
+        {
+          "transposed": true,
+          "rank": 0,
+          "us": 30.271999537944794,
+          "info": "ready=1,algo=66,tile=312,stages=35,splitK=2,reduction=2,workspace=524304"
+        },
+        {
+          "transposed": true,
+          "rank": 1,
+          "us": 29.999999329447746,
+          "info": "ready=1,algo=66,tile=394,stages=35,splitK=4,reduction=2,workspace=1048592"
+        },
+        {
+          "transposed": true,
+          "rank": 2,
+          "us": 31.00800048559904,
+          "info": "ready=1,algo=66,tile=449,stages=35,splitK=6,reduction=2,workspace=1572880"
+        },
+        {
+          "transposed": true,
+          "rank": 3,
+          "us": 31.376000493764877,
+          "info": "ready=1,algo=66,tile=487,stages=35,splitK=6,reduction=2,workspace=1572880"
+        },
+        {
+          "transposed": true,
+          "rank": 4,
+          "us": 31.15200065076351,
+          "info": "ready=1,algo=66,tile=538,stages=35,splitK=6,reduction=2,workspace=1572880"
+        },
+        {
+          "transposed": true,
+          "rank": 5,
+          "us": 36.94400005042553,
+          "info": "ready=1,algo=66,tile=27,stages=35,splitK=3,reduction=2,workspace=786448"
+        },
+        {
+          "transposed": true,
+          "rank": 6,
+          "us": 34.2399999499321,
+          "info": "ready=1,algo=66,tile=574,stages=35,splitK=6,reduction=2,workspace=1572880"
+        },
+        {
+          "transposed": true,
+          "rank": 7,
+          "us": 43.535999953746796,
+          "info": "ready=1,algo=66,tile=12,stages=35,splitK=1,reduction=0,workspace=0"
+        }
+      ]
+    },
+    {
+      "layer": "pooler",
+      "m": 32,
+      "control_ratio": 0.9968454019254188,
+      "base_us": 30.33600002527237,
+      "tested": 16,
+      "choices": [
+        {
+          "transposed": true,
+          "rank": 0,
+          "us": 30.239999294281006,
+          "info": "ready=1,algo=66,tile=13,stages=35,splitK=2,reduction=2,workspace=1048592",
+          "confirmed_ratio": 0.996325643340604,
+          "base_us": 30.352000147104263,
+          "confirmed_us": 30.527999624609947
+        },
+        {
+          "transposed": true,
+          "rank": 1,
+          "us": 30.719999223947525,
+          "info": "ready=1,algo=66,tile=16,stages=35,splitK=4,reduction=2,workspace=2097168",
+          "confirmed_ratio": 0.9952531792740561,
+          "base_us": 30.368000268936157,
+          "confirmed_us": 30.559999868273735
+        },
+        {
+          "transposed": false,
+          "rank": 1,
+          "us": 30.752000398933887,
+          "info": "ready=1,algo=66,tile=13,stages=35,splitK=2,reduction=2,workspace=1048592",
+          "confirmed_ratio": 0.9836303351377471,
+          "base_us": 30.57599999010563,
+          "confirmed_us": 30.928000807762146
+        }
+      ],
+      "all_trials": [
+        {
+          "transposed": false,
+          "rank": 0,
+          "us": 31.519999727606773,
+          "info": "ready=1,algo=66,tile=16,stages=35,splitK=3,reduction=2,workspace=1572880"
+        },
+        {
+          "transposed": false,
+          "rank": 1,
+          "us": 30.752000398933887,
+          "info": "ready=1,algo=66,tile=13,stages=35,splitK=2,reduction=2,workspace=1048592"
+        },
+        {
+          "transposed": false,
+          "rank": 2,
+          "us": 31.615998595952988,
+          "info": "ready=1,algo=66,tile=451,stages=35,splitK=4,reduction=2,workspace=2097168"
+        },
+        {
+          "transposed": false,
+          "rank": 3,
+          "us": 32.255999743938446,
+          "info": "ready=1,algo=66,tile=35,stages=35,splitK=6,reduction=2,workspace=3145744"
+        },
+        {
+          "transposed": false,
+          "rank": 4,
+          "us": 34.49600003659725,
+          "info": "ready=1,algo=66,tile=27,stages=35,splitK=3,reduction=2,workspace=1572880"
+        },
+        {
+          "transposed": false,
+          "rank": 5,
+          "us": 32.27199986577034,
+          "info": "ready=1,algo=66,tile=196,stages=35,splitK=4,reduction=2,workspace=2097168"
+        },
+        {
+          "transposed": false,
+          "rank": 6,
+          "us": 32.255999743938446,
+          "info": "ready=1,algo=66,tile=183,stages=35,splitK=3,reduction=2,workspace=1572880"
+        },
+        {
+          "transposed": false,
+          "rank": 7,
+          "us": 32.84800052642822,
+          "info": "ready=1,algo=66,tile=540,stages=35,splitK=6,reduction=2,workspace=3145744"
+        },
+        {
+          "transposed": true,
+          "rank": 0,
+          "us": 30.239999294281006,
+          "info": "ready=1,algo=66,tile=13,stages=35,splitK=2,reduction=2,workspace=1048592"
+        },
+        {
+          "transposed": true,
+          "rank": 1,
+          "us": 30.719999223947525,
+          "info": "ready=1,algo=66,tile=16,stages=35,splitK=4,reduction=2,workspace=2097168"
+        },
+        {
+          "transposed": true,
+          "rank": 2,
+          "us": 31.488001346588135,
+          "info": "ready=1,algo=66,tile=451,stages=35,splitK=6,reduction=2,workspace=3145744"
+        },
+        {
+          "transposed": true,
+          "rank": 3,
+          "us": 32.23999962210655,
+          "info": "ready=1,algo=66,tile=35,stages=35,splitK=6,reduction=2,workspace=3145744"
+        },
+        {
+          "transposed": true,
+          "rank": 4,
+          "us": 36.6239994764328,
+          "info": "ready=1,algo=66,tile=27,stages=35,splitK=3,reduction=2,workspace=1572880"
+        },
+        {
+          "transposed": true,
+          "rank": 5,
+          "us": 41.519999504089355,
+          "info": "ready=1,algo=66,tile=12,stages=35,splitK=1,reduction=0,workspace=0"
+        },
+        {
+          "transposed": true,
+          "rank": 6,
+          "us": 32.287999987602234,
+          "info": "ready=1,algo=66,tile=540,stages=35,splitK=6,reduction=2,workspace=3145744"
+        },
+        {
+          "transposed": true,
+          "rank": 7,
+          "us": 35.00800020992756,
+          "info": "ready=1,algo=66,tile=576,stages=35,splitK=6,reduction=2,workspace=3145744"
+        }
+      ]
+    },
+    {
+      "layer": "pooler",
+      "m": 128,
+      "control_ratio": 1.0086915198490096,
+      "base_us": 33.424001187086105,
+      "tested": 16,
+      "choices": [
+        {
+          "transposed": true,
+          "rank": 1,
+          "us": 31.984001398086548,
+          "info": "ready=1,algo=66,tile=15,stages=35,splitK=1,reduction=0,workspace=0",
+          "confirmed_ratio": 1.040541039654114,
+          "base_us": 33.263999968767166,
+          "confirmed_us": 32.06399828195572
+        },
+        {
+          "transposed": false,
+          "rank": 0,
+          "us": 32.175999134778976,
+          "info": "ready=1,algo=66,tile=15,stages=35,splitK=1,reduction=0,workspace=0",
+          "confirmed_ratio": 1.041921336692116,
+          "base_us": 33.39200094342232,
+          "confirmed_us": 32.016001641750336
+        },
+        {
+          "transposed": true,
+          "rank": 0,
+          "us": 33.52000005543232,
+          "info": "ready=1,algo=66,tile=18,stages=35,splitK=2,reduction=2,workspace=4194320",
+          "confirmed_ratio": 1.0081521215976035,
+          "base_us": 33.55199843645096,
+          "confirmed_us": 33.19999948143959
+        }
+      ],
+      "all_trials": [
+        {
+          "transposed": false,
+          "rank": 0,
+          "us": 32.175999134778976,
+          "info": "ready=1,algo=66,tile=15,stages=35,splitK=1,reduction=0,workspace=0"
+        },
+        {
+          "transposed": false,
+          "rank": 1,
+          "us": 33.92000123858452,
+          "info": "ready=1,algo=66,tile=18,stages=35,splitK=2,reduction=2,workspace=4194320"
+        },
+        {
+          "transposed": false,
+          "rank": 2,
+          "us": 34.55999866127968,
+          "info": "ready=1,algo=66,tile=17,stages=35,splitK=2,reduction=2,workspace=4194320"
+        },
+        {
+          "transposed": false,
+          "rank": 3,
+          "us": 34.352000802755356,
+          "info": "ready=1,algo=66,tile=28,stages=35,splitK=3,reduction=2,workspace=6291472"
+        },
+        {
+          "transposed": false,
+          "rank": 4,
+          "us": 34.25600007176399,
+          "info": "ready=1,algo=66,tile=208,stages=35,splitK=3,reduction=2,workspace=6291472"
+        },
+        {
+          "transposed": false,
+          "rank": 5,
+          "us": 33.615998923778534,
+          "info": "ready=1,algo=66,tile=27,stages=35,splitK=1,reduction=0,workspace=0"
+        },
+        {
+          "transposed": false,
+          "rank": 6,
+          "us": 34.04800035059452,
+          "info": "ready=1,algo=66,tile=20,stages=35,splitK=4,reduction=2,workspace=8388624"
+        },
+        {
+          "transposed": false,
+          "rank": 7,
+          "us": 34.01600010693073,
+          "info": "ready=1,algo=66,tile=21,stages=35,splitK=4,reduction=2,workspace=8388624"
+        },
+        {
+          "transposed": true,
+          "rank": 0,
+          "us": 33.52000005543232,
+          "info": "ready=1,algo=66,tile=18,stages=35,splitK=2,reduction=2,workspace=4194320"
+        },
+        {
+          "transposed": true,
+          "rank": 1,
+          "us": 31.984001398086548,
+          "info": "ready=1,algo=66,tile=15,stages=35,splitK=1,reduction=0,workspace=0"
+        },
+        {
+          "transposed": true,
+          "rank": 2,
+          "us": 35.32800078392029,
+          "info": "ready=1,algo=66,tile=17,stages=35,splitK=2,reduction=2,workspace=4194320"
+        },
+        {
+          "transposed": true,
+          "rank": 3,
+          "us": 36.22400015592575,
+          "info": "ready=1,algo=66,tile=28,stages=35,splitK=3,reduction=2,workspace=6291472"
+        },
+        {
+          "transposed": true,
+          "rank": 4,
+          "us": 35.34400090575218,
+          "info": "ready=1,algo=66,tile=208,stages=35,splitK=3,reduction=2,workspace=6291472"
+        },
+        {
+          "transposed": true,
+          "rank": 5,
+          "us": 34.57599878311157,
+          "info": "ready=1,algo=66,tile=20,stages=35,splitK=4,reduction=2,workspace=8388624"
+        },
+        {
+          "transposed": true,
+          "rank": 6,
+          "us": 38.36800158023834,
+          "info": "ready=1,algo=66,tile=27,stages=35,splitK=1,reduction=0,workspace=0"
+        },
+        {
+          "transposed": true,
+          "rank": 7,
+          "us": 33.64800103008747,
+          "info": "ready=1,algo=66,tile=21,stages=35,splitK=4,reduction=2,workspace=8388624"
+        }
+      ]
+    },
+    {
+      "layer": "pooler",
+      "m": 256,
+      "control_ratio": 0.9957626796754538,
+      "base_us": 37.59999945759773,
+      "tested": 16,
+      "choices": [
+        {
+          "transposed": true,
+          "rank": 0,
+          "us": 38.047999143600464,
+          "info": "ready=1,algo=66,tile=18,stages=35,splitK=1,reduction=0,workspace=0",
+          "confirmed_ratio": 1.0093510881971635,
+          "base_us": 37.91999816894531,
+          "confirmed_us": 37.696000188589096
+        },
+        {
+          "transposed": true,
+          "rank": 4,
+          "us": 38.047999143600464,
+          "info": "ready=1,algo=66,tile=31,stages=35,splitK=3,reduction=2,workspace=12582928",
+          "confirmed_ratio": 0.9760219748528893,
+          "base_us": 37.935998290777206,
+          "confirmed_us": 38.84800150990486
+        },
+        {
+          "transposed": false,
+          "rank": 3,
+          "us": 38.46399858593941,
+          "info": "ready=1,algo=66,tile=135,stages=35,splitK=1,reduction=0,workspace=0",
+          "confirmed_ratio": 0.966581048271171,
+          "base_us": 37.39199973642826,
+          "confirmed_us": 38.30400109291077
+        }
+      ],
+      "all_trials": [
+        {
+          "transposed": false,
+          "rank": 0,
+          "us": 39.5359992980957,
+          "info": "ready=1,algo=66,tile=18,stages=35,splitK=1,reduction=0,workspace=0"
+        },
+        {
+          "transposed": false,
+          "rank": 1,
+          "us": 39.583999663591385,
+          "info": "ready=1,algo=66,tile=17,stages=35,splitK=1,reduction=0,workspace=0"
+        },
+        {
+          "transposed": false,
+          "rank": 2,
+          "us": 40.272001177072525,
+          "info": "ready=1,algo=66,tile=20,stages=35,splitK=2,reduction=2,workspace=8388624"
+        },
+        {
+          "transposed": false,
+          "rank": 3,
+          "us": 38.46399858593941,
+          "info": "ready=1,algo=66,tile=135,stages=35,splitK=1,reduction=0,workspace=0"
+        },
+        {
+          "transposed": false,
+          "rank": 4,
+          "us": 42.49599948525429,
+          "info": "ready=1,algo=66,tile=21,stages=35,splitK=2,reduction=2,workspace=8388624"
+        },
+        {
+          "transposed": false,
+          "rank": 5,
+          "us": 39.103999733924866,
+          "info": "ready=1,algo=66,tile=31,stages=35,splitK=3,reduction=2,workspace=12582928"
+        },
+        {
+          "transposed": false,
+          "rank": 6,
+          "us": 39.76000100374222,
+          "info": "ready=1,algo=66,tile=184,stages=35,splitK=2,reduction=2,workspace=8388624"
+        },
+        {
+          "transposed": false,
+          "rank": 7,
+          "us": 52.239999175071716,
+          "info": "ready=1,algo=66,tile=400,stages=35,splitK=1,reduction=0,workspace=0"
+        },
+        {
+          "transposed": true,
+          "rank": 0,
+          "us": 38.047999143600464,
+          "info": "ready=1,algo=66,tile=18,stages=35,splitK=1,reduction=0,workspace=0"
+        },
+        {
+          "transposed": true,
+          "rank": 1,
+          "us": 39.56799954175949,
+          "info": "ready=1,algo=66,tile=17,stages=35,splitK=1,reduction=0,workspace=0"
+        },
+        {
+          "transposed": true,
+          "rank": 2,
+          "us": 40.063999593257904,
+          "info": "ready=1,algo=66,tile=20,stages=35,splitK=2,reduction=2,workspace=8388624"
+        },
+        {
+          "transposed": true,
+          "rank": 3,
+          "us": 41.888000443577766,
+          "info": "ready=1,algo=66,tile=21,stages=35,splitK=2,reduction=2,workspace=8388624"
+        },
+        {
+          "transposed": true,
+          "rank": 4,
+          "us": 38.047999143600464,
+          "info": "ready=1,algo=66,tile=31,stages=35,splitK=3,reduction=2,workspace=12582928"
+        },
+        {
+          "transposed": true,
+          "rank": 5,
+          "us": 43.72800141572952,
+          "info": "ready=1,algo=66,tile=19,stages=35,splitK=2,reduction=2,workspace=8388624"
+        },
+        {
+          "transposed": true,
+          "rank": 6,
+          "us": 48.38399961590767,
+          "info": "ready=1,algo=66,tile=400,stages=35,splitK=1,reduction=0,workspace=0"
+        },
+        {
+          "transposed": true,
+          "rank": 7,
+          "us": 47.05599881708622,
+          "info": "ready=1,algo=66,tile=28,stages=35,splitK=3,reduction=2,workspace=12582928"
+        }
+      ]
+    },
+    {
+      "layer": "qkv_gate",
+      "m": 8,
+      "control_ratio": 1.010385749244855,
+      "base_us": 21.79200015962124,
+      "tested": 16,
+      "choices": [
+        {
+          "transposed": false,
+          "rank": 1,
+          "us": 21.584000438451767,
+          "info": "ready=1,algo=66,tile=10,stages=35,splitK=3,reduction=2,workspace=221200",
+          "confirmed_ratio": 1.0044085590858214,
+          "base_us": 21.888000890612602,
+          "confirmed_us": 21.79200015962124
+        },
+        {
+          "transposed": true,
+          "rank": 2,
+          "us": 21.695999428629875,
+          "info": "ready=1,algo=66,tile=448,stages=35,splitK=6,reduction=2,workspace=442384",
+          "confirmed_ratio": 0.9970760012461886,
+          "base_us": 21.920000202953815,
+          "confirmed_us": 21.90400008112192
+        },
+        {
+          "transposed": true,
+          "rank": 0,
+          "us": 21.79200015962124,
+          "info": "ready=1,algo=66,tile=393,stages=35,splitK=5,reduction=2,workspace=368656",
+          "confirmed_ratio": 1.0081187098491435,
+          "base_us": 21.99999988079071,
+          "confirmed_us": 21.79200015962124
+        }
+      ],
+      "all_trials": [
+        {
+          "transposed": false,
+          "rank": 0,
+          "us": 21.967999637126923,
+          "info": "ready=1,algo=66,tile=393,stages=35,splitK=5,reduction=2,workspace=368656"
+        },
+        {
+          "transposed": false,
+          "rank": 1,
+          "us": 21.584000438451767,
+          "info": "ready=1,algo=66,tile=10,stages=35,splitK=3,reduction=2,workspace=221200"
+        },
+        {
+          "transposed": false,
+          "rank": 2,
+          "us": 21.91999927163124,
+          "info": "ready=1,algo=66,tile=448,stages=35,splitK=6,reduction=2,workspace=442384"
+        },
+        {
+          "transposed": false,
+          "rank": 3,
+          "us": 22.47999981045723,
+          "info": "ready=1,algo=66,tile=486,stages=35,splitK=6,reduction=2,workspace=442384"
+        },
+        {
+          "transposed": false,
+          "rank": 4,
+          "us": 23.711999878287315,
+          "info": "ready=1,algo=66,tile=134,stages=35,splitK=3,reduction=2,workspace=221200"
+        },
+        {
+          "transposed": false,
+          "rank": 5,
+          "us": 22.92799949645996,
+          "info": "ready=1,algo=66,tile=27,stages=35,splitK=4,reduction=2,workspace=294928"
+        },
+        {
+          "transposed": false,
+          "rank": 6,
+          "us": 24.768000468611717,
+          "info": "ready=1,algo=66,tile=537,stages=35,splitK=6,reduction=2,workspace=442384"
+        },
+        {
+          "transposed": false,
+          "rank": 7,
+          "us": 23.136000148952007,
+          "info": "ready=1,algo=66,tile=164,stages=35,splitK=4,reduction=2,workspace=294928"
+        },
+        {
+          "transposed": true,
+          "rank": 0,
+          "us": 21.79200015962124,
+          "info": "ready=1,algo=66,tile=393,stages=35,splitK=5,reduction=2,workspace=368656"
+        },
+        {
+          "transposed": true,
+          "rank": 1,
+          "us": 21.90400008112192,
+          "info": "ready=1,algo=66,tile=10,stages=35,splitK=3,reduction=2,workspace=221200"
+        },
+        {
+          "transposed": true,
+          "rank": 2,
+          "us": 21.695999428629875,
+          "info": "ready=1,algo=66,tile=448,stages=35,splitK=6,reduction=2,workspace=442384"
+        },
+        {
+          "transposed": true,
+          "rank": 3,
+          "us": 22.44799956679344,
+          "info": "ready=1,algo=66,tile=486,stages=35,splitK=6,reduction=2,workspace=442384"
+        },
+        {
+          "transposed": true,
+          "rank": 4,
+          "us": 24.320000782608986,
+          "info": "ready=1,algo=66,tile=27,stages=35,splitK=4,reduction=2,workspace=294928"
+        },
+        {
+          "transposed": true,
+          "rank": 5,
+          "us": 23.679999634623528,
+          "info": "ready=1,algo=66,tile=537,stages=35,splitK=6,reduction=2,workspace=442384"
+        },
+        {
+          "transposed": true,
+          "rank": 6,
+          "us": 29.95199989527464,
+          "info": "ready=1,algo=66,tile=12,stages=35,splitK=3,reduction=2,workspace=221200"
+        },
+        {
+          "transposed": true,
+          "rank": 7,
+          "us": 28.432000428438187,
+          "info": "ready=1,algo=66,tile=573,stages=35,splitK=6,reduction=2,workspace=442384"
+        }
+      ]
+    },
+    {
+      "layer": "qkv_gate",
+      "m": 16,
+      "control_ratio": 0.9919766829699069,
+      "base_us": 21.75999991595745,
+      "tested": 16,
+      "choices": [
+        {
+          "transposed": false,
+          "rank": 0,
+          "us": 21.727999672293663,
+          "info": "ready=1,algo=66,tile=312,stages=35,splitK=3,reduction=2,workspace=442384",
+          "confirmed_ratio": 0.9948516424188225,
+          "base_us": 21.79200015962124,
+          "confirmed_us": 21.91999927163124
+        },
+        {
+          "transposed": true,
+          "rank": 2,
+          "us": 21.87200076878071,
+          "info": "ready=1,algo=66,tile=449,stages=35,splitK=6,reduction=2,workspace=884752",
+          "confirmed_ratio": 0.9934451476604013,
+          "base_us": 21.888000890612602,
+          "confirmed_us": 21.967999637126923
+        },
+        {
+          "transposed": false,
+          "rank": 2,
+          "us": 21.967999637126923,
+          "info": "ready=1,algo=66,tile=449,stages=35,splitK=6,reduction=2,workspace=884752",
+          "confirmed_ratio": 0.9985389741738904,
+          "base_us": 21.968000568449497,
+          "confirmed_us": 22.016000002622604
+        }
+      ],
+      "all_trials": [
+        {
+          "transposed": false,
+          "rank": 0,
+          "us": 21.727999672293663,
+          "info": "ready=1,algo=66,tile=312,stages=35,splitK=3,reduction=2,workspace=442384"
+        },
+        {
+          "transposed": false,
+          "rank": 1,
+          "us": 22.0959996804595,
+          "info": "ready=1,algo=66,tile=394,stages=35,splitK=5,reduction=2,workspace=737296"
+        },
+        {
+          "transposed": false,
+          "rank": 2,
+          "us": 21.967999637126923,
+          "info": "ready=1,algo=66,tile=449,stages=35,splitK=6,reduction=2,workspace=884752"
+        },
+        {
+          "transposed": false,
+          "rank": 3,
+          "us": 22.544000297784805,
+          "info": "ready=1,algo=66,tile=487,stages=35,splitK=6,reduction=2,workspace=884752"
+        },
+        {
+          "transposed": false,
+          "rank": 4,
+          "us": 23.64799939095974,
+          "info": "ready=1,algo=66,tile=134,stages=35,splitK=3,reduction=2,workspace=442384"
+        },
+        {
+          "transposed": false,
+          "rank": 5,
+          "us": 22.95999974012375,
+          "info": "ready=1,algo=66,tile=27,stages=35,splitK=4,reduction=2,workspace=589840"
+        },
+        {
+          "transposed": false,
+          "rank": 6,
+          "us": 23.535999469459057,
+          "info": "ready=1,algo=66,tile=164,stages=35,splitK=4,reduction=2,workspace=589840"
+        },
+        {
+          "transposed": false,
+          "rank": 7,
+          "us": 23.423999547958374,
+          "info": "ready=1,algo=66,tile=183,stages=35,splitK=6,reduction=2,workspace=884752"
+        },
+        {
+          "transposed": true,
+          "rank": 0,
+          "us": 22.08000048995018,
+          "info": "ready=1,algo=66,tile=312,stages=35,splitK=3,reduction=2,workspace=442384"
+        },
+        {
+          "transposed": true,
+          "rank": 1,
+          "us": 22.17600028961897,
+          "info": "ready=1,algo=66,tile=394,stages=35,splitK=5,reduction=2,workspace=737296"
+        },
+        {
+          "transposed": true,
+          "rank": 2,
+          "us": 21.87200076878071,
+          "info": "ready=1,algo=66,tile=449,stages=35,splitK=6,reduction=2,workspace=884752"
+        },
+        {
+          "transposed": true,
+          "rank": 3,
+          "us": 22.52800017595291,
+          "info": "ready=1,algo=66,tile=487,stages=35,splitK=6,reduction=2,workspace=884752"
+        },
+        {
+          "transposed": true,
+          "rank": 4,
+          "us": 24.70399998128414,
+          "info": "ready=1,algo=66,tile=27,stages=35,splitK=4,reduction=2,workspace=589840"
+        },
+        {
+          "transposed": true,
+          "rank": 5,
+          "us": 29.551999643445015,
+          "info": "ready=1,algo=66,tile=12,stages=35,splitK=3,reduction=2,workspace=442384"
+        },
+        {
+          "transposed": true,
+          "rank": 6,
+          "us": 23.824000731110573,
+          "info": "ready=1,algo=66,tile=538,stages=35,splitK=6,reduction=2,workspace=884752"
+        },
+        {
+          "transposed": true,
+          "rank": 7,
+          "us": 28.896000236272812,
+          "info": "ready=1,algo=66,tile=574,stages=35,splitK=6,reduction=2,workspace=884752"
+        }
+      ]
+    },
+    {
+      "layer": "qkv_gate",
+      "m": 32,
+      "control_ratio": 0.9963977089665549,
+      "base_us": 22.127999924123287,
+      "tested": 16,
+      "choices": [
+        {
+          "transposed": false,
+          "rank": 4,
+          "us": 22.0959996804595,
+          "info": "ready=1,algo=66,tile=27,stages=35,splitK=4,reduction=2,workspace=1179664",
+          "confirmed_ratio": 1.0110046016108227,
+          "base_us": 22.143999114632607,
+          "confirmed_us": 21.90400008112192
+        },
+        {
+          "transposed": false,
+          "rank": 0,
+          "us": 22.207999601960182,
+          "info": "ready=1,algo=66,tile=13,stages=35,splitK=3,reduction=2,workspace=884752",
+          "confirmed_ratio": 0.9985652688671947,
+          "base_us": 22.19199948012829,
+          "confirmed_us": 22.175999358296394
+        },
+        {
+          "transposed": true,
+          "rank": 3,
+          "us": 22.207999601960182,
+          "info": "ready=1,algo=66,tile=27,stages=35,splitK=4,reduction=2,workspace=1179664",
+          "confirmed_ratio": 1.0043700546801633,
+          "base_us": 22.23999984562397,
+          "confirmed_us": 22.127999924123287
+        }
+      ],
+      "all_trials": [
+        {
+          "transposed": false,
+          "rank": 0,
+          "us": 22.207999601960182,
+          "info": "ready=1,algo=66,tile=13,stages=35,splitK=3,reduction=2,workspace=884752"
+        },
+        {
+          "transposed": false,
+          "rank": 1,
+          "us": 22.52800017595291,
+          "info": "ready=1,algo=66,tile=16,stages=35,splitK=5,reduction=2,workspace=1474576"
+        },
+        {
+          "transposed": false,
+          "rank": 2,
+          "us": 22.86399994045496,
+          "info": "ready=1,algo=66,tile=451,stages=35,splitK=6,reduction=2,workspace=1769488"
+        },
+        {
+          "transposed": false,
+          "rank": 3,
+          "us": 22.23999984562397,
+          "info": "ready=1,algo=66,tile=134,stages=35,splitK=3,reduction=2,workspace=884752"
+        },
+        {
+          "transposed": false,
+          "rank": 4,
+          "us": 22.0959996804595,
+          "info": "ready=1,algo=66,tile=27,stages=35,splitK=4,reduction=2,workspace=1179664"
+        },
+        {
+          "transposed": false,
+          "rank": 5,
+          "us": 22.495999932289124,
+          "info": "ready=1,algo=66,tile=164,stages=35,splitK=4,reduction=2,workspace=1179664"
+        },
+        {
+          "transposed": false,
+          "rank": 6,
+          "us": 22.975999861955643,
+          "info": "ready=1,algo=66,tile=183,stages=35,splitK=6,reduction=2,workspace=1769488"
+        },
+        {
+          "transposed": false,
+          "rank": 7,
+          "us": 23.72800000011921,
+          "info": "ready=1,algo=66,tile=35,stages=35,splitK=6,reduction=2,workspace=1769488"
+        },
+        {
+          "transposed": true,
+          "rank": 0,
+          "us": 22.44799956679344,
+          "info": "ready=1,algo=66,tile=13,stages=35,splitK=3,reduction=2,workspace=884752"
+        },
+        {
+          "transposed": true,
+          "rank": 1,
+          "us": 22.672000341117382,
+          "info": "ready=1,algo=66,tile=16,stages=35,splitK=5,reduction=2,workspace=1474576"
+        },
+        {
+          "transposed": true,
+          "rank": 2,
+          "us": 22.80000038444996,
+          "info": "ready=1,algo=66,tile=451,stages=35,splitK=6,reduction=2,workspace=1769488"
+        },
+        {
+          "transposed": true,
+          "rank": 3,
+          "us": 22.207999601960182,
+          "info": "ready=1,algo=66,tile=27,stages=35,splitK=4,reduction=2,workspace=1179664"
+        },
+        {
+          "transposed": true,
+          "rank": 4,
+          "us": 28.495999984443188,
+          "info": "ready=1,algo=66,tile=12,stages=35,splitK=3,reduction=2,workspace=884752"
+        },
+        {
+          "transposed": true,
+          "rank": 5,
+          "us": 22.943999618291855,
+          "info": "ready=1,algo=66,tile=35,stages=35,splitK=6,reduction=2,workspace=1769488"
+        },
+        {
+          "transposed": true,
+          "rank": 6,
+          "us": 24.89599958062172,
+          "info": "ready=1,algo=66,tile=540,stages=35,splitK=6,reduction=2,workspace=1769488"
+        },
+        {
+          "transposed": true,
+          "rank": 7,
+          "us": 29.95199989527464,
+          "info": "ready=1,algo=66,tile=576,stages=35,splitK=6,reduction=2,workspace=1769488"
+        }
+      ]
+    },
+    {
+      "layer": "qkv_gate",
+      "m": 128,
+      "control_ratio": 0.9919354227186804,
+      "base_us": 25.58399923145771,
+      "tested": 16,
+      "choices": [
+        {
+          "transposed": false,
+          "rank": 2,
+          "us": 24.335999973118305,
+          "info": "ready=1,algo=66,tile=17,stages=35,splitK=3,reduction=2,workspace=3538960",
+          "confirmed_ratio": 1.0372767264364633,
+          "base_us": 25.472000241279602,
+          "confirmed_us": 24.560000747442245
+        },
+        {
+          "transposed": true,
+          "rank": 4,
+          "us": 24.431999772787094,
+          "info": "ready=1,algo=66,tile=208,stages=35,splitK=5,reduction=2,workspace=5898256",
+          "confirmed_ratio": 1.0359716354857207,
+          "base_us": 25.50400048494339,
+          "confirmed_us": 24.65599961578846
+        },
+        {
+          "transposed": true,
+          "rank": 2,
+          "us": 24.447999894618988,
+          "info": "ready=1,algo=66,tile=17,stages=35,splitK=3,reduction=2,workspace=3538960",
+          "confirmed_ratio": 1.0383726818903245,
+          "base_us": 25.488000363111496,
+          "confirmed_us": 24.607999250292778
+        }
+      ],
+      "all_trials": [
+        {
+          "transposed": false,
+          "rank": 0,
+          "us": 25.535999797284603,
+          "info": "ready=1,algo=66,tile=27,stages=35,splitK=2,reduction=2,workspace=2359312"
+        },
+        {
+          "transposed": false,
+          "rank": 1,
+          "us": 25.60000028461218,
+          "info": "ready=1,algo=66,tile=18,stages=35,splitK=3,reduction=2,workspace=3538960"
+        },
+        {
+          "transposed": false,
+          "rank": 2,
+          "us": 24.335999973118305,
+          "info": "ready=1,algo=66,tile=17,stages=35,splitK=3,reduction=2,workspace=3538960"
+        },
+        {
+          "transposed": false,
+          "rank": 3,
+          "us": 24.543999694287777,
+          "info": "ready=1,algo=66,tile=28,stages=35,splitK=4,reduction=2,workspace=4718608"
+        },
+        {
+          "transposed": false,
+          "rank": 4,
+          "us": 25.02400055527687,
+          "info": "ready=1,algo=66,tile=135,stages=35,splitK=4,reduction=2,workspace=4718608"
+        },
+        {
+          "transposed": false,
+          "rank": 5,
+          "us": 25.856000371277332,
+          "info": "ready=1,algo=66,tile=15,stages=35,splitK=3,reduction=2,workspace=3538960"
+        },
+        {
+          "transposed": false,
+          "rank": 6,
+          "us": 25.535999797284603,
+          "info": "ready=1,algo=66,tile=208,stages=35,splitK=4,reduction=2,workspace=4718608"
+        },
+        {
+          "transposed": false,
+          "rank": 7,
+          "us": 26.639999821782112,
+          "info": "ready=1,algo=66,tile=165,stages=35,splitK=6,reduction=2,workspace=7077904"
+        },
+        {
+          "transposed": true,
+          "rank": 0,
+          "us": 27.567999437451363,
+          "info": "ready=1,algo=66,tile=27,stages=35,splitK=2,reduction=2,workspace=2359312"
+        },
+        {
+          "transposed": true,
+          "rank": 1,
+          "us": 25.60000028461218,
+          "info": "ready=1,algo=66,tile=18,stages=35,splitK=3,reduction=2,workspace=3538960"
+        },
+        {
+          "transposed": true,
+          "rank": 2,
+          "us": 24.447999894618988,
+          "info": "ready=1,algo=66,tile=17,stages=35,splitK=3,reduction=2,workspace=3538960"
+        },
+        {
+          "transposed": true,
+          "rank": 3,
+          "us": 25.03999974578619,
+          "info": "ready=1,algo=66,tile=28,stages=35,splitK=5,reduction=2,workspace=5898256"
+        },
+        {
+          "transposed": true,
+          "rank": 4,
+          "us": 24.431999772787094,
+          "info": "ready=1,algo=66,tile=208,stages=35,splitK=5,reduction=2,workspace=5898256"
+        },
+        {
+          "transposed": true,
+          "rank": 5,
+          "us": 25.647999718785286,
+          "info": "ready=1,algo=66,tile=15,stages=35,splitK=3,reduction=2,workspace=3538960"
+        },
+        {
+          "transposed": true,
+          "rank": 6,
+          "us": 25.36000031977892,
+          "info": "ready=1,algo=66,tile=20,stages=35,splitK=5,reduction=2,workspace=5898256"
+        },
+        {
+          "transposed": true,
+          "rank": 7,
+          "us": 29.167999513447285,
+          "info": "ready=1,algo=66,tile=21,stages=35,splitK=5,reduction=2,workspace=5898256"
+        }
+      ]
+    },
+    {
+      "layer": "qkv_gate",
+      "m": 256,
+      "control_ratio": 1.0031829862931922,
+      "base_us": 30.2559994161129,
+      "tested": 16,
+      "choices": [
+        {
+          "transposed": false,
+          "rank": 4,
+          "us": 27.63199992477894,
+          "info": "ready=1,algo=66,tile=184,stages=35,splitK=4,reduction=2,workspace=9437200",
+          "confirmed_ratio": 1.0705671790044389,
+          "base_us": 30.112000182271004,
+          "confirmed_us": 28.063999488949776
+        },
+        {
+          "transposed": false,
+          "rank": 2,
+          "us": 28.944000601768494,
+          "info": "ready=1,algo=66,tile=165,stages=35,splitK=3,reduction=2,workspace=7077904",
+          "confirmed_ratio": 1.0411586636671233,
+          "base_us": 30.30399978160858,
+          "confirmed_us": 28.991999104619026
+        },
+        {
+          "transposed": true,
+          "rank": 2,
+          "us": 30.112000182271004,
+          "info": "ready=1,algo=66,tile=20,stages=35,splitK=3,reduction=2,workspace=7077904",
+          "confirmed_ratio": 1.00484396842581,
+          "base_us": 30.079999938607216,
+          "confirmed_us": 29.93600070476532
+        }
+      ],
+      "all_trials": [
+        {
+          "transposed": false,
+          "rank": 0,
+          "us": 30.207999981939793,
+          "info": "ready=1,algo=66,tile=27,stages=35,splitK=1,reduction=0,workspace=0"
+        },
+        {
+          "transposed": false,
+          "rank": 1,
+          "us": 31.42400085926056,
+          "info": "ready=1,algo=66,tile=135,stages=35,splitK=2,reduction=2,workspace=4718608"
+        },
+        {
+          "transposed": false,
+          "rank": 2,
+          "us": 28.944000601768494,
+          "info": "ready=1,algo=66,tile=165,stages=35,splitK=3,reduction=2,workspace=7077904"
+        },
+        {
+          "transposed": false,
+          "rank": 3,
+          "us": 32.99199976027012,
+          "info": "ready=1,algo=66,tile=28,stages=35,splitK=2,reduction=2,workspace=4718608"
+        },
+        {
+          "transposed": false,
+          "rank": 4,
+          "us": 27.63199992477894,
+          "info": "ready=1,algo=66,tile=184,stages=35,splitK=4,reduction=2,workspace=9437200"
+        },
+        {
+          "transposed": false,
+          "rank": 5,
+          "us": 34.911999478936195,
+          "info": "ready=1,algo=66,tile=208,stages=35,splitK=2,reduction=2,workspace=4718608"
+        },
+        {
+          "transposed": false,
+          "rank": 6,
+          "us": 30.752000398933887,
+          "info": "ready=1,algo=66,tile=20,stages=35,splitK=3,reduction=2,workspace=7077904"
+        },
+        {
+          "transposed": false,
+          "rank": 7,
+          "us": 32.88000077009201,
+          "info": "ready=1,algo=66,tile=21,stages=35,splitK=3,reduction=2,workspace=7077904"
+        },
+        {
+          "transposed": true,
+          "rank": 0,
+          "us": 32.84800052642822,
+          "info": "ready=1,algo=66,tile=27,stages=35,splitK=1,reduction=0,workspace=0"
+        },
+        {
+          "transposed": true,
+          "rank": 1,
+          "us": 33.36000069975853,
+          "info": "ready=1,algo=66,tile=28,stages=35,splitK=2,reduction=2,workspace=4718608"
+        },
+        {
+          "transposed": true,
+          "rank": 2,
+          "us": 30.112000182271004,
+          "info": "ready=1,algo=66,tile=20,stages=35,splitK=3,reduction=2,workspace=7077904"
+        },
+        {
+          "transposed": true,
+          "rank": 3,
+          "us": 33.32799859344959,
+          "info": "ready=1,algo=66,tile=208,stages=35,splitK=2,reduction=2,workspace=4718608"
+        },
+        {
+          "transposed": true,
+          "rank": 4,
+          "us": 31.26399964094162,
+          "info": "ready=1,algo=66,tile=21,stages=35,splitK=3,reduction=2,workspace=7077904"
+        },
+        {
+          "transposed": true,
+          "rank": 5,
+          "us": 31.520001590251923,
+          "info": "ready=1,algo=66,tile=19,stages=35,splitK=3,reduction=2,workspace=7077904"
+        },
+        {
+          "transposed": true,
+          "rank": 6,
+          "us": 32.6399989426136,
+          "info": "ready=1,algo=66,tile=18,stages=35,splitK=3,reduction=2,workspace=7077904"
+        },
+        {
+          "transposed": true,
+          "rank": 7,
+          "us": 32.48000144958496,
+          "info": "ready=1,algo=66,tile=17,stages=35,splitK=3,reduction=2,workspace=7077904"
+        }
+      ]
+    },
+    {
+      "layer": "unpooler",
+      "m": 16,
+      "control_ratio": 1.0046565790327397,
+      "base_us": 27.615999802947044,
+      "tested": 16,
+      "choices": [
+        {
+          "transposed": true,
+          "rank": 0,
+          "us": 27.82400045543909,
+          "info": "ready=1,algo=66,tile=312,stages=35,splitK=1,reduction=0,workspace=0",
+          "confirmed_ratio": 1.0045878235915602,
+          "base_us": 27.488000690937042,
+          "confirmed_us": 27.408000081777573
+        },
+        {
+          "transposed": false,
+          "rank": 0,
+          "us": 28.272000141441822,
+          "info": "ready=1,algo=66,tile=312,stages=35,splitK=1,reduction=0,workspace=0",
+          "confirmed_ratio": 0.9891392878616667,
+          "base_us": 27.68000029027462,
+          "confirmed_us": 28.063999488949776
+        },
+        {
+          "transposed": false,
+          "rank": 6,
+          "us": 29.47199996560812,
+          "info": "ready=1,algo=66,tile=27,stages=35,splitK=1,reduction=0,workspace=0",
+          "confirmed_ratio": 0.9412516907368581,
+          "base_us": 27.567999437451363,
+          "confirmed_us": 29.40800040960312
+        }
+      ],
+      "all_trials": [
+        {
+          "transposed": false,
+          "rank": 0,
+          "us": 28.272000141441822,
+          "info": "ready=1,algo=66,tile=312,stages=35,splitK=1,reduction=0,workspace=0"
+        },
+        {
+          "transposed": false,
+          "rank": 1,
+          "us": 30.41600063443184,
+          "info": "ready=1,algo=66,tile=394,stages=35,splitK=2,reduction=2,workspace=1048592"
+        },
+        {
+          "transposed": false,
+          "rank": 2,
+          "us": 31.456001102924347,
+          "info": "ready=1,algo=66,tile=449,stages=35,splitK=3,reduction=2,workspace=1572880"
+        },
+        {
+          "transposed": false,
+          "rank": 3,
+          "us": 31.90400078892708,
+          "info": "ready=1,algo=66,tile=487,stages=35,splitK=3,reduction=2,workspace=1572880"
+        },
+        {
+          "transposed": false,
+          "rank": 4,
+          "us": 31.888000667095184,
+          "info": "ready=1,algo=66,tile=538,stages=35,splitK=3,reduction=2,workspace=1572880"
+        },
+        {
+          "transposed": false,
+          "rank": 5,
+          "us": 31.120000407099724,
+          "info": "ready=1,algo=66,tile=134,stages=35,splitK=1,reduction=0,workspace=0"
+        },
+        {
+          "transposed": false,
+          "rank": 6,
+          "us": 29.47199996560812,
+          "info": "ready=1,algo=66,tile=27,stages=35,splitK=1,reduction=0,workspace=0"
+        },
+        {
+          "transposed": false,
+          "rank": 7,
+          "us": 36.080000922083855,
+          "info": "ready=1,algo=66,tile=574,stages=35,splitK=3,reduction=2,workspace=1572880"
+        },
+        {
+          "transposed": true,
+          "rank": 0,
+          "us": 27.82400045543909,
+          "info": "ready=1,algo=66,tile=312,stages=35,splitK=1,reduction=0,workspace=0"
+        },
+        {
+          "transposed": true,
+          "rank": 1,
+          "us": 29.759999364614487,
+          "info": "ready=1,algo=66,tile=394,stages=35,splitK=2,reduction=2,workspace=1048592"
+        },
+        {
+          "transposed": true,
+          "rank": 2,
+          "us": 31.135999597609043,
+          "info": "ready=1,algo=66,tile=449,stages=35,splitK=3,reduction=2,workspace=1572880"
+        },
+        {
+          "transposed": true,
+          "rank": 3,
+          "us": 31.42399899661541,
+          "info": "ready=1,algo=66,tile=487,stages=35,splitK=3,reduction=2,workspace=1572880"
+        },
+        {
+          "transposed": true,
+          "rank": 4,
+          "us": 32.08000026643276,
+          "info": "ready=1,algo=66,tile=538,stages=35,splitK=3,reduction=2,workspace=1572880"
+        },
+        {
+          "transposed": true,
+          "rank": 5,
+          "us": 33.743999898433685,
+          "info": "ready=1,algo=66,tile=27,stages=35,splitK=1,reduction=0,workspace=0"
+        },
+        {
+          "transposed": true,
+          "rank": 6,
+          "us": 34.352000802755356,
+          "info": "ready=1,algo=66,tile=574,stages=35,splitK=3,reduction=2,workspace=1572880"
+        },
+        {
+          "transposed": true,
+          "rank": 7,
+          "us": 42.080000042915344,
+          "info": "ready=1,algo=66,tile=12,stages=35,splitK=1,reduction=0,workspace=0"
+        }
+      ]
+    },
+    {
+      "layer": "unpooler",
+      "m": 32,
+      "control_ratio": 0.9976771694878003,
+      "base_us": 27.488000690937042,
+      "tested": 16,
+      "choices": [
+        {
+          "transposed": true,
+          "rank": 0,
+          "us": 27.55199931561947,
+          "info": "ready=1,algo=66,tile=13,stages=35,splitK=1,reduction=0,workspace=0",
+          "confirmed_ratio": 0.9943839910076493,
+          "base_us": 27.424000203609467,
+          "confirmed_us": 27.520000003278255
+        },
+        {
+          "transposed": false,
+          "rank": 0,
+          "us": 28.12799997627735,
+          "info": "ready=1,algo=66,tile=13,stages=35,splitK=1,reduction=0,workspace=0",
+          "confirmed_ratio": 0.9621872794558843,
+          "base_us": 27.408000081777573,
+          "confirmed_us": 28.44800055027008
+        },
+        {
+          "transposed": false,
+          "rank": 5,
+          "us": 28.895999304950237,
+          "info": "ready=1,algo=66,tile=27,stages=35,splitK=1,reduction=0,workspace=0",
+          "confirmed_ratio": 0.9563757775698298,
+          "base_us": 27.408000081777573,
+          "confirmed_us": 28.783999383449554
+        }
+      ],
+      "all_trials": [
+        {
+          "transposed": false,
+          "rank": 0,
+          "us": 28.12799997627735,
+          "info": "ready=1,algo=66,tile=13,stages=35,splitK=1,reduction=0,workspace=0"
+        },
+        {
+          "transposed": false,
+          "rank": 1,
+          "us": 30.992000363767147,
+          "info": "ready=1,algo=66,tile=16,stages=35,splitK=2,reduction=2,workspace=2097168"
+        },
+        {
+          "transposed": false,
+          "rank": 2,
+          "us": 31.488001346588135,
+          "info": "ready=1,algo=66,tile=451,stages=35,splitK=2,reduction=2,workspace=2097168"
+        },
+        {
+          "transposed": false,
+          "rank": 3,
+          "us": 32.896000891923904,
+          "info": "ready=1,algo=66,tile=35,stages=35,splitK=3,reduction=2,workspace=3145744"
+        },
+        {
+          "transposed": false,
+          "rank": 4,
+          "us": 30.271999537944794,
+          "info": "ready=1,algo=66,tile=134,stages=35,splitK=1,reduction=0,workspace=0"
+        },
+        {
+          "transposed": false,
+          "rank": 5,
+          "us": 28.895999304950237,
+          "info": "ready=1,algo=66,tile=27,stages=35,splitK=1,reduction=0,workspace=0"
+        },
+        {
+          "transposed": false,
+          "rank": 6,
+          "us": 29.328000731766224,
+          "info": "ready=1,algo=66,tile=164,stages=35,splitK=1,reduction=0,workspace=0"
+        },
+        {
+          "transposed": false,
+          "rank": 7,
+          "us": 33.104000613093376,
+          "info": "ready=1,algo=66,tile=540,stages=35,splitK=3,reduction=2,workspace=3145744"
+        },
+        {
+          "transposed": true,
+          "rank": 0,
+          "us": 27.55199931561947,
+          "info": "ready=1,algo=66,tile=13,stages=35,splitK=1,reduction=0,workspace=0"
+        },
+        {
+          "transposed": true,
+          "rank": 1,
+          "us": 30.511999502778053,
+          "info": "ready=1,algo=66,tile=16,stages=35,splitK=2,reduction=2,workspace=2097168"
+        },
+        {
+          "transposed": true,
+          "rank": 2,
+          "us": 31.856000423431396,
+          "info": "ready=1,algo=66,tile=451,stages=35,splitK=3,reduction=2,workspace=3145744"
+        },
+        {
+          "transposed": true,
+          "rank": 3,
+          "us": 32.336000353097916,
+          "info": "ready=1,algo=66,tile=35,stages=35,splitK=3,reduction=2,workspace=3145744"
+        },
+        {
+          "transposed": true,
+          "rank": 4,
+          "us": 31.26399964094162,
+          "info": "ready=1,algo=66,tile=27,stages=35,splitK=1,reduction=0,workspace=0"
+        },
+        {
+          "transposed": true,
+          "rank": 5,
+          "us": 32.78400003910065,
+          "info": "ready=1,algo=66,tile=540,stages=35,splitK=3,reduction=2,workspace=3145744"
+        },
+        {
+          "transposed": true,
+          "rank": 6,
+          "us": 39.93599861860275,
+          "info": "ready=1,algo=66,tile=12,stages=35,splitK=1,reduction=0,workspace=0"
+        },
+        {
+          "transposed": true,
+          "rank": 7,
+          "us": 35.53600050508976,
+          "info": "ready=1,algo=66,tile=576,stages=35,splitK=3,reduction=2,workspace=3145744"
+        }
+      ]
+    },
+    {
+      "layer": "unpooler",
+      "m": 128,
+      "control_ratio": 0.9939394118210365,
+      "base_us": 28.863999992609024,
+      "tested": 16,
+      "choices": [
+        {
+          "transposed": true,
+          "rank": 0,
+          "us": 28.975999914109707,
+          "info": "ready=1,algo=66,tile=18,stages=35,splitK=1,reduction=0,workspace=0",
+          "confirmed_ratio": 1.0044229145269614,
+          "base_us": 29.103999957442284,
+          "confirmed_us": 28.944000601768494
+        },
+        {
+          "transposed": false,
+          "rank": 0,
+          "us": 29.32799980044365,
+          "info": "ready=1,algo=66,tile=18,stages=35,splitK=1,reduction=0,workspace=0",
+          "confirmed_ratio": 0.988564726760117,
+          "base_us": 29.00799922645092,
+          "confirmed_us": 29.40800040960312
+        },
+        {
+          "transposed": true,
+          "rank": 1,
+          "us": 29.791999608278275,
+          "info": "ready=1,algo=66,tile=17,stages=35,splitK=1,reduction=0,workspace=0",
+          "confirmed_ratio": 0.9661905583720285,
+          "base_us": 29.16800044476986,
+          "confirmed_us": 30.239999294281006
+        }
+      ],
+      "all_trials": [
+        {
+          "transposed": false,
+          "rank": 0,
+          "us": 29.32799980044365,
+          "info": "ready=1,algo=66,tile=18,stages=35,splitK=1,reduction=0,workspace=0"
+        },
+        {
+          "transposed": false,
+          "rank": 1,
+          "us": 30.383999459445477,
+          "info": "ready=1,algo=66,tile=17,stages=35,splitK=1,reduction=0,workspace=0"
+        },
+        {
+          "transposed": false,
+          "rank": 2,
+          "us": 30.192000791430473,
+          "info": "ready=1,algo=66,tile=135,stages=35,splitK=1,reduction=0,workspace=0"
+        },
+        {
+          "transposed": false,
+          "rank": 3,
+          "us": 30.352000147104263,
+          "info": "ready=1,algo=66,tile=400,stages=35,splitK=1,reduction=0,workspace=0"
+        },
+        {
+          "transposed": false,
+          "rank": 4,
+          "us": 30.527999624609947,
+          "info": "ready=1,algo=66,tile=28,stages=35,splitK=1,reduction=0,workspace=0"
+        },
+        {
+          "transposed": false,
+          "rank": 5,
+          "us": 30.832000076770782,
+          "info": "ready=1,algo=66,tile=15,stages=35,splitK=1,reduction=0,workspace=0"
+        },
+        {
+          "transposed": false,
+          "rank": 6,
+          "us": 33.03999826312065,
+          "info": "ready=1,algo=66,tile=208,stages=35,splitK=1,reduction=0,workspace=0"
+        },
+        {
+          "transposed": false,
+          "rank": 7,
+          "us": 35.16799956560135,
+          "info": "ready=1,algo=66,tile=20,stages=35,splitK=2,reduction=2,workspace=8388624"
+        },
+        {
+          "transposed": true,
+          "rank": 0,
+          "us": 28.975999914109707,
+          "info": "ready=1,algo=66,tile=18,stages=35,splitK=1,reduction=0,workspace=0"
+        },
+        {
+          "transposed": true,
+          "rank": 1,
+          "us": 29.791999608278275,
+          "info": "ready=1,algo=66,tile=17,stages=35,splitK=1,reduction=0,workspace=0"
+        },
+        {
+          "transposed": true,
+          "rank": 2,
+          "us": 29.79200053960085,
+          "info": "ready=1,algo=66,tile=400,stages=35,splitK=1,reduction=0,workspace=0"
+        },
+        {
+          "transposed": true,
+          "rank": 3,
+          "us": 33.52000005543232,
+          "info": "ready=1,algo=66,tile=28,stages=35,splitK=1,reduction=0,workspace=0"
+        },
+        {
+          "transposed": true,
+          "rank": 4,
+          "us": 30.464000068604946,
+          "info": "ready=1,algo=66,tile=15,stages=35,splitK=1,reduction=0,workspace=0"
+        },
+        {
+          "transposed": true,
+          "rank": 5,
+          "us": 33.584000542759895,
+          "info": "ready=1,algo=66,tile=208,stages=35,splitK=1,reduction=0,workspace=0"
+        },
+        {
+          "transposed": true,
+          "rank": 6,
+          "us": 34.65599939227104,
+          "info": "ready=1,algo=66,tile=20,stages=35,splitK=2,reduction=2,workspace=8388624"
+        },
+        {
+          "transposed": true,
+          "rank": 7,
+          "us": 34.511998295784,
+          "info": "ready=1,algo=66,tile=21,stages=35,splitK=2,reduction=2,workspace=8388624"
+        }
+      ]
+    },
+    {
+      "layer": "unpooler",
+      "m": 256,
+      "control_ratio": 1.0027726644336874,
+      "base_us": 34.71999987959862,
+      "tested": 16,
+      "choices": [
+        {
+          "transposed": false,
+          "rank": 0,
+          "us": 33.135998994112015,
+          "info": "ready=1,algo=66,tile=20,stages=35,splitK=1,reduction=0,workspace=0",
+          "confirmed_ratio": 1.0433216298831933,
+          "base_us": 34.68799963593483,
+          "confirmed_us": 33.11999887228012
+        },
+        {
+          "transposed": false,
+          "rank": 2,
+          "us": 33.96799974143505,
+          "info": "ready=1,algo=66,tile=184,stages=35,splitK=1,reduction=0,workspace=0",
+          "confirmed_ratio": 1.0163522685169122,
+          "base_us": 34.65599939227104,
+          "confirmed_us": 33.92000123858452
+        },
+        {
+          "transposed": true,
+          "rank": 0,
+          "us": 35.232000052928925,
+          "info": "ready=1,algo=66,tile=20,stages=35,splitK=1,reduction=0,workspace=0",
+          "confirmed_ratio": 1.0018849735476092,
+          "base_us": 34.671999514102936,
+          "confirmed_us": 34.89600121974945
+        }
+      ],
+      "all_trials": [
+        {
+          "transposed": false,
+          "rank": 0,
+          "us": 33.135998994112015,
+          "info": "ready=1,algo=66,tile=20,stages=35,splitK=1,reduction=0,workspace=0"
+        },
+        {
+          "transposed": false,
+          "rank": 1,
+          "us": 36.927999928593636,
+          "info": "ready=1,algo=66,tile=21,stages=35,splitK=1,reduction=0,workspace=0"
+        },
+        {
+          "transposed": false,
+          "rank": 2,
+          "us": 33.96799974143505,
+          "info": "ready=1,algo=66,tile=184,stages=35,splitK=1,reduction=0,workspace=0"
+        },
+        {
+          "transposed": false,
+          "rank": 3,
+          "us": 36.927999928593636,
+          "info": "ready=1,algo=66,tile=458,stages=35,splitK=1,reduction=0,workspace=0"
+        },
+        {
+          "transposed": false,
+          "rank": 4,
+          "us": 38.24000060558319,
+          "info": "ready=1,algo=66,tile=197,stages=35,splitK=1,reduction=0,workspace=0"
+        },
+        {
+          "transposed": false,
+          "rank": 5,
+          "us": 40.063999593257904,
+          "info": "ready=1,algo=66,tile=18,stages=35,splitK=1,reduction=0,workspace=0"
+        },
+        {
+          "transposed": false,
+          "rank": 6,
+          "us": 38.63999992609024,
+          "info": "ready=1,algo=66,tile=17,stages=35,splitK=1,reduction=0,workspace=0"
+        },
+        {
+          "transposed": false,
+          "rank": 7,
+          "us": 39.2800010740757,
+          "info": "ready=1,algo=66,tile=201,stages=35,splitK=1,reduction=0,workspace=0"
+        },
+        {
+          "transposed": true,
+          "rank": 0,
+          "us": 35.232000052928925,
+          "info": "ready=1,algo=66,tile=20,stages=35,splitK=1,reduction=0,workspace=0"
+        },
+        {
+          "transposed": true,
+          "rank": 1,
+          "us": 36.12799942493439,
+          "info": "ready=1,algo=66,tile=21,stages=35,splitK=1,reduction=0,workspace=0"
+        },
+        {
+          "transposed": true,
+          "rank": 2,
+          "us": 39.29600119590759,
+          "info": "ready=1,algo=66,tile=458,stages=35,splitK=1,reduction=0,workspace=0"
+        },
+        {
+          "transposed": true,
+          "rank": 3,
+          "us": 38.84800150990486,
+          "info": "ready=1,algo=66,tile=18,stages=35,splitK=1,reduction=0,workspace=0"
+        },
+        {
+          "transposed": true,
+          "rank": 4,
+          "us": 39.07199949026108,
+          "info": "ready=1,algo=66,tile=17,stages=35,splitK=1,reduction=0,workspace=0"
+        },
+        {
+          "transposed": true,
+          "rank": 5,
+          "us": 39.792001247406006,
+          "info": "ready=1,algo=66,tile=29,stages=35,splitK=1,reduction=0,workspace=0"
+        },
+        {
+          "transposed": true,
+          "rank": 6,
+          "us": 42.3360001295805,
+          "info": "ready=1,algo=66,tile=247,stages=35,splitK=1,reduction=0,workspace=0"
+        },
+        {
+          "transposed": true,
+          "rank": 7,
+          "us": 40.111999958753586,
+          "info": "ready=1,algo=66,tile=31,stages=35,splitK=1,reduction=0,workspace=0"
+        }
+      ]
+    }
+  ],
+  "source_sha256": "57a7b3baadf2530fd188ae60e243988b2c810030b1c4c31395bb4ecd23ac033d"
+}

@@ -1,0 +1,5 @@
+
+#include <pybind11/pybind11.h>
+#include <stdint.h>
+int m32x_launch(int inst, int64_t wp, int64_t x, int64_t out, int64_t esc, int m, int N, int K, int WR, int WK, int KU,
+              int S, int64_t t01, int64_t u01, int64_t stream, int query);

@@ -1,0 +1,242 @@
+[
+  {
+    "layer": "qkv_gate",
+    "m": 1,
+    "load": "decode 1",
+    "official_us": 9.485293968503202,
+    "reference_floor_us": 7.868693333333334,
+    "load_share": 0.2664663187951544
+  },
+  {
+    "layer": "o",
+    "m": 1,
+    "load": "decode 1",
+    "official_us": 5.004742441692783,
+    "reference_floor_us": 3.499093333333333,
+    "load_share": 0.14059609532230372
+  },
+  {
+    "layer": "pooler",
+    "m": 1,
+    "load": "decode 1",
+    "official_us": 13.384773859743847,
+    "reference_floor_us": 13.986133333333333,
+    "load_share": 0.37601274458701556
+  },
+  {
+    "layer": "unpooler",
+    "m": 1,
+    "load": "decode 1",
+    "official_us": 3.9180391150838694,
+    "reference_floor_us": 1.74976,
+    "load_share": 0.1100678021533762
+  },
+  {
+    "layer": "router",
+    "m": 1,
+    "load": "decode 1",
+    "official_us": 3.8037468804690775,
+    "reference_floor_us": 1.7512533333333333,
+    "load_share": 0.10685703914215014
+  },
+  {
+    "layer": "qkv_gate",
+    "m": 16,
+    "load": "decode 16",
+    "official_us": 10.440135824324583,
+    "reference_floor_us": 7.934293333333334,
+    "load_share": 0.22089657821349934
+  },
+  {
+    "layer": "o",
+    "m": 16,
+    "load": "decode 16",
+    "official_us": 5.543812848515273,
+    "reference_floor_us": 3.556693333333333,
+    "load_share": 0.11729821422819292
+  },
+  {
+    "layer": "pooler",
+    "m": 16,
+    "load": "decode 16",
+    "official_us": 13.63392716565055,
+    "reference_floor_us": 14.062933333333334,
+    "load_share": 0.2884720954958571
+  },
+  {
+    "layer": "unpooler",
+    "m": 16,
+    "load": "decode 16",
+    "official_us": 13.60109856674288,
+    "reference_floor_us": 14.062933333333334,
+    "load_share": 0.287777494842353
+  },
+  {
+    "layer": "router",
+    "m": 16,
+    "load": "decode 16",
+    "official_us": 4.043576734124155,
+    "reference_floor_us": 1.805653333333333,
+    "load_share": 0.08555561722009765
+  },
+  {
+    "layer": "qkv_gate",
+    "m": 32,
+    "load": "decode 32",
+    "official_us": 11.698145900059334,
+    "reference_floor_us": 8.004266666666668,
+    "load_share": 0.21692339210025782
+  },
+  {
+    "layer": "o",
+    "m": 32,
+    "load": "decode 32",
+    "official_us": 5.761900913222982,
+    "reference_floor_us": 3.6181333333333336,
+    "load_share": 0.1068452301518622
+  },
+  {
+    "layer": "pooler",
+    "m": 32,
+    "load": "decode 32",
+    "official_us": 16.15121659386174,
+    "reference_floor_us": 14.144853333333334,
+    "load_share": 0.29949846069783514
+  },
+  {
+    "layer": "unpooler",
+    "m": 32,
+    "load": "decode 32",
+    "official_us": 15.27119841406521,
+    "reference_floor_us": 14.144853333333334,
+    "load_share": 0.2831799320778091
+  },
+  {
+    "layer": "router",
+    "m": 32,
+    "load": "decode 32",
+    "official_us": 5.0450827686,
+    "reference_floor_us": 1.8636799999999998,
+    "load_share": 0.09355298497223576
+  },
+  {
+    "layer": "qkv_gate",
+    "m": 8,
+    "load": "verify 1",
+    "official_us": 9.635040123784023,
+    "reference_floor_us": 7.899306666666666,
+    "load_share": 0.25815555227893366
+  },
+  {
+    "layer": "o",
+    "m": 8,
+    "load": "verify 1",
+    "official_us": 5.249600114748697,
+    "reference_floor_us": 3.5259733333333334,
+    "load_share": 0.1406546728872638
+  },
+  {
+    "layer": "pooler",
+    "m": 8,
+    "load": "verify 1",
+    "official_us": 13.789555140622822,
+    "reference_floor_us": 14.021973333333333,
+    "load_share": 0.3694691643494904
+  },
+  {
+    "layer": "unpooler",
+    "m": 8,
+    "load": "verify 1",
+    "official_us": 4.465630880202228,
+    "reference_floor_us": 1.7646933333333334,
+    "load_share": 0.11964946604702988
+  },
+  {
+    "layer": "router",
+    "m": 8,
+    "load": "verify 1",
+    "official_us": 4.182788105230797,
+    "reference_floor_us": 1.7766399999999998,
+    "load_share": 0.11207114443728243
+  },
+  {
+    "layer": "qkv_gate",
+    "m": 128,
+    "load": "verify 16",
+    "official_us": 13.977244724063723,
+    "reference_floor_us": 8.424106666666667,
+    "load_share": 0.21240812612691656
+  },
+  {
+    "layer": "o",
+    "m": 128,
+    "load": "verify 16",
+    "official_us": 6.574897741079199,
+    "reference_floor_us": 3.9867733333333333,
+    "load_share": 0.09991681023187345
+  },
+  {
+    "layer": "pooler",
+    "m": 128,
+    "load": "verify 16",
+    "official_us": 20.36844514321316,
+    "reference_floor_us": 14.636373333333333,
+    "load_share": 0.30953334154193335
+  },
+  {
+    "layer": "unpooler",
+    "m": 128,
+    "load": "verify 16",
+    "official_us": 18.946995360870694,
+    "reference_floor_us": 14.636373333333333,
+    "load_share": 0.28793198228898503
+  },
+  {
+    "layer": "router",
+    "m": 128,
+    "load": "verify 16",
+    "official_us": 5.936136403129718,
+    "reference_floor_us": 2.21184,
+    "load_share": 0.0902097398102915
+  },
+  {
+    "layer": "qkv_gate",
+    "m": 256,
+    "load": "verify 32",
+    "official_us": 18.336193520959082,
+    "reference_floor_us": 9.771159166835186,
+    "load_share": 0.22033287341836827
+  },
+  {
+    "layer": "o",
+    "m": 256,
+    "load": "verify 32",
+    "official_us": 8.890149365261681,
+    "reference_floor_us": 4.478293333333333,
+    "load_share": 0.1068265424079214
+  },
+  {
+    "layer": "pooler",
+    "m": 256,
+    "load": "verify 32",
+    "official_us": 24.93042255787928,
+    "reference_floor_us": 17.37094962992922,
+    "load_share": 0.2995709895531434
+  },
+  {
+    "layer": "unpooler",
+    "m": 256,
+    "load": "verify 32",
+    "official_us": 23.22841277804792,
+    "reference_floor_us": 17.37094962992922,
+    "load_share": 0.27911915995460884
+  },
+  {
+    "layer": "router",
+    "m": 256,
+    "load": "verify 32",
+    "official_us": 7.835238397855443,
+    "reference_floor_us": 2.6760533333333334,
+    "load_share": 0.09415043466595809
+  }
+]

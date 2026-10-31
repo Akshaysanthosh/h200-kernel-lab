@@ -1,0 +1,113 @@
+
+#include <cuda.h>
+#include <cuda_runtime.h>
+#include <cuda_bf16.h>
+#include <stdint.h>
+#include <algorithm>
+#define RD __device__ __forceinline__
+RD uint32_t routertail_smem(const void* p) { return (uint32_t)__cvta_generic_to_shared(p); }
+RD void routertail_init(uint32_t b, int n) { asm volatile("mbarrier.init.shared::cta.b64 [%0], %1;" ::"r"(b),"r"(n):"memory"); }
+RD void routertail_expect(uint32_t b, int n) { asm volatile("mbarrier.arrive.expect_tx.shared::cta.b64 _, [%0], %1;" ::"r"(b),"r"(n):"memory"); }
+RD void routertail_wait(uint32_t b, int ph) {
+  asm volatile("{ .reg .pred p; wait: mbarrier.try_wait.parity.acquire.cluster.shared::cta.b64 p, [%0], %1; @!p bra wait; }" ::"r"(b),"r"(ph):"memory");
+}
+RD void routertail_sync() { asm volatile("barrier.cluster.arrive.release.aligned; barrier.cluster.wait.acquire.aligned;" :::"memory"); }
+RD uint32_t routertail_map(uint32_t a, int r) { uint32_t b; asm("mapa.shared::cluster.u32 %0, %1, %2;":"=r"(b):"r"(a),"r"(r));return b; }
+RD void routertail_push(uint32_t d, float4 v, uint32_t b) {
+  asm volatile("st.async.shared::cluster.mbarrier::complete_tx::bytes.v4.f32 [%0], {%1,%2,%3,%4}, [%5];" ::"r"(d),"f"(v.x),"f"(v.y),"f"(v.z),"f"(v.w),"r"(b):"memory");
+}
+RD float4 routertail_pull(uint32_t d) {
+  float4 v; asm volatile("ld.shared::cluster.v4.f32 {%0,%1,%2,%3}, [%4];":"=f"(v.x),"=f"(v.y),"=f"(v.z),"=f"(v.w):"r"(d):"memory");return v;
+}
+RD void routertail_add(float4& a,float4 b) { a.x+=b.x;a.y+=b.y;a.z+=b.z;a.w+=b.w; }
+RD uint64_t routertail_desc(uint32_t a) { return (uint64_t)((a&0x3ffff)>>4)|((uint64_t)64<<32)|((uint64_t)1<<62); }
+RD void routertail_tma(uint32_t dst, const void* tm, int k,int r,uint32_t bar) {
+  asm volatile("cp.async.bulk.tensor.2d.shared::cluster.global.mbarrier::complete_tx::bytes [%0], [%1, {%2,%3}], [%4];" ::"r"(dst),"l"(tm),"r"(k),"r"(r),"r"(bar):"memory");
+}
+
+template<int MT,int S,int WK>
+__global__ __launch_bounds__(WK*32) void routertail_small_kernel(const int4* wp,const __nv_bfloat16* x,float* out,int m) {
+  constexpr int KU=128/S/WK, NI=MT*32, P=4, OWN=NI/P, PARTS=S*1;
+  const int tid=threadIdx.x,lane=tid&31,warp=tid>>5,rank=blockIdx.x%S,row=blockIdx.x/S*16;
+  const int gw=(rank*16+row/16)*WK+warp;
+  extern __shared__ __align__(16) unsigned char sm[];
+  float4* recv=(float4*)sm;
+  float4* part=recv+PARTS*OWN;
+  const uint32_t rb=routertail_smem(sm+(PARTS*OWN+WK*NI)*16);
+  int4 w[KU][8];uint4 xx[KU][MT][2];
+#pragma unroll
+  for(int k=0;k<KU;k++) {
+#pragma unroll
+    for(int j=0;j<8;j++) {
+      const int4* p=wp+((k*(16*S*WK)+gw)*8+j)*32+lane;
+      asm volatile("ld.global.nc.L1::no_allocate.v4.s32 {%0,%1,%2,%3}, [%4];":"=r"(w[k][j].x),"=r"(w[k][j].y),"=r"(w[k][j].z),"=r"(w[k][j].w):"l"(p));
+    }
+#pragma unroll
+    for(int n=0;n<MT;n++) {
+      const __nv_bfloat16* p=x+min(n*8+(lane>>2),m-1)*8192+((rank*WK+warp)*KU+k)*64+(lane&3)*16;
+#pragma unroll
+      for(int h=0;h<2;h++) asm volatile("ld.global.nc.v4.u32 {%0,%1,%2,%3}, [%4];":"=r"(xx[k][n][h].x),"=r"(xx[k][n][h].y),"=r"(xx[k][n][h].z),"=r"(xx[k][n][h].w):"l"(p+h*8));
+    }
+  }
+  if(rank<P && tid==0) {routertail_init(rb,1);asm volatile("fence.proxy.async.shared::cta;" :::"memory");}
+  __syncthreads();
+  if(rank<P && tid==0) {routertail_expect(rb,PARTS*OWN*16);asm volatile("fence.mbarrier_init.release.cluster;" :::"memory");}
+  asm volatile("barrier.cluster.arrive.relaxed.aligned;" :::"memory");
+  float c[2][MT][4]={};
+#pragma unroll
+  for(int k=0;k<KU;k++) {
+#pragma unroll
+    for(int n=0;n<MT;n++) {
+      uint32_t b[8]={xx[k][n][0].x,xx[k][n][0].y,xx[k][n][0].z,xx[k][n][0].w,xx[k][n][1].x,xx[k][n][1].y,xx[k][n][1].z,xx[k][n][1].w};
+#pragma unroll
+      for(int q=0;q<4;q++) {
+#pragma unroll
+        for(int h=0;h<2;h++) {
+          const int4 a=w[k][q+h*4];
+          asm volatile("mma.sync.aligned.m16n8k16.row.col.f32.bf16.bf16.f32 {%0,%1,%2,%3}, {%4,%5,%6,%7}, {%8,%9}, {%0,%1,%2,%3};"
+                       :"+f"(c[h][n][0]),"+f"(c[h][n][1]),"+f"(c[h][n][2]),"+f"(c[h][n][3]):"r"(a.x),"r"(a.y),"r"(a.z),"r"(a.w),"r"(b[2*q]),"r"(b[2*q+1]));
+        }
+      }
+    }
+  }
+#pragma unroll
+  for(int n=0;n<MT;n++) part[warp*NI+n*32+lane]=make_float4(c[0][n][0]+c[1][n][0],c[0][n][1]+c[1][n][1],c[0][n][2]+c[1][n][2],c[0][n][3]+c[1][n][3]);
+  __syncthreads();
+  asm volatile("barrier.cluster.wait.acquire.aligned;" :::"memory");
+  if(tid<NI) {
+    float4 sum=make_float4(0,0,0,0);
+#pragma unroll
+    for(int k=0;k<WK;k++) routertail_add(sum,part[k*NI+tid]);
+    const int dst=tid/OWN,local=tid%OWN;
+    routertail_push(routertail_map(routertail_smem(recv+rank*OWN+local),dst),sum,routertail_map(rb,dst));
+  }
+
+  if(rank<P && tid<OWN) {
+    routertail_wait(rb,0);
+    float4 sum=make_float4(0,0,0,0);
+#pragma unroll
+    for(int k=0;k<PARTS;k++) routertail_add(sum,recv[k*OWN+tid]);
+    const int v=rank*OWN+tid,ln=v%32,tok=(v/32)*8+(ln&3)*2,wr=row+(ln>>2);
+    if(tok<m){out[tok*256+wr]=sum.x;out[tok*256+wr+8]=sum.z;}
+    if(tok+1<m){out[(tok+1)*256+wr]=sum.y;out[(tok+1)*256+wr+8]=sum.w;}
+  }
+
+}
+
+template<int MT,int S,int WK>
+int routertail_small_t(int64_t w,int64_t x,int64_t out,int m,int64_t stream,int query) {
+  auto fn=routertail_small_kernel<MT,S,WK>;
+  constexpr int bytes=(S*1/4+WK)*MT*512+16;
+  static bool configured=false;
+  if(!configured){cudaFuncSetAttribute(fn,cudaFuncAttributeMaxDynamicSharedMemorySize,bytes);cudaFuncSetAttribute(fn,cudaFuncAttributeNonPortableClusterSizeAllowed,1);configured=true;}
+  if(query==2){cudaFuncAttributes fa;cudaFuncGetAttributes(&fa,fn);return fa.numRegs*1000+fa.localSizeBytes;}
+  cudaLaunchConfig_t cfg={};cfg.gridDim=dim3(16*S);cfg.blockDim=dim3(WK*32);cfg.dynamicSmemBytes=bytes;cfg.stream=(cudaStream_t)stream;
+  cudaLaunchAttribute at;at.id=cudaLaunchAttributeClusterDimension;at.val.clusterDim={S,1,1};cfg.attrs=&at;cfg.numAttrs=1;
+  return (int)cudaLaunchKernelEx(&cfg,fn,(const int4*)w,(const __nv_bfloat16*)x,(float*)out,m);
+}
+int routertail_small(int64_t w,int64_t x,int64_t out,int m,int s,int wk,int64_t stream,int query) {
+#define RSM(S,W) if(s==S && wk==W) {if(m<=8)return routertail_small_t<1,S,W>(w,x,out,m,stream,query);if(m<=16)return routertail_small_t<2,S,W>(w,x,out,m,stream,query);if(m<=32)return routertail_small_t<4,S,W>(w,x,out,m,stream,query);}
+RSM(8,8) RSM(16,8) RSM(16,4)
+return -99;
+}
+

@@ -1,0 +1,377 @@
+{
+  "passed": true,
+  "official_score": false,
+  "gpu": "NVIDIA H200",
+  "torch": "2.14.1+cu130",
+  "cuda": "13.0",
+  "lt_version": 130101,
+  "shapes": [
+    {
+      "m": 128,
+      "layer": "pooler",
+      "tested": 32,
+      "finalists": [
+        {
+          "ratio": 0.8396330409824784,
+          "baseline_us": 24.447999894618988,
+          "candidate_us": 29.071999713778496,
+          "inst": [
+            128,
+            64,
+            2,
+            2,
+            2,
+            true,
+            1
+          ],
+          "split": 2,
+          "idx": 3,
+          "max_esc": 13,
+          "registers_per_thread": 140
+        },
+        {
+          "ratio": 0.797927689746661,
+          "baseline_us": 24.36799928545952,
+          "candidate_us": 30.38400039076805,
+          "inst": [
+            128,
+            64,
+            2,
+            1,
+            2,
+            true,
+            1
+          ],
+          "split": 2,
+          "idx": 2,
+          "max_esc": 13,
+          "registers_per_thread": 127
+        },
+        {
+          "ratio": 0.7406777477830254,
+          "baseline_us": 24.272000417113304,
+          "candidate_us": 32.48000144958496,
+          "inst": [
+            128,
+            64,
+            1,
+            2,
+            2,
+            true,
+            1
+          ],
+          "split": 4,
+          "idx": 1,
+          "max_esc": 13,
+          "registers_per_thread": 140
+        }
+      ]
+    },
+    {
+      "m": 256,
+      "layer": "pooler",
+      "tested": 32,
+      "finalists": [
+        {
+          "ratio": 0.7679457469072349,
+          "baseline_us": 28.192000463604927,
+          "candidate_us": 36.928001791238785,
+          "inst": [
+            256,
+            64,
+            2,
+            2,
+            2,
+            true,
+            1
+          ],
+          "split": 2,
+          "idx": 7,
+          "max_esc": 13,
+          "registers_per_thread": 202
+        },
+        {
+          "ratio": 0.7579134640218249,
+          "baseline_us": 28.095999732613564,
+          "candidate_us": 37.29600086808205,
+          "inst": [
+            256,
+            64,
+            2,
+            1,
+            2,
+            true,
+            1
+          ],
+          "split": 2,
+          "idx": 6,
+          "max_esc": 13,
+          "registers_per_thread": 191
+        },
+        {
+          "ratio": 0.7218266443863337,
+          "baseline_us": 28.12799997627735,
+          "candidate_us": 39.20000046491623,
+          "inst": [
+            128,
+            64,
+            2,
+            1,
+            2,
+            true,
+            1
+          ],
+          "split": 2,
+          "idx": 2,
+          "max_esc": 13,
+          "registers_per_thread": 127
+        }
+      ]
+    },
+    {
+      "m": 128,
+      "layer": "unpooler",
+      "tested": 32,
+      "finalists": [
+        {
+          "ratio": 0.9075710063704522,
+          "baseline_us": 23.00800010561943,
+          "candidate_us": 25.312000885605812,
+          "inst": [
+            128,
+            64,
+            2,
+            1,
+            2,
+            true,
+            1
+          ],
+          "split": 2,
+          "idx": 2,
+          "max_esc": 7,
+          "registers_per_thread": 127
+        },
+        {
+          "ratio": 0.8201490784559049,
+          "baseline_us": 22.991999983787537,
+          "candidate_us": 27.92000025510788,
+          "inst": [
+            128,
+            64,
+            2,
+            2,
+            2,
+            true,
+            1
+          ],
+          "split": 1,
+          "idx": 3,
+          "max_esc": 11,
+          "registers_per_thread": 140
+        },
+        {
+          "ratio": 0.7895742636097267,
+          "baseline_us": 23.024000227451324,
+          "candidate_us": 29.152000322937965,
+          "inst": [
+            128,
+            64,
+            2,
+            1,
+            2,
+            true,
+            1
+          ],
+          "split": 1,
+          "idx": 2,
+          "max_esc": 11,
+          "registers_per_thread": 127
+        }
+      ]
+    },
+    {
+      "m": 256,
+      "layer": "unpooler",
+      "tested": 32,
+      "finalists": [
+        {
+          "ratio": 0.7606983725199004,
+          "baseline_us": 27.488000690937042,
+          "candidate_us": 36.159999668598175,
+          "inst": [
+            256,
+            64,
+            2,
+            1,
+            2,
+            true,
+            1
+          ],
+          "split": 1,
+          "idx": 6,
+          "max_esc": 11,
+          "registers_per_thread": 191
+        },
+        {
+          "ratio": 0.7686168737931074,
+          "baseline_us": 27.55199931561947,
+          "candidate_us": 35.90400144457817,
+          "inst": [
+            256,
+            64,
+            2,
+            2,
+            2,
+            true,
+            1
+          ],
+          "split": 1,
+          "idx": 7,
+          "max_esc": 11,
+          "registers_per_thread": 202
+        },
+        {
+          "ratio": 0.7415583918814836,
+          "baseline_us": 27.488000690937042,
+          "candidate_us": 37.248000502586365,
+          "inst": [
+            128,
+            64,
+            2,
+            1,
+            2,
+            true,
+            1
+          ],
+          "split": 1,
+          "idx": 2,
+          "max_esc": 11,
+          "registers_per_thread": 127
+        }
+      ]
+    },
+    {
+      "m": 128,
+      "layer": "qkv_gate",
+      "tested": 32,
+      "finalists": [
+        {
+          "ratio": 0.7682206929916762,
+          "baseline_us": 17.775999382138252,
+          "candidate_us": 23.104000836610794,
+          "inst": [
+            128,
+            64,
+            1,
+            2,
+            2,
+            true,
+            1
+          ],
+          "split": 8,
+          "idx": 1,
+          "max_esc": 9,
+          "registers_per_thread": 140
+        },
+        {
+          "ratio": 0.7620520336666781,
+          "baseline_us": 17.791999503970146,
+          "candidate_us": 23.360000923275948,
+          "inst": [
+            128,
+            64,
+            1,
+            1,
+            2,
+            true,
+            1
+          ],
+          "split": 8,
+          "idx": 0,
+          "max_esc": 9,
+          "registers_per_thread": 127
+        },
+        {
+          "ratio": 0.698497649292028,
+          "baseline_us": 17.791999503970146,
+          "candidate_us": 25.407999753952026,
+          "inst": [
+            128,
+            64,
+            2,
+            1,
+            2,
+            true,
+            1
+          ],
+          "split": 4,
+          "idx": 2,
+          "max_esc": 9,
+          "registers_per_thread": 127
+        }
+      ]
+    },
+    {
+      "m": 256,
+      "layer": "qkv_gate",
+      "tested": 32,
+      "finalists": [
+        {
+          "ratio": 0.6620172787119216,
+          "baseline_us": 21.503999829292297,
+          "candidate_us": 32.68799930810928,
+          "inst": [
+            128,
+            64,
+            1,
+            2,
+            2,
+            true,
+            1
+          ],
+          "split": 4,
+          "idx": 1,
+          "max_esc": 13,
+          "registers_per_thread": 140
+        },
+        {
+          "ratio": 0.6455343583067611,
+          "baseline_us": 21.407999098300934,
+          "candidate_us": 33.215999603271484,
+          "inst": [
+            128,
+            64,
+            1,
+            1,
+            2,
+            true,
+            1
+          ],
+          "split": 4,
+          "idx": 0,
+          "max_esc": 13,
+          "registers_per_thread": 127
+        },
+        {
+          "ratio": 0.5901962026965195,
+          "baseline_us": 21.43999934196472,
+          "candidate_us": 36.43200173974037,
+          "inst": [
+            256,
+            64,
+            1,
+            1,
+            2,
+            true,
+            1
+          ],
+          "split": 4,
+          "idx": 4,
+          "max_esc": 13,
+          "registers_per_thread": 191
+        }
+      ]
+    }
+  ],
+  "source_sha256": "6faa2ae8519e3b9c19b27c2fdf47a2a057c7be89c72583ecfd270175c2144ae7"
+}

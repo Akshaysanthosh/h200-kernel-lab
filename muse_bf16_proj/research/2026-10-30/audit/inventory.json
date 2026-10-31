@@ -1,0 +1,477 @@
+{
+  "source_sha256": "4fe91632d071d64dec8b54085a95ca5ebc8b7235a166460861ee2051cdb08ecc",
+  "imports": [
+    "from concurrent.futures import ThreadPoolExecutor as _PreparePool",
+    "from sglang.srt.layers.quantization.unquant import _bf16_gemm_dispatch_impl",
+    "from torch.utils.cpp_extension import load_inline",
+    "from typing import TypedDict",
+    "import base64 as _zsrc_b64, zlib as _zsrc_zlib",
+    "import hashlib",
+    "import statistics",
+    "import time",
+    "import torch",
+    "import torch.nn.functional as F",
+    "import zlib"
+  ],
+  "embedded_sources": {
+    "SM_CUDA_TEMPLATE": {
+      "bytes": 22501,
+      "sha256": "2aa0e7839f5642960dfbd8dabfeae6103ef62278e341ce7d15be6ac00e7aec7e"
+    },
+    "SM_CPP": {
+      "bytes": 245,
+      "sha256": "5a8840953f3a2a5577c6fd18185835da6e25efe8d97d3dd8d618ab81cec7e33e"
+    },
+    "M32_CUDA_TEMPLATE": {
+      "bytes": 28605,
+      "sha256": "50c6fc497eb904ad2e6f786d06454eb80e74e556370cba36453a4676537c0611"
+    },
+    "M32_CPP": {
+      "bytes": 246,
+      "sha256": "10261abfa095a4561cc8464898b01f78938ae27d71e7e29568c7a190fc6c9a34"
+    },
+    "CUDA": {
+      "bytes": 7890,
+      "sha256": "92201a5469f4e25a6973c07d83c773cf50e5746a408b488abb551f90ff74546d"
+    },
+    "CPP": {
+      "bytes": 417,
+      "sha256": "57d28af1a23659ddf607d67b01f24c1f8363e5058e3b52e189f7fc3ae43a60f9"
+    },
+    "ROUTER_CUDA": {
+      "bytes": 9620,
+      "sha256": "ceb92ecd4f89c3caeeb7e4124454825ca5420f18243b80e8cdb557b16879dbf8"
+    },
+    "ROUTER_CPP": {
+      "bytes": 230,
+      "sha256": "f23283bce5955af7e795922006ed32df11ef3c60fd6a8495da75fed1a359cf51"
+    },
+    "ROUTER_SCALAR": {
+      "bytes": 2342,
+      "sha256": "8c2127de58850df4dda3332c6dbadd40b2c317d39be564b1d2d5a6d9bad1062a"
+    },
+    "ROUTER_SMALL": {
+      "bytes": 4272,
+      "sha256": "11a123cc6677dcab51ca165ca75fe70a1474690adb0cdce8d6c303488b78ff70"
+    },
+    "QKV_CUDA": {
+      "bytes": 10259,
+      "sha256": "bc8bfc4464c9d2c0e7a700f9ef6c2a0d991215192a254422edc702f6c16aaf31"
+    },
+    "QKV_SM_CUDA_TEMPLATE": {
+      "bytes": 29025,
+      "sha256": "0840d42c79996078f91f3e9d298bfe4e0b153d0de7a60d376b649d34371641c0"
+    },
+    "QKV_SM_CPP": {
+      "bytes": 249,
+      "sha256": "da35822ff72f279a34c2b296cac19342f72bb091d621f987219657831325c40a"
+    },
+    "rt2_ROUTER_CUDA": {
+      "bytes": 9886,
+      "sha256": "3bd03e4d427ba5e36b8d1b83f0d32fce01b156b3fbdb823737a237beb7487703"
+    },
+    "rt2_ROUTER_CPP": {
+      "bytes": 233,
+      "sha256": "4fa444c408ae33bf47d631a537858ed8edb1d8ff2b8a663ff737f487e46489d6"
+    },
+    "rt2_ROUTER_SCALAR": {
+      "bytes": 2345,
+      "sha256": "c0e6ba6446ebe02965671c71e5dc3c0d76342f762bf6a4b408980d950bb95ed6"
+    },
+    "rt2_ROUTER_SMALL": {
+      "bytes": 4305,
+      "sha256": "7cf25763f931e1a499aaf4562ad341a436e3025ea5a154c279083e541a530683"
+    },
+    "OLAYER_CUDA": {
+      "bytes": 6864,
+      "sha256": "b3c7b0666d0de587a3fd87633d1bc3b675a38277ac88442d442f26512c0dc171"
+    },
+    "OLAYER_CPP": {
+      "bytes": 111,
+      "sha256": "9463f267bfd395dc120b852dfa2f1119f95dbcd95c2459ebc467f5330f31bbe0"
+    },
+    "CPS32_CUDA_TEMPLATE": {
+      "bytes": 30714,
+      "sha256": "447173f90f588610c93fd98ec3bbeef6b8da79516ae3f36a91b954f127349eb3"
+    },
+    "CPS32_CPP": {
+      "bytes": 248,
+      "sha256": "2e99d4178ab627a0ec7a85befa1b8969c51ed9f1b38c8bc64a2a685088f0b840"
+    },
+    "CPSSM_CUDA_TEMPLATE": {
+      "bytes": 24764,
+      "sha256": "b145713ffc86407d8eec14605c89c8859b83b825e5fc1322a64799bd9c92d423"
+    },
+    "CPSSM_CPP": {
+      "bytes": 248,
+      "sha256": "338490607b7a7a8d62bb3bebafc7b914c4d7d6cc9a143f439be22a63292e7045"
+    },
+    "tt_lt__LT_CPP": {
+      "bytes": 12477,
+      "sha256": "8b47136b8cfbaf5dc634084a70147edb63078961b4b70aedaea754e8160c7e60"
+    },
+    "tt_mw_CUDA_PREFIX": {
+      "bytes": 1867,
+      "sha256": "f2fbec46bbb6c2cebebfad42e86251ffdd30c348910dbee0b21397789660827d"
+    },
+    "tt_mw_CUDA_CORE": {
+      "bytes": 4688,
+      "sha256": "7a4ccf314255ac66c22fe6388eacb06f9df43611f577f0ecc11bf72199583c1e"
+    },
+    "tt_mw_CPP": {
+      "bytes": 154,
+      "sha256": "d4763c60a3f5472c9f82fb033ffbd1b1673845f92396a839ad0bdf17b19b03d2"
+    },
+    "tt_v10_sm2_SMALLM2_CUDA_TEMPLATE": {
+      "bytes": 27001,
+      "sha256": "d9abce4e0444111a815f7727af07b56c3ab19c60864718b9ba23006f941bcbba"
+    },
+    "tt_v10_sm2_SMALLM2_CPP": {
+      "bytes": 306,
+      "sha256": "14e9939af596cde1d7bd63df8e8aff3d7a6815696886abd4fe510035cda03050"
+    },
+    "tt_v10_tune_CUDA": {
+      "bytes": 10814,
+      "sha256": "3adb65d623bd2e6dcb356c38a507092e32904e9bde7e71e2e82ff26ad7c1b8da"
+    },
+    "tt_v10_tune_CPP": {
+      "bytes": 120,
+      "sha256": "d80caca739936e234c2d8a9aab96aef5fae8552fcef05c9e0aa291701970d131"
+    },
+    "tt_v10_tune_RL_CUDA": {
+      "bytes": 6973,
+      "sha256": "db0613648b51f3393825eab1953332014192657c86069ac7e47b7eecb7f7e9a3"
+    },
+    "tt_v10_tune_RL_CPP": {
+      "bytes": 111,
+      "sha256": "c428ade151075355547d6e4a6f08eb9b5761eeac9887c771274f35e50cdfe127"
+    },
+    "tt_v10_warps_W0_CUDA": {
+      "bytes": 31733,
+      "sha256": "c78d7d5a784d8a00b2894ee178dcddbb45345fd7f81f76baaf434bc2d1a404fd"
+    },
+    "tt_v10_warps_W0_CPP": {
+      "bytes": 260,
+      "sha256": "b5d7e85c306d335f5ff02a1f88344d16eeec6d20a03b604b3866c56f03599184"
+    },
+    "tt_v10_m32x__CUDA": {
+      "bytes": 32233,
+      "sha256": "a7eb399d2fd7b8e74d10d4469fd9353fd0fc09d77049d704c59c39da61eb88bb"
+    },
+    "tt_v10_m32x__CPP": {
+      "bytes": 247,
+      "sha256": "f63f395dedb3f82ed2627eddd4d10a550d0ca801193df12cf3d653638a65b703"
+    },
+    "tt_v10_m32x__W_CUDA": {
+      "bytes": 14111,
+      "sha256": "7c0dbd1d51174d60943e996c3c116fa2cda5b3406b10f3d8349592e77d9dea03"
+    },
+    "tt_v10_m32x__W_CPP": {
+      "bytes": 168,
+      "sha256": "be5092059e6e47cf9fa7de3b901aea277c594a97e4bedd30520d3cbf36224271"
+    },
+    "tt_v10_m32x__Q_CUDA": {
+      "bytes": 34861,
+      "sha256": "96029713448db78c52b8e1d8f80b5338415e1bace9f752918cb9cba650d7603b"
+    },
+    "tt_v10_m32x__Q_CPP": {
+      "bytes": 249,
+      "sha256": "aaaa48e71ee1aa080c46d86f12d21732c3deac8d4dd1d9fb9b69a87aefbc6038"
+    },
+    "tt_v12_smtrace1_SMTRACE_CUDA_TEMPLATE": {
+      "bytes": 23109,
+      "sha256": "5c99b1fb5e3e7657e742e062c157f4c43963fce84850d00241be59860ff16075"
+    },
+    "tt_v12_smtrace1_SMTRACE_CPP": {
+      "bytes": 250,
+      "sha256": "5636bc8732a178a04a4ba84e580150c6ee0b5cfc69055206f30dff999ed69707"
+    },
+    "tt_v13_smtrace8_SMTRACE_CUDA_TEMPLATE": {
+      "bytes": 23109,
+      "sha256": "5c99b1fb5e3e7657e742e062c157f4c43963fce84850d00241be59860ff16075"
+    },
+    "tt_v13_smtrace8_SMTRACE_CPP": {
+      "bytes": 250,
+      "sha256": "5636bc8732a178a04a4ba84e580150c6ee0b5cfc69055206f30dff999ed69707"
+    },
+    "tt_v14_qkv_QKVBIG_CUDA": {
+      "bytes": 13445,
+      "sha256": "8d4272dde4eaba0e8b91647bf066f10048e063d93589cbdad4b81f07cc1a068d"
+    },
+    "dd_decodediet_CPSSM_CUDA_TEMPLATE": {
+      "bytes": 25631,
+      "sha256": "2c7ae080c5004fd67a8b6045cfb40a43fe187fb8d808b160d7f5711e75a71d7c"
+    },
+    "dd_decodediet_CPSSM_CPP": {
+      "bytes": 258,
+      "sha256": "cb345429ad94a5d42d9b5fb7d47d61b1add7b093e4497ce45805d33cc7d8eb4f"
+    },
+    "dd_decodediet_tt_mw_CUDA_CORE": {
+      "bytes": 4688,
+      "sha256": "7a4ccf314255ac66c22fe6388eacb06f9df43611f577f0ecc11bf72199583c1e"
+    },
+    "dd_decodediet_tt_mw_CPP": {
+      "bytes": 154,
+      "sha256": "d4763c60a3f5472c9f82fb033ffbd1b1673845f92396a839ad0bdf17b19b03d2"
+    },
+    "rt__CUDA": {
+      "bytes": 6258,
+      "sha256": "876f6c650f33b7bd761d1c65193ad0a11f4c17ae0c656cb4f6f448d0f142fe41"
+    },
+    "rt__CPP": {
+      "bytes": 122,
+      "sha256": "7b9b9798418aa5b8040c4a6964f81679d527f5780c2a5a04d925febc5a232605"
+    },
+    "BUNDLE_QKV_CUDA": {
+      "bytes": 28227,
+      "sha256": "6b8bd845cf6464b0a660e252ffae72108511a04b3963932c02716b17a86d594c"
+    },
+    "b2p_tt_v10_m32x__CUDA": {
+      "bytes": 34891,
+      "sha256": "624e9f73bf6090e5c8bea39fcac4efeef6172a365fbadeb865d20128ef2a0f81"
+    },
+    "b2p_tt_v10_m32x__CPP": {
+      "bytes": 274,
+      "sha256": "56214e6f7fa2ced00fe664ad83601036dff684a3750d5045b9027d297590eb3a"
+    },
+    "b2p_tt_v10_m32x__W_CUDA": {
+      "bytes": 15704,
+      "sha256": "a3a3593b4441440d1ff76ba4a644070ae0fa3a8fce855bafb5c06915ad55a3a0"
+    },
+    "b2p_tt_v10_m32x__W_CPP": {
+      "bytes": 222,
+      "sha256": "2d90a1f893fa21f768ae60928b71c81aff287ac5f685d9fd020e30d6ba886e38"
+    },
+    "b2p_tt_v10_m32x__Q_CUDA": {
+      "bytes": 38398,
+      "sha256": "971844264ce755a2477741b319109dce753e3a1e2368299383ca21747d1b5b8b"
+    },
+    "b2p_tt_v10_m32x__Q_CPP": {
+      "bytes": 276,
+      "sha256": "ac1b1e7f75542eb06c87a8026462d6016c26606b2c5cbd49e475a64b0af3a982"
+    },
+    "b2q_tt_v10_m32x__Q_CUDA": {
+      "bytes": 38521,
+      "sha256": "1c7e2e629f017dc251fdad90dc3a1d13a28c6bf6e19e1ce5e3163fa4f73b27df"
+    },
+    "b2q_tt_v10_m32x__Q_CPP": {
+      "bytes": 282,
+      "sha256": "483dde423d9b171b2c324004cee2181a2100eb324eaece35ad20fbd0b9041581"
+    },
+    "b2o_OLAYER_CUDA": {
+      "bytes": 7274,
+      "sha256": "ad3c550f8ae7930a6f93287389ef8ec3431e30f0f6bbf0d73375b66254d68dd9"
+    },
+    "b2o_OLAYER_CPP": {
+      "bytes": 129,
+      "sha256": "b1520c79b18cdae8f037eefa36826824e7b2b56185bbcab7237db4688d68e4b1"
+    },
+    "v18d_SM_CUDA_TEMPLATE": {
+      "bytes": 23248,
+      "sha256": "f7ebd1489c25889c6312ee2b8b5b9ce15b312869c813fe130b406e01ec6aefb2"
+    },
+    "v18d_SM_CPP": {
+      "bytes": 254,
+      "sha256": "35333b1f70f1d79d3f4379493247a26a631ba4a26c966dd76971d6ec3a124884"
+    },
+    "V18S_CUDA_TEMPLATE": {
+      "bytes": 26530,
+      "sha256": "f650b5599bfce28766252d5bdef5ff6b944bfe244f6041b9c0ad21977284e025"
+    },
+    "V18S_CPP": {
+      "bytes": 300,
+      "sha256": "3be1334e61c335b480e283608fb2a6a24c7f5488cbbc4cc2dc42361a42306f4a"
+    },
+    "cpp": {
+      "bytes": 118,
+      "sha256": "8369fa983e145e781bc83cb07f01a6708e61b23275752917bf5b06f8ebf5b4d0"
+    }
+  },
+  "review_hits": [
+    {
+      "source": "python",
+      "line": 298,
+      "text": "    \"\"\"Random inputs with a spike row against an FP64 reference, at a quarter of the judge's tolerances.\"\"\""
+    },
+    {
+      "source": "python",
+      "line": 654,
+      "text": "    \"\"\"Random inputs with a spike row against an FP64 reference, at a quarter of the judge's tolerances.\"\"\""
+    },
+    {
+      "source": "python",
+      "line": 1268,
+      "text": "    \"\"\"Random inputs with a spike row against an FP64 reference, at a quarter of the judge's tolerances.\"\"\""
+    },
+    {
+      "source": "python",
+      "line": 1861,
+      "text": "    \"\"\"Random inputs with a spike row against an FP64 reference, at a quarter of the judge's tolerances.\"\"\""
+    },
+    {
+      "source": "python",
+      "line": 2141,
+      "text": "    \"\"\"Random inputs with a spike row against an FP64 reference, at a quarter of the judge's tolerances.\"\"\""
+    },
+    {
+      "source": "python",
+      "line": 2887,
+      "text": "    \"\"\"Random inputs with a spike row against an FP64 reference, at a quarter of the judge's tolerances.\"\"\""
+    },
+    {
+      "source": "python",
+      "line": 3508,
+      "text": "    \"\"\"Random inputs with a spike row against an FP64 reference, at a quarter of the judge's tolerances.\"\"\""
+    },
+    {
+      "source": "python",
+      "line": 3664,
+      "text": "    \"\"\"Random inputs with a spike row against an FP64 reference, at a quarter of the judge's tolerances.\"\"\""
+    },
+    {
+      "source": "python",
+      "line": 4041,
+      "text": "    \"\"\"Random inputs with a spike row against an FP64 reference, at a quarter of the judge's tolerances.\"\"\""
+    },
+    {
+      "source": "python",
+      "line": 4421,
+      "text": "    \"\"\"Random inputs with a spike row against an FP64 reference, at a quarter of the judge's tolerances.\"\"\""
+    },
+    {
+      "source": "python",
+      "line": 4937,
+      "text": "    \"\"\"Random inputs with a spike row against an FP64 reference, at a quarter of the judge's tolerances.\"\"\""
+    },
+    {
+      "source": "python",
+      "line": 5926,
+      "text": "    \"\"\"Random inputs with a spike row against an FP64 reference, at a quarter of the judge's tolerances.\"\"\""
+    },
+    {
+      "source": "python",
+      "line": 6082,
+      "text": "    \"\"\"Random inputs with a spike row against an FP64 reference, at a quarter of the judge's tolerances.\"\"\""
+    },
+    {
+      "source": "python",
+      "line": 6382,
+      "text": "    \"\"\"Random inputs with a spike row against an FP64 reference, at a quarter of the judge's tolerances.\"\"\""
+    },
+    {
+      "source": "python",
+      "line": 6782,
+      "text": "    \"\"\"Random inputs with a spike row against an FP64 reference, at a quarter of the judge's tolerances.\"\"\""
+    },
+    {
+      "source": "python",
+      "line": 7084,
+      "text": "    \"\"\"Random inputs with a spike row against an FP64 reference, at a quarter of the judge's tolerances.\"\"\""
+    },
+    {
+      "source": "CPS32_CUDA_TEMPLATE",
+      "line": 679,
+      "text": "    at[1].id = cudaLaunchAttributeClusterSchedulingPolicyPreference;"
+    },
+    {
+      "source": "CPS32_CUDA_TEMPLATE",
+      "line": 680,
+      "text": "    at[1].val.clusterSchedulingPolicyPreference = static_cast<cudaClusterSchedulingPolicy>(policy);"
+    },
+    {
+      "source": "CPSSM_CUDA_TEMPLATE",
+      "line": 574,
+      "text": "    at[1].id = cudaLaunchAttributeClusterSchedulingPolicyPreference;"
+    },
+    {
+      "source": "CPSSM_CUDA_TEMPLATE",
+      "line": 575,
+      "text": "    at[1].val.clusterSchedulingPolicyPreference = static_cast<cudaClusterSchedulingPolicy>(policy);"
+    },
+    {
+      "source": "tt_lt__LT_CPP",
+      "line": 179,
+      "text": "    cublasLtMatmulPreference_t pref;"
+    },
+    {
+      "source": "tt_lt__LT_CPP",
+      "line": 180,
+      "text": "    LT_OK(cublasLtMatmulPreferenceCreate(&pref));"
+    },
+    {
+      "source": "tt_lt__LT_CPP",
+      "line": 182,
+      "text": "    LT_OK(cublasLtMatmulPreferenceSetAttribute(pref, CUBLASLT_MATMUL_PREF_REDUCTION_SCHEME_MASK,"
+    },
+    {
+      "source": "tt_lt__LT_CPP",
+      "line": 186,
+      "text": "      LT_OK(cublasLtMatmulPreferenceSetAttribute(pref, CUBLASLT_MATMUL_PREF_MAX_WORKSPACE_BYTES, &ws, sizeof(ws)));"
+    },
+    {
+      "source": "tt_lt__LT_CPP",
+      "line": 195,
+      "text": "    cublasLtMatmulPreferenceDestroy(pref);"
+    },
+    {
+      "source": "tt_v10_m32x__CUDA",
+      "line": 728,
+      "text": "    at[1].id = cudaLaunchAttributeClusterSchedulingPolicyPreference;"
+    },
+    {
+      "source": "tt_v10_m32x__CUDA",
+      "line": 729,
+      "text": "    at[1].val.clusterSchedulingPolicyPreference = static_cast<cudaClusterSchedulingPolicy>(policy);"
+    },
+    {
+      "source": "tt_v10_m32x__Q_CUDA",
+      "line": 778,
+      "text": "    at[1].id = cudaLaunchAttributeClusterSchedulingPolicyPreference;"
+    },
+    {
+      "source": "tt_v10_m32x__Q_CUDA",
+      "line": 779,
+      "text": "    at[1].val.clusterSchedulingPolicyPreference = static_cast<cudaClusterSchedulingPolicy>(policy);"
+    },
+    {
+      "source": "dd_decodediet_CPSSM_CUDA_TEMPLATE",
+      "line": 575,
+      "text": "    at[1].id = cudaLaunchAttributeClusterSchedulingPolicyPreference;"
+    },
+    {
+      "source": "dd_decodediet_CPSSM_CUDA_TEMPLATE",
+      "line": 576,
+      "text": "    at[1].val.clusterSchedulingPolicyPreference = static_cast<cudaClusterSchedulingPolicy>(policy);"
+    },
+    {
+      "source": "b2p_tt_v10_m32x__CUDA",
+      "line": 710,
+      "text": "    at[1].id = cudaLaunchAttributeClusterSchedulingPolicyPreference;"
+    },
+    {
+      "source": "b2p_tt_v10_m32x__CUDA",
+      "line": 711,
+      "text": "    at[1].val.clusterSchedulingPolicyPreference = static_cast<cudaClusterSchedulingPolicy>(policy);"
+    },
+    {
+      "source": "b2p_tt_v10_m32x__Q_CUDA",
+      "line": 778,
+      "text": "    at[1].id = cudaLaunchAttributeClusterSchedulingPolicyPreference;"
+    },
+    {
+      "source": "b2p_tt_v10_m32x__Q_CUDA",
+      "line": 779,
+      "text": "    at[1].val.clusterSchedulingPolicyPreference = static_cast<cudaClusterSchedulingPolicy>(policy);"
+    },
+    {
+      "source": "b2q_tt_v10_m32x__Q_CUDA",
+      "line": 758,
+      "text": "    at[1].id = cudaLaunchAttributeClusterSchedulingPolicyPreference;"
+    },
+    {
+      "source": "b2q_tt_v10_m32x__Q_CUDA",
+      "line": 759,
+      "text": "    at[1].val.clusterSchedulingPolicyPreference = static_cast<cudaClusterSchedulingPolicy>(policy);"
+    }
+  ]
+}

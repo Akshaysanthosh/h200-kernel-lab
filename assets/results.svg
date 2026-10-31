@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="330" viewBox="0 0 1000 330" role="img" aria-labelledby="title desc">
+<title id="title">Official scored milestones</title><desc id="desc">SGLang reference 1.0 times, earlier champion 1.22741 times, public-v18 adaptation 1.52067 times. Historical October 31, 2026 results.</desc>
+<rect width="1000" height="330" rx="16" fill="#101b2d"/>
+<g font-family="Arial, sans-serif" fill="#e9f0fa">
+<text x="32" y="43" font-size="24" font-weight="bold">Official scored milestones · H200</text>
+<text x="32" y="72" font-size="14" fill="#b0c2d9">Geometric-mean speedup versus SGLang · higher is better</text>
+<text x="32" y="123" font-size="16">SGLang reference</text><rect x="280" y="102" width="360" height="28" rx="5" fill="#60748f"/><text x="660" y="123" font-size="17">1.00000×</text>
+<text x="32" y="175" font-size="16">Earlier champion</text><rect x="280" y="154" width="441.87" height="28" rx="5" fill="#5a91d4"/><text x="742" y="175" font-size="17">1.22741×</text>
+<text x="32" y="227" font-size="16">Public-v18 adaptation</text><rect x="280" y="206" width="547.44" height="28" rx="5" fill="#45cfb1"/><text x="846" y="227" font-size="17">1.52067×</text>
+<text x="32" y="277" font-size="14" fill="#b0c2d9">Best-result 95% interval: 1.49786–1.54348× · Snapshot: October 31, 2026</text>
+<text x="32" y="302" font-size="13" fill="#b0c2d9">Adapted from Nathen Fernandes's MIT-licensed v18. Not a full-model throughput claim.</text>
+</g></svg>

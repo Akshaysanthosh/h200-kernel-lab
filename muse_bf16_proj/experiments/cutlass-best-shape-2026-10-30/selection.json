@@ -1,0 +1,16 @@
+{
+  "scope": "pooler m16 only; not a new global best",
+  "config": 2,
+  "split": 4,
+  "tile": [
+    64,
+    16,
+    128
+  ],
+  "stages": 4,
+  "epilogue": "NoSmemWarpSpecialized",
+  "cutlass_us": 30.33600002527237,
+  "best_us": 29.823999851942062,
+  "ratio": 0.9829967870464409,
+  "promoted": false
+}

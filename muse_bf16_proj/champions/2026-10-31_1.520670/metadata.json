@@ -1,0 +1,16 @@
+{
+  "job": "19ffcee8e7894be2",
+  "sha256": "6faa2ae8519e3b9c19b27c2fdf47a2a057c7be89c72583ecfd270175c2144ae7",
+  "speedup": 1.5206695978723808,
+  "speedup_ci": [
+    1.497859553904295,
+    1.5434796418404664
+  ],
+  "flags": [],
+  "rank_at_submission": 270,
+  "ranked_at_submission": 1515,
+  "old_best_preserved": "champions/2026-10-30_1.227412/submission.py",
+  "free_check_job": "c264b6bc9cd44119",
+  "repeat_check": "64e6cd18158041d9 returned duplicate; not independent validation",
+  "submission_authorization": "User explicitly authorized scored submission after learning repeat was cached."
+}

@@ -1,0 +1,5 @@
+#include <pybind11/pybind11.h>
+#include <stdint.h>
+int rt2_launch(int,int64_t,int64_t,int64_t,int,int64_t,int);
+int rt2_scalar(int64_t,int64_t,int64_t,int,int64_t,int);
+int rt2_small(int64_t,int64_t,int64_t,int,int,int,int64_t,int);

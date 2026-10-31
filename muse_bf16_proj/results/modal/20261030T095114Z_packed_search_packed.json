@@ -1,0 +1,1739 @@
+{
+  "candidate": "candidates/hopper/packed_search.py",
+  "passed": true,
+  "official_score": false,
+  "shapes": [
+    {
+      "layer": "pooler",
+      "m": 1,
+      "base_us": 26.623999699950218,
+      "trials": [
+        {
+          "config": [
+            "vector",
+            1,
+            4
+          ],
+          "us": 63.200000673532486,
+          "ratio": 0.42126581354769,
+          "registers": 166,
+          "spills": 0,
+          "shared_bytes": 8192,
+          "wgmma": false,
+          "tma": false
+        },
+        {
+          "config": [
+            "vector",
+            1,
+            8
+          ],
+          "us": 63.02400305867195,
+          "ratio": 0.4224422189616345,
+          "registers": 64,
+          "spills": 0,
+          "shared_bytes": 16384,
+          "wgmma": false,
+          "tma": false
+        },
+        {
+          "config": [
+            "vector",
+            2,
+            4
+          ],
+          "us": 84.16000008583069,
+          "ratio": 0.3163498059980715,
+          "registers": 255,
+          "spills": 96,
+          "shared_bytes": 16384,
+          "wgmma": false,
+          "tma": false
+        },
+        {
+          "config": [
+            "vector",
+            2,
+            8
+          ],
+          "us": 67.63200089335442,
+          "ratio": 0.3936597963726121,
+          "registers": 124,
+          "spills": 0,
+          "shared_bytes": 16384,
+          "wgmma": false,
+          "tma": false
+        },
+        {
+          "config": [
+            "vector",
+            4,
+            4
+          ],
+          "us": 950.1599967479706,
+          "ratio": 0.028020543688509147,
+          "registers": 32,
+          "spills": 1270,
+          "shared_bytes": 32768,
+          "wgmma": false,
+          "tma": false
+        },
+        {
+          "config": [
+            "vector",
+            4,
+            8
+          ],
+          "us": 90.35200253129005,
+          "ratio": 0.2946697245667575,
+          "registers": 255,
+          "spills": 22,
+          "shared_bytes": 32768,
+          "wgmma": false,
+          "tma": false
+        }
+      ],
+      "best": [
+        {
+          "config": [
+            "vector",
+            1,
+            8
+          ],
+          "us": 63.02400305867195,
+          "ratio": 0.4224422189616345,
+          "registers": 64,
+          "spills": 0,
+          "shared_bytes": 16384,
+          "wgmma": false,
+          "tma": false,
+          "confirmed_ratio": 0.4320863054210022
+        },
+        {
+          "config": [
+            "vector",
+            1,
+            4
+          ],
+          "us": 63.200000673532486,
+          "ratio": 0.42126581354769,
+          "registers": 166,
+          "spills": 0,
+          "shared_bytes": 8192,
+          "wgmma": false,
+          "tma": false,
+          "confirmed_ratio": 0.4301651065900526
+        }
+      ]
+    },
+    {
+      "layer": "pooler",
+      "m": 8,
+      "base_us": 30.928000807762146,
+      "trials": [
+        {
+          "config": [
+            "dot",
+            16,
+            32,
+            128,
+            1,
+            4,
+            3
+          ],
+          "us": 481.4880043268204,
+          "ratio": 0.06423420839113803,
+          "registers": 255,
+          "spills": 8,
+          "shared_bytes": 40960,
+          "wgmma": false,
+          "tma": false
+        },
+        {
+          "config": [
+            "dot",
+            16,
+            32,
+            128,
+            4,
+            4,
+            3
+          ],
+          "us": 399.27999675273895,
+          "ratio": 0.07745942962155163,
+          "registers": 246,
+          "spills": 0,
+          "shared_bytes": 40960,
+          "wgmma": false,
+          "tma": false
+        },
+        {
+          "config": [
+            "dot",
+            16,
+            32,
+            128,
+            16,
+            4,
+            3
+          ],
+          "us": 408.80000591278076,
+          "ratio": 0.07565557818108438,
+          "registers": 246,
+          "spills": 0,
+          "shared_bytes": 40960,
+          "wgmma": false,
+          "tma": false
+        },
+        {
+          "config": [
+            "dot",
+            16,
+            64,
+            128,
+            1,
+            4,
+            3
+          ],
+          "us": 1208.5760235786438,
+          "ratio": 0.02559044710831103,
+          "registers": 255,
+          "spills": 184,
+          "shared_bytes": 73728,
+          "wgmma": false,
+          "tma": false
+        },
+        {
+          "config": [
+            "dot",
+            16,
+            64,
+            128,
+            4,
+            4,
+            3
+          ],
+          "us": 517.7119970321655,
+          "ratio": 0.05973978000328353,
+          "registers": 255,
+          "spills": 194,
+          "shared_bytes": 73728,
+          "wgmma": false,
+          "tma": false
+        },
+        {
+          "config": [
+            "dot",
+            16,
+            64,
+            128,
+            16,
+            4,
+            3
+          ],
+          "us": 524.7360169887543,
+          "ratio": 0.058940114279262386,
+          "registers": 255,
+          "spills": 194,
+          "shared_bytes": 73728,
+          "wgmma": false,
+          "tma": false
+        }
+      ],
+      "best": [
+        {
+          "config": [
+            "dot",
+            16,
+            32,
+            128,
+            4,
+            4,
+            3
+          ],
+          "us": 399.27999675273895,
+          "ratio": 0.07745942962155163,
+          "registers": 246,
+          "spills": 0,
+          "shared_bytes": 40960,
+          "wgmma": false,
+          "tma": false,
+          "confirmed_ratio": 0.07767422828117994
+        },
+        {
+          "config": [
+            "dot",
+            16,
+            32,
+            128,
+            16,
+            4,
+            3
+          ],
+          "us": 408.80000591278076,
+          "ratio": 0.07565557818108438,
+          "registers": 246,
+          "spills": 0,
+          "shared_bytes": 40960,
+          "wgmma": false,
+          "tma": false,
+          "confirmed_ratio": 0.07565328790181536
+        }
+      ]
+    },
+    {
+      "layer": "pooler",
+      "m": 32,
+      "base_us": 31.072000041604042,
+      "trials": [
+        {
+          "config": [
+            "dot",
+            32,
+            32,
+            128,
+            1,
+            4,
+            3
+          ],
+          "us": 493.0399954319,
+          "ratio": 0.06302125655016112,
+          "registers": 255,
+          "spills": 6,
+          "shared_bytes": 49152,
+          "wgmma": false,
+          "tma": false
+        },
+        {
+          "config": [
+            "dot",
+            32,
+            32,
+            128,
+            4,
+            4,
+            3
+          ],
+          "us": 411.52000427246094,
+          "ratio": 0.07550544255202661,
+          "registers": 255,
+          "spills": 0,
+          "shared_bytes": 49152,
+          "wgmma": false,
+          "tma": false
+        },
+        {
+          "config": [
+            "dot",
+            32,
+            32,
+            128,
+            16,
+            4,
+            3
+          ],
+          "us": 418.67201030254364,
+          "ratio": 0.07421561336080379,
+          "registers": 255,
+          "spills": 0,
+          "shared_bytes": 49152,
+          "wgmma": false,
+          "tma": false
+        },
+        {
+          "config": [
+            "dot",
+            32,
+            64,
+            128,
+            1,
+            4,
+            3
+          ],
+          "us": 1236.5440130233765,
+          "ratio": 0.025128098728675528,
+          "registers": 255,
+          "spills": 196,
+          "shared_bytes": 81920,
+          "wgmma": false,
+          "tma": false
+        },
+        {
+          "config": [
+            "dot",
+            32,
+            64,
+            128,
+            4,
+            4,
+            3
+          ],
+          "us": 565.1520192623138,
+          "ratio": 0.05497989741266775,
+          "registers": 255,
+          "spills": 244,
+          "shared_bytes": 81920,
+          "wgmma": false,
+          "tma": false
+        },
+        {
+          "config": [
+            "dot",
+            32,
+            64,
+            128,
+            16,
+            4,
+            3
+          ],
+          "us": 562.3520016670227,
+          "ratio": 0.055253648870271566,
+          "registers": 255,
+          "spills": 244,
+          "shared_bytes": 81920,
+          "wgmma": false,
+          "tma": false
+        }
+      ],
+      "best": [
+        {
+          "config": [
+            "dot",
+            32,
+            32,
+            128,
+            4,
+            4,
+            3
+          ],
+          "us": 411.52000427246094,
+          "ratio": 0.07550544255202661,
+          "registers": 255,
+          "spills": 0,
+          "shared_bytes": 49152,
+          "wgmma": false,
+          "tma": false,
+          "confirmed_ratio": 0.07574581108784044
+        },
+        {
+          "config": [
+            "dot",
+            32,
+            32,
+            128,
+            16,
+            4,
+            3
+          ],
+          "us": 418.67201030254364,
+          "ratio": 0.07421561336080379,
+          "registers": 255,
+          "spills": 0,
+          "shared_bytes": 49152,
+          "wgmma": false,
+          "tma": false,
+          "confirmed_ratio": 0.07446445150965082
+        }
+      ]
+    },
+    {
+      "layer": "qkv_gate",
+      "m": 1,
+      "base_us": 18.783999606966972,
+      "trials": [
+        {
+          "config": [
+            "vector",
+            1,
+            4
+          ],
+          "us": 39.712000638246536,
+          "ratio": 0.4730056231132346,
+          "registers": 166,
+          "spills": 0,
+          "shared_bytes": 8192,
+          "wgmma": false,
+          "tma": false
+        },
+        {
+          "config": [
+            "vector",
+            1,
+            8
+          ],
+          "us": 39.5519994199276,
+          "ratio": 0.4749190908792079,
+          "registers": 64,
+          "spills": 0,
+          "shared_bytes": 16384,
+          "wgmma": false,
+          "tma": false
+        },
+        {
+          "config": [
+            "vector",
+            2,
+            4
+          ],
+          "us": 54.607998579740524,
+          "ratio": 0.3439789059388052,
+          "registers": 255,
+          "spills": 96,
+          "shared_bytes": 16384,
+          "wgmma": false,
+          "tma": false
+        },
+        {
+          "config": [
+            "vector",
+            2,
+            8
+          ],
+          "us": 41.63200035691261,
+          "ratio": 0.4511913779287826,
+          "registers": 124,
+          "spills": 0,
+          "shared_bytes": 16384,
+          "wgmma": false,
+          "tma": false
+        },
+        {
+          "config": [
+            "vector",
+            4,
+            4
+          ],
+          "us": 507.9039931297302,
+          "ratio": 0.036983366661913826,
+          "registers": 32,
+          "spills": 1270,
+          "shared_bytes": 32768,
+          "wgmma": false,
+          "tma": false
+        },
+        {
+          "config": [
+            "vector",
+            4,
+            8
+          ],
+          "us": 58.639999479055405,
+          "ratio": 0.32032741769849604,
+          "registers": 255,
+          "spills": 22,
+          "shared_bytes": 32768,
+          "wgmma": false,
+          "tma": false
+        }
+      ],
+      "best": [
+        {
+          "config": [
+            "vector",
+            1,
+            8
+          ],
+          "us": 39.5519994199276,
+          "ratio": 0.4749190908792079,
+          "registers": 64,
+          "spills": 0,
+          "shared_bytes": 16384,
+          "wgmma": false,
+          "tma": false,
+          "confirmed_ratio": 0.4718825422196277
+        },
+        {
+          "config": [
+            "vector",
+            1,
+            4
+          ],
+          "us": 39.712000638246536,
+          "ratio": 0.4730056231132346,
+          "registers": 166,
+          "spills": 0,
+          "shared_bytes": 8192,
+          "wgmma": false,
+          "tma": false,
+          "confirmed_ratio": 0.4724851692569779
+        }
+      ]
+    },
+    {
+      "layer": "qkv_gate",
+      "m": 8,
+      "base_us": 22.400000132620335,
+      "trials": [
+        {
+          "config": [
+            "dot",
+            16,
+            32,
+            128,
+            1,
+            4,
+            3
+          ],
+          "us": 475.40800273418427,
+          "ratio": 0.047117423358026406,
+          "registers": 255,
+          "spills": 8,
+          "shared_bytes": 40960,
+          "wgmma": false,
+          "tma": false
+        },
+        {
+          "config": [
+            "dot",
+            16,
+            32,
+            128,
+            4,
+            4,
+            3
+          ],
+          "us": 311.1039996147156,
+          "ratio": 0.07200164626736219,
+          "registers": 246,
+          "spills": 0,
+          "shared_bytes": 40960,
+          "wgmma": false,
+          "tma": false
+        },
+        {
+          "config": [
+            "dot",
+            16,
+            32,
+            128,
+            16,
+            4,
+            3
+          ],
+          "us": 237.93599754571915,
+          "ratio": 0.09414296434198108,
+          "registers": 246,
+          "spills": 0,
+          "shared_bytes": 40960,
+          "wgmma": false,
+          "tma": false
+        },
+        {
+          "config": [
+            "dot",
+            16,
+            64,
+            128,
+            1,
+            4,
+            3
+          ],
+          "us": 1196.671962738037,
+          "ratio": 0.01871858022090546,
+          "registers": 255,
+          "spills": 184,
+          "shared_bytes": 73728,
+          "wgmma": false,
+          "tma": false
+        },
+        {
+          "config": [
+            "dot",
+            16,
+            64,
+            128,
+            4,
+            4,
+            3
+          ],
+          "us": 467.43999421596527,
+          "ratio": 0.04792058961534034,
+          "registers": 255,
+          "spills": 194,
+          "shared_bytes": 73728,
+          "wgmma": false,
+          "tma": false
+        },
+        {
+          "config": [
+            "dot",
+            16,
+            64,
+            128,
+            16,
+            4,
+            3
+          ],
+          "us": 327.64799892902374,
+          "ratio": 0.06836605200043569,
+          "registers": 255,
+          "spills": 194,
+          "shared_bytes": 73728,
+          "wgmma": false,
+          "tma": false
+        }
+      ],
+      "best": [
+        {
+          "config": [
+            "dot",
+            16,
+            32,
+            128,
+            16,
+            4,
+            3
+          ],
+          "us": 237.93599754571915,
+          "ratio": 0.09414296434198108,
+          "registers": 246,
+          "spills": 0,
+          "shared_bytes": 40960,
+          "wgmma": false,
+          "tma": false,
+          "confirmed_ratio": 0.0950588285551372
+        },
+        {
+          "config": [
+            "dot",
+            16,
+            32,
+            128,
+            4,
+            4,
+            3
+          ],
+          "us": 311.1039996147156,
+          "ratio": 0.07200164626736219,
+          "registers": 246,
+          "spills": 0,
+          "shared_bytes": 40960,
+          "wgmma": false,
+          "tma": false,
+          "confirmed_ratio": 0.07285813137119854
+        }
+      ]
+    },
+    {
+      "layer": "qkv_gate",
+      "m": 32,
+      "base_us": 23.072000592947006,
+      "trials": [
+        {
+          "config": [
+            "dot",
+            32,
+            32,
+            128,
+            1,
+            4,
+            3
+          ],
+          "us": 488.5279983282089,
+          "ratio": 0.047227591196209166,
+          "registers": 255,
+          "spills": 6,
+          "shared_bytes": 49152,
+          "wgmma": false,
+          "tma": false
+        },
+        {
+          "config": [
+            "dot",
+            32,
+            32,
+            128,
+            4,
+            4,
+            3
+          ],
+          "us": 319.93599236011505,
+          "ratio": 0.07211442645995739,
+          "registers": 255,
+          "spills": 0,
+          "shared_bytes": 49152,
+          "wgmma": false,
+          "tma": false
+        },
+        {
+          "config": [
+            "dot",
+            32,
+            32,
+            128,
+            16,
+            4,
+            3
+          ],
+          "us": 261.6960108280182,
+          "ratio": 0.08816336374385737,
+          "registers": 255,
+          "spills": 0,
+          "shared_bytes": 49152,
+          "wgmma": false,
+          "tma": false
+        },
+        {
+          "config": [
+            "dot",
+            32,
+            64,
+            128,
+            1,
+            4,
+            3
+          ],
+          "us": 1228.3200025558472,
+          "ratio": 0.018783379367705126,
+          "registers": 255,
+          "spills": 196,
+          "shared_bytes": 81920,
+          "wgmma": false,
+          "tma": false
+        },
+        {
+          "config": [
+            "dot",
+            32,
+            64,
+            128,
+            4,
+            4,
+            3
+          ],
+          "us": 496.8800097703934,
+          "ratio": 0.04643374685894187,
+          "registers": 255,
+          "spills": 244,
+          "shared_bytes": 81920,
+          "wgmma": false,
+          "tma": false
+        },
+        {
+          "config": [
+            "dot",
+            32,
+            64,
+            128,
+            16,
+            4,
+            3
+          ],
+          "us": 356.3680052757263,
+          "ratio": 0.06474206508829522,
+          "registers": 255,
+          "spills": 244,
+          "shared_bytes": 81920,
+          "wgmma": false,
+          "tma": false
+        }
+      ],
+      "best": [
+        {
+          "config": [
+            "dot",
+            32,
+            32,
+            128,
+            16,
+            4,
+            3
+          ],
+          "us": 261.6960108280182,
+          "ratio": 0.08816336374385737,
+          "registers": 255,
+          "spills": 0,
+          "shared_bytes": 49152,
+          "wgmma": false,
+          "tma": false,
+          "confirmed_ratio": 0.08927584084953918
+        },
+        {
+          "config": [
+            "dot",
+            32,
+            32,
+            128,
+            4,
+            4,
+            3
+          ],
+          "us": 319.93599236011505,
+          "ratio": 0.07211442645995739,
+          "registers": 255,
+          "spills": 0,
+          "shared_bytes": 49152,
+          "wgmma": false,
+          "tma": false,
+          "confirmed_ratio": 0.07168933921751305
+        }
+      ]
+    },
+    {
+      "layer": "unpooler",
+      "m": 1,
+      "base_us": 9.375999681651592,
+      "trials": [
+        {
+          "config": [
+            "vector",
+            1,
+            4
+          ],
+          "us": 14.751999638974667,
+          "ratio": 0.6355748312845857,
+          "registers": 64,
+          "spills": 0,
+          "shared_bytes": 8192,
+          "wgmma": false,
+          "tma": false
+        },
+        {
+          "config": [
+            "vector",
+            1,
+            8
+          ],
+          "us": 15.36000007763505,
+          "ratio": 0.6104166428555903,
+          "registers": 40,
+          "spills": 0,
+          "shared_bytes": 8192,
+          "wgmma": false,
+          "tma": false
+        },
+        {
+          "config": [
+            "vector",
+            2,
+            4
+          ],
+          "us": 14.944000169634819,
+          "ratio": 0.6274089651513106,
+          "registers": 128,
+          "spills": 0,
+          "shared_bytes": 8192,
+          "wgmma": false,
+          "tma": false
+        },
+        {
+          "config": [
+            "vector",
+            2,
+            8
+          ],
+          "us": 15.807999297976494,
+          "ratio": 0.5931174151084235,
+          "registers": 80,
+          "spills": 2,
+          "shared_bytes": 16384,
+          "wgmma": false,
+          "tma": false
+        },
+        {
+          "config": [
+            "vector",
+            4,
+            4
+          ],
+          "us": 17.248000018298626,
+          "ratio": 0.5435992388511406,
+          "registers": 255,
+          "spills": 30,
+          "shared_bytes": 16384,
+          "wgmma": false,
+          "tma": false
+        },
+        {
+          "config": [
+            "vector",
+            4,
+            8
+          ],
+          "us": 18.271999433636665,
+          "ratio": 0.5131348496208602,
+          "registers": 138,
+          "spills": 0,
+          "shared_bytes": 32768,
+          "wgmma": false,
+          "tma": false
+        }
+      ],
+      "best": [
+        {
+          "config": [
+            "vector",
+            1,
+            4
+          ],
+          "us": 14.751999638974667,
+          "ratio": 0.6355748312845857,
+          "registers": 64,
+          "spills": 0,
+          "shared_bytes": 8192,
+          "wgmma": false,
+          "tma": false,
+          "confirmed_ratio": 0.6441738500449475
+        },
+        {
+          "config": [
+            "vector",
+            2,
+            4
+          ],
+          "us": 14.944000169634819,
+          "ratio": 0.6274089651513106,
+          "registers": 128,
+          "spills": 0,
+          "shared_bytes": 8192,
+          "wgmma": false,
+          "tma": false,
+          "confirmed_ratio": 0.6443144233984923
+        }
+      ]
+    },
+    {
+      "layer": "unpooler",
+      "m": 8,
+      "base_us": 13.311999849975109,
+      "trials": [
+        {
+          "config": [
+            "dot",
+            16,
+            32,
+            128,
+            1,
+            4,
+            3
+          ],
+          "us": 228.36799919605255,
+          "ratio": 0.05829187932126531,
+          "registers": 255,
+          "spills": 8,
+          "shared_bytes": 40960,
+          "wgmma": false,
+          "tma": false
+        },
+        {
+          "config": [
+            "dot",
+            16,
+            32,
+            128,
+            4,
+            4,
+            3
+          ],
+          "us": 64.83200192451477,
+          "ratio": 0.20533069247922567,
+          "registers": 246,
+          "spills": 0,
+          "shared_bytes": 40960,
+          "wgmma": false,
+          "tma": false
+        },
+        {
+          "config": [
+            "dot",
+            16,
+            32,
+            128,
+            16,
+            4,
+            3
+          ],
+          "us": 58.73600021004677,
+          "ratio": 0.22664123880362724,
+          "registers": 255,
+          "spills": 0,
+          "shared_bytes": 40960,
+          "wgmma": false,
+          "tma": false
+        },
+        {
+          "config": [
+            "dot",
+            16,
+            64,
+            128,
+            1,
+            4,
+            3
+          ],
+          "us": 546.7039942741394,
+          "ratio": 0.02434955659625186,
+          "registers": 255,
+          "spills": 184,
+          "shared_bytes": 73728,
+          "wgmma": false,
+          "tma": false
+        },
+        {
+          "config": [
+            "dot",
+            16,
+            64,
+            128,
+            4,
+            4,
+            3
+          ],
+          "us": 147.21599966287613,
+          "ratio": 0.09042495299736115,
+          "registers": 255,
+          "spills": 194,
+          "shared_bytes": 73728,
+          "wgmma": false,
+          "tma": false
+        },
+        {
+          "config": [
+            "dot",
+            16,
+            64,
+            128,
+            16,
+            4,
+            3
+          ],
+          "us": 80.35200089216232,
+          "ratio": 0.16567104368490698,
+          "registers": 255,
+          "spills": 226,
+          "shared_bytes": 73728,
+          "wgmma": false,
+          "tma": false
+        }
+      ],
+      "best": [
+        {
+          "config": [
+            "dot",
+            16,
+            32,
+            128,
+            16,
+            4,
+            3
+          ],
+          "us": 58.73600021004677,
+          "ratio": 0.22664123880362724,
+          "registers": 255,
+          "spills": 0,
+          "shared_bytes": 40960,
+          "wgmma": false,
+          "tma": false,
+          "confirmed_ratio": 0.22844058047469634
+        },
+        {
+          "config": [
+            "dot",
+            16,
+            32,
+            128,
+            4,
+            4,
+            3
+          ],
+          "us": 64.83200192451477,
+          "ratio": 0.20533069247922567,
+          "registers": 246,
+          "spills": 0,
+          "shared_bytes": 40960,
+          "wgmma": false,
+          "tma": false,
+          "confirmed_ratio": 0.20267278544084322
+        }
+      ]
+    },
+    {
+      "layer": "unpooler",
+      "m": 32,
+      "base_us": 28.44800055027008,
+      "trials": [
+        {
+          "config": [
+            "dot",
+            32,
+            32,
+            128,
+            1,
+            4,
+            3
+          ],
+          "us": 401.4720022678375,
+          "ratio": 0.07085923897450591,
+          "registers": 255,
+          "spills": 6,
+          "shared_bytes": 49152,
+          "wgmma": false,
+          "tma": false
+        },
+        {
+          "config": [
+            "dot",
+            32,
+            32,
+            128,
+            4,
+            4,
+            3
+          ],
+          "us": 393.8400000333786,
+          "ratio": 0.07223238002198624,
+          "registers": 255,
+          "spills": 0,
+          "shared_bytes": 49152,
+          "wgmma": false,
+          "tma": false
+        },
+        {
+          "config": [
+            "dot",
+            32,
+            32,
+            128,
+            16,
+            4,
+            3
+          ],
+          "us": 421.34399712085724,
+          "ratio": 0.067517279810943,
+          "registers": 255,
+          "spills": 0,
+          "shared_bytes": 49152,
+          "wgmma": false,
+          "tma": false
+        },
+        {
+          "config": [
+            "dot",
+            32,
+            64,
+            128,
+            1,
+            4,
+            3
+          ],
+          "us": 600.8639931678772,
+          "ratio": 0.04734515776238552,
+          "registers": 255,
+          "spills": 196,
+          "shared_bytes": 81920,
+          "wgmma": false,
+          "tma": false
+        },
+        {
+          "config": [
+            "dot",
+            32,
+            64,
+            128,
+            4,
+            4,
+            3
+          ],
+          "us": 550.8959889411926,
+          "ratio": 0.05163951294135646,
+          "registers": 255,
+          "spills": 244,
+          "shared_bytes": 81920,
+          "wgmma": false,
+          "tma": false
+        },
+        {
+          "config": [
+            "dot",
+            32,
+            64,
+            128,
+            16,
+            4,
+            3
+          ],
+          "us": 510.24001836776733,
+          "ratio": 0.05575415397889376,
+          "registers": 255,
+          "spills": 200,
+          "shared_bytes": 81920,
+          "wgmma": false,
+          "tma": false
+        }
+      ],
+      "best": [
+        {
+          "config": [
+            "dot",
+            32,
+            32,
+            128,
+            4,
+            4,
+            3
+          ],
+          "us": 393.8400000333786,
+          "ratio": 0.07223238002198624,
+          "registers": 255,
+          "spills": 0,
+          "shared_bytes": 49152,
+          "wgmma": false,
+          "tma": false,
+          "confirmed_ratio": 0.07263654873794248
+        },
+        {
+          "config": [
+            "dot",
+            32,
+            32,
+            128,
+            1,
+            4,
+            3
+          ],
+          "us": 401.4720022678375,
+          "ratio": 0.07085923897450591,
+          "registers": 255,
+          "spills": 6,
+          "shared_bytes": 49152,
+          "wgmma": false,
+          "tma": false,
+          "confirmed_ratio": 0.07153834959626856
+        }
+      ]
+    },
+    {
+      "layer": "o",
+      "m": 1,
+      "base_us": 11.888000182807446,
+      "trials": [
+        {
+          "config": [
+            "vector",
+            1,
+            4
+          ],
+          "us": 22.544000297784805,
+          "ratio": 0.5273243446494974,
+          "registers": 32,
+          "spills": 0,
+          "shared_bytes": 2048,
+          "wgmma": false,
+          "tma": false
+        },
+        {
+          "config": [
+            "vector",
+            1,
+            8
+          ],
+          "us": 27.103999629616737,
+          "ratio": 0.43860686043610114,
+          "registers": 30,
+          "spills": 0,
+          "shared_bytes": 2048,
+          "wgmma": false,
+          "tma": false
+        },
+        {
+          "config": [
+            "vector",
+            2,
+            4
+          ],
+          "us": 21.776000037789345,
+          "ratio": 0.5459221235386391,
+          "registers": 48,
+          "spills": 0,
+          "shared_bytes": 4096,
+          "wgmma": false,
+          "tma": false
+        },
+        {
+          "config": [
+            "vector",
+            2,
+            8
+          ],
+          "us": 24.720000103116035,
+          "ratio": 0.4809061542564041,
+          "registers": 32,
+          "spills": 0,
+          "shared_bytes": 4096,
+          "wgmma": false,
+          "tma": false
+        },
+        {
+          "config": [
+            "vector",
+            4,
+            4
+          ],
+          "us": 22.255999967455864,
+          "ratio": 0.5341481038906737,
+          "registers": 80,
+          "spills": 0,
+          "shared_bytes": 8192,
+          "wgmma": false,
+          "tma": false
+        },
+        {
+          "config": [
+            "vector",
+            4,
+            8
+          ],
+          "us": 22.92799949645996,
+          "ratio": 0.5184926920747241,
+          "registers": 48,
+          "spills": 0,
+          "shared_bytes": 8192,
+          "wgmma": false,
+          "tma": false
+        }
+      ],
+      "best": [
+        {
+          "config": [
+            "vector",
+            2,
+            4
+          ],
+          "us": 21.776000037789345,
+          "ratio": 0.5459221235386391,
+          "registers": 48,
+          "spills": 0,
+          "shared_bytes": 4096,
+          "wgmma": false,
+          "tma": false,
+          "confirmed_ratio": 0.5402392562354038
+        },
+        {
+          "config": [
+            "vector",
+            4,
+            4
+          ],
+          "us": 22.255999967455864,
+          "ratio": 0.5341481038906737,
+          "registers": 80,
+          "spills": 0,
+          "shared_bytes": 8192,
+          "wgmma": false,
+          "tma": false,
+          "confirmed_ratio": 0.5318909952038833
+        }
+      ]
+    },
+    {
+      "layer": "o",
+      "m": 8,
+      "base_us": 12.927999719977379,
+      "trials": [
+        {
+          "config": [
+            "dot",
+            16,
+            32,
+            128,
+            1,
+            4,
+            3
+          ],
+          "us": 106.63999989628792,
+          "ratio": 0.12123030506892747,
+          "registers": 255,
+          "spills": 8,
+          "shared_bytes": 40960,
+          "wgmma": false,
+          "tma": false
+        },
+        {
+          "config": [
+            "dot",
+            16,
+            32,
+            128,
+            4,
+            4,
+            3
+          ],
+          "us": 104.5599989593029,
+          "ratio": 0.12364192663208849,
+          "registers": 255,
+          "spills": 0,
+          "shared_bytes": 40960,
+          "wgmma": false,
+          "tma": false
+        },
+        {
+          "config": [
+            "dot",
+            16,
+            32,
+            128,
+            16,
+            4,
+            3
+          ],
+          "error": "CORRECTNESS relative L2 error 1.000e+00 > 0.01"
+        },
+        {
+          "config": [
+            "dot",
+            16,
+            64,
+            128,
+            1,
+            4,
+            3
+          ],
+          "us": 147.08799868822098,
+          "ratio": 0.08789296091641413,
+          "registers": 255,
+          "spills": 184,
+          "shared_bytes": 73728,
+          "wgmma": false,
+          "tma": false
+        },
+        {
+          "config": [
+            "dot",
+            16,
+            64,
+            128,
+            4,
+            4,
+            3
+          ],
+          "us": 142.815999686718,
+          "ratio": 0.0905220685941093,
+          "registers": 255,
+          "spills": 226,
+          "shared_bytes": 73728,
+          "wgmma": false,
+          "tma": false
+        },
+        {
+          "config": [
+            "dot",
+            16,
+            64,
+            128,
+            16,
+            4,
+            3
+          ],
+          "error": "CORRECTNESS relative L2 error 1.000e+00 > 0.01"
+        }
+      ],
+      "best": [
+        {
+          "config": [
+            "dot",
+            16,
+            32,
+            128,
+            4,
+            4,
+            3
+          ],
+          "us": 104.5599989593029,
+          "ratio": 0.12364192663208849,
+          "registers": 255,
+          "spills": 0,
+          "shared_bytes": 40960,
+          "wgmma": false,
+          "tma": false,
+          "confirmed_ratio": 0.1246954497591378
+        },
+        {
+          "config": [
+            "dot",
+            16,
+            32,
+            128,
+            1,
+            4,
+            3
+          ],
+          "us": 106.63999989628792,
+          "ratio": 0.12123030506892747,
+          "registers": 255,
+          "spills": 8,
+          "shared_bytes": 40960,
+          "wgmma": false,
+          "tma": false,
+          "confirmed_ratio": 0.123058410727469
+        }
+      ]
+    },
+    {
+      "layer": "o",
+      "m": 32,
+      "base_us": 13.024000450968742,
+      "trials": [
+        {
+          "config": [
+            "dot",
+            32,
+            32,
+            128,
+            1,
+            4,
+            3
+          ],
+          "us": 109.31199789047241,
+          "ratio": 0.11914520548804194,
+          "registers": 255,
+          "spills": 6,
+          "shared_bytes": 49152,
+          "wgmma": false,
+          "tma": false
+        },
+        {
+          "config": [
+            "dot",
+            32,
+            32,
+            128,
+            4,
+            4,
+            3
+          ],
+          "us": 110.01599952578545,
+          "ratio": 0.11838278529584408,
+          "registers": 255,
+          "spills": 0,
+          "shared_bytes": 49152,
+          "wgmma": false,
+          "tma": false
+        },
+        {
+          "config": [
+            "dot",
+            32,
+            32,
+            128,
+            16,
+            4,
+            3
+          ],
+          "error": "CORRECTNESS relative L2 error 1.000e+00 > 0.01"
+        },
+        {
+          "config": [
+            "dot",
+            32,
+            64,
+            128,
+            1,
+            4,
+            3
+          ],
+          "us": 150.89599788188934,
+          "ratio": 0.08631110588607528,
+          "registers": 255,
+          "spills": 196,
+          "shared_bytes": 81920,
+          "wgmma": false,
+          "tma": false
+        },
+        {
+          "config": [
+            "dot",
+            32,
+            64,
+            128,
+            4,
+            4,
+            3
+          ],
+          "us": 137.7600058913231,
+          "ratio": 0.09454123035711244,
+          "registers": 255,
+          "spills": 200,
+          "shared_bytes": 81920,
+          "wgmma": false,
+          "tma": false
+        },
+        {
+          "config": [
+            "dot",
+            32,
+            64,
+            128,
+            16,
+            4,
+            3
+          ],
+          "error": "CORRECTNESS relative L2 error 1.000e+00 > 0.01"
+        }
+      ],
+      "best": [
+        {
+          "config": [
+            "dot",
+            32,
+            32,
+            128,
+            1,
+            4,
+            3
+          ],
+          "us": 109.31199789047241,
+          "ratio": 0.11914520548804194,
+          "registers": 255,
+          "spills": 6,
+          "shared_bytes": 49152,
+          "wgmma": false,
+          "tma": false,
+          "confirmed_ratio": 0.12177667987567714
+        },
+        {
+          "config": [
+            "dot",
+            32,
+            32,
+            128,
+            4,
+            4,
+            3
+          ],
+          "us": 110.01599952578545,
+          "ratio": 0.11838278529584408,
+          "registers": 255,
+          "spills": 0,
+          "shared_bytes": 49152,
+          "wgmma": false,
+          "tma": false,
+          "confirmed_ratio": 0.1212642449859814
+        }
+      ]
+    }
+  ],
+  "gpu": "NVIDIA H200",
+  "packing": {
+    "pooler": {
+      "bit_exact": true,
+      "fallback_fraction": 0.01451873779296875,
+      "packed_fraction": 0.751953125
+    },
+    "qkv_gate": {
+      "bit_exact": true,
+      "fallback_fraction": 0.0151502825319767,
+      "packed_fraction": 0.751953125
+    },
+    "unpooler": {
+      "bit_exact": true,
+      "fallback_fraction": 0.0121002197265625,
+      "packed_fraction": 0.751953125
+    },
+    "o": {
+      "bit_exact": true,
+      "fallback_fraction": 0.013214111328125,
+      "packed_fraction": 0.751953125
+    }
+  },
+  "source_sha256": "8c5355d13018fff7bbadd2a6680b7ee40ab4e16a16a0854bf21061dc8236bf34"
+}

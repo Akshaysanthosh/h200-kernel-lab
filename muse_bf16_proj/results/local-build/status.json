@@ -1,0 +1,17 @@
+{
+  "object_compile_passed": true,
+  "torch_headers": "2.9.0+cpu",
+  "cuda_headers": "12.8",
+  "gpu_execution": false,
+  "cpu_wheel_cuda_macro_file_bypassed": true,
+  "link_validation": false,
+  "object_bytes": 3264512,
+  "verified_at_utc": "2026-10-30T08:40:35.099577+00:00",
+  "native_source_sha256": "7bc637dc26cf310a0ff53e37dd16c9aa85f1a45a4134507ddcee799b7c6c8e46",
+  "cpu_preflight_tests_passed": 7,
+  "official_gpu_checks_used_this_turn": 0,
+  "paid_gpu_spend": 0,
+  "candidate_count": 6,
+  "followup": "2026-10-31 05:35 Asia/Kolkata",
+  "automation_id": "free-cublaslt-checks-after-quota-reset"
+}

@@ -1,0 +1,482 @@
+[
+  {
+    "seed": 82731,
+    "m": 1,
+    "layer": "qkv_gate",
+    "parent_graph_us": 13.952000066637993,
+    "load_share": 0.23792632962138927,
+    "log_score_sensitivity": 0.039654388270231544
+  },
+  {
+    "seed": 82731,
+    "m": 1,
+    "layer": "o",
+    "parent_graph_us": 9.696000255644321,
+    "load_share": 0.16534788860486338,
+    "log_score_sensitivity": 0.027557981434143897
+  },
+  {
+    "seed": 82731,
+    "m": 1,
+    "layer": "pooler",
+    "parent_graph_us": 18.063999712467194,
+    "load_share": 0.3080491061741239,
+    "log_score_sensitivity": 0.051341517695687316
+  },
+  {
+    "seed": 82731,
+    "m": 1,
+    "layer": "unpooler",
+    "parent_graph_us": 8.608000352978706,
+    "load_share": 0.146794002263603,
+    "log_score_sensitivity": 0.024465667043933836
+  },
+  {
+    "seed": 82731,
+    "m": 1,
+    "layer": "router",
+    "parent_graph_us": 8.320000022649765,
+    "load_share": 0.14188267333602048,
+    "log_score_sensitivity": 0.023647112222670078
+  },
+  {
+    "seed": 82731,
+    "m": 8,
+    "layer": "qkv_gate",
+    "parent_graph_us": 13.87199992313981,
+    "load_share": 0.2327516755094651,
+    "log_score_sensitivity": 0.03879194591824418
+  },
+  {
+    "seed": 82731,
+    "m": 8,
+    "layer": "o",
+    "parent_graph_us": 9.759999811649323,
+    "load_share": 0.16375838536043424,
+    "log_score_sensitivity": 0.02729306422673904
+  },
+  {
+    "seed": 82731,
+    "m": 8,
+    "layer": "pooler",
+    "parent_graph_us": 18.144000321626663,
+    "load_share": 0.3044295342201118,
+    "log_score_sensitivity": 0.05073825570335197
+  },
+  {
+    "seed": 82731,
+    "m": 8,
+    "layer": "unpooler",
+    "parent_graph_us": 8.880000095814466,
+    "load_share": 0.14899328952398214,
+    "log_score_sensitivity": 0.02483221492066369
+  },
+  {
+    "seed": 82731,
+    "m": 8,
+    "layer": "router",
+    "parent_graph_us": 8.944000117480755,
+    "load_share": 0.15006711538600673,
+    "log_score_sensitivity": 0.02501118589766779
+  },
+  {
+    "seed": 82731,
+    "m": 16,
+    "layer": "qkv_gate",
+    "parent_graph_us": 14.832000248134136,
+    "load_share": 0.2097759679499851,
+    "log_score_sensitivity": 0.034962661324997514
+  },
+  {
+    "seed": 82731,
+    "m": 16,
+    "layer": "o",
+    "parent_graph_us": 10.080000385642052,
+    "load_share": 0.14256619487990457,
+    "log_score_sensitivity": 0.023761032479984096
+  },
+  {
+    "seed": 82731,
+    "m": 16,
+    "layer": "pooler",
+    "parent_graph_us": 18.543999642133713,
+    "load_share": 0.262276524373855,
+    "log_score_sensitivity": 0.04371275406230917
+  },
+  {
+    "seed": 82731,
+    "m": 16,
+    "layer": "unpooler",
+    "parent_graph_us": 18.41600053012371,
+    "load_share": 0.2604661726229498,
+    "log_score_sensitivity": 0.04341102877049163
+  },
+  {
+    "seed": 82731,
+    "m": 16,
+    "layer": "router",
+    "parent_graph_us": 8.832000195980072,
+    "load_share": 0.1249151401733055,
+    "log_score_sensitivity": 0.02081919002888425
+  },
+  {
+    "seed": 82731,
+    "m": 32,
+    "layer": "qkv_gate",
+    "parent_graph_us": 16.543999314308167,
+    "load_share": 0.2118852437360593,
+    "log_score_sensitivity": 0.035314207289343216
+  },
+  {
+    "seed": 82731,
+    "m": 32,
+    "layer": "o",
+    "parent_graph_us": 10.33599954098463,
+    "load_share": 0.13237704743515388,
+    "log_score_sensitivity": 0.022062841239192315
+  },
+  {
+    "seed": 82731,
+    "m": 32,
+    "layer": "pooler",
+    "parent_graph_us": 21.183999255299568,
+    "load_share": 0.2713114743441556,
+    "log_score_sensitivity": 0.045218579057359265
+  },
+  {
+    "seed": 82731,
+    "m": 32,
+    "layer": "unpooler",
+    "parent_graph_us": 20.239999517798424,
+    "load_share": 0.2592213133941235,
+    "log_score_sensitivity": 0.04320355223235392
+  },
+  {
+    "seed": 82731,
+    "m": 32,
+    "layer": "router",
+    "parent_graph_us": 9.775999933481216,
+    "load_share": 0.12520492109050768,
+    "log_score_sensitivity": 0.020867486848417948
+  },
+  {
+    "seed": 82731,
+    "m": 128,
+    "layer": "qkv_gate",
+    "parent_graph_us": 18.079999834299088,
+    "load_share": 0.20493289550841334,
+    "log_score_sensitivity": 0.03415548258473556
+  },
+  {
+    "seed": 82731,
+    "m": 128,
+    "layer": "o",
+    "parent_graph_us": 11.42400037497282,
+    "load_share": 0.129488578351148,
+    "log_score_sensitivity": 0.021581429725191333
+  },
+  {
+    "seed": 82731,
+    "m": 128,
+    "layer": "pooler",
+    "parent_graph_us": 24.70399998128414,
+    "load_share": 0.280014507367423,
+    "log_score_sensitivity": 0.04666908456123717
+  },
+  {
+    "seed": 82731,
+    "m": 128,
+    "layer": "unpooler",
+    "parent_graph_us": 23.04000034928322,
+    "load_share": 0.26115343071719177,
+    "log_score_sensitivity": 0.043525571786198626
+  },
+  {
+    "seed": 82731,
+    "m": 128,
+    "layer": "router",
+    "parent_graph_us": 10.975999757647514,
+    "load_share": 0.12441058805582392,
+    "log_score_sensitivity": 0.020735098009303985
+  },
+  {
+    "seed": 82731,
+    "m": 256,
+    "layer": "qkv_gate",
+    "parent_graph_us": 21.95199951529503,
+    "load_share": 0.2097538553220336,
+    "log_score_sensitivity": 0.034958975887005604
+  },
+  {
+    "seed": 82731,
+    "m": 256,
+    "layer": "o",
+    "parent_graph_us": 13.391999993473291,
+    "load_share": 0.12796208505500778,
+    "log_score_sensitivity": 0.02132701417583463
+  },
+  {
+    "seed": 82731,
+    "m": 256,
+    "layer": "pooler",
+    "parent_graph_us": 28.48000079393387,
+    "load_share": 0.2721296509659622,
+    "log_score_sensitivity": 0.04535494182766037
+  },
+  {
+    "seed": 82731,
+    "m": 256,
+    "layer": "unpooler",
+    "parent_graph_us": 28.12799997627735,
+    "load_share": 0.268766243066444,
+    "log_score_sensitivity": 0.04479437384440733
+  },
+  {
+    "seed": 82731,
+    "m": 256,
+    "layer": "router",
+    "parent_graph_us": 12.703999876976013,
+    "load_share": 0.12138816559055243,
+    "log_score_sensitivity": 0.02023136093175874
+  },
+  {
+    "seed": 294817,
+    "m": 1,
+    "layer": "qkv_gate",
+    "parent_graph_us": 14.047999866306782,
+    "load_share": 0.23684920777479448,
+    "log_score_sensitivity": 0.03947486796246575
+  },
+  {
+    "seed": 294817,
+    "m": 1,
+    "layer": "o",
+    "parent_graph_us": 9.727999567985535,
+    "load_share": 0.16401402426242023,
+    "log_score_sensitivity": 0.02733567071040337
+  },
+  {
+    "seed": 294817,
+    "m": 1,
+    "layer": "pooler",
+    "parent_graph_us": 18.271999433636665,
+    "load_share": 0.3080658194408206,
+    "log_score_sensitivity": 0.05134430324013677
+  },
+  {
+    "seed": 294817,
+    "m": 1,
+    "layer": "unpooler",
+    "parent_graph_us": 8.75200005248189,
+    "load_share": 0.14755867729234692,
+    "log_score_sensitivity": 0.02459311288205782
+  },
+  {
+    "seed": 294817,
+    "m": 1,
+    "layer": "router",
+    "parent_graph_us": 8.511999621987343,
+    "load_share": 0.1435122712296177,
+    "log_score_sensitivity": 0.023918711871602952
+  },
+  {
+    "seed": 294817,
+    "m": 8,
+    "layer": "qkv_gate",
+    "parent_graph_us": 13.887999579310417,
+    "load_share": 0.2347214685456293,
+    "log_score_sensitivity": 0.03912024475760489
+  },
+  {
+    "seed": 294817,
+    "m": 8,
+    "layer": "o",
+    "parent_graph_us": 9.759999811649323,
+    "load_share": 0.16495402924754005,
+    "log_score_sensitivity": 0.02749233820792334
+  },
+  {
+    "seed": 294817,
+    "m": 8,
+    "layer": "pooler",
+    "parent_graph_us": 18.0479995906353,
+    "load_share": 0.305029744855103,
+    "log_score_sensitivity": 0.05083829080918383
+  },
+  {
+    "seed": 294817,
+    "m": 8,
+    "layer": "unpooler",
+    "parent_graph_us": 8.895999751985073,
+    "load_share": 0.15035154012232266,
+    "log_score_sensitivity": 0.02505859002038711
+  },
+  {
+    "seed": 294817,
+    "m": 8,
+    "layer": "router",
+    "parent_graph_us": 8.576000109314919,
+    "load_share": 0.144943217229405,
+    "log_score_sensitivity": 0.0241572028715675
+  },
+  {
+    "seed": 294817,
+    "m": 16,
+    "layer": "qkv_gate",
+    "parent_graph_us": 14.911999925971031,
+    "load_share": 0.21000450532279089,
+    "log_score_sensitivity": 0.03500075088713182
+  },
+  {
+    "seed": 294817,
+    "m": 16,
+    "layer": "o",
+    "parent_graph_us": 10.048000141978264,
+    "load_share": 0.1415051844001449,
+    "log_score_sensitivity": 0.02358419740002415
+  },
+  {
+    "seed": 294817,
+    "m": 16,
+    "layer": "pooler",
+    "parent_graph_us": 18.52799952030182,
+    "load_share": 0.2609283391361418,
+    "log_score_sensitivity": 0.0434880565226903
+  },
+  {
+    "seed": 294817,
+    "m": 16,
+    "layer": "unpooler",
+    "parent_graph_us": 18.41600053012371,
+    "load_share": 0.25935106629240723,
+    "log_score_sensitivity": 0.04322517771540121
+  },
+  {
+    "seed": 294817,
+    "m": 16,
+    "layer": "router",
+    "parent_graph_us": 9.103999938815832,
+    "load_share": 0.1282109048485152,
+    "log_score_sensitivity": 0.0213684841414192
+  },
+  {
+    "seed": 294817,
+    "m": 32,
+    "layer": "qkv_gate",
+    "parent_graph_us": 16.40000008046627,
+    "load_share": 0.21107908164731543,
+    "log_score_sensitivity": 0.035179846941219235
+  },
+  {
+    "seed": 294817,
+    "m": 32,
+    "layer": "o",
+    "parent_graph_us": 10.575999971479177,
+    "load_share": 0.13612026527614443,
+    "log_score_sensitivity": 0.022686710879357405
+  },
+  {
+    "seed": 294817,
+    "m": 32,
+    "layer": "pooler",
+    "parent_graph_us": 20.767999812960625,
+    "load_share": 0.26729818943066214,
+    "log_score_sensitivity": 0.04454969823844369
+  },
+  {
+    "seed": 294817,
+    "m": 32,
+    "layer": "unpooler",
+    "parent_graph_us": 20.191999152302742,
+    "load_share": 0.2598846717548466,
+    "log_score_sensitivity": 0.043314111959141095
+  },
+  {
+    "seed": 294817,
+    "m": 32,
+    "layer": "router",
+    "parent_graph_us": 9.759999811649323,
+    "load_share": 0.12561779189103142,
+    "log_score_sensitivity": 0.020936298648505238
+  },
+  {
+    "seed": 294817,
+    "m": 128,
+    "layer": "qkv_gate",
+    "parent_graph_us": 18.303999677300453,
+    "load_share": 0.2087591184742999,
+    "log_score_sensitivity": 0.03479318641238332
+  },
+  {
+    "seed": 294817,
+    "m": 128,
+    "layer": "o",
+    "parent_graph_us": 11.264000087976456,
+    "load_share": 0.12846715309859558,
+    "log_score_sensitivity": 0.021411192183099264
+  },
+  {
+    "seed": 294817,
+    "m": 128,
+    "layer": "pooler",
+    "parent_graph_us": 24.288000538945198,
+    "load_share": 0.2770073028520352,
+    "log_score_sensitivity": 0.04616788380867253
+  },
+  {
+    "seed": 294817,
+    "m": 128,
+    "layer": "unpooler",
+    "parent_graph_us": 23.136000148952007,
+    "load_share": 0.2638686123943823,
+    "log_score_sensitivity": 0.043978102065730384
+  },
+  {
+    "seed": 294817,
+    "m": 128,
+    "layer": "router",
+    "parent_graph_us": 10.688000358641148,
+    "load_share": 0.12189781318068707,
+    "log_score_sensitivity": 0.02031630219678118
+  },
+  {
+    "seed": 294817,
+    "m": 256,
+    "layer": "qkv_gate",
+    "parent_graph_us": 21.647999994456768,
+    "load_share": 0.20944272615708315,
+    "log_score_sensitivity": 0.03490712102618052
+  },
+  {
+    "seed": 294817,
+    "m": 256,
+    "layer": "o",
+    "parent_graph_us": 12.959999963641167,
+    "load_share": 0.12538699760142988,
+    "log_score_sensitivity": 0.020897832933571645
+  },
+  {
+    "seed": 294817,
+    "m": 256,
+    "layer": "pooler",
+    "parent_graph_us": 28.28799933195114,
+    "load_share": 0.2736842063530437,
+    "log_score_sensitivity": 0.04561403439217395
+  },
+  {
+    "seed": 294817,
+    "m": 256,
+    "layer": "unpooler",
+    "parent_graph_us": 27.92000025510788,
+    "load_share": 0.2701238437376945,
+    "log_score_sensitivity": 0.04502064062294908
+  },
+  {
+    "seed": 294817,
+    "m": 256,
+    "layer": "router",
+    "parent_graph_us": 12.543999589979649,
+    "load_share": 0.12136222615074879,
+    "log_score_sensitivity": 0.020227037691791464
+  }
+]

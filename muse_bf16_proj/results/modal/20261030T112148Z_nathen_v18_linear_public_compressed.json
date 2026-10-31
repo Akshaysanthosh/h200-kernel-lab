@@ -1,0 +1,359 @@
+{
+  "passed": true,
+  "official_score": false,
+  "gpu": "NVIDIA H200",
+  "torch": "2.14.1+cu130",
+  "cuda": "13.0",
+  "lt_version": 130101,
+  "shapes": [
+    {
+      "m": 128,
+      "layer": "pooler",
+      "tested": 48,
+      "finalists": [
+        {
+          "ratio": 0.7664992010202856,
+          "baseline_us": 24.320000782608986,
+          "candidate_us": 31.679999083280563,
+          "inst": [
+            64,
+            64,
+            2,
+            2,
+            2,
+            true,
+            1
+          ],
+          "split": 2,
+          "idx": 9,
+          "max_esc": 13
+        },
+        {
+          "ratio": 0.8183527515149033,
+          "baseline_us": 24.49600026011467,
+          "candidate_us": 29.93600070476532,
+          "inst": [
+            64,
+            64,
+            4,
+            2,
+            2,
+            true,
+            1
+          ],
+          "split": 1,
+          "idx": 11,
+          "max_esc": 13
+        },
+        {
+          "ratio": 0.7825860249596757,
+          "baseline_us": 24.431999772787094,
+          "candidate_us": 30.896000564098358,
+          "inst": [
+            64,
+            64,
+            4,
+            1,
+            2,
+            true,
+            1
+          ],
+          "split": 1,
+          "idx": 10,
+          "max_esc": 13
+        }
+      ]
+    },
+    {
+      "m": 256,
+      "layer": "pooler",
+      "tested": 48,
+      "finalists": [
+        {
+          "ratio": 0.5549450678961639,
+          "baseline_us": 28.20800058543682,
+          "candidate_us": 51.16799846291542,
+          "inst": [
+            64,
+            64,
+            2,
+            2,
+            2,
+            true,
+            1
+          ],
+          "split": 1,
+          "idx": 9,
+          "max_esc": 23
+        },
+        {
+          "ratio": 0.5355896959043851,
+          "baseline_us": 28.255999088287354,
+          "candidate_us": 53.120000287890434,
+          "inst": [
+            64,
+            64,
+            2,
+            1,
+            2,
+            true,
+            1
+          ],
+          "split": 1,
+          "idx": 8,
+          "max_esc": 23
+        },
+        {
+          "ratio": 0.5217844659621107,
+          "baseline_us": 28.12799997627735,
+          "candidate_us": 54.047999903559685,
+          "inst": [
+            64,
+            64,
+            1,
+            2,
+            2,
+            true,
+            1
+          ],
+          "split": 2,
+          "idx": 7,
+          "max_esc": 23
+        }
+      ]
+    },
+    {
+      "m": 128,
+      "layer": "unpooler",
+      "tested": 48,
+      "finalists": [
+        {
+          "ratio": 0.7819030999727725,
+          "baseline_us": 23.024000227451324,
+          "candidate_us": 29.360000044107437,
+          "inst": [
+            64,
+            64,
+            2,
+            2,
+            2,
+            true,
+            1
+          ],
+          "split": 1,
+          "idx": 9,
+          "max_esc": 11
+        },
+        {
+          "ratio": 0.7599526872116695,
+          "baseline_us": 23.04000034928322,
+          "candidate_us": 30.41600063443184,
+          "inst": [
+            64,
+            64,
+            2,
+            1,
+            2,
+            true,
+            1
+          ],
+          "split": 1,
+          "idx": 8,
+          "max_esc": 11
+        },
+        {
+          "ratio": 0.7260795771929114,
+          "baseline_us": 22.975999861955643,
+          "candidate_us": 31.3120000064373,
+          "inst": [
+            64,
+            64,
+            1,
+            2,
+            2,
+            true,
+            1
+          ],
+          "split": 2,
+          "idx": 7,
+          "max_esc": 11
+        }
+      ]
+    },
+    {
+      "m": 256,
+      "layer": "unpooler",
+      "tested": 48,
+      "finalists": [
+        {
+          "ratio": 0.549359572154613,
+          "baseline_us": 27.775999158620834,
+          "candidate_us": 50.863999873399734,
+          "inst": [
+            64,
+            64,
+            1,
+            2,
+            2,
+            true,
+            1
+          ],
+          "split": 1,
+          "idx": 7,
+          "max_esc": 14
+        },
+        {
+          "ratio": 0.5300392163283303,
+          "baseline_us": 27.96800062060356,
+          "candidate_us": 53.02400141954422,
+          "inst": [
+            64,
+            64,
+            2,
+            2,
+            2,
+            true,
+            1
+          ],
+          "split": 1,
+          "idx": 9,
+          "max_esc": 11
+        },
+        {
+          "ratio": 0.527063382629601,
+          "baseline_us": 27.936000376939774,
+          "candidate_us": 53.21599915623665,
+          "inst": [
+            64,
+            64,
+            1,
+            1,
+            2,
+            true,
+            1
+          ],
+          "split": 1,
+          "idx": 6,
+          "max_esc": 14
+        }
+      ]
+    },
+    {
+      "m": 128,
+      "layer": "qkv_gate",
+      "tested": 48,
+      "finalists": [
+        {
+          "ratio": 0.7120274050146489,
+          "baseline_us": 17.952000722289085,
+          "candidate_us": 25.13599954545498,
+          "inst": [
+            64,
+            64,
+            1,
+            1,
+            2,
+            true,
+            1
+          ],
+          "split": 8,
+          "idx": 6,
+          "max_esc": 9
+        },
+        {
+          "ratio": 0.6762315771422756,
+          "baseline_us": 17.920000478625298,
+          "candidate_us": 26.415999978780746,
+          "inst": [
+            64,
+            64,
+            1,
+            2,
+            2,
+            true,
+            1
+          ],
+          "split": 4,
+          "idx": 7,
+          "max_esc": 13
+        },
+        {
+          "ratio": 0.6499295920933137,
+          "baseline_us": 17.952000722289085,
+          "candidate_us": 27.567999437451363,
+          "inst": [
+            64,
+            64,
+            1,
+            1,
+            2,
+            true,
+            1
+          ],
+          "split": 4,
+          "idx": 6,
+          "max_esc": 13
+        }
+      ]
+    },
+    {
+      "m": 256,
+      "layer": "qkv_gate",
+      "tested": 48,
+      "finalists": [
+        {
+          "ratio": 0.5944346972546135,
+          "baseline_us": 21.63200080394745,
+          "candidate_us": 36.51199862360954,
+          "inst": [
+            64,
+            64,
+            1,
+            1,
+            2,
+            true,
+            1
+          ],
+          "split": 4,
+          "idx": 6,
+          "max_esc": 13
+        },
+        {
+          "ratio": 0.4938904149262548,
+          "baseline_us": 21.647999994456768,
+          "candidate_us": 44.27199997007847,
+          "inst": [
+            64,
+            64,
+            1,
+            1,
+            2,
+            true,
+            1
+          ],
+          "split": 8,
+          "idx": 6,
+          "max_esc": 9
+        },
+        {
+          "ratio": 0.4861146130827164,
+          "baseline_us": 21.55200019478798,
+          "candidate_us": 44.67200115323067,
+          "inst": [
+            64,
+            64,
+            1,
+            2,
+            2,
+            true,
+            1
+          ],
+          "split": 2,
+          "idx": 7,
+          "max_esc": 19
+        }
+      ]
+    }
+  ],
+  "source_sha256": "6faa2ae8519e3b9c19b27c2fdf47a2a057c7be89c72583ecfd270175c2144ae7"
+}

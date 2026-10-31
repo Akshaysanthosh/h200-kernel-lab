@@ -1,0 +1,5 @@
+#include <pybind11/pybind11.h>
+#include <stdint.h>
+int rr_launch(int,int64_t,int64_t,int64_t,int,int64_t,int);
+int rr_scalar(int64_t,int64_t,int64_t,int,int64_t,int);
+int rr_small(int64_t,int64_t,int64_t,int,int,int,int64_t,int);

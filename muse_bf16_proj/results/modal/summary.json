@@ -1,0 +1,58 @@
+[
+  {
+    "result": "results/modal/20261030T091329Z_lt_original_h0.json",
+    "candidate": "candidates/lt/lt_original_h0.py",
+    "passed": true,
+    "relative_to_champion": 0.9920035732908332,
+    "sha256": "57a7b3baadf2530fd188ae60e243988b2c810030b1c4c31395bb4ecd23ac033d"
+  },
+  {
+    "result": "results/modal/20261030T091453Z_lt_transposed_h0.json",
+    "candidate": "candidates/lt/lt_transposed_h0.py",
+    "passed": true,
+    "relative_to_champion": 0.9960578513607811,
+    "sha256": "8f78e7f3f441405b5e15f7f1ba55a2a6df5f62593416f8e169195814b1f74d9d"
+  },
+  {
+    "result": "results/modal/20261030T091611Z_lt_original_h1.json",
+    "candidate": "candidates/lt/lt_original_h1.py",
+    "passed": true,
+    "relative_to_champion": 0.9805702754039437,
+    "sha256": "27343bfb5e240efe70d20a94896963d3b4821bb82dc06da3444432c0d22ddfec"
+  },
+  {
+    "result": "results/modal/20261030T091726Z_lt_transposed_h1.json",
+    "candidate": "candidates/lt/lt_transposed_h1.py",
+    "passed": true,
+    "relative_to_champion": 0.9813824921869776,
+    "sha256": "fce821bc2f354c16201f360edaef4ecdbf125d46dbfda866429e625a6d3866c1"
+  },
+  {
+    "result": "results/modal/20261030T091837Z_lt_original_h2.json",
+    "candidate": "candidates/lt/lt_original_h2.py",
+    "passed": true,
+    "relative_to_champion": 0.9722290937801656,
+    "sha256": "65b2a4e37ab507408052833c1d085924357f9218bef3a79fc514b489b3595774"
+  },
+  {
+    "result": "results/modal/20261030T092000Z_lt_transposed_h2.json",
+    "candidate": "candidates/lt/lt_transposed_h2.py",
+    "passed": true,
+    "relative_to_champion": 0.9741318888225425,
+    "sha256": "3cc78b2a168471dadfec350de18acb05b83ab265c5e8c0a6ac9d1321625e534b"
+  },
+  {
+    "result": "results/modal/20261030T092107Z_lt_hybrid_v1.json",
+    "candidate": "candidates/lt/lt_hybrid_v1.py",
+    "passed": true,
+    "relative_to_champion": 1.003015804669084,
+    "sha256": "2b6bf64223483408c3cd3e6e191eddede5694e0840b70b111c6f7a7de7fa287a"
+  },
+  {
+    "result": "results/modal/20261030T092220Z_lt_hybrid_v1.json",
+    "candidate": "candidates/lt/lt_hybrid_v1.py",
+    "passed": true,
+    "relative_to_champion": 1.004949684568032,
+    "sha256": "2b6bf64223483408c3cd3e6e191eddede5694e0840b70b111c6f7a7de7fa287a"
+  }
+]

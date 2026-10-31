@@ -1,0 +1,8 @@
+{
+  "repository": "https://github.com/NVIDIA/cutlass",
+  "tag": "v3.9.2",
+  "commit": "ad7b2f5e84fcfa124cb02b91d5bd26d238c0459e",
+  "license": "BSD-3-Clause",
+  "header_root": "vendor/cutlass/include",
+  "license_sha256": "42fec630f410aa308f70a51a89fadcd19586fa620f9831a32bee528a9a10000e"
+}

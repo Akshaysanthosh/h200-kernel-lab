@@ -1,0 +1,397 @@
+{
+  "passed": true,
+  "official_score": false,
+  "gpu": "NVIDIA H200",
+  "torch": "2.14.1+cu130",
+  "cuda": "13.0",
+  "approach": "FlashInfer TinyGEMM BF16 uncompressed",
+  "upstream_commit": "5d60811431d040ed62f85c7a7906a77a6e72cccc",
+  "kernel_sha256": "15bff8bf518b11b5c76e3bd36139cff6b535daf6aa7c4a0c6743e1584c12c504",
+  "shapes": [
+    {
+      "layer": "pooler",
+      "m": 1,
+      "results": [
+        {
+          "stages": 4,
+          "ratio": 0.4698667863435654,
+          "baseline_us": 17.775999382138252,
+          "candidate_us": 37.9519984126091
+        },
+        {
+          "stages": 8,
+          "ratio": 0.761643665709101,
+          "baseline_us": 17.791999503970146,
+          "candidate_us": 23.215999826788902
+        },
+        {
+          "stages": 16,
+          "ratio": 0.7507637441010537,
+          "baseline_us": 17.727999947965145,
+          "candidate_us": 23.584000766277313
+        }
+      ]
+    },
+    {
+      "layer": "pooler",
+      "m": 8,
+      "results": [
+        {
+          "stages": 4,
+          "ratio": 0.47938728169104156,
+          "baseline_us": 17.93600060045719,
+          "candidate_us": 37.71200031042099
+        },
+        {
+          "stages": 8,
+          "ratio": 0.7660026634375068,
+          "baseline_us": 17.983999103307724,
+          "candidate_us": 23.072000592947006
+        },
+        {
+          "stages": 16,
+          "ratio": 0.7608419816156493,
+          "baseline_us": 17.920000478625298,
+          "candidate_us": 23.40799942612648
+        }
+      ]
+    },
+    {
+      "layer": "pooler",
+      "m": 16,
+      "results": [
+        {
+          "stages": 4,
+          "ratio": 0.2692852288741875,
+          "baseline_us": 17.93600060045719,
+          "candidate_us": 66.8640024960041
+        },
+        {
+          "stages": 8,
+          "ratio": 0.45982684950958563,
+          "baseline_us": 17.904000356793404,
+          "candidate_us": 39.15200009942055
+        },
+        {
+          "stages": 16,
+          "ratio": 0.4387843899421671,
+          "baseline_us": 17.872000113129616,
+          "candidate_us": 40.97599908709526
+        }
+      ]
+    },
+    {
+      "layer": "pooler",
+      "m": 32,
+      "results": [
+        {
+          "stages": 4,
+          "ratio": 0.2075457526741162,
+          "baseline_us": 20.479999482631683,
+          "candidate_us": 98.9920012652874
+        },
+        {
+          "stages": 8,
+          "ratio": 0.3081309630406318,
+          "baseline_us": 20.447999238967896,
+          "candidate_us": 67.26399809122086
+        },
+        {
+          "stages": 16,
+          "ratio": 0.2939561766793781,
+          "baseline_us": 20.527999848127365,
+          "candidate_us": 70.49600034952164
+        }
+      ]
+    },
+    {
+      "layer": "qkv_gate",
+      "m": 1,
+      "results": [
+        {
+          "stages": 4,
+          "ratio": 0.392039728764423,
+          "baseline_us": 13.60000018030405,
+          "candidate_us": 34.752000123262405
+        },
+        {
+          "stages": 8,
+          "ratio": 0.7662454929119827,
+          "baseline_us": 13.60000018030405,
+          "candidate_us": 17.80799962580204
+        },
+        {
+          "stages": 16,
+          "ratio": 0.7250856933965084,
+          "baseline_us": 13.60000018030405,
+          "candidate_us": 18.65600049495697
+        }
+      ]
+    },
+    {
+      "layer": "qkv_gate",
+      "m": 8,
+      "results": [
+        {
+          "stages": 4,
+          "ratio": 0.39079747469316073,
+          "baseline_us": 13.60000018030405,
+          "candidate_us": 34.591998904943466
+        },
+        {
+          "stages": 8,
+          "ratio": 0.7870294329631419,
+          "baseline_us": 13.632000423967838,
+          "candidate_us": 17.295999452471733
+        },
+        {
+          "stages": 16,
+          "ratio": 0.7276610853829885,
+          "baseline_us": 13.584000058472157,
+          "candidate_us": 18.65600049495697
+        }
+      ]
+    },
+    {
+      "layer": "qkv_gate",
+      "m": 16,
+      "results": [
+        {
+          "stages": 4,
+          "ratio": 0.39190124137994925,
+          "baseline_us": 14.495999552309513,
+          "candidate_us": 36.8800014257431
+        },
+        {
+          "stages": 8,
+          "ratio": 0.5806483514456731,
+          "baseline_us": 14.495999552309513,
+          "candidate_us": 25.34399926662445
+        },
+        {
+          "stages": 16,
+          "ratio": 0.5844432492395978,
+          "baseline_us": 14.511999674141407,
+          "candidate_us": 24.639999493956566
+        }
+      ]
+    },
+    {
+      "layer": "qkv_gate",
+      "m": 32,
+      "results": [
+        {
+          "stages": 4,
+          "ratio": 0.2396483814423353,
+          "baseline_us": 16.1920003592968,
+          "candidate_us": 67.37599894404411
+        },
+        {
+          "stages": 8,
+          "ratio": 0.45050532658207865,
+          "baseline_us": 16.1920003592968,
+          "candidate_us": 36.17599979043007
+        },
+        {
+          "stages": 16,
+          "ratio": 0.43252757282978893,
+          "baseline_us": 16.127999871969223,
+          "candidate_us": 37.376001477241516
+        }
+      ]
+    },
+    {
+      "layer": "unpooler",
+      "m": 1,
+      "results": [
+        {
+          "stages": 4,
+          "ratio": 0.43615603973893985,
+          "baseline_us": 8.25599953532219,
+          "candidate_us": 18.928000703454018
+        },
+        {
+          "stages": 8,
+          "ratio": 0.8448649101783052,
+          "baseline_us": 8.239999879151583,
+          "candidate_us": 9.824000298976898
+        },
+        {
+          "stages": 16,
+          "ratio": 0.9176826905442118,
+          "baseline_us": 8.239999879151583,
+          "candidate_us": 9.056000038981438
+        }
+      ]
+    },
+    {
+      "layer": "unpooler",
+      "m": 8,
+      "results": [
+        {
+          "stages": 4,
+          "ratio": 0.45258253056521236,
+          "baseline_us": 8.576000109314919,
+          "candidate_us": 19.023999571800232
+        },
+        {
+          "stages": 8,
+          "ratio": 0.8685725694495898,
+          "baseline_us": 8.511999621987343,
+          "candidate_us": 9.759999811649323
+        },
+        {
+          "stages": 16,
+          "ratio": 0.9369519449198807,
+          "baseline_us": 8.576000109314919,
+          "candidate_us": 9.135999716818333
+        }
+      ]
+    },
+    {
+      "layer": "unpooler",
+      "m": 16,
+      "results": [
+        {
+          "stages": 4,
+          "ratio": 0.31298370755296717,
+          "baseline_us": 17.80799962580204,
+          "candidate_us": 56.84800073504448
+        },
+        {
+          "stages": 8,
+          "ratio": 0.4436720416554388,
+          "baseline_us": 17.88800023496151,
+          "candidate_us": 40.38400016725063
+        },
+        {
+          "stages": 16,
+          "ratio": 0.4180252028141098,
+          "baseline_us": 17.904000356793404,
+          "candidate_us": 43.02399978041649
+        }
+      ]
+    },
+    {
+      "layer": "unpooler",
+      "m": 32,
+      "results": [
+        {
+          "stages": 4,
+          "ratio": 0.1999999971736166,
+          "baseline_us": 19.727999344468117,
+          "candidate_us": 99.2640033364296
+        },
+        {
+          "stages": 8,
+          "ratio": 0.2843615486494707,
+          "baseline_us": 19.680000841617584,
+          "candidate_us": 69.63200122117996
+        },
+        {
+          "stages": 16,
+          "ratio": 0.27129592688947235,
+          "baseline_us": 19.61600035429001,
+          "candidate_us": 72.78400287032127
+        }
+      ]
+    },
+    {
+      "layer": "o",
+      "m": 1,
+      "results": [
+        {
+          "stages": 4,
+          "ratio": 0.7892328077104684,
+          "baseline_us": 9.26399976015091,
+          "candidate_us": 11.888000182807446
+        },
+        {
+          "stages": 8,
+          "ratio": 0.7622890701662551,
+          "baseline_us": 9.216000325977802,
+          "candidate_us": 12.032000347971916
+        },
+        {
+          "stages": 16,
+          "ratio": 0.6222462844467549,
+          "baseline_us": 9.312000125646591,
+          "candidate_us": 14.944000169634819
+        }
+      ]
+    },
+    {
+      "layer": "o",
+      "m": 8,
+      "results": [
+        {
+          "stages": 4,
+          "ratio": 0.8406628679905241,
+          "baseline_us": 9.312000125646591,
+          "candidate_us": 11.136000044643879
+        },
+        {
+          "stages": 8,
+          "ratio": 0.7785194800958555,
+          "baseline_us": 9.312000125646591,
+          "candidate_us": 11.935999616980553
+        },
+        {
+          "stages": 16,
+          "ratio": 0.6252050090162697,
+          "baseline_us": 9.344000369310379,
+          "candidate_us": 14.879999682307243
+        }
+      ]
+    },
+    {
+      "layer": "o",
+      "m": 16,
+      "results": [
+        {
+          "stages": 4,
+          "ratio": 0.7126702541562084,
+          "baseline_us": 9.664000011980534,
+          "candidate_us": 13.536000158637762
+        },
+        {
+          "stages": 8,
+          "ratio": 0.5969411480624801,
+          "baseline_us": 9.711999911814928,
+          "candidate_us": 16.1920003592968
+        },
+        {
+          "stages": 16,
+          "ratio": 0.4372504292106629,
+          "baseline_us": 9.631999768316746,
+          "candidate_us": 22.064000368118286
+        }
+      ]
+    },
+    {
+      "layer": "o",
+      "m": 32,
+      "results": [
+        {
+          "stages": 4,
+          "ratio": 0.5225056133046955,
+          "baseline_us": 10.015999898314476,
+          "candidate_us": 19.216000102460384
+        },
+        {
+          "stages": 8,
+          "ratio": 0.44330637618381724,
+          "baseline_us": 10.048000141978264,
+          "candidate_us": 22.6879995316267
+        },
+        {
+          "stages": 16,
+          "ratio": 0.29136785074716953,
+          "baseline_us": 10.064000263810158,
+          "candidate_us": 34.52799841761589
+        }
+      ]
+    }
+  ],
+  "source_sha256": "6faa2ae8519e3b9c19b27c2fdf47a2a057c7be89c72583ecfd270175c2144ae7"
+}

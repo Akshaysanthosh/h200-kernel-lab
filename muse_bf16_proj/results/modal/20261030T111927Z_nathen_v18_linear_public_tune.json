@@ -1,0 +1,509 @@
+{
+  "passed": true,
+  "official_score": false,
+  "gpu": "NVIDIA H200",
+  "torch": "2.14.1+cu130",
+  "cuda": "13.0",
+  "lt_version": 130101,
+  "shapes": [
+    {
+      "m": 128,
+      "layer": "pooler",
+      "tested": 353,
+      "finalists": [
+        {
+          "ratio": 1.0113327658442657,
+          "baseline_us": 24.224000051617622,
+          "candidate_us": 23.919999599456787,
+          "layout": 2,
+          "epilogue": 0,
+          "config": [
+            66,
+            15,
+            1,
+            0,
+            0,
+            6,
+            35,
+            0,
+            5
+          ],
+          "correctness": "relative L2 error 2.166e-04 (worst row 4.108e-04); 12 probe rows exact to 0.0e+00"
+        },
+        {
+          "ratio": 0.9687221715985315,
+          "baseline_us": 24.512000381946564,
+          "candidate_us": 24.960000067949295,
+          "layout": 1,
+          "epilogue": 0,
+          "config": [
+            66,
+            134,
+            1,
+            0,
+            0,
+            2,
+            35,
+            0,
+            7
+          ],
+          "correctness": "relative L2 error 2.166e-04 (worst row 4.108e-04); 12 probe rows exact to 0.0e+00"
+        },
+        {
+          "ratio": 0.7525602307619275,
+          "baseline_us": 24.70399998128414,
+          "candidate_us": 32.43200108408928,
+          "layout": 3,
+          "epilogue": 0,
+          "config": [
+            66,
+            27,
+            4,
+            2,
+            0,
+            2,
+            35,
+            0,
+            7
+          ],
+          "correctness": "relative L2 error 9.986e-05 (worst row 2.903e-04); 12 probe rows exact to 0.0e+00"
+        },
+        {
+          "ratio": 0.7449595502066311,
+          "baseline_us": 24.575999937951565,
+          "candidate_us": 32.75199979543686,
+          "layout": 0,
+          "epilogue": 0,
+          "config": [
+            66,
+            134,
+            1,
+            0,
+            0,
+            6,
+            35,
+            0,
+            2
+          ],
+          "correctness": "relative L2 error 2.166e-04 (worst row 4.108e-04); 12 probe rows exact to 0.0e+00"
+        }
+      ]
+    },
+    {
+      "m": 256,
+      "layer": "pooler",
+      "tested": 344,
+      "finalists": [
+        {
+          "ratio": 0.961942215586864,
+          "baseline_us": 27.424000203609467,
+          "candidate_us": 28.095999732613564,
+          "layout": 3,
+          "epilogue": 0,
+          "config": [
+            66,
+            18,
+            1,
+            0,
+            0,
+            0,
+            35,
+            0,
+            2
+          ],
+          "correctness": "relative L2 error 2.116e-04 (worst row 4.394e-04); 33 probe rows exact to 0.0e+00"
+        },
+        {
+          "ratio": 0.9293498554269769,
+          "baseline_us": 27.295999228954315,
+          "candidate_us": 29.16800044476986,
+          "layout": 3,
+          "epilogue": 0,
+          "config": [
+            66,
+            18,
+            1,
+            0,
+            0,
+            4,
+            35,
+            0,
+            2
+          ],
+          "correctness": "relative L2 error 2.116e-04 (worst row 4.394e-04); 33 probe rows exact to 0.0e+00"
+        },
+        {
+          "ratio": 0.7486027059843822,
+          "baseline_us": 27.535999193787575,
+          "candidate_us": 37.23200038075447,
+          "layout": 2,
+          "epilogue": 0,
+          "config": [
+            66,
+            20,
+            2,
+            2,
+            0,
+            6,
+            35,
+            0,
+            3
+          ],
+          "correctness": "relative L2 error 1.475e-04 (worst row 3.665e-04); 33 probe rows exact to 0.0e+00"
+        },
+        {
+          "ratio": 0.5618859452903171,
+          "baseline_us": 27.615999802947044,
+          "candidate_us": 49.536000937223434,
+          "layout": 0,
+          "epilogue": 0,
+          "config": [
+            66,
+            183,
+            8,
+            2,
+            0,
+            0,
+            35,
+            0,
+            8
+          ],
+          "correctness": "relative L2 error 6.438e-05 (worst row 2.497e-04); 33 probe rows exact to 0.0e+00"
+        }
+      ]
+    },
+    {
+      "m": 128,
+      "layer": "unpooler",
+      "tested": 387,
+      "finalists": [
+        {
+          "ratio": 0.9996453873627037,
+          "baseline_us": 22.784000262618065,
+          "candidate_us": 22.655999287962914,
+          "layout": 3,
+          "epilogue": 0,
+          "config": [
+            66,
+            18,
+            1,
+            0,
+            0,
+            2,
+            35,
+            0,
+            5
+          ],
+          "correctness": "relative L2 error 1.520e-04 (worst row 2.751e-04); 12 probe rows exact to 0.0e+00"
+        },
+        {
+          "ratio": 0.9964728905763631,
+          "baseline_us": 22.816000506281853,
+          "candidate_us": 22.816000506281853,
+          "layout": 2,
+          "epilogue": 0,
+          "config": [
+            66,
+            18,
+            1,
+            0,
+            0,
+            5,
+            35,
+            0,
+            5
+          ],
+          "correctness": "relative L2 error 1.520e-04 (worst row 2.751e-04); 12 probe rows exact to 0.0e+00"
+        },
+        {
+          "ratio": 0.9539324876845332,
+          "baseline_us": 22.86399994045496,
+          "candidate_us": 23.711999878287315,
+          "layout": 0,
+          "epilogue": 0,
+          "config": [
+            66,
+            18,
+            1,
+            0,
+            0,
+            0,
+            35,
+            0,
+            2
+          ],
+          "correctness": "relative L2 error 1.520e-04 (worst row 2.751e-04); 12 probe rows exact to 0.0e+00"
+        },
+        {
+          "ratio": 0.4698516125882505,
+          "baseline_us": 22.752000018954277,
+          "candidate_us": 48.79999905824661,
+          "layout": 1,
+          "epilogue": 0,
+          "config": [
+            66,
+            18,
+            1,
+            0,
+            0,
+            7,
+            35,
+            0,
+            9
+          ],
+          "correctness": "relative L2 error 1.520e-04 (worst row 2.751e-04); 12 probe rows exact to 0.0e+00"
+        }
+      ]
+    },
+    {
+      "m": 256,
+      "layer": "unpooler",
+      "tested": 374,
+      "finalists": [
+        {
+          "ratio": 1.024418720941266,
+          "baseline_us": 27.888000011444092,
+          "candidate_us": 27.2000003606081,
+          "layout": 3,
+          "epilogue": 0,
+          "config": [
+            66,
+            20,
+            1,
+            0,
+            0,
+            4,
+            35,
+            0,
+            5
+          ],
+          "correctness": "relative L2 error 1.395e-04 (worst row 3.094e-04); 32 probe rows exact to 0.0e+00"
+        },
+        {
+          "ratio": 1.0034602275816953,
+          "baseline_us": 27.456000447273254,
+          "candidate_us": 27.744000777602196,
+          "layout": 2,
+          "epilogue": 0,
+          "config": [
+            66,
+            20,
+            1,
+            0,
+            0,
+            3,
+            35,
+            0,
+            5
+          ],
+          "correctness": "relative L2 error 1.395e-04 (worst row 3.094e-04); 32 probe rows exact to 0.0e+00"
+        },
+        {
+          "ratio": 0.7109605622593104,
+          "baseline_us": 27.39199995994568,
+          "candidate_us": 38.80000114440918,
+          "layout": 3,
+          "epilogue": 0,
+          "config": [
+            66,
+            20,
+            2,
+            2,
+            0,
+            4,
+            35,
+            0,
+            2
+          ],
+          "correctness": "relative L2 error 9.340e-05 (worst row 2.749e-04); 32 probe rows exact to 0.0e+00"
+        },
+        {
+          "ratio": 0.5950678133962906,
+          "baseline_us": 27.295999228954315,
+          "candidate_us": 46.22399993240833,
+          "layout": 0,
+          "epilogue": 0,
+          "config": [
+            66,
+            20,
+            1,
+            0,
+            0,
+            4,
+            35,
+            0,
+            6
+          ],
+          "correctness": "relative L2 error 1.395e-04 (worst row 3.094e-04); 32 probe rows exact to 0.0e+00"
+        }
+      ]
+    },
+    {
+      "m": 128,
+      "layer": "qkv_gate",
+      "tested": 357,
+      "finalists": [
+        {
+          "ratio": 0.9223115743397624,
+          "baseline_us": 17.696000635623932,
+          "candidate_us": 19.200000911951065,
+          "layout": 0,
+          "epilogue": 0,
+          "config": [
+            66,
+            92,
+            1,
+            0,
+            0,
+            2,
+            35,
+            0,
+            5
+          ],
+          "correctness": "relative L2 error 2.059e-04 (worst row 4.013e-04); 12 probe rows exact to 0.0e+00"
+        },
+        {
+          "ratio": 0.9205845677150722,
+          "baseline_us": 17.72800087928772,
+          "candidate_us": 19.18400079011917,
+          "layout": 0,
+          "epilogue": 0,
+          "config": [
+            66,
+            92,
+            1,
+            0,
+            0,
+            0,
+            35,
+            0,
+            5
+          ],
+          "correctness": "relative L2 error 2.059e-04 (worst row 4.013e-04); 12 probe rows exact to 0.0e+00"
+        },
+        {
+          "ratio": 0.9155078486610404,
+          "baseline_us": 17.74400006979704,
+          "candidate_us": 19.43999994546175,
+          "layout": 1,
+          "epilogue": 0,
+          "config": [
+            66,
+            104,
+            1,
+            0,
+            0,
+            0,
+            35,
+            0,
+            2
+          ],
+          "correctness": "relative L2 error 2.059e-04 (worst row 4.013e-04); 12 probe rows exact to 0.0e+00"
+        },
+        {
+          "ratio": 0.892929445979818,
+          "baseline_us": 17.72800087928772,
+          "candidate_us": 19.74399946630001,
+          "layout": 0,
+          "epilogue": 0,
+          "config": [
+            66,
+            80,
+            1,
+            0,
+            0,
+            0,
+            35,
+            0,
+            4
+          ],
+          "correctness": "relative L2 error 2.059e-04 (worst row 4.013e-04); 12 probe rows exact to 0.0e+00"
+        }
+      ]
+    },
+    {
+      "m": 256,
+      "layer": "qkv_gate",
+      "tested": 332,
+      "finalists": [
+        {
+          "ratio": 1.0007544299921083,
+          "baseline_us": 21.183999255299568,
+          "candidate_us": 21.15200087428093,
+          "layout": 0,
+          "epilogue": 0,
+          "config": [
+            66,
+            124,
+            1,
+            0,
+            0,
+            0,
+            35,
+            0,
+            2
+          ],
+          "correctness": "relative L2 error 2.079e-04 (worst row 5.087e-04); 33 probe rows exact to 0.0e+00"
+        },
+        {
+          "ratio": 0.9701663311606881,
+          "baseline_us": 21.183999255299568,
+          "candidate_us": 21.75999991595745,
+          "layout": 0,
+          "epilogue": 0,
+          "config": [
+            66,
+            134,
+            1,
+            0,
+            0,
+            0,
+            35,
+            0,
+            2
+          ],
+          "correctness": "relative L2 error 2.079e-04 (worst row 5.087e-04); 33 probe rows exact to 0.0e+00"
+        },
+        {
+          "ratio": 0.9663121588726236,
+          "baseline_us": 21.27999998629093,
+          "candidate_us": 21.888000890612602,
+          "layout": 1,
+          "epilogue": 0,
+          "config": [
+            66,
+            134,
+            1,
+            0,
+            0,
+            0,
+            35,
+            0,
+            8
+          ],
+          "correctness": "relative L2 error 2.079e-04 (worst row 5.087e-04); 33 probe rows exact to 0.0e+00"
+        },
+        {
+          "ratio": 0.9559894059151925,
+          "baseline_us": 21.183999255299568,
+          "candidate_us": 22.19199948012829,
+          "layout": 0,
+          "epilogue": 0,
+          "config": [
+            66,
+            134,
+            1,
+            0,
+            0,
+            0,
+            35,
+            0,
+            8
+          ],
+          "correctness": "relative L2 error 2.079e-04 (worst row 5.087e-04); 33 probe rows exact to 0.0e+00"
+        }
+      ]
+    }
+  ],
+  "source_sha256": "6faa2ae8519e3b9c19b27c2fdf47a2a057c7be89c72583ecfd270175c2144ae7"
+}

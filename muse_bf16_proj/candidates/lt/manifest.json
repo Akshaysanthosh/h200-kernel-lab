@@ -1,0 +1,327 @@
+[
+  {
+    "file": "candidates/lt/lt_original_h0.py",
+    "sha256": "57a7b3baadf2530fd188ae60e243988b2c810030b1c4c31395bb4ecd23ac033d",
+    "transposed": false,
+    "heuristic_rank": 0,
+    "workspace_budget_bytes": 33554432,
+    "gpu_validated": false,
+    "modal_validation": {
+      "passed": true,
+      "results": [
+        "results/modal/20261030T091329Z_lt_original_h0.json"
+      ],
+      "official_check_passed": false
+    }
+  },
+  {
+    "file": "candidates/lt/lt_original_h1.py",
+    "sha256": "27343bfb5e240efe70d20a94896963d3b4821bb82dc06da3444432c0d22ddfec",
+    "transposed": false,
+    "heuristic_rank": 1,
+    "workspace_budget_bytes": 33554432,
+    "gpu_validated": false,
+    "modal_validation": {
+      "passed": true,
+      "results": [
+        "results/modal/20261030T091611Z_lt_original_h1.json"
+      ],
+      "official_check_passed": false
+    }
+  },
+  {
+    "file": "candidates/lt/lt_original_h2.py",
+    "sha256": "65b2a4e37ab507408052833c1d085924357f9218bef3a79fc514b489b3595774",
+    "transposed": false,
+    "heuristic_rank": 2,
+    "workspace_budget_bytes": 33554432,
+    "gpu_validated": false,
+    "modal_validation": {
+      "passed": true,
+      "results": [
+        "results/modal/20261030T091837Z_lt_original_h2.json"
+      ],
+      "official_check_passed": false
+    }
+  },
+  {
+    "file": "candidates/lt/lt_transposed_h0.py",
+    "sha256": "8f78e7f3f441405b5e15f7f1ba55a2a6df5f62593416f8e169195814b1f74d9d",
+    "transposed": true,
+    "heuristic_rank": 0,
+    "workspace_budget_bytes": 33554432,
+    "gpu_validated": false,
+    "modal_validation": {
+      "passed": true,
+      "results": [
+        "results/modal/20261030T091453Z_lt_transposed_h0.json"
+      ],
+      "official_check_passed": false
+    }
+  },
+  {
+    "file": "candidates/lt/lt_transposed_h1.py",
+    "sha256": "fce821bc2f354c16201f360edaef4ecdbf125d46dbfda866429e625a6d3866c1",
+    "transposed": true,
+    "heuristic_rank": 1,
+    "workspace_budget_bytes": 33554432,
+    "gpu_validated": false,
+    "modal_validation": {
+      "passed": true,
+      "results": [
+        "results/modal/20261030T091726Z_lt_transposed_h1.json"
+      ],
+      "official_check_passed": false
+    }
+  },
+  {
+    "file": "candidates/lt/lt_transposed_h2.py",
+    "sha256": "3cc78b2a168471dadfec350de18acb05b83ab265c5e8c0a6ac9d1321625e534b",
+    "transposed": true,
+    "heuristic_rank": 2,
+    "workspace_budget_bytes": 33554432,
+    "gpu_validated": false,
+    "modal_validation": {
+      "passed": true,
+      "results": [
+        "results/modal/20261030T092000Z_lt_transposed_h2.json"
+      ],
+      "official_check_passed": false
+    }
+  },
+  {
+    "file": "candidates/lt/lt_hybrid_v1.py",
+    "sha256": "2b6bf64223483408c3cd3e6e191eddede5694e0840b70b111c6f7a7de7fa287a",
+    "gpu_validated": false,
+    "hypothesis": "Retain champion except four promising native paths; requires independent confirmation",
+    "modal_validation": {
+      "passed": true,
+      "results": [
+        "results/modal/20261030T092107Z_lt_hybrid_v1.json",
+        "results/modal/20261030T092220Z_lt_hybrid_v1.json"
+      ],
+      "official_check_passed": false
+    }
+  },
+  {
+    "file": "candidates/lt/lt_hybrid_v2.py",
+    "sha256": "21c8c63fb2af0390885050dd88f3955a09c852bb74d427b9fe2a78d02a18bd8f",
+    "gpu_validated": false,
+    "hypothesis": "Expand offline search: original-layout eligible rank4 for qkv m256; preserve other v1 paths",
+    "modal_validation": {
+      "passed": true,
+      "results": [
+        "results/modal/20261030T092955Z_lt_hybrid_v2_benchmark.json",
+        "results/modal/20261030T093118Z_lt_hybrid_v2_benchmark.json"
+      ],
+      "official_check_passed": false
+    }
+  },
+  {
+    "file": "candidates/hopper/tma_v1.py",
+    "sha256": "9685266c9b43bee7253b6042e92b3dbe0d039366dd12b8d52a588a5415f97f3e",
+    "gpu_validated": false,
+    "hypothesis": "TMA loads and tensor-core pipelining with bounded FP32 split-K reduction",
+    "modal_validation": {
+      "passed": true,
+      "relative_to_champion": 0.909578576613265,
+      "rejected_for_performance": true
+    }
+  },
+  {
+    "file": "candidates/hopper/tma_v2.py",
+    "sha256": "2c8b7a3ed58e1aac7a65d266606d874b6f45f81c8cd05251b566640bf9b38160",
+    "gpu_validated": false,
+    "hypothesis": "Swap tensor-core operand orientation and expose compile diagnostics for external tuning"
+  },
+  {
+    "file": "candidates/hopper/hybrid_v1.py",
+    "sha256": "7ba00d91fae130f4cf6fd6bb3efc93dc4b3f98eb9ec5a5469bdc201af21aa03f",
+    "gpu_validated": false,
+    "hypothesis": "Small-batch TMA/WGMMA qkv and pooler; cuBLASLt hybrid v2 for larger shapes",
+    "modal_validation": {
+      "passed": true,
+      "results": [
+        "results/modal/20261030T094137Z_hybrid_v1_benchmark.json",
+        "results/modal/20261030T094335Z_hybrid_v1_benchmark.json"
+      ],
+      "official_check_passed": false
+    }
+  },
+  {
+    "file": "candidates/hopper/other_search.py",
+    "sha256": "91013a5b67d37609c9415fc4170fd5124eadabaee0123ecbbfba460c8bdf1b10",
+    "gpu_validated": false,
+    "hypothesis": "Direct-load GEMM versus complete-output vector reductions for router, o and unpooler",
+    "development_only": true,
+    "rejected_for_promotion": "246 configurations: only marginal router gains, three accuracy failures; no material whole-workload improvement"
+  },
+  {
+    "file": "candidates/hopper/packed_search.py",
+    "sha256": "8c5355d13018fff7bbadd2a6680b7ee40ab4e16a16a0854bf21061dc8236bf34",
+    "gpu_validated": false,
+    "hypothesis": "Lossless 12-bit block exponent coding fused into vector and tensor-core consumer; exact BF16 fallback",
+    "development_only": true,
+    "rejected_for_promotion": "Lossless storage verified, but every measured path slower; four invalid split-K configurations rejected; do not submit search scaffold"
+  },
+  {
+    "file": "candidates/hopper/native_pipeline_v1.py",
+    "sha256": "b8fe8adf32a856f3ac6585f86f4c815b5a27321bc2dd92d135f36b12a10f57c1",
+    "gpu_validated": false,
+    "development_only": true,
+    "hypothesis": "Native warp-specialized lossless decode overlapped with tensor-core consumption, pooler m16",
+    "rejected_for_promotion": "Native packed pipeline misses 10% shape improvement gate; do not submit control-dispatch search scaffold",
+    "modal_validation": {
+      "result": "results/modal/20261030T100558Z_native_pipeline_v1_native.json",
+      "trial_correctness_passed": true,
+      "best_shape_ratio": 0.07490784573578561,
+      "official_check_passed": false
+    }
+  },
+  {
+    "file": "candidates/hopper/native_pipeline_v2.py",
+    "sha256": "27257ac5a86db14efed4122aff20b9a6cfdcd08631f2bfa849fe9b4eb4be59a8",
+    "gpu_validated": false,
+    "development_only": true,
+    "hypothesis": "Native warp-specialized lossless decode overlapped with tensor-core consumption, pooler m16",
+    "rejected_for_promotion": "Native packed pipeline misses 10% shape improvement gate; do not submit control-dispatch search scaffold",
+    "modal_validation": {
+      "result": "results/modal/20261030T100905Z_native_pipeline_v2_native.json",
+      "trial_correctness_passed": true,
+      "best_shape_ratio": 0.0876280099566108,
+      "official_check_passed": false
+    }
+  },
+  {
+    "file": "candidates/hopper/native_pipeline_v3.py",
+    "sha256": "c3837e422316f0cd0086a6dbd169e6453866dc48247f4602095f384be4d249c6",
+    "gpu_validated": false,
+    "development_only": true,
+    "hypothesis": "Native warp-specialized lossless decode overlapped with tensor-core consumption, pooler m16",
+    "rejected_for_promotion": "Native packed pipeline misses 10% shape improvement gate; do not submit control-dispatch search scaffold",
+    "modal_validation": {
+      "result": "results/modal/20261030T101122Z_native_pipeline_v3_native.json",
+      "trial_correctness_passed": true,
+      "best_shape_ratio": 0.4134125730575644,
+      "official_check_passed": false
+    }
+  },
+  {
+    "file": "candidates/hopper/cutlass_v1.py",
+    "sha256": "cf244a61b5ca86b89cde72b30124ff9f46f075accd4041a87ec8859ec4a4b8e7",
+    "gpu_validated": false,
+    "development_only": true,
+    "hypothesis": "CUTLASS SM90a TMA/WGMMA BF16 pooler with batch-partitioned FP32 split-K",
+    "modal_validation": {
+      "result": "results/modal/20261030T101915Z_cutlass_v1_cutlass.json",
+      "correctness_passed": true,
+      "confirmed_shape_ratio_to_best": 0.9588053414131081,
+      "official_check_passed": false
+    },
+    "promotion_status": "No confirmed improvement over saved best; development-only scaffold, do not submit"
+  },
+  {
+    "file": "candidates/hopper/cutlass_v2.py",
+    "sha256": "d060b62fad71615643b61f05494a27ace181b91c7379167a3aa34d703298cc32",
+    "gpu_validated": false,
+    "development_only": true,
+    "hypothesis": "CUTLASS SM90a TMA/WGMMA BF16 pooler with batch-partitioned FP32 split-K",
+    "modal_validation": {
+      "result": "results/modal/20261030T102309Z_cutlass_v2_cutlass.json",
+      "correctness_passed": true,
+      "confirmed_shape_ratio_to_best": 0.9829967870464409,
+      "official_check_passed": false
+    },
+    "promotion_status": "No confirmed improvement over saved best; development-only scaffold, do not submit"
+  },
+  {
+    "file": "candidates/hopper/cutlass_v3.py",
+    "sha256": "ff557cc2b71570a67a907f544ab4c4aef1fb47bda71872529079fa26af047525",
+    "gpu_validated": false,
+    "development_only": true,
+    "hypothesis": "CUTLASS SM90a cp.async/WGMMA BF16 pooler with batch-partitioned FP32 split-K",
+    "promotion_status": "Compile rejected one unsupported copy tile; superseded by corrected v3a"
+  },
+  {
+    "file": "candidates/hopper/cutlass_v3a.py",
+    "sha256": "1b4faa41c3567791fc0316441a497ded3f9137c8374fdd3c642b32f2f4ed87df",
+    "gpu_validated": false,
+    "development_only": true,
+    "hypothesis": "CUTLASS SM90a cp.async/WGMMA BF16 pooler with batch-partitioned FP32 split-K",
+    "modal_validation": {
+      "result": "results/modal/20261030T102926Z_cutlass_v3a_cutlass.json",
+      "correctness_passed": true,
+      "confirmed_shape_ratio_to_best": 0.934733653034399,
+      "official_check_passed": false
+    },
+    "promotion_status": "No confirmed improvement over saved best; development-only scaffold, do not submit"
+  },
+  {
+    "file": "candidates/hopper/cutlass_decode_v1.py",
+    "sha256": "8b4e96ab64a821f3dbd55bf01ba01387cac75940db165fd93233970e130ee515",
+    "gpu_validated": true,
+    "development_only": true,
+    "hypothesis": "Lossless BF16 producer decode into CUTLASS WGMMA shared buffers; correctness passed on pooler M16, performance rejected",
+    "promotion_eligible": false
+  },
+  {
+    "file": "candidates/hopper/cutlass_decode_v2.py",
+    "sha256": "0680a62238abeea40a2317dfa4402a376d50150a69b4761de1b25beaf360f1ec",
+    "gpu_validated": true,
+    "development_only": true,
+    "hypothesis": "Lossless BF16 producer decode into CUTLASS WGMMA shared buffers; correctness passed on pooler M16, performance rejected",
+    "promotion_eligible": false
+  },
+  {
+    "file": "candidates/public/nathen_v18_linear.py",
+    "sha256": "6faa2ae8519e3b9c19b27c2fdf47a2a057c7be89c72583ecfd270175c2144ae7",
+    "gpu_validated": true,
+    "development_only": false,
+    "hypothesis": "Audited MIT public v18 adaptation; H200 independent-weight correctness and paired timing passed; eligible for official free validation only",
+    "upstream_sha256": "4fe91632d071d64dec8b54085a95ca5ebc8b7235a166460861ee2051cdb08ecc",
+    "promotion_eligible": false,
+    "official_validation_pending": true,
+    "modal_relative_to_champion": [
+      1.1612535821598184,
+      1.1636693573363364
+    ]
+  },
+  {
+    "file": "candidates/public/v18_lt_refined.py",
+    "sha256": "24ea4e08b1ef74aac4e4901de23a5b99e7dc18a36da160dacd510d47826569f5",
+    "gpu_validated": true,
+    "development_only": true,
+    "promotion_eligible": false,
+    "hypothesis": "Two offline CUDA13 large-shape Lt leads; requires independent-weight paired confirmation against public parent",
+    "rejection": "Two independent weight confirmations: 1.001410x and 0.998251x vs public parent; no repeatable gain",
+    "relative_to_parent": [
+      1.001410177347726,
+      0.998250894292455
+    ]
+  },
+  {
+    "file": "candidates/public/v18_arithmetic_o8.py",
+    "sha256": "2602f3fdaab161d5da0410884103fcff71ad3f40d8efdf2080bf6d65af923aef",
+    "description": "REJECTED: full independent validation 1.00103x/0.99583x vs parent; no confirmed aggregate improvement. Do not submit."
+  },
+  {
+    "file": "candidates/public/v18_predicated_o8.py",
+    "sha256": "68ae854a37e7517c734ea039cc494bf32dc5c51fe7cf97889c2c06a4acdf782f",
+    "description": "REJECTED: independent aggregate ratios 1.000434 and 0.999309; no confirmed improvement. Do not submit."
+  },
+  {
+    "file": "candidates/public/v18_sk2_hybrid.py",
+    "sha256": "4ee96b46c21a7fe096c456684519b32353ce472a4e369b4aa08023c2bb83f2c9",
+    "status": "OFFICIAL_PASS_NOT_PROMOTED",
+    "description": "Public v18 plus attributed vjeux SK2 for six small-batch routes; requires full confirmation.",
+    "official_check_job": "baeb0b4f6b824ec2",
+    "official_check_speedup": 1.53485313072802,
+    "reason": "9/9, no flags; modest higher estimate with overlapping intervals. No scored submission."
+  },
+  {
+    "file": "candidates/public/v18_sk2_m32.py",
+    "sha256": "11822cbfddd312660603b72e21d4f2c87591995bd4829f11d30b86a6c2fb4f7b",
+    "status": "LOCAL_PASS_NOT_PROMOTED",
+    "description": "Three-route SK2 candidate; two full suites pass, raw aggregate 1.00856/1.00415. No scheduling variant improved consistently. No official check or submission."
+  }
+]

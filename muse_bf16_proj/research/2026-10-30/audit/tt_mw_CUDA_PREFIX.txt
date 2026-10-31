@@ -1,0 +1,38 @@
+
+
+#include <cuda.h>
+#include <cuda_runtime.h>
+#include <cuda_bf16.h>
+#include <stdint.h>
+#define D __device__ __forceinline__
+D uint32_t addr(void* p) { return uint32_t(__cvta_generic_to_shared(p)); }
+D void waitbar(uint32_t b,int p) {
+  asm volatile("{.reg .pred p; W: mbarrier.try_wait.parity.shared::cta.b64 p,[%0],%1; @!p bra W;}" :: "r"(b),"r"(p) : "memory");
+}
+D void arrive(uint32_t b) { asm volatile("mbarrier.arrive.shared::cta.b64 _,[%0];" :: "r"(b) : "memory"); }
+D void cluster_sync() { asm volatile("barrier.cluster.arrive.release.aligned; barrier.cluster.wait.acquire.aligned;" ::: "memory"); }
+D uint64_t desc(uint32_t a) { return uint64_t((a&0x3ffff)>>4) | (uint64_t(64)<<32) | (uint64_t(1)<<62); }
+D void tma(uint32_t d,const void* map,int k,int row,uint32_t b,uint64_t pol) {
+  asm volatile("cp.async.bulk.tensor.2d.shared::cluster.global.mbarrier::complete_tx::bytes.L2::cache_hint [%0],[%1,{%2,%3}],[%4],%5;" :: "r"(d),"l"(map),"r"(k),"r"(row),"r"(b),"l"(pol) : "memory");
+}
+D uint4 ldw(const uint4* p,uint64_t policy) {
+  uint4 v;
+  asm volatile("ld.global.nc.L1::no_allocate.L2::cache_hint.v4.u32 {%0,%1,%2,%3},[%4],%5;" : "=r"(v.x),"=r"(v.y),"=r"(v.z),"=r"(v.w) : "l"(p),"l"(policy));
+  return v;
+}
+D uint32_t prmt(uint32_t a,uint32_t b,uint32_t s) {
+  uint32_t d;asm("prmt.b32 %0,%1,%2,%3;":"=r"(d):"r"(a),"r"(b),"r"(s));return d;
+}
+D void dec(uint32_t l0,uint32_t l1,uint32_t c,uint32_t t0,uint32_t t1,uint32_t* a) {
+  uint32_t cm=c&0x77777777u,lo=prmt(t0,t1,cm),hi=prmt(t0,t1,cm>>16);
+  a[0]=prmt(l0,lo,0x5140u)|((c<<12)&0x80008000u);
+  a[1]=prmt(l0,lo,0x7362u)|((c<<8)&0x80008000u);
+  a[2]=prmt(l1,hi,0x5140u)|((c<<4)&0x80008000u);
+  a[3]=prmt(l1,hi,0x7362u)|(c&0x80008000u);
+}
+D void patch(uint32_t* a,uint32_t e) {
+  uint32_t reg=(e>>8)&31u,xr=(e&127u)<<(8+((e>>7)&1u)*16);
+  #pragma unroll
+  for(int r=0;r<16;r++) if(reg==r)a[r]^=xr;
+}
+

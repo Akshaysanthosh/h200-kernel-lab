@@ -1,0 +1,78 @@
+{
+  "current_speedup": 1.2274118693095961,
+  "current_rank": 768,
+  "top10_speedup": 1.5915,
+  "required_additional_speed_factor": 1.2966307722730421,
+  "required_time_reduction": 0.22877042456198793,
+  "scenarios": {
+    "current": 1.2274118693095961,
+    "router_free": 1.3822589870973763,
+    "router_at_reported_floor": 1.3348052711225997,
+    "dense_20pct_less_time": 1.492473680262875,
+    "dense_25pct_less_time": 1.5776482138376922,
+    "dense_30pct_less_time": 1.6731332016887983,
+    "all_at_reported_floor": 2.0299788521888993,
+    "dense_at_reported_floor": 1.7902899527133376
+  },
+  "layers": {
+    "qkv_gate": {
+      "mean_load_time_share": 0.23006724574175774,
+      "score_if_layer_20pct_faster_time": 1.2866255908992124
+    },
+    "o": {
+      "mean_load_time_share": 0.1097763947212375,
+      "score_if_layer_20pct_faster_time": 1.254969442446895
+    },
+    "pooler": {
+      "mean_load_time_share": 0.33520134773470095,
+      "score_if_layer_20pct_faster_time": 1.315658928102079
+    },
+    "unpooler": {
+      "mean_load_time_share": 0.21294644865721202,
+      "score_if_layer_20pct_faster_time": 1.282164472396628
+    },
+    "router": {
+      "mean_load_time_share": 0.11200856314509174,
+      "score_if_layer_20pct_faster_time": 1.2555388256512579
+    }
+  },
+  "loads": [
+    {
+      "load": "decode 1",
+      "current_us_per_layer_sum": 41.545752353524016,
+      "reported_floor_us_per_layer_sum": 28.854933333333335,
+      "speedup_vs_baseline": 1.4368737392711466
+    },
+    {
+      "load": "decode 16",
+      "current_us_per_layer_sum": 65.80045338433507,
+      "reported_floor_us_per_layer_sum": 41.42250666666667,
+      "speedup_vs_baseline": 1.1542777677642049
+    },
+    {
+      "load": "decode 32",
+      "current_us_per_layer_sum": 66.4158215636536,
+      "reported_floor_us_per_layer_sum": 41.77578666666667,
+      "speedup_vs_baseline": 1.1537010033958517
+    },
+    {
+      "load": "verify 1",
+      "current_us_per_layer_sum": 53.475379492415684,
+      "reported_floor_us_per_layer_sum": 28.988586666666667,
+      "speedup_vs_baseline": 1.4065538063555738
+    },
+    {
+      "load": "verify 16",
+      "current_us_per_layer_sum": 74.25953631355436,
+      "reported_floor_us_per_layer_sum": 43.895466666666664,
+      "speedup_vs_baseline": 1.152282965228069
+    },
+    {
+      "load": "verify 32",
+      "current_us_per_layer_sum": 93.17908660667558,
+      "reported_floor_us_per_layer_sum": 51.6674050933603,
+      "speedup_vs_baseline": 1.1025650237154512
+    }
+  ],
+  "caveat": "Analytical estimates holding other costs fixed. Reported hardware floors are optimistic reference bounds, not attainable targets or guarantees. Scoring uses six equally weighted load ratios via geometric mean."
+}

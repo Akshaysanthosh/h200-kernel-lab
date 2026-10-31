@@ -1,0 +1,5735 @@
+{
+  "passed": true,
+  "official_score": false,
+  "gpu": "NVIDIA H200",
+  "torch": "2.14.1+cu130",
+  "cuda": "13.0",
+  "lt_version": 130101,
+  "shapes": [
+    {
+      "m": 128,
+      "layer": "unpooler",
+      "tested": 48,
+      "finalists": [
+        {
+          "ratio": 0.7201849389017303,
+          "baseline_us": 22.76800014078617,
+          "candidate_us": 31.936001032590866,
+          "inst": [
+            64,
+            64,
+            2,
+            2,
+            2,
+            true,
+            1
+          ],
+          "split": 1,
+          "idx": 3,
+          "max_esc": 11,
+          "registers_per_thread": 111
+        },
+        {
+          "ratio": 0.7351276692610867,
+          "baseline_us": 22.784000262618065,
+          "candidate_us": 30.880000442266464,
+          "inst": [
+            128,
+            64,
+            2,
+            2,
+            2,
+            true,
+            1
+          ],
+          "split": 1,
+          "idx": 7,
+          "max_esc": 11,
+          "registers_per_thread": 143
+        },
+        {
+          "ratio": 0.7035291243207143,
+          "baseline_us": 22.816000506281853,
+          "candidate_us": 32.32000023126602,
+          "inst": [
+            128,
+            64,
+            1,
+            2,
+            2,
+            true,
+            1
+          ],
+          "split": 2,
+          "idx": 5,
+          "max_esc": 11,
+          "registers_per_thread": 143
+        }
+      ],
+      "screen": [
+        {
+          "ratio": 0.41789004120076073,
+          "baseline_us": 22.752000018954277,
+          "candidate_us": 54.9440011382103,
+          "inst": [
+            64,
+            64,
+            1,
+            1,
+            2,
+            true,
+            1
+          ],
+          "split": 1,
+          "idx": 0,
+          "max_esc": 14,
+          "registers_per_thread": 98
+        },
+        {
+          "ratio": 0.6173253496858544,
+          "baseline_us": 23.984000086784363,
+          "candidate_us": 38.4799987077713,
+          "inst": [
+            64,
+            64,
+            1,
+            1,
+            2,
+            true,
+            1
+          ],
+          "split": 2,
+          "idx": 0,
+          "max_esc": 11,
+          "registers_per_thread": 98
+        },
+        {
+          "ratio": 0.42433381476319165,
+          "baseline_us": 22.80000038444996,
+          "candidate_us": 54.30399999022484,
+          "inst": [
+            64,
+            64,
+            1,
+            1,
+            2,
+            true,
+            1
+          ],
+          "split": 4,
+          "idx": 0,
+          "max_esc": 7,
+          "registers_per_thread": 98
+        },
+        {
+          "ratio": 0.384017071868485,
+          "baseline_us": 22.71999977529049,
+          "candidate_us": 59.91999991238117,
+          "inst": [
+            64,
+            64,
+            1,
+            1,
+            2,
+            true,
+            1
+          ],
+          "split": 8,
+          "idx": 0,
+          "max_esc": 5,
+          "registers_per_thread": 98
+        },
+        {
+          "ratio": 0.5092402535741738,
+          "baseline_us": 22.86399994045496,
+          "candidate_us": 45.903999358415604,
+          "inst": [
+            64,
+            64,
+            1,
+            2,
+            2,
+            true,
+            1
+          ],
+          "split": 1,
+          "idx": 1,
+          "max_esc": 14,
+          "registers_per_thread": 111
+        },
+        {
+          "ratio": 0.6843299760537058,
+          "baseline_us": 22.784000262618065,
+          "candidate_us": 33.08799862861633,
+          "inst": [
+            64,
+            64,
+            1,
+            2,
+            2,
+            true,
+            1
+          ],
+          "split": 2,
+          "idx": 1,
+          "max_esc": 11,
+          "registers_per_thread": 111
+        },
+        {
+          "ratio": 0.4739483160426596,
+          "baseline_us": 22.784000262618065,
+          "candidate_us": 48.72000031173229,
+          "inst": [
+            64,
+            64,
+            1,
+            2,
+            2,
+            true,
+            1
+          ],
+          "split": 4,
+          "idx": 1,
+          "max_esc": 7,
+          "registers_per_thread": 111
+        },
+        {
+          "ratio": 0.40704562109920905,
+          "baseline_us": 22.71999977529049,
+          "candidate_us": 56.08000047504902,
+          "inst": [
+            64,
+            64,
+            1,
+            2,
+            2,
+            true,
+            1
+          ],
+          "split": 8,
+          "idx": 1,
+          "max_esc": 5,
+          "registers_per_thread": 111
+        },
+        {
+          "ratio": 0.6238567846107002,
+          "baseline_us": 22.71999977529049,
+          "candidate_us": 37.47199848294258,
+          "inst": [
+            64,
+            64,
+            2,
+            1,
+            2,
+            true,
+            1
+          ],
+          "split": 1,
+          "idx": 2,
+          "max_esc": 11,
+          "registers_per_thread": 98
+        },
+        {
+          "ratio": 0.5358951527423033,
+          "baseline_us": 22.86399994045496,
+          "candidate_us": 43.31200011074543,
+          "inst": [
+            64,
+            64,
+            2,
+            1,
+            2,
+            true,
+            1
+          ],
+          "split": 2,
+          "idx": 2,
+          "max_esc": 7,
+          "registers_per_thread": 98
+        },
+        {
+          "ratio": 0.3675977540654555,
+          "baseline_us": 22.80000038444996,
+          "candidate_us": 63.120000064373016,
+          "inst": [
+            64,
+            64,
+            2,
+            1,
+            2,
+            true,
+            1
+          ],
+          "split": 4,
+          "idx": 2,
+          "max_esc": 5,
+          "registers_per_thread": 98
+        },
+        {
+          "ratio": 0.25335802928961637,
+          "baseline_us": 22.624000906944275,
+          "candidate_us": 89.6960012614727,
+          "inst": [
+            64,
+            64,
+            2,
+            1,
+            2,
+            true,
+            1
+          ],
+          "split": 8,
+          "idx": 2,
+          "max_esc": 4,
+          "registers_per_thread": 98
+        },
+        {
+          "ratio": 0.7201849389017303,
+          "baseline_us": 22.76800014078617,
+          "candidate_us": 31.936001032590866,
+          "inst": [
+            64,
+            64,
+            2,
+            2,
+            2,
+            true,
+            1
+          ],
+          "split": 1,
+          "idx": 3,
+          "max_esc": 11,
+          "registers_per_thread": 111
+        },
+        {
+          "ratio": 0.5840883467852773,
+          "baseline_us": 22.991999983787537,
+          "candidate_us": 39.76000100374222,
+          "inst": [
+            64,
+            64,
+            2,
+            2,
+            2,
+            true,
+            1
+          ],
+          "split": 2,
+          "idx": 3,
+          "max_esc": 7,
+          "registers_per_thread": 111
+        },
+        {
+          "ratio": 0.3910468983368097,
+          "baseline_us": 22.71999977529049,
+          "candidate_us": 58.52799862623215,
+          "inst": [
+            64,
+            64,
+            2,
+            2,
+            2,
+            true,
+            1
+          ],
+          "split": 4,
+          "idx": 3,
+          "max_esc": 5,
+          "registers_per_thread": 111
+        },
+        {
+          "ratio": 0.2594529992954511,
+          "baseline_us": 22.71999977529049,
+          "candidate_us": 87.74399757385254,
+          "inst": [
+            64,
+            64,
+            2,
+            2,
+            2,
+            true,
+            1
+          ],
+          "split": 8,
+          "idx": 3,
+          "max_esc": 4,
+          "registers_per_thread": 111
+        },
+        {
+          "ratio": 0.4054947499659904,
+          "baseline_us": 22.831999696791172,
+          "candidate_us": 56.32000043988228,
+          "inst": [
+            128,
+            64,
+            1,
+            1,
+            2,
+            true,
+            1
+          ],
+          "split": 1,
+          "idx": 4,
+          "max_esc": 14,
+          "registers_per_thread": 130
+        },
+        {
+          "ratio": 0.6230253605094628,
+          "baseline_us": 22.86399994045496,
+          "candidate_us": 37.039998918771744,
+          "inst": [
+            128,
+            64,
+            1,
+            1,
+            2,
+            true,
+            1
+          ],
+          "split": 2,
+          "idx": 4,
+          "max_esc": 11,
+          "registers_per_thread": 130
+        },
+        {
+          "ratio": 0.5221716220437427,
+          "baseline_us": 22.735999897122383,
+          "candidate_us": 43.855998665094376,
+          "inst": [
+            128,
+            64,
+            1,
+            1,
+            2,
+            true,
+            1
+          ],
+          "split": 4,
+          "idx": 4,
+          "max_esc": 7,
+          "registers_per_thread": 130
+        },
+        {
+          "ratio": 0.4856554892246231,
+          "baseline_us": 22.703999653458595,
+          "candidate_us": 46.94399982690811,
+          "inst": [
+            128,
+            64,
+            1,
+            1,
+            2,
+            true,
+            1
+          ],
+          "split": 8,
+          "idx": 4,
+          "max_esc": 5,
+          "registers_per_thread": 130
+        },
+        {
+          "ratio": 0.4933926743975796,
+          "baseline_us": 22.6879995316267,
+          "candidate_us": 46.30399867892265,
+          "inst": [
+            128,
+            64,
+            1,
+            2,
+            2,
+            true,
+            1
+          ],
+          "split": 1,
+          "idx": 5,
+          "max_esc": 14,
+          "registers_per_thread": 143
+        },
+        {
+          "ratio": 0.7035291243207143,
+          "baseline_us": 22.816000506281853,
+          "candidate_us": 32.32000023126602,
+          "inst": [
+            128,
+            64,
+            1,
+            2,
+            2,
+            true,
+            1
+          ],
+          "split": 2,
+          "idx": 5,
+          "max_esc": 11,
+          "registers_per_thread": 143
+        },
+        {
+          "ratio": 0.5747148937212521,
+          "baseline_us": 22.784000262618065,
+          "candidate_us": 40.351999923586845,
+          "inst": [
+            128,
+            64,
+            1,
+            2,
+            2,
+            true,
+            1
+          ],
+          "split": 4,
+          "idx": 5,
+          "max_esc": 7,
+          "registers_per_thread": 143
+        },
+        {
+          "ratio": 0.5203714026830057,
+          "baseline_us": 22.91200030595064,
+          "candidate_us": 44.64000090956688,
+          "inst": [
+            128,
+            64,
+            1,
+            2,
+            2,
+            true,
+            1
+          ],
+          "split": 8,
+          "idx": 5,
+          "max_esc": 5,
+          "registers_per_thread": 143
+        },
+        {
+          "ratio": 0.6282024279532833,
+          "baseline_us": 22.880000062286854,
+          "candidate_us": 36.57599911093712,
+          "inst": [
+            128,
+            64,
+            2,
+            1,
+            2,
+            true,
+            1
+          ],
+          "split": 1,
+          "idx": 6,
+          "max_esc": 11,
+          "registers_per_thread": 130
+        },
+        {
+          "ratio": 0.5691822331528194,
+          "baseline_us": 22.671999409794807,
+          "candidate_us": 40.76799936592579,
+          "inst": [
+            128,
+            64,
+            2,
+            1,
+            2,
+            true,
+            1
+          ],
+          "split": 2,
+          "idx": 6,
+          "max_esc": 7,
+          "registers_per_thread": 130
+        },
+        {
+          "ratio": 0.3709733480178641,
+          "baseline_us": 23.31199962645769,
+          "candidate_us": 62.81600147485733,
+          "inst": [
+            128,
+            64,
+            2,
+            1,
+            2,
+            true,
+            1
+          ],
+          "split": 4,
+          "idx": 6,
+          "max_esc": 5,
+          "registers_per_thread": 130
+        },
+        {
+          "ratio": 0.25573323623843913,
+          "baseline_us": 22.95999974012375,
+          "candidate_us": 90.33600240945816,
+          "inst": [
+            128,
+            64,
+            2,
+            1,
+            2,
+            true,
+            1
+          ],
+          "split": 8,
+          "idx": 6,
+          "max_esc": 4,
+          "registers_per_thread": 130
+        },
+        {
+          "ratio": 0.7351276692610867,
+          "baseline_us": 22.784000262618065,
+          "candidate_us": 30.880000442266464,
+          "inst": [
+            128,
+            64,
+            2,
+            2,
+            2,
+            true,
+            1
+          ],
+          "split": 1,
+          "idx": 7,
+          "max_esc": 11,
+          "registers_per_thread": 143
+        },
+        {
+          "ratio": 0.6431915125485117,
+          "baseline_us": 22.832000628113747,
+          "candidate_us": 35.58399900794029,
+          "inst": [
+            128,
+            64,
+            2,
+            2,
+            2,
+            true,
+            1
+          ],
+          "split": 2,
+          "idx": 7,
+          "max_esc": 7,
+          "registers_per_thread": 143
+        },
+        {
+          "ratio": 0.40283288735533596,
+          "baseline_us": 22.816000506281853,
+          "candidate_us": 57.29600042104721,
+          "inst": [
+            128,
+            64,
+            2,
+            2,
+            2,
+            true,
+            1
+          ],
+          "split": 4,
+          "idx": 7,
+          "max_esc": 5,
+          "registers_per_thread": 143
+        },
+        {
+          "ratio": 0.2660668127180985,
+          "baseline_us": 22.87999913096428,
+          "candidate_us": 87.10400015115738,
+          "inst": [
+            128,
+            64,
+            2,
+            2,
+            2,
+            true,
+            1
+          ],
+          "split": 8,
+          "idx": 7,
+          "max_esc": 4,
+          "registers_per_thread": 143
+        },
+        {
+          "ratio": 0.28662983282735954,
+          "baseline_us": 23.056000471115112,
+          "candidate_us": 80.9439979493618,
+          "inst": [
+            256,
+            64,
+            1,
+            1,
+            2,
+            true,
+            1
+          ],
+          "split": 1,
+          "idx": 8,
+          "max_esc": 14,
+          "registers_per_thread": 194
+        },
+        {
+          "ratio": 0.29686226431518603,
+          "baseline_us": 22.752000018954277,
+          "candidate_us": 77.96799764037132,
+          "inst": [
+            256,
+            64,
+            1,
+            1,
+            2,
+            true,
+            1
+          ],
+          "split": 2,
+          "idx": 8,
+          "max_esc": 11,
+          "registers_per_thread": 194
+        },
+        {
+          "ratio": 0.27339443161195337,
+          "baseline_us": 22.656000219285488,
+          "candidate_us": 82.92799815535545,
+          "inst": [
+            256,
+            64,
+            1,
+            1,
+            2,
+            true,
+            1
+          ],
+          "split": 4,
+          "idx": 8,
+          "max_esc": 7,
+          "registers_per_thread": 194
+        },
+        {
+          "ratio": 0.2593271335188597,
+          "baseline_us": 22.86399994045496,
+          "candidate_us": 89.68000113964081,
+          "inst": [
+            256,
+            64,
+            1,
+            1,
+            2,
+            true,
+            1
+          ],
+          "split": 8,
+          "idx": 8,
+          "max_esc": 5,
+          "registers_per_thread": 194
+        },
+        {
+          "ratio": 0.2885476745108483,
+          "baseline_us": 22.84800074994564,
+          "candidate_us": 79.0719985961914,
+          "inst": [
+            256,
+            64,
+            1,
+            2,
+            2,
+            true,
+            1
+          ],
+          "split": 1,
+          "idx": 9,
+          "max_esc": 14,
+          "registers_per_thread": 207
+        },
+        {
+          "ratio": 0.30652278742915473,
+          "baseline_us": 22.71999977529049,
+          "candidate_us": 74.01599735021591,
+          "inst": [
+            256,
+            64,
+            1,
+            2,
+            2,
+            true,
+            1
+          ],
+          "split": 2,
+          "idx": 9,
+          "max_esc": 11,
+          "registers_per_thread": 207
+        },
+        {
+          "ratio": 0.2921555876647054,
+          "baseline_us": 22.80000038444996,
+          "candidate_us": 79.16799932718277,
+          "inst": [
+            256,
+            64,
+            1,
+            2,
+            2,
+            true,
+            1
+          ],
+          "split": 4,
+          "idx": 9,
+          "max_esc": 7,
+          "registers_per_thread": 207
+        },
+        {
+          "ratio": 0.257248117543326,
+          "baseline_us": 22.60800078511238,
+          "candidate_us": 88.68799731135368,
+          "inst": [
+            256,
+            64,
+            1,
+            2,
+            2,
+            true,
+            1
+          ],
+          "split": 8,
+          "idx": 9,
+          "max_esc": 5,
+          "registers_per_thread": 207
+        },
+        {
+          "ratio": 0.30611509978649576,
+          "baseline_us": 22.784000262618065,
+          "candidate_us": 74.43200051784515,
+          "inst": [
+            256,
+            64,
+            2,
+            1,
+            2,
+            true,
+            1
+          ],
+          "split": 1,
+          "idx": 10,
+          "max_esc": 11,
+          "registers_per_thread": 194
+        },
+        {
+          "ratio": 0.2956566748179571,
+          "baseline_us": 22.943999618291855,
+          "candidate_us": 78.14399898052216,
+          "inst": [
+            256,
+            64,
+            2,
+            1,
+            2,
+            true,
+            1
+          ],
+          "split": 2,
+          "idx": 10,
+          "max_esc": 7,
+          "registers_per_thread": 194
+        },
+        {
+          "ratio": 0.251789005857365,
+          "baseline_us": 22.880000062286854,
+          "candidate_us": 91.63199737668037,
+          "inst": [
+            256,
+            64,
+            2,
+            1,
+            2,
+            true,
+            1
+          ],
+          "split": 4,
+          "idx": 10,
+          "max_esc": 5,
+          "registers_per_thread": 194
+        },
+        {
+          "ratio": 0.18689387644008087,
+          "baseline_us": 22.911999374628067,
+          "candidate_us": 122.0639981329441,
+          "inst": [
+            256,
+            64,
+            2,
+            1,
+            2,
+            true,
+            1
+          ],
+          "split": 8,
+          "idx": 10,
+          "max_esc": 4,
+          "registers_per_thread": 194
+        },
+        {
+          "ratio": 0.31768017248847535,
+          "baseline_us": 22.640000097453594,
+          "candidate_us": 71.60000130534172,
+          "inst": [
+            256,
+            64,
+            2,
+            2,
+            2,
+            true,
+            1
+          ],
+          "split": 1,
+          "idx": 11,
+          "max_esc": 11,
+          "registers_per_thread": 207
+        },
+        {
+          "ratio": 0.31202772562239445,
+          "baseline_us": 22.943999618291855,
+          "candidate_us": 74.54400137066841,
+          "inst": [
+            256,
+            64,
+            2,
+            2,
+            2,
+            true,
+            1
+          ],
+          "split": 2,
+          "idx": 11,
+          "max_esc": 7,
+          "registers_per_thread": 207
+        },
+        {
+          "ratio": 0.25601780947394603,
+          "baseline_us": 22.735999897122383,
+          "candidate_us": 90.46400338411331,
+          "inst": [
+            256,
+            64,
+            2,
+            2,
+            2,
+            true,
+            1
+          ],
+          "split": 4,
+          "idx": 11,
+          "max_esc": 5,
+          "registers_per_thread": 207
+        },
+        {
+          "ratio": 0.18849812437259555,
+          "baseline_us": 22.95999974012375,
+          "candidate_us": 120.67200243473053,
+          "inst": [
+            256,
+            64,
+            2,
+            2,
+            2,
+            true,
+            1
+          ],
+          "split": 8,
+          "idx": 11,
+          "max_esc": 4,
+          "registers_per_thread": 207
+        }
+      ]
+    },
+    {
+      "m": 256,
+      "layer": "unpooler",
+      "tested": 48,
+      "finalists": [
+        {
+          "ratio": 0.685605724922635,
+          "baseline_us": 27.295999228954315,
+          "candidate_us": 40.031999349594116,
+          "inst": [
+            256,
+            64,
+            2,
+            2,
+            2,
+            true,
+            1
+          ],
+          "split": 1,
+          "idx": 11,
+          "max_esc": 11,
+          "registers_per_thread": 207
+        },
+        {
+          "ratio": 0.6546866210933313,
+          "baseline_us": 27.456000447273254,
+          "candidate_us": 42.160000652074814,
+          "inst": [
+            256,
+            64,
+            1,
+            2,
+            2,
+            true,
+            1
+          ],
+          "split": 2,
+          "idx": 9,
+          "max_esc": 11,
+          "registers_per_thread": 207
+        },
+        {
+          "ratio": 0.615205631839263,
+          "baseline_us": 27.488000690937042,
+          "candidate_us": 44.783998280763626,
+          "inst": [
+            256,
+            64,
+            2,
+            1,
+            2,
+            true,
+            1
+          ],
+          "split": 1,
+          "idx": 10,
+          "max_esc": 11,
+          "registers_per_thread": 194
+        }
+      ],
+      "screen": [
+        {
+          "ratio": 0.44719888178746137,
+          "baseline_us": 27.343999594449997,
+          "candidate_us": 61.424000188708305,
+          "inst": [
+            64,
+            64,
+            1,
+            1,
+            2,
+            true,
+            1
+          ],
+          "split": 1,
+          "idx": 0,
+          "max_esc": 14,
+          "registers_per_thread": 98
+        },
+        {
+          "ratio": 0.40302214002928877,
+          "baseline_us": 27.248000726103783,
+          "candidate_us": 67.60000064969063,
+          "inst": [
+            64,
+            64,
+            1,
+            1,
+            2,
+            true,
+            1
+          ],
+          "split": 2,
+          "idx": 0,
+          "max_esc": 11,
+          "registers_per_thread": 98
+        },
+        {
+          "ratio": 0.30783870402809915,
+          "baseline_us": 27.35999971628189,
+          "candidate_us": 89.4240029156208,
+          "inst": [
+            64,
+            64,
+            1,
+            1,
+            2,
+            true,
+            1
+          ],
+          "split": 4,
+          "idx": 0,
+          "max_esc": 7,
+          "registers_per_thread": 98
+        },
+        {
+          "ratio": 0.26037241285798696,
+          "baseline_us": 27.231999672949314,
+          "candidate_us": 104.17599976062775,
+          "inst": [
+            64,
+            64,
+            1,
+            1,
+            2,
+            true,
+            1
+          ],
+          "split": 8,
+          "idx": 0,
+          "max_esc": 5,
+          "registers_per_thread": 98
+        },
+        {
+          "ratio": 0.5094790443755274,
+          "baseline_us": 27.184000238776207,
+          "candidate_us": 53.60000021755695,
+          "inst": [
+            64,
+            64,
+            1,
+            2,
+            2,
+            true,
+            1
+          ],
+          "split": 1,
+          "idx": 1,
+          "max_esc": 14,
+          "registers_per_thread": 111
+        },
+        {
+          "ratio": 0.4500899660663757,
+          "baseline_us": 27.216000482439995,
+          "candidate_us": 61.039999127388,
+          "inst": [
+            64,
+            64,
+            1,
+            2,
+            2,
+            true,
+            1
+          ],
+          "split": 2,
+          "idx": 1,
+          "max_esc": 11,
+          "registers_per_thread": 111
+        },
+        {
+          "ratio": 0.3417937168214221,
+          "baseline_us": 27.327999472618103,
+          "candidate_us": 79.90400120615959,
+          "inst": [
+            64,
+            64,
+            1,
+            2,
+            2,
+            true,
+            1
+          ],
+          "split": 4,
+          "idx": 1,
+          "max_esc": 7,
+          "registers_per_thread": 111
+        },
+        {
+          "ratio": 0.2791626707267886,
+          "baseline_us": 27.2000003606081,
+          "candidate_us": 97.6799987256527,
+          "inst": [
+            64,
+            64,
+            1,
+            2,
+            2,
+            true,
+            1
+          ],
+          "split": 8,
+          "idx": 1,
+          "max_esc": 5,
+          "registers_per_thread": 111
+        },
+        {
+          "ratio": 0.41985203971131985,
+          "baseline_us": 27.168000116944313,
+          "candidate_us": 65.2799978852272,
+          "inst": [
+            64,
+            64,
+            2,
+            1,
+            2,
+            true,
+            1
+          ],
+          "split": 1,
+          "idx": 2,
+          "max_esc": 11,
+          "registers_per_thread": 98
+        },
+        {
+          "ratio": 0.343135896321349,
+          "baseline_us": 27.135999873280525,
+          "candidate_us": 79.39200103282928,
+          "inst": [
+            64,
+            64,
+            2,
+            1,
+            2,
+            true,
+            1
+          ],
+          "split": 2,
+          "idx": 2,
+          "max_esc": 7,
+          "registers_per_thread": 98
+        },
+        {
+          "ratio": 0.24678999785399972,
+          "baseline_us": 27.247999794781208,
+          "candidate_us": 110.3999987244606,
+          "inst": [
+            64,
+            64,
+            2,
+            1,
+            2,
+            true,
+            1
+          ],
+          "split": 4,
+          "idx": 2,
+          "max_esc": 5,
+          "registers_per_thread": 98
+        },
+        {
+          "ratio": 0.1681488001245648,
+          "baseline_us": 27.295999228954315,
+          "candidate_us": 163.90399634838104,
+          "inst": [
+            64,
+            64,
+            2,
+            1,
+            2,
+            true,
+            1
+          ],
+          "split": 8,
+          "idx": 2,
+          "max_esc": 4,
+          "registers_per_thread": 98
+        },
+        {
+          "ratio": 0.48538602794730834,
+          "baseline_us": 27.2000003606081,
+          "candidate_us": 56.56000040471554,
+          "inst": [
+            64,
+            64,
+            2,
+            2,
+            2,
+            true,
+            1
+          ],
+          "split": 1,
+          "idx": 3,
+          "max_esc": 11,
+          "registers_per_thread": 111
+        },
+        {
+          "ratio": 0.3804978645227859,
+          "baseline_us": 27.50399988144636,
+          "candidate_us": 72.94400036334991,
+          "inst": [
+            64,
+            64,
+            2,
+            2,
+            2,
+            true,
+            1
+          ],
+          "split": 2,
+          "idx": 3,
+          "max_esc": 7,
+          "registers_per_thread": 111
+        },
+        {
+          "ratio": 0.27035376468794514,
+          "baseline_us": 27.280000038444996,
+          "candidate_us": 102.22399979829788,
+          "inst": [
+            64,
+            64,
+            2,
+            2,
+            2,
+            true,
+            1
+          ],
+          "split": 4,
+          "idx": 3,
+          "max_esc": 5,
+          "registers_per_thread": 111
+        },
+        {
+          "ratio": 0.17250750115393212,
+          "baseline_us": 27.280000038444996,
+          "candidate_us": 160.48000007867813,
+          "inst": [
+            64,
+            64,
+            2,
+            2,
+            2,
+            true,
+            1
+          ],
+          "split": 8,
+          "idx": 3,
+          "max_esc": 4,
+          "registers_per_thread": 111
+        },
+        {
+          "ratio": 0.42066808520080373,
+          "baseline_us": 27.2000003606081,
+          "candidate_us": 65.35999849438667,
+          "inst": [
+            128,
+            64,
+            1,
+            1,
+            2,
+            true,
+            1
+          ],
+          "split": 1,
+          "idx": 4,
+          "max_esc": 14,
+          "registers_per_thread": 130
+        },
+        {
+          "ratio": 0.38505937644832966,
+          "baseline_us": 27.263999916613102,
+          "candidate_us": 70.89599967002869,
+          "inst": [
+            128,
+            64,
+            1,
+            1,
+            2,
+            true,
+            1
+          ],
+          "split": 2,
+          "idx": 4,
+          "max_esc": 11,
+          "registers_per_thread": 130
+        },
+        {
+          "ratio": 0.41346307777454183,
+          "baseline_us": 27.375999838113785,
+          "candidate_us": 66.0959966480732,
+          "inst": [
+            128,
+            64,
+            1,
+            1,
+            2,
+            true,
+            1
+          ],
+          "split": 4,
+          "idx": 4,
+          "max_esc": 7,
+          "registers_per_thread": 130
+        },
+        {
+          "ratio": 0.321968169884486,
+          "baseline_us": 27.343999594449997,
+          "candidate_us": 85.55200323462486,
+          "inst": [
+            128,
+            64,
+            1,
+            1,
+            2,
+            true,
+            1
+          ],
+          "split": 8,
+          "idx": 4,
+          "max_esc": 5,
+          "registers_per_thread": 130
+        },
+        {
+          "ratio": 0.5126799084013747,
+          "baseline_us": 27.280000038444996,
+          "candidate_us": 53.68000082671642,
+          "inst": [
+            128,
+            64,
+            1,
+            2,
+            2,
+            true,
+            1
+          ],
+          "split": 1,
+          "idx": 5,
+          "max_esc": 14,
+          "registers_per_thread": 143
+        },
+        {
+          "ratio": 0.4331698881596684,
+          "baseline_us": 27.264000847935677,
+          "candidate_us": 64.25599753856659,
+          "inst": [
+            128,
+            64,
+            1,
+            2,
+            2,
+            true,
+            1
+          ],
+          "split": 2,
+          "idx": 5,
+          "max_esc": 11,
+          "registers_per_thread": 143
+        },
+        {
+          "ratio": 0.45564735497048553,
+          "baseline_us": 27.280000038444996,
+          "candidate_us": 60.48000045120716,
+          "inst": [
+            128,
+            64,
+            1,
+            2,
+            2,
+            true,
+            1
+          ],
+          "split": 4,
+          "idx": 5,
+          "max_esc": 7,
+          "registers_per_thread": 143
+        },
+        {
+          "ratio": 0.33698748703829906,
+          "baseline_us": 27.280000038444996,
+          "candidate_us": 81.13599941134453,
+          "inst": [
+            128,
+            64,
+            1,
+            2,
+            2,
+            true,
+            1
+          ],
+          "split": 8,
+          "idx": 5,
+          "max_esc": 5,
+          "registers_per_thread": 143
+        },
+        {
+          "ratio": 0.41794331838233634,
+          "baseline_us": 27.184000238776207,
+          "candidate_us": 65.2959980070591,
+          "inst": [
+            128,
+            64,
+            2,
+            1,
+            2,
+            true,
+            1
+          ],
+          "split": 1,
+          "idx": 6,
+          "max_esc": 11,
+          "registers_per_thread": 130
+        },
+        {
+          "ratio": 0.36587044233484534,
+          "baseline_us": 27.103999629616737,
+          "candidate_us": 74.5600014925003,
+          "inst": [
+            128,
+            64,
+            2,
+            1,
+            2,
+            true,
+            1
+          ],
+          "split": 2,
+          "idx": 6,
+          "max_esc": 7,
+          "registers_per_thread": 130
+        },
+        {
+          "ratio": 0.2552737303568946,
+          "baseline_us": 27.328000403940678,
+          "candidate_us": 107.98400267958641,
+          "inst": [
+            128,
+            64,
+            2,
+            1,
+            2,
+            true,
+            1
+          ],
+          "split": 4,
+          "idx": 6,
+          "max_esc": 5,
+          "registers_per_thread": 130
+        },
+        {
+          "ratio": 0.16568938612136097,
+          "baseline_us": 27.471999637782574,
+          "candidate_us": 166.81599617004395,
+          "inst": [
+            128,
+            64,
+            2,
+            1,
+            2,
+            true,
+            1
+          ],
+          "split": 8,
+          "idx": 6,
+          "max_esc": 4,
+          "registers_per_thread": 130
+        },
+        {
+          "ratio": 0.4936563933385748,
+          "baseline_us": 27.135999873280525,
+          "candidate_us": 55.135998874902725,
+          "inst": [
+            128,
+            64,
+            2,
+            2,
+            2,
+            true,
+            1
+          ],
+          "split": 1,
+          "idx": 7,
+          "max_esc": 11,
+          "registers_per_thread": 143
+        },
+        {
+          "ratio": 0.416952302521039,
+          "baseline_us": 27.103999629616737,
+          "candidate_us": 65.23199751973152,
+          "inst": [
+            128,
+            64,
+            2,
+            2,
+            2,
+            true,
+            1
+          ],
+          "split": 2,
+          "idx": 7,
+          "max_esc": 7,
+          "registers_per_thread": 143
+        },
+        {
+          "ratio": 0.27704476606669703,
+          "baseline_us": 27.295999228954315,
+          "candidate_us": 99.16800260543823,
+          "inst": [
+            128,
+            64,
+            2,
+            2,
+            2,
+            true,
+            1
+          ],
+          "split": 4,
+          "idx": 7,
+          "max_esc": 5,
+          "registers_per_thread": 143
+        },
+        {
+          "ratio": 0.1700192252382477,
+          "baseline_us": 27.184000238776207,
+          "candidate_us": 160.0320041179657,
+          "inst": [
+            128,
+            64,
+            2,
+            2,
+            2,
+            true,
+            1
+          ],
+          "split": 8,
+          "idx": 7,
+          "max_esc": 4,
+          "registers_per_thread": 143
+        },
+        {
+          "ratio": 0.3966932408689577,
+          "baseline_us": 27.2000003606081,
+          "candidate_us": 68.4799998998642,
+          "inst": [
+            256,
+            64,
+            1,
+            1,
+            2,
+            true,
+            1
+          ],
+          "split": 1,
+          "idx": 8,
+          "max_esc": 14,
+          "registers_per_thread": 194
+        },
+        {
+          "ratio": 0.5885300921738796,
+          "baseline_us": 27.343999594449997,
+          "candidate_us": 47.07200080156326,
+          "inst": [
+            256,
+            64,
+            1,
+            1,
+            2,
+            true,
+            1
+          ],
+          "split": 2,
+          "idx": 8,
+          "max_esc": 11,
+          "registers_per_thread": 194
+        },
+        {
+          "ratio": 0.3831021332564396,
+          "baseline_us": 27.247999794781208,
+          "candidate_us": 71.3919997215271,
+          "inst": [
+            256,
+            64,
+            1,
+            1,
+            2,
+            true,
+            1
+          ],
+          "split": 4,
+          "idx": 8,
+          "max_esc": 7,
+          "registers_per_thread": 194
+        },
+        {
+          "ratio": 0.3257452438113136,
+          "baseline_us": 27.263999916613102,
+          "candidate_us": 83.96799862384796,
+          "inst": [
+            256,
+            64,
+            1,
+            1,
+            2,
+            true,
+            1
+          ],
+          "split": 8,
+          "idx": 8,
+          "max_esc": 5,
+          "registers_per_thread": 194
+        },
+        {
+          "ratio": 0.47597158489957214,
+          "baseline_us": 27.168000116944313,
+          "candidate_us": 57.34400078654289,
+          "inst": [
+            256,
+            64,
+            1,
+            2,
+            2,
+            true,
+            1
+          ],
+          "split": 1,
+          "idx": 9,
+          "max_esc": 14,
+          "registers_per_thread": 207
+        },
+        {
+          "ratio": 0.6546866210933313,
+          "baseline_us": 27.456000447273254,
+          "candidate_us": 42.160000652074814,
+          "inst": [
+            256,
+            64,
+            1,
+            2,
+            2,
+            true,
+            1
+          ],
+          "split": 2,
+          "idx": 9,
+          "max_esc": 11,
+          "registers_per_thread": 207
+        },
+        {
+          "ratio": 0.42138020394387443,
+          "baseline_us": 27.135999873280525,
+          "candidate_us": 65.19999727606773,
+          "inst": [
+            256,
+            64,
+            1,
+            2,
+            2,
+            true,
+            1
+          ],
+          "split": 4,
+          "idx": 9,
+          "max_esc": 7,
+          "registers_per_thread": 207
+        },
+        {
+          "ratio": 0.3464079418166858,
+          "baseline_us": 27.840000577270985,
+          "candidate_us": 80.20799979567528,
+          "inst": [
+            256,
+            64,
+            1,
+            2,
+            2,
+            true,
+            1
+          ],
+          "split": 8,
+          "idx": 9,
+          "max_esc": 5,
+          "registers_per_thread": 207
+        },
+        {
+          "ratio": 0.615205631839263,
+          "baseline_us": 27.488000690937042,
+          "candidate_us": 44.783998280763626,
+          "inst": [
+            256,
+            64,
+            2,
+            1,
+            2,
+            true,
+            1
+          ],
+          "split": 1,
+          "idx": 10,
+          "max_esc": 11,
+          "registers_per_thread": 194
+        },
+        {
+          "ratio": 0.5412335548993965,
+          "baseline_us": 27.327999472618103,
+          "candidate_us": 51.072001457214355,
+          "inst": [
+            256,
+            64,
+            2,
+            1,
+            2,
+            true,
+            1
+          ],
+          "split": 2,
+          "idx": 10,
+          "max_esc": 7,
+          "registers_per_thread": 194
+        },
+        {
+          "ratio": 0.33041034007681686,
+          "baseline_us": 27.216000482439995,
+          "candidate_us": 82.84799754619598,
+          "inst": [
+            256,
+            64,
+            2,
+            1,
+            2,
+            true,
+            1
+          ],
+          "split": 4,
+          "idx": 10,
+          "max_esc": 5,
+          "registers_per_thread": 194
+        },
+        {
+          "ratio": 0.21510411855911804,
+          "baseline_us": 27.408000081777573,
+          "candidate_us": 126.92800164222717,
+          "inst": [
+            256,
+            64,
+            2,
+            1,
+            2,
+            true,
+            1
+          ],
+          "split": 8,
+          "idx": 10,
+          "max_esc": 4,
+          "registers_per_thread": 194
+        },
+        {
+          "ratio": 0.685605724922635,
+          "baseline_us": 27.295999228954315,
+          "candidate_us": 40.031999349594116,
+          "inst": [
+            256,
+            64,
+            2,
+            2,
+            2,
+            true,
+            1
+          ],
+          "split": 1,
+          "idx": 11,
+          "max_esc": 11,
+          "registers_per_thread": 207
+        },
+        {
+          "ratio": 0.5809920727386788,
+          "baseline_us": 27.247999794781208,
+          "candidate_us": 47.119999304413795,
+          "inst": [
+            256,
+            64,
+            2,
+            2,
+            2,
+            true,
+            1
+          ],
+          "split": 2,
+          "idx": 11,
+          "max_esc": 7,
+          "registers_per_thread": 207
+        },
+        {
+          "ratio": 0.3488720530148745,
+          "baseline_us": 27.343999594449997,
+          "candidate_us": 78.5600021481514,
+          "inst": [
+            256,
+            64,
+            2,
+            2,
+            2,
+            true,
+            1
+          ],
+          "split": 4,
+          "idx": 11,
+          "max_esc": 5,
+          "registers_per_thread": 207
+        },
+        {
+          "ratio": 0.22063083662725158,
+          "baseline_us": 27.35999971628189,
+          "candidate_us": 124.14399906992912,
+          "inst": [
+            256,
+            64,
+            2,
+            2,
+            2,
+            true,
+            1
+          ],
+          "split": 8,
+          "idx": 11,
+          "max_esc": 4,
+          "registers_per_thread": 207
+        }
+      ]
+    },
+    {
+      "m": 128,
+      "layer": "pooler",
+      "tested": 48,
+      "finalists": [
+        {
+          "ratio": 0.7439306279288629,
+          "baseline_us": 24.17599968612194,
+          "candidate_us": 32.336000353097916,
+          "inst": [
+            128,
+            64,
+            2,
+            2,
+            2,
+            true,
+            1
+          ],
+          "split": 2,
+          "idx": 7,
+          "max_esc": 13,
+          "registers_per_thread": 143
+        },
+        {
+          "ratio": 0.7123618124407662,
+          "baseline_us": 24.464000016450882,
+          "candidate_us": 34.44800153374672,
+          "inst": [
+            64,
+            64,
+            2,
+            2,
+            2,
+            true,
+            1
+          ],
+          "split": 2,
+          "idx": 3,
+          "max_esc": 13,
+          "registers_per_thread": 111
+        },
+        {
+          "ratio": 0.7076094169050482,
+          "baseline_us": 24.623999372124672,
+          "candidate_us": 34.71999987959862,
+          "inst": [
+            128,
+            64,
+            1,
+            2,
+            2,
+            true,
+            1
+          ],
+          "split": 4,
+          "idx": 5,
+          "max_esc": 13,
+          "registers_per_thread": 143
+        }
+      ],
+      "screen": [
+        {
+          "ratio": 0.2613805051494976,
+          "baseline_us": 23.936000652611256,
+          "candidate_us": 91.48800000548363,
+          "inst": [
+            64,
+            64,
+            1,
+            1,
+            2,
+            true,
+            1
+          ],
+          "split": 1,
+          "idx": 0,
+          "max_esc": 31,
+          "registers_per_thread": 98
+        },
+        {
+          "ratio": 0.44737585691872683,
+          "baseline_us": 24.303999729454517,
+          "candidate_us": 53.648000583052635,
+          "inst": [
+            64,
+            64,
+            1,
+            1,
+            2,
+            true,
+            1
+          ],
+          "split": 2,
+          "idx": 0,
+          "max_esc": 23,
+          "registers_per_thread": 98
+        },
+        {
+          "ratio": 0.41075782868751765,
+          "baseline_us": 24.111999198794365,
+          "candidate_us": 59.29599888622761,
+          "inst": [
+            64,
+            64,
+            1,
+            1,
+            2,
+            true,
+            1
+          ],
+          "split": 4,
+          "idx": 0,
+          "max_esc": 13,
+          "registers_per_thread": 98
+        },
+        {
+          "ratio": 0.4428188171180684,
+          "baseline_us": 24.623999372124672,
+          "candidate_us": 55.695999413728714,
+          "inst": [
+            64,
+            64,
+            1,
+            1,
+            2,
+            true,
+            1
+          ],
+          "split": 8,
+          "idx": 0,
+          "max_esc": 9,
+          "registers_per_thread": 98
+        },
+        {
+          "ratio": 0.33273028898114654,
+          "baseline_us": 24.272000417113304,
+          "candidate_us": 73.08799773454666,
+          "inst": [
+            64,
+            64,
+            1,
+            2,
+            2,
+            true,
+            1
+          ],
+          "split": 1,
+          "idx": 1,
+          "max_esc": 31,
+          "registers_per_thread": 111
+        },
+        {
+          "ratio": 0.5252863795210753,
+          "baseline_us": 23.904000408947468,
+          "candidate_us": 45.45599967241287,
+          "inst": [
+            64,
+            64,
+            1,
+            2,
+            2,
+            true,
+            1
+          ],
+          "split": 2,
+          "idx": 1,
+          "max_esc": 23,
+          "registers_per_thread": 111
+        },
+        {
+          "ratio": 0.47548438507227614,
+          "baseline_us": 24.12799932062626,
+          "candidate_us": 51.663998514413834,
+          "inst": [
+            64,
+            64,
+            1,
+            2,
+            2,
+            true,
+            1
+          ],
+          "split": 4,
+          "idx": 1,
+          "max_esc": 13,
+          "registers_per_thread": 111
+        },
+        {
+          "ratio": 0.4853759054442794,
+          "baseline_us": 24.960000067949295,
+          "candidate_us": 51.24799907207489,
+          "inst": [
+            64,
+            64,
+            1,
+            2,
+            2,
+            true,
+            1
+          ],
+          "split": 8,
+          "idx": 1,
+          "max_esc": 9,
+          "registers_per_thread": 111
+        },
+        {
+          "ratio": 0.46057048379029797,
+          "baseline_us": 24.31999985128641,
+          "candidate_us": 53.52000147104263,
+          "inst": [
+            64,
+            64,
+            2,
+            1,
+            2,
+            true,
+            1
+          ],
+          "split": 1,
+          "idx": 2,
+          "max_esc": 23,
+          "registers_per_thread": 98
+        },
+        {
+          "ratio": 0.646046311560011,
+          "baseline_us": 24.4159996509552,
+          "candidate_us": 38.176000118255615,
+          "inst": [
+            64,
+            64,
+            2,
+            1,
+            2,
+            true,
+            1
+          ],
+          "split": 2,
+          "idx": 2,
+          "max_esc": 13,
+          "registers_per_thread": 98
+        },
+        {
+          "ratio": 0.41959206533714666,
+          "baseline_us": 23.823999799787998,
+          "candidate_us": 57.919999584555626,
+          "inst": [
+            64,
+            64,
+            2,
+            1,
+            2,
+            true,
+            1
+          ],
+          "split": 4,
+          "idx": 2,
+          "max_esc": 9,
+          "registers_per_thread": 98
+        },
+        {
+          "ratio": 0.35504656800352297,
+          "baseline_us": 24.464000016450882,
+          "candidate_us": 68.7200017273426,
+          "inst": [
+            64,
+            64,
+            2,
+            1,
+            2,
+            true,
+            1
+          ],
+          "split": 8,
+          "idx": 2,
+          "max_esc": 6,
+          "registers_per_thread": 98
+        },
+        {
+          "ratio": 0.5422268531515385,
+          "baseline_us": 23.823999799787998,
+          "candidate_us": 44.72000151872635,
+          "inst": [
+            64,
+            64,
+            2,
+            2,
+            2,
+            true,
+            1
+          ],
+          "split": 1,
+          "idx": 3,
+          "max_esc": 23,
+          "registers_per_thread": 111
+        },
+        {
+          "ratio": 0.7123618124407662,
+          "baseline_us": 24.464000016450882,
+          "candidate_us": 34.44800153374672,
+          "inst": [
+            64,
+            64,
+            2,
+            2,
+            2,
+            true,
+            1
+          ],
+          "split": 2,
+          "idx": 3,
+          "max_esc": 13,
+          "registers_per_thread": 111
+        },
+        {
+          "ratio": 0.4658806415454678,
+          "baseline_us": 24.240000173449516,
+          "candidate_us": 52.880000323057175,
+          "inst": [
+            64,
+            64,
+            2,
+            2,
+            2,
+            true,
+            1
+          ],
+          "split": 4,
+          "idx": 3,
+          "max_esc": 9,
+          "registers_per_thread": 111
+        },
+        {
+          "ratio": 0.36905047892501025,
+          "baseline_us": 24.335999973118305,
+          "candidate_us": 65.8240020275116,
+          "inst": [
+            64,
+            64,
+            2,
+            2,
+            2,
+            true,
+            1
+          ],
+          "split": 8,
+          "idx": 3,
+          "max_esc": 6,
+          "registers_per_thread": 111
+        },
+        {
+          "ratio": 0.2456179161589192,
+          "baseline_us": 24.783999659121037,
+          "candidate_us": 100.8480004966259,
+          "inst": [
+            128,
+            64,
+            1,
+            1,
+            2,
+            true,
+            1
+          ],
+          "split": 1,
+          "idx": 4,
+          "max_esc": 31,
+          "registers_per_thread": 130
+        },
+        {
+          "ratio": 0.42280860088158817,
+          "baseline_us": 24.047999642789364,
+          "candidate_us": 57.583998888731,
+          "inst": [
+            128,
+            64,
+            1,
+            1,
+            2,
+            true,
+            1
+          ],
+          "split": 2,
+          "idx": 4,
+          "max_esc": 23,
+          "registers_per_thread": 130
+        },
+        {
+          "ratio": 0.6294796719750048,
+          "baseline_us": 24.16000049561262,
+          "candidate_us": 39.0079990029335,
+          "inst": [
+            128,
+            64,
+            1,
+            1,
+            2,
+            true,
+            1
+          ],
+          "split": 4,
+          "idx": 4,
+          "max_esc": 13,
+          "registers_per_thread": 130
+        },
+        {
+          "ratio": 0.5324637697360824,
+          "baseline_us": 24.59200005978346,
+          "candidate_us": 45.75999826192856,
+          "inst": [
+            128,
+            64,
+            1,
+            1,
+            2,
+            true,
+            1
+          ],
+          "split": 8,
+          "idx": 4,
+          "max_esc": 9,
+          "registers_per_thread": 130
+        },
+        {
+          "ratio": 0.29779706356832786,
+          "baseline_us": 24.543999694287777,
+          "candidate_us": 82.68800005316734,
+          "inst": [
+            128,
+            64,
+            1,
+            2,
+            2,
+            true,
+            1
+          ],
+          "split": 1,
+          "idx": 5,
+          "max_esc": 31,
+          "registers_per_thread": 143
+        },
+        {
+          "ratio": 0.5082042099710548,
+          "baseline_us": 24.480000138282776,
+          "candidate_us": 47.93599992990494,
+          "inst": [
+            128,
+            64,
+            1,
+            2,
+            2,
+            true,
+            1
+          ],
+          "split": 2,
+          "idx": 5,
+          "max_esc": 23,
+          "registers_per_thread": 143
+        },
+        {
+          "ratio": 0.7076094169050482,
+          "baseline_us": 24.623999372124672,
+          "candidate_us": 34.71999987959862,
+          "inst": [
+            128,
+            64,
+            1,
+            2,
+            2,
+            true,
+            1
+          ],
+          "split": 4,
+          "idx": 5,
+          "max_esc": 13,
+          "registers_per_thread": 143
+        },
+        {
+          "ratio": 0.5616988383455623,
+          "baseline_us": 24.335999973118305,
+          "candidate_us": 43.99999976158142,
+          "inst": [
+            128,
+            64,
+            1,
+            2,
+            2,
+            true,
+            1
+          ],
+          "split": 8,
+          "idx": 5,
+          "max_esc": 9,
+          "registers_per_thread": 143
+        },
+        {
+          "ratio": 0.4217137816546188,
+          "baseline_us": 24.272000417113304,
+          "candidate_us": 59.55199897289276,
+          "inst": [
+            128,
+            64,
+            2,
+            1,
+            2,
+            true,
+            1
+          ],
+          "split": 1,
+          "idx": 6,
+          "max_esc": 23,
+          "registers_per_thread": 130
+        },
+        {
+          "ratio": 0.664841656256558,
+          "baseline_us": 24.447999894618988,
+          "candidate_us": 36.75200045108795,
+          "inst": [
+            128,
+            64,
+            2,
+            1,
+            2,
+            true,
+            1
+          ],
+          "split": 2,
+          "idx": 6,
+          "max_esc": 13,
+          "registers_per_thread": 130
+        },
+        {
+          "ratio": 0.41651475208984434,
+          "baseline_us": 24.55999981611967,
+          "candidate_us": 58.928001672029495,
+          "inst": [
+            128,
+            64,
+            2,
+            1,
+            2,
+            true,
+            1
+          ],
+          "split": 4,
+          "idx": 6,
+          "max_esc": 9,
+          "registers_per_thread": 130
+        },
+        {
+          "ratio": 0.3655242421765309,
+          "baseline_us": 25.27999971061945,
+          "candidate_us": 69.43999975919724,
+          "inst": [
+            128,
+            64,
+            2,
+            1,
+            2,
+            true,
+            1
+          ],
+          "split": 8,
+          "idx": 6,
+          "max_esc": 6,
+          "registers_per_thread": 130
+        },
+        {
+          "ratio": 0.48419348955805397,
+          "baseline_us": 24.224000051617622,
+          "candidate_us": 50.592001527547836,
+          "inst": [
+            128,
+            64,
+            2,
+            2,
+            2,
+            true,
+            1
+          ],
+          "split": 1,
+          "idx": 7,
+          "max_esc": 23,
+          "registers_per_thread": 143
+        },
+        {
+          "ratio": 0.7439306279288629,
+          "baseline_us": 24.17599968612194,
+          "candidate_us": 32.336000353097916,
+          "inst": [
+            128,
+            64,
+            2,
+            2,
+            2,
+            true,
+            1
+          ],
+          "split": 2,
+          "idx": 7,
+          "max_esc": 13,
+          "registers_per_thread": 143
+        },
+        {
+          "ratio": 0.472046698583992,
+          "baseline_us": 24.720000103116035,
+          "candidate_us": 52.60800011456013,
+          "inst": [
+            128,
+            64,
+            2,
+            2,
+            2,
+            true,
+            1
+          ],
+          "split": 4,
+          "idx": 7,
+          "max_esc": 9,
+          "registers_per_thread": 143
+        },
+        {
+          "ratio": 0.38006944283924227,
+          "baseline_us": 24.59200005978346,
+          "candidate_us": 64.38399851322174,
+          "inst": [
+            128,
+            64,
+            2,
+            2,
+            2,
+            true,
+            1
+          ],
+          "split": 8,
+          "idx": 7,
+          "max_esc": 6,
+          "registers_per_thread": 143
+        },
+        {
+          "ratio": 0.19822041223331213,
+          "baseline_us": 24.54400062561035,
+          "candidate_us": 123.4240010380745,
+          "inst": [
+            256,
+            64,
+            1,
+            1,
+            2,
+            true,
+            1
+          ],
+          "split": 1,
+          "idx": 8,
+          "max_esc": 31,
+          "registers_per_thread": 194
+        },
+        {
+          "ratio": 0.2731917141054452,
+          "baseline_us": 24.032000452280045,
+          "candidate_us": 88.81599828600883,
+          "inst": [
+            256,
+            64,
+            1,
+            1,
+            2,
+            true,
+            1
+          ],
+          "split": 2,
+          "idx": 8,
+          "max_esc": 23,
+          "registers_per_thread": 194
+        },
+        {
+          "ratio": 0.2837147942108984,
+          "baseline_us": 24.36799928545952,
+          "candidate_us": 85.52000299096107,
+          "inst": [
+            256,
+            64,
+            1,
+            1,
+            2,
+            true,
+            1
+          ],
+          "split": 4,
+          "idx": 8,
+          "max_esc": 13,
+          "registers_per_thread": 194
+        },
+        {
+          "ratio": 0.31353049151985724,
+          "baseline_us": 24.64000042527914,
+          "candidate_us": 79.24799993634224,
+          "inst": [
+            256,
+            64,
+            1,
+            1,
+            2,
+            true,
+            1
+          ],
+          "split": 8,
+          "idx": 8,
+          "max_esc": 9,
+          "registers_per_thread": 194
+        },
+        {
+          "ratio": 0.2386157645647949,
+          "baseline_us": 24.383999407291412,
+          "candidate_us": 102.46400162577629,
+          "inst": [
+            256,
+            64,
+            1,
+            2,
+            2,
+            true,
+            1
+          ],
+          "split": 1,
+          "idx": 9,
+          "max_esc": 31,
+          "registers_per_thread": 207
+        },
+        {
+          "ratio": 0.2909006179582143,
+          "baseline_us": 24.480000138282776,
+          "candidate_us": 84.51200276613235,
+          "inst": [
+            256,
+            64,
+            1,
+            2,
+            2,
+            true,
+            1
+          ],
+          "split": 2,
+          "idx": 9,
+          "max_esc": 23,
+          "registers_per_thread": 207
+        },
+        {
+          "ratio": 0.3045957115626533,
+          "baseline_us": 24.447999894618988,
+          "candidate_us": 81.71200007200241,
+          "inst": [
+            256,
+            64,
+            1,
+            2,
+            2,
+            true,
+            1
+          ],
+          "split": 4,
+          "idx": 9,
+          "max_esc": 13,
+          "registers_per_thread": 207
+        },
+        {
+          "ratio": 0.3278965071183487,
+          "baseline_us": 24.70399998128414,
+          "candidate_us": 75.77600330114365,
+          "inst": [
+            256,
+            64,
+            1,
+            2,
+            2,
+            true,
+            1
+          ],
+          "split": 8,
+          "idx": 9,
+          "max_esc": 9,
+          "registers_per_thread": 207
+        },
+        {
+          "ratio": 0.25978373740957406,
+          "baseline_us": 24.527999572455883,
+          "candidate_us": 94.35199946165085,
+          "inst": [
+            256,
+            64,
+            2,
+            1,
+            2,
+            true,
+            1
+          ],
+          "split": 1,
+          "idx": 10,
+          "max_esc": 23,
+          "registers_per_thread": 194
+        },
+        {
+          "ratio": 0.4178226359435118,
+          "baseline_us": 24.480000138282776,
+          "candidate_us": 58.768000453710556,
+          "inst": [
+            256,
+            64,
+            2,
+            1,
+            2,
+            true,
+            1
+          ],
+          "split": 2,
+          "idx": 10,
+          "max_esc": 13,
+          "registers_per_thread": 194
+        },
+        {
+          "ratio": 0.29994986006120306,
+          "baseline_us": 23.92000053077936,
+          "candidate_us": 79.99999821186066,
+          "inst": [
+            256,
+            64,
+            2,
+            1,
+            2,
+            true,
+            1
+          ],
+          "split": 4,
+          "idx": 10,
+          "max_esc": 9,
+          "registers_per_thread": 194
+        },
+        {
+          "ratio": 0.2723836074953086,
+          "baseline_us": 24.671999737620354,
+          "candidate_us": 89.85599875450134,
+          "inst": [
+            256,
+            64,
+            2,
+            1,
+            2,
+            true,
+            1
+          ],
+          "split": 8,
+          "idx": 10,
+          "max_esc": 6,
+          "registers_per_thread": 194
+        },
+        {
+          "ratio": 0.25922245157235674,
+          "baseline_us": 24.224000051617622,
+          "candidate_us": 93.50400045514107,
+          "inst": [
+            256,
+            64,
+            2,
+            2,
+            2,
+            true,
+            1
+          ],
+          "split": 1,
+          "idx": 11,
+          "max_esc": 23,
+          "registers_per_thread": 207
+        },
+        {
+          "ratio": 0.427389136733697,
+          "baseline_us": 24.71999917179346,
+          "candidate_us": 57.023998349905014,
+          "inst": [
+            256,
+            64,
+            2,
+            2,
+            2,
+            true,
+            1
+          ],
+          "split": 2,
+          "idx": 11,
+          "max_esc": 13,
+          "registers_per_thread": 207
+        },
+        {
+          "ratio": 0.3214639853165021,
+          "baseline_us": 24.575999937951565,
+          "candidate_us": 76.62400230765343,
+          "inst": [
+            256,
+            64,
+            2,
+            2,
+            2,
+            true,
+            1
+          ],
+          "split": 4,
+          "idx": 11,
+          "max_esc": 9,
+          "registers_per_thread": 207
+        },
+        {
+          "ratio": 0.27864608569364224,
+          "baseline_us": 24.624000303447247,
+          "candidate_us": 88.19200098514557,
+          "inst": [
+            256,
+            64,
+            2,
+            2,
+            2,
+            true,
+            1
+          ],
+          "split": 8,
+          "idx": 11,
+          "max_esc": 6,
+          "registers_per_thread": 207
+        }
+      ]
+    },
+    {
+      "m": 256,
+      "layer": "pooler",
+      "tested": 48,
+      "finalists": [
+        {
+          "ratio": 0.6754942778895223,
+          "baseline_us": 27.583999559283257,
+          "candidate_us": 41.23200103640556,
+          "inst": [
+            256,
+            64,
+            2,
+            2,
+            2,
+            true,
+            1
+          ],
+          "split": 2,
+          "idx": 11,
+          "max_esc": 13,
+          "registers_per_thread": 207
+        },
+        {
+          "ratio": 0.6040683073606844,
+          "baseline_us": 27.615999802947044,
+          "candidate_us": 46.01600021123886,
+          "inst": [
+            256,
+            64,
+            2,
+            1,
+            2,
+            true,
+            1
+          ],
+          "split": 2,
+          "idx": 10,
+          "max_esc": 13,
+          "registers_per_thread": 194
+        },
+        {
+          "ratio": 0.5399351583009988,
+          "baseline_us": 27.615999802947044,
+          "candidate_us": 51.44000053405762,
+          "inst": [
+            128,
+            64,
+            2,
+            2,
+            2,
+            true,
+            1
+          ],
+          "split": 1,
+          "idx": 7,
+          "max_esc": 23,
+          "registers_per_thread": 143
+        }
+      ],
+      "screen": [
+        {
+          "ratio": 0.2955005589874653,
+          "baseline_us": 27.375999838113785,
+          "candidate_us": 93.90399977564812,
+          "inst": [
+            64,
+            64,
+            1,
+            1,
+            2,
+            true,
+            1
+          ],
+          "split": 1,
+          "idx": 0,
+          "max_esc": 31,
+          "registers_per_thread": 98
+        },
+        {
+          "ratio": 0.43562909009781225,
+          "baseline_us": 27.808000333607197,
+          "candidate_us": 64.04800340533257,
+          "inst": [
+            64,
+            64,
+            1,
+            1,
+            2,
+            true,
+            1
+          ],
+          "split": 2,
+          "idx": 0,
+          "max_esc": 23,
+          "registers_per_thread": 98
+        },
+        {
+          "ratio": 0.31114818797132526,
+          "baseline_us": 27.63199992477894,
+          "candidate_us": 89.79199826717377,
+          "inst": [
+            64,
+            64,
+            1,
+            1,
+            2,
+            true,
+            1
+          ],
+          "split": 4,
+          "idx": 0,
+          "max_esc": 13,
+          "registers_per_thread": 98
+        },
+        {
+          "ratio": 0.30084295314002546,
+          "baseline_us": 27.567999437451363,
+          "candidate_us": 92.38400310277939,
+          "inst": [
+            64,
+            64,
+            1,
+            1,
+            2,
+            true,
+            1
+          ],
+          "split": 8,
+          "idx": 0,
+          "max_esc": 9,
+          "registers_per_thread": 98
+        },
+        {
+          "ratio": 0.355732709704553,
+          "baseline_us": 27.55199931561947,
+          "candidate_us": 77.40800082683563,
+          "inst": [
+            64,
+            64,
+            1,
+            2,
+            2,
+            true,
+            1
+          ],
+          "split": 1,
+          "idx": 1,
+          "max_esc": 31,
+          "registers_per_thread": 111
+        },
+        {
+          "ratio": 0.48962047691397215,
+          "baseline_us": 27.53600012511015,
+          "candidate_us": 56.703999638557434,
+          "inst": [
+            64,
+            64,
+            1,
+            2,
+            2,
+            true,
+            1
+          ],
+          "split": 2,
+          "idx": 1,
+          "max_esc": 23,
+          "registers_per_thread": 111
+        },
+        {
+          "ratio": 0.3479575254518278,
+          "baseline_us": 27.488000690937042,
+          "candidate_us": 79.37600091099739,
+          "inst": [
+            64,
+            64,
+            1,
+            2,
+            2,
+            true,
+            1
+          ],
+          "split": 4,
+          "idx": 1,
+          "max_esc": 13,
+          "registers_per_thread": 111
+        },
+        {
+          "ratio": 0.3279615654142648,
+          "baseline_us": 27.59999968111515,
+          "candidate_us": 84.04799923300743,
+          "inst": [
+            64,
+            64,
+            1,
+            2,
+            2,
+            true,
+            1
+          ],
+          "split": 8,
+          "idx": 1,
+          "max_esc": 9,
+          "registers_per_thread": 111
+        },
+        {
+          "ratio": 0.4542373041996829,
+          "baseline_us": 27.63199992477894,
+          "candidate_us": 61.35999970138073,
+          "inst": [
+            64,
+            64,
+            2,
+            1,
+            2,
+            true,
+            1
+          ],
+          "split": 1,
+          "idx": 2,
+          "max_esc": 23,
+          "registers_per_thread": 98
+        },
+        {
+          "ratio": 0.40490794678281417,
+          "baseline_us": 27.871999889612198,
+          "candidate_us": 69.04000043869019,
+          "inst": [
+            64,
+            64,
+            2,
+            1,
+            2,
+            true,
+            1
+          ],
+          "split": 2,
+          "idx": 2,
+          "max_esc": 13,
+          "registers_per_thread": 98
+        },
+        {
+          "ratio": 0.28706003445400796,
+          "baseline_us": 27.74399984627962,
+          "candidate_us": 98.23999926447868,
+          "inst": [
+            64,
+            64,
+            2,
+            1,
+            2,
+            true,
+            1
+          ],
+          "split": 4,
+          "idx": 2,
+          "max_esc": 9,
+          "registers_per_thread": 98
+        },
+        {
+          "ratio": 0.22786546435568394,
+          "baseline_us": 27.567999437451363,
+          "candidate_us": 120.46400085091591,
+          "inst": [
+            64,
+            64,
+            2,
+            1,
+            2,
+            true,
+            1
+          ],
+          "split": 8,
+          "idx": 2,
+          "max_esc": 6,
+          "registers_per_thread": 98
+        },
+        {
+          "ratio": 0.504707095469714,
+          "baseline_us": 27.664000168442726,
+          "candidate_us": 55.344000458717346,
+          "inst": [
+            64,
+            64,
+            2,
+            2,
+            2,
+            true,
+            1
+          ],
+          "split": 1,
+          "idx": 3,
+          "max_esc": 23,
+          "registers_per_thread": 111
+        },
+        {
+          "ratio": 0.4517294202372627,
+          "baseline_us": 27.583999559283257,
+          "candidate_us": 61.904000118374825,
+          "inst": [
+            64,
+            64,
+            2,
+            2,
+            2,
+            true,
+            1
+          ],
+          "split": 2,
+          "idx": 3,
+          "max_esc": 13,
+          "registers_per_thread": 111
+        },
+        {
+          "ratio": 0.3201940064235317,
+          "baseline_us": 27.615999802947044,
+          "candidate_us": 88.14400061964989,
+          "inst": [
+            64,
+            64,
+            2,
+            2,
+            2,
+            true,
+            1
+          ],
+          "split": 4,
+          "idx": 3,
+          "max_esc": 9,
+          "registers_per_thread": 111
+        },
+        {
+          "ratio": 0.24096850487843108,
+          "baseline_us": 27.55199931561947,
+          "candidate_us": 114.51200023293495,
+          "inst": [
+            64,
+            64,
+            2,
+            2,
+            2,
+            true,
+            1
+          ],
+          "split": 8,
+          "idx": 3,
+          "max_esc": 6,
+          "registers_per_thread": 111
+        },
+        {
+          "ratio": 0.2784484201414117,
+          "baseline_us": 27.59999968111515,
+          "candidate_us": 100.41599720716476,
+          "inst": [
+            128,
+            64,
+            1,
+            1,
+            2,
+            true,
+            1
+          ],
+          "split": 1,
+          "idx": 4,
+          "max_esc": 31,
+          "registers_per_thread": 130
+        },
+        {
+          "ratio": 0.4477679722467277,
+          "baseline_us": 27.871999889612198,
+          "candidate_us": 62.800001353025436,
+          "inst": [
+            128,
+            64,
+            1,
+            1,
+            2,
+            true,
+            1
+          ],
+          "split": 2,
+          "idx": 4,
+          "max_esc": 23,
+          "registers_per_thread": 130
+        },
+        {
+          "ratio": 0.38765657946397036,
+          "baseline_us": 27.408000081777573,
+          "candidate_us": 71.55200093984604,
+          "inst": [
+            128,
+            64,
+            1,
+            1,
+            2,
+            true,
+            1
+          ],
+          "split": 4,
+          "idx": 4,
+          "max_esc": 13,
+          "registers_per_thread": 130
+        },
+        {
+          "ratio": 0.39617592560419695,
+          "baseline_us": 27.664000168442726,
+          "candidate_us": 70.25599852204323,
+          "inst": [
+            128,
+            64,
+            1,
+            1,
+            2,
+            true,
+            1
+          ],
+          "split": 8,
+          "idx": 4,
+          "max_esc": 9,
+          "registers_per_thread": 130
+        },
+        {
+          "ratio": 0.33548512851208423,
+          "baseline_us": 27.31199935078621,
+          "candidate_us": 81.98399841785431,
+          "inst": [
+            128,
+            64,
+            1,
+            2,
+            2,
+            true,
+            1
+          ],
+          "split": 1,
+          "idx": 5,
+          "max_esc": 31,
+          "registers_per_thread": 143
+        },
+        {
+          "ratio": 0.5285988536650685,
+          "baseline_us": 27.55199931561947,
+          "candidate_us": 52.38400027155876,
+          "inst": [
+            128,
+            64,
+            1,
+            2,
+            2,
+            true,
+            1
+          ],
+          "split": 2,
+          "idx": 5,
+          "max_esc": 23,
+          "registers_per_thread": 143
+        },
+        {
+          "ratio": 0.43300313586381867,
+          "baseline_us": 27.77600008994341,
+          "candidate_us": 64.54399973154068,
+          "inst": [
+            128,
+            64,
+            1,
+            2,
+            2,
+            true,
+            1
+          ],
+          "split": 4,
+          "idx": 5,
+          "max_esc": 13,
+          "registers_per_thread": 143
+        },
+        {
+          "ratio": 0.4345683150075609,
+          "baseline_us": 27.69599948078394,
+          "candidate_us": 64.15999680757523,
+          "inst": [
+            128,
+            64,
+            1,
+            2,
+            2,
+            true,
+            1
+          ],
+          "split": 8,
+          "idx": 5,
+          "max_esc": 9,
+          "registers_per_thread": 143
+        },
+        {
+          "ratio": 0.45775309911793494,
+          "baseline_us": 27.44000032544136,
+          "candidate_us": 60.59199944138527,
+          "inst": [
+            128,
+            64,
+            2,
+            1,
+            2,
+            true,
+            1
+          ],
+          "split": 1,
+          "idx": 6,
+          "max_esc": 23,
+          "registers_per_thread": 130
+        },
+        {
+          "ratio": 0.4131753626529776,
+          "baseline_us": 27.39199995994568,
+          "candidate_us": 66.91200286149979,
+          "inst": [
+            128,
+            64,
+            2,
+            1,
+            2,
+            true,
+            1
+          ],
+          "split": 2,
+          "idx": 6,
+          "max_esc": 13,
+          "registers_per_thread": 130
+        },
+        {
+          "ratio": 0.2938212301283703,
+          "baseline_us": 27.664000168442726,
+          "candidate_us": 94.96000036597252,
+          "inst": [
+            128,
+            64,
+            2,
+            1,
+            2,
+            true,
+            1
+          ],
+          "split": 4,
+          "idx": 6,
+          "max_esc": 9,
+          "registers_per_thread": 130
+        },
+        {
+          "ratio": 0.22788635977658056,
+          "baseline_us": 27.471999637782574,
+          "candidate_us": 120.41600048542023,
+          "inst": [
+            128,
+            64,
+            2,
+            1,
+            2,
+            true,
+            1
+          ],
+          "split": 8,
+          "idx": 6,
+          "max_esc": 6,
+          "registers_per_thread": 130
+        },
+        {
+          "ratio": 0.5399351583009988,
+          "baseline_us": 27.615999802947044,
+          "candidate_us": 51.44000053405762,
+          "inst": [
+            128,
+            64,
+            2,
+            2,
+            2,
+            true,
+            1
+          ],
+          "split": 1,
+          "idx": 7,
+          "max_esc": 23,
+          "registers_per_thread": 143
+        },
+        {
+          "ratio": 0.4823969769499724,
+          "baseline_us": 27.759999968111515,
+          "candidate_us": 58.01600031554699,
+          "inst": [
+            128,
+            64,
+            2,
+            2,
+            2,
+            true,
+            1
+          ],
+          "split": 2,
+          "idx": 7,
+          "max_esc": 13,
+          "registers_per_thread": 143
+        },
+        {
+          "ratio": 0.33380766870232814,
+          "baseline_us": 27.648000046610832,
+          "candidate_us": 84.17600020766258,
+          "inst": [
+            128,
+            64,
+            2,
+            2,
+            2,
+            true,
+            1
+          ],
+          "split": 4,
+          "idx": 7,
+          "max_esc": 9,
+          "registers_per_thread": 143
+        },
+        {
+          "ratio": 0.2480545760864691,
+          "baseline_us": 27.520000003278255,
+          "candidate_us": 111.80800199508667,
+          "inst": [
+            128,
+            64,
+            2,
+            2,
+            2,
+            true,
+            1
+          ],
+          "split": 8,
+          "idx": 7,
+          "max_esc": 6,
+          "registers_per_thread": 143
+        },
+        {
+          "ratio": 0.23034039056703481,
+          "baseline_us": 27.68000029027462,
+          "candidate_us": 122.68800288438797,
+          "inst": [
+            256,
+            64,
+            1,
+            1,
+            2,
+            true,
+            1
+          ],
+          "split": 1,
+          "idx": 8,
+          "max_esc": 31,
+          "registers_per_thread": 194
+        },
+        {
+          "ratio": 0.40011025696718927,
+          "baseline_us": 28.591999784111977,
+          "candidate_us": 70.51200047135353,
+          "inst": [
+            256,
+            64,
+            1,
+            1,
+            2,
+            true,
+            1
+          ],
+          "split": 2,
+          "idx": 8,
+          "max_esc": 23,
+          "registers_per_thread": 194
+        },
+        {
+          "ratio": 0.3614041574298078,
+          "baseline_us": 27.999999932944775,
+          "candidate_us": 77.16799899935722,
+          "inst": [
+            256,
+            64,
+            1,
+            1,
+            2,
+            true,
+            1
+          ],
+          "split": 4,
+          "idx": 8,
+          "max_esc": 13,
+          "registers_per_thread": 194
+        },
+        {
+          "ratio": 0.37491852440201445,
+          "baseline_us": 27.520000003278255,
+          "candidate_us": 74.49600100517273,
+          "inst": [
+            256,
+            64,
+            1,
+            1,
+            2,
+            true,
+            1
+          ],
+          "split": 8,
+          "idx": 8,
+          "max_esc": 9,
+          "registers_per_thread": 194
+        },
+        {
+          "ratio": 0.27597512335406305,
+          "baseline_us": 27.759999968111515,
+          "candidate_us": 101.45599767565727,
+          "inst": [
+            256,
+            64,
+            1,
+            2,
+            2,
+            true,
+            1
+          ],
+          "split": 1,
+          "idx": 9,
+          "max_esc": 31,
+          "registers_per_thread": 207
+        },
+        {
+          "ratio": 0.47019471740234803,
+          "baseline_us": 27.583999559283257,
+          "candidate_us": 58.99200029671192,
+          "inst": [
+            256,
+            64,
+            1,
+            2,
+            2,
+            true,
+            1
+          ],
+          "split": 2,
+          "idx": 9,
+          "max_esc": 23,
+          "registers_per_thread": 207
+        },
+        {
+          "ratio": 0.3923256548646152,
+          "baseline_us": 27.535999193787575,
+          "candidate_us": 68.70400160551071,
+          "inst": [
+            256,
+            64,
+            1,
+            2,
+            2,
+            true,
+            1
+          ],
+          "split": 4,
+          "idx": 9,
+          "max_esc": 13,
+          "registers_per_thread": 207
+        },
+        {
+          "ratio": 0.4011735815351164,
+          "baseline_us": 27.47200056910515,
+          "candidate_us": 69.24799829721451,
+          "inst": [
+            256,
+            64,
+            1,
+            2,
+            2,
+            true,
+            1
+          ],
+          "split": 8,
+          "idx": 9,
+          "max_esc": 9,
+          "registers_per_thread": 207
+        },
+        {
+          "ratio": 0.37560388916070964,
+          "baseline_us": 27.375999838113785,
+          "candidate_us": 72.95999675989151,
+          "inst": [
+            256,
+            64,
+            2,
+            1,
+            2,
+            true,
+            1
+          ],
+          "split": 1,
+          "idx": 10,
+          "max_esc": 23,
+          "registers_per_thread": 194
+        },
+        {
+          "ratio": 0.6040683073606844,
+          "baseline_us": 27.615999802947044,
+          "candidate_us": 46.01600021123886,
+          "inst": [
+            256,
+            64,
+            2,
+            1,
+            2,
+            true,
+            1
+          ],
+          "split": 2,
+          "idx": 10,
+          "max_esc": 13,
+          "registers_per_thread": 194
+        },
+        {
+          "ratio": 0.3738932271010321,
+          "baseline_us": 28.351999819278717,
+          "candidate_us": 75.96799731254578,
+          "inst": [
+            256,
+            64,
+            2,
+            1,
+            2,
+            true,
+            1
+          ],
+          "split": 4,
+          "idx": 10,
+          "max_esc": 9,
+          "registers_per_thread": 194
+        },
+        {
+          "ratio": 0.29550968622716606,
+          "baseline_us": 27.583999559283257,
+          "candidate_us": 94.70399841666222,
+          "inst": [
+            256,
+            64,
+            2,
+            1,
+            2,
+            true,
+            1
+          ],
+          "split": 8,
+          "idx": 10,
+          "max_esc": 6,
+          "registers_per_thread": 194
+        },
+        {
+          "ratio": 0.42449452826558076,
+          "baseline_us": 27.520000003278255,
+          "candidate_us": 65.5519999563694,
+          "inst": [
+            256,
+            64,
+            2,
+            2,
+            2,
+            true,
+            1
+          ],
+          "split": 1,
+          "idx": 11,
+          "max_esc": 23,
+          "registers_per_thread": 207
+        },
+        {
+          "ratio": 0.6754942778895223,
+          "baseline_us": 27.583999559283257,
+          "candidate_us": 41.23200103640556,
+          "inst": [
+            256,
+            64,
+            2,
+            2,
+            2,
+            true,
+            1
+          ],
+          "split": 2,
+          "idx": 11,
+          "max_esc": 13,
+          "registers_per_thread": 207
+        },
+        {
+          "ratio": 0.39319533656231453,
+          "baseline_us": 27.55199931561947,
+          "candidate_us": 70.12799754738808,
+          "inst": [
+            256,
+            64,
+            2,
+            2,
+            2,
+            true,
+            1
+          ],
+          "split": 4,
+          "idx": 11,
+          "max_esc": 9,
+          "registers_per_thread": 207
+        },
+        {
+          "ratio": 0.311461385138726,
+          "baseline_us": 27.567999437451363,
+          "candidate_us": 89.72799777984619,
+          "inst": [
+            256,
+            64,
+            2,
+            2,
+            2,
+            true,
+            1
+          ],
+          "split": 8,
+          "idx": 11,
+          "max_esc": 6,
+          "registers_per_thread": 207
+        }
+      ]
+    },
+    {
+      "m": 128,
+      "layer": "qkv_gate",
+      "tested": 48,
+      "finalists": [
+        {
+          "ratio": 0.7185701580767061,
+          "baseline_us": 17.72800087928772,
+          "candidate_us": 24.54400062561035,
+          "inst": [
+            128,
+            64,
+            1,
+            2,
+            2,
+            true,
+            1
+          ],
+          "split": 8,
+          "idx": 5,
+          "max_esc": 9,
+          "registers_per_thread": 143
+        },
+        {
+          "ratio": 0.6634612426839719,
+          "baseline_us": 17.72800087928772,
+          "candidate_us": 26.784000918269157,
+          "inst": [
+            128,
+            64,
+            1,
+            1,
+            2,
+            true,
+            1
+          ],
+          "split": 8,
+          "idx": 4,
+          "max_esc": 9,
+          "registers_per_thread": 130
+        },
+        {
+          "ratio": 0.6168168141682171,
+          "baseline_us": 17.823999747633934,
+          "candidate_us": 29.071999713778496,
+          "inst": [
+            64,
+            64,
+            1,
+            2,
+            2,
+            true,
+            1
+          ],
+          "split": 4,
+          "idx": 1,
+          "max_esc": 13,
+          "registers_per_thread": 111
+        }
+      ],
+      "screen": [
+        {
+          "ratio": 0.19808623591830618,
+          "baseline_us": 17.855999991297722,
+          "candidate_us": 90.04800021648407,
+          "inst": [
+            64,
+            64,
+            1,
+            1,
+            2,
+            true,
+            1
+          ],
+          "split": 1,
+          "idx": 0,
+          "max_esc": 31,
+          "registers_per_thread": 98
+        },
+        {
+          "ratio": 0.35204236571455927,
+          "baseline_us": 17.839999869465828,
+          "candidate_us": 51.183998584747314,
+          "inst": [
+            64,
+            64,
+            1,
+            1,
+            2,
+            true,
+            1
+          ],
+          "split": 2,
+          "idx": 0,
+          "max_esc": 19,
+          "registers_per_thread": 98
+        },
+        {
+          "ratio": 0.5428909785022701,
+          "baseline_us": 17.75999926030636,
+          "candidate_us": 32.944001257419586,
+          "inst": [
+            64,
+            64,
+            1,
+            1,
+            2,
+            true,
+            1
+          ],
+          "split": 4,
+          "idx": 0,
+          "max_esc": 13,
+          "registers_per_thread": 98
+        },
+        {
+          "ratio": 0.45356285142079894,
+          "baseline_us": 17.727999947965145,
+          "candidate_us": 39.24800083041191,
+          "inst": [
+            64,
+            64,
+            1,
+            1,
+            2,
+            true,
+            1
+          ],
+          "split": 8,
+          "idx": 0,
+          "max_esc": 9,
+          "registers_per_thread": 98
+        },
+        {
+          "ratio": 0.24931437011840146,
+          "baseline_us": 17.855999991297722,
+          "candidate_us": 72.36799970269203,
+          "inst": [
+            64,
+            64,
+            1,
+            2,
+            2,
+            true,
+            1
+          ],
+          "split": 1,
+          "idx": 1,
+          "max_esc": 31,
+          "registers_per_thread": 111
+        },
+        {
+          "ratio": 0.4352765535441513,
+          "baseline_us": 17.999999225139618,
+          "candidate_us": 41.77600145339966,
+          "inst": [
+            64,
+            64,
+            1,
+            2,
+            2,
+            true,
+            1
+          ],
+          "split": 2,
+          "idx": 1,
+          "max_esc": 19,
+          "registers_per_thread": 111
+        },
+        {
+          "ratio": 0.6168168141682171,
+          "baseline_us": 17.823999747633934,
+          "candidate_us": 29.071999713778496,
+          "inst": [
+            64,
+            64,
+            1,
+            2,
+            2,
+            true,
+            1
+          ],
+          "split": 4,
+          "idx": 1,
+          "max_esc": 13,
+          "registers_per_thread": 111
+        },
+        {
+          "ratio": 0.4954729985785906,
+          "baseline_us": 17.80799962580204,
+          "candidate_us": 36.159999668598175,
+          "inst": [
+            64,
+            64,
+            1,
+            2,
+            2,
+            true,
+            1
+          ],
+          "split": 8,
+          "idx": 1,
+          "max_esc": 9,
+          "registers_per_thread": 111
+        },
+        {
+          "ratio": 0.3442813287880816,
+          "baseline_us": 17.75999926030636,
+          "candidate_us": 51.7439991235733,
+          "inst": [
+            64,
+            64,
+            2,
+            1,
+            2,
+            true,
+            1
+          ],
+          "split": 1,
+          "idx": 2,
+          "max_esc": 19,
+          "registers_per_thread": 98
+        },
+        {
+          "ratio": 0.5202181247407045,
+          "baseline_us": 17.72800087928772,
+          "candidate_us": 34.2399999499321,
+          "inst": [
+            64,
+            64,
+            2,
+            1,
+            2,
+            true,
+            1
+          ],
+          "split": 2,
+          "idx": 2,
+          "max_esc": 13,
+          "registers_per_thread": 98
+        },
+        {
+          "ratio": 0.4280181295456547,
+          "baseline_us": 17.64800027012825,
+          "candidate_us": 41.21599905192852,
+          "inst": [
+            64,
+            64,
+            2,
+            1,
+            2,
+            true,
+            1
+          ],
+          "split": 4,
+          "idx": 2,
+          "max_esc": 9,
+          "registers_per_thread": 98
+        },
+        {
+          "ratio": 0.407500781529687,
+          "baseline_us": 17.904000356793404,
+          "candidate_us": 43.96800138056278,
+          "inst": [
+            64,
+            64,
+            2,
+            1,
+            2,
+            true,
+            1
+          ],
+          "split": 8,
+          "idx": 2,
+          "max_esc": 7,
+          "registers_per_thread": 98
+        },
+        {
+          "ratio": 0.4185836272078515,
+          "baseline_us": 17.839999869465828,
+          "candidate_us": 43.247999623417854,
+          "inst": [
+            64,
+            64,
+            2,
+            2,
+            2,
+            true,
+            1
+          ],
+          "split": 1,
+          "idx": 3,
+          "max_esc": 19,
+          "registers_per_thread": 111
+        },
+        {
+          "ratio": 0.5704732566352704,
+          "baseline_us": 17.855999991297722,
+          "candidate_us": 31.199999153614044,
+          "inst": [
+            64,
+            64,
+            2,
+            2,
+            2,
+            true,
+            1
+          ],
+          "split": 2,
+          "idx": 3,
+          "max_esc": 13,
+          "registers_per_thread": 111
+        },
+        {
+          "ratio": 0.4769542384894363,
+          "baseline_us": 17.74400006979704,
+          "candidate_us": 37.407999858260155,
+          "inst": [
+            64,
+            64,
+            2,
+            2,
+            2,
+            true,
+            1
+          ],
+          "split": 4,
+          "idx": 3,
+          "max_esc": 9,
+          "registers_per_thread": 111
+        },
+        {
+          "ratio": 0.4441721799158672,
+          "baseline_us": 18.463999964296818,
+          "candidate_us": 41.519999504089355,
+          "inst": [
+            64,
+            64,
+            2,
+            2,
+            2,
+            true,
+            1
+          ],
+          "split": 8,
+          "idx": 3,
+          "max_esc": 7,
+          "registers_per_thread": 111
+        },
+        {
+          "ratio": 0.1808723874703541,
+          "baseline_us": 17.920000478625298,
+          "candidate_us": 100.03200173377991,
+          "inst": [
+            128,
+            64,
+            1,
+            1,
+            2,
+            true,
+            1
+          ],
+          "split": 1,
+          "idx": 4,
+          "max_esc": 31,
+          "registers_per_thread": 130
+        },
+        {
+          "ratio": 0.31836178701007223,
+          "baseline_us": 17.712000757455826,
+          "candidate_us": 56.23999983072281,
+          "inst": [
+            128,
+            64,
+            1,
+            1,
+            2,
+            true,
+            1
+          ],
+          "split": 2,
+          "idx": 4,
+          "max_esc": 19,
+          "registers_per_thread": 130
+        },
+        {
+          "ratio": 0.5083794200893328,
+          "baseline_us": 17.791999503970146,
+          "candidate_us": 35.08799895644188,
+          "inst": [
+            128,
+            64,
+            1,
+            1,
+            2,
+            true,
+            1
+          ],
+          "split": 4,
+          "idx": 4,
+          "max_esc": 13,
+          "registers_per_thread": 130
+        },
+        {
+          "ratio": 0.6634612426839719,
+          "baseline_us": 17.72800087928772,
+          "candidate_us": 26.784000918269157,
+          "inst": [
+            128,
+            64,
+            1,
+            1,
+            2,
+            true,
+            1
+          ],
+          "split": 8,
+          "idx": 4,
+          "max_esc": 9,
+          "registers_per_thread": 130
+        },
+        {
+          "ratio": 0.2166584940126216,
+          "baseline_us": 17.696000635623932,
+          "candidate_us": 82.0159986615181,
+          "inst": [
+            128,
+            64,
+            1,
+            2,
+            2,
+            true,
+            1
+          ],
+          "split": 1,
+          "idx": 5,
+          "max_esc": 31,
+          "registers_per_thread": 143
+        },
+        {
+          "ratio": 0.37607674508336847,
+          "baseline_us": 17.75999926030636,
+          "candidate_us": 47.31200076639652,
+          "inst": [
+            128,
+            64,
+            1,
+            2,
+            2,
+            true,
+            1
+          ],
+          "split": 2,
+          "idx": 5,
+          "max_esc": 19,
+          "registers_per_thread": 143
+        },
+        {
+          "ratio": 0.5785989977650075,
+          "baseline_us": 17.72800087928772,
+          "candidate_us": 30.6560005992651,
+          "inst": [
+            128,
+            64,
+            1,
+            2,
+            2,
+            true,
+            1
+          ],
+          "split": 4,
+          "idx": 5,
+          "max_esc": 13,
+          "registers_per_thread": 143
+        },
+        {
+          "ratio": 0.7185701580767061,
+          "baseline_us": 17.72800087928772,
+          "candidate_us": 24.54400062561035,
+          "inst": [
+            128,
+            64,
+            1,
+            2,
+            2,
+            true,
+            1
+          ],
+          "split": 8,
+          "idx": 5,
+          "max_esc": 9,
+          "registers_per_thread": 143
+        },
+        {
+          "ratio": 0.3077832233532469,
+          "baseline_us": 17.727999947965145,
+          "candidate_us": 58.720000088214874,
+          "inst": [
+            128,
+            64,
+            2,
+            1,
+            2,
+            true,
+            1
+          ],
+          "split": 1,
+          "idx": 6,
+          "max_esc": 19,
+          "registers_per_thread": 130
+        },
+        {
+          "ratio": 0.5033100293403111,
+          "baseline_us": 17.664000391960144,
+          "candidate_us": 35.13599932193756,
+          "inst": [
+            128,
+            64,
+            2,
+            1,
+            2,
+            true,
+            1
+          ],
+          "split": 2,
+          "idx": 6,
+          "max_esc": 13,
+          "registers_per_thread": 130
+        },
+        {
+          "ratio": 0.437660010550939,
+          "baseline_us": 17.696000635623932,
+          "candidate_us": 40.672000497579575,
+          "inst": [
+            128,
+            64,
+            2,
+            1,
+            2,
+            true,
+            1
+          ],
+          "split": 4,
+          "idx": 6,
+          "max_esc": 9,
+          "registers_per_thread": 130
+        },
+        {
+          "ratio": 0.4060729950958787,
+          "baseline_us": 17.775999382138252,
+          "candidate_us": 43.87199878692627,
+          "inst": [
+            128,
+            64,
+            2,
+            1,
+            2,
+            true,
+            1
+          ],
+          "split": 8,
+          "idx": 6,
+          "max_esc": 7,
+          "registers_per_thread": 130
+        },
+        {
+          "ratio": 0.3607859416621103,
+          "baseline_us": 17.80799962580204,
+          "candidate_us": 50.00000074505806,
+          "inst": [
+            128,
+            64,
+            2,
+            2,
+            2,
+            true,
+            1
+          ],
+          "split": 1,
+          "idx": 7,
+          "max_esc": 19,
+          "registers_per_thread": 143
+        },
+        {
+          "ratio": 0.5816853651150917,
+          "baseline_us": 17.80799962580204,
+          "candidate_us": 30.880000442266464,
+          "inst": [
+            128,
+            64,
+            2,
+            2,
+            2,
+            true,
+            1
+          ],
+          "split": 2,
+          "idx": 7,
+          "max_esc": 13,
+          "registers_per_thread": 143
+        },
+        {
+          "ratio": 0.4858456254709095,
+          "baseline_us": 17.760000191628933,
+          "candidate_us": 36.479998379945755,
+          "inst": [
+            128,
+            64,
+            2,
+            2,
+            2,
+            true,
+            1
+          ],
+          "split": 4,
+          "idx": 7,
+          "max_esc": 9,
+          "registers_per_thread": 143
+        },
+        {
+          "ratio": 0.4417229515139981,
+          "baseline_us": 17.712000757455826,
+          "candidate_us": 40.720000863075256,
+          "inst": [
+            128,
+            64,
+            2,
+            2,
+            2,
+            true,
+            1
+          ],
+          "split": 8,
+          "idx": 7,
+          "max_esc": 7,
+          "registers_per_thread": 143
+        },
+        {
+          "ratio": 0.1512563806638373,
+          "baseline_us": 18.112000077962875,
+          "candidate_us": 121.10400199890137,
+          "inst": [
+            256,
+            64,
+            1,
+            1,
+            2,
+            true,
+            1
+          ],
+          "split": 1,
+          "idx": 8,
+          "max_esc": 31,
+          "registers_per_thread": 194
+        },
+        {
+          "ratio": 0.26349478772111634,
+          "baseline_us": 17.791999503970146,
+          "candidate_us": 67.56800040602684,
+          "inst": [
+            256,
+            64,
+            1,
+            1,
+            2,
+            true,
+            1
+          ],
+          "split": 2,
+          "idx": 8,
+          "max_esc": 19,
+          "registers_per_thread": 194
+        },
+        {
+          "ratio": 0.4146910146182234,
+          "baseline_us": 17.88800023496151,
+          "candidate_us": 43.60000044107437,
+          "inst": [
+            256,
+            64,
+            1,
+            1,
+            2,
+            true,
+            1
+          ],
+          "split": 4,
+          "idx": 8,
+          "max_esc": 13,
+          "registers_per_thread": 194
+        },
+        {
+          "ratio": 0.34118416244729943,
+          "baseline_us": 17.839999869465828,
+          "candidate_us": 52.49599926173687,
+          "inst": [
+            256,
+            64,
+            1,
+            1,
+            2,
+            true,
+            1
+          ],
+          "split": 8,
+          "idx": 8,
+          "max_esc": 9,
+          "registers_per_thread": 194
+        },
+        {
+          "ratio": 0.17764429848481675,
+          "baseline_us": 17.72800087928772,
+          "candidate_us": 100.0480018556118,
+          "inst": [
+            256,
+            64,
+            1,
+            2,
+            2,
+            true,
+            1
+          ],
+          "split": 1,
+          "idx": 9,
+          "max_esc": 31,
+          "registers_per_thread": 207
+        },
+        {
+          "ratio": 0.2884792715797781,
+          "baseline_us": 17.74400006979704,
+          "candidate_us": 61.8400014936924,
+          "inst": [
+            256,
+            64,
+            1,
+            2,
+            2,
+            true,
+            1
+          ],
+          "split": 2,
+          "idx": 9,
+          "max_esc": 19,
+          "registers_per_thread": 207
+        },
+        {
+          "ratio": 0.43078686459468174,
+          "baseline_us": 17.791999503970146,
+          "candidate_us": 41.840000078082085,
+          "inst": [
+            256,
+            64,
+            1,
+            2,
+            2,
+            true,
+            1
+          ],
+          "split": 4,
+          "idx": 9,
+          "max_esc": 13,
+          "registers_per_thread": 207
+        },
+        {
+          "ratio": 0.3572272762515911,
+          "baseline_us": 17.74400006979704,
+          "candidate_us": 50.016000866889954,
+          "inst": [
+            256,
+            64,
+            1,
+            2,
+            2,
+            true,
+            1
+          ],
+          "split": 8,
+          "idx": 9,
+          "max_esc": 9,
+          "registers_per_thread": 207
+        },
+        {
+          "ratio": 0.24685067755557158,
+          "baseline_us": 17.88800023496151,
+          "candidate_us": 72.62400165200233,
+          "inst": [
+            256,
+            64,
+            2,
+            1,
+            2,
+            true,
+            1
+          ],
+          "split": 1,
+          "idx": 10,
+          "max_esc": 19,
+          "registers_per_thread": 194
+        },
+        {
+          "ratio": 0.3791048432654789,
+          "baseline_us": 17.696000635623932,
+          "candidate_us": 46.671999618411064,
+          "inst": [
+            256,
+            64,
+            2,
+            1,
+            2,
+            true,
+            1
+          ],
+          "split": 2,
+          "idx": 10,
+          "max_esc": 13,
+          "registers_per_thread": 194
+        },
+        {
+          "ratio": 0.3347915325493206,
+          "baseline_us": 17.712000757455826,
+          "candidate_us": 53.10399830341339,
+          "inst": [
+            256,
+            64,
+            2,
+            1,
+            2,
+            true,
+            1
+          ],
+          "split": 4,
+          "idx": 10,
+          "max_esc": 9,
+          "registers_per_thread": 194
+        },
+        {
+          "ratio": 0.3172867315371462,
+          "baseline_us": 17.88800023496151,
+          "candidate_us": 57.231999933719635,
+          "inst": [
+            256,
+            64,
+            2,
+            1,
+            2,
+            true,
+            1
+          ],
+          "split": 8,
+          "idx": 10,
+          "max_esc": 7,
+          "registers_per_thread": 194
+        },
+        {
+          "ratio": 0.2616994543759025,
+          "baseline_us": 17.664000391960144,
+          "candidate_us": 68.1919977068901,
+          "inst": [
+            256,
+            64,
+            2,
+            2,
+            2,
+            true,
+            1
+          ],
+          "split": 1,
+          "idx": 11,
+          "max_esc": 19,
+          "registers_per_thread": 207
+        },
+        {
+          "ratio": 0.40507884845451525,
+          "baseline_us": 17.855999991297722,
+          "candidate_us": 44.576000422239304,
+          "inst": [
+            256,
+            64,
+            2,
+            2,
+            2,
+            true,
+            1
+          ],
+          "split": 2,
+          "idx": 11,
+          "max_esc": 13,
+          "registers_per_thread": 207
+        },
+        {
+          "ratio": 0.355923483618342,
+          "baseline_us": 17.72800087928772,
+          "candidate_us": 49.82399940490723,
+          "inst": [
+            256,
+            64,
+            2,
+            2,
+            2,
+            true,
+            1
+          ],
+          "split": 4,
+          "idx": 11,
+          "max_esc": 9,
+          "registers_per_thread": 207
+        },
+        {
+          "ratio": 0.3167357522571277,
+          "baseline_us": 17.775999382138252,
+          "candidate_us": 56.17599934339523,
+          "inst": [
+            256,
+            64,
+            2,
+            2,
+            2,
+            true,
+            1
+          ],
+          "split": 8,
+          "idx": 11,
+          "max_esc": 7,
+          "registers_per_thread": 207
+        }
+      ]
+    },
+    {
+      "m": 256,
+      "layer": "qkv_gate",
+      "tested": 48,
+      "finalists": [
+        {
+          "ratio": 0.611277140122052,
+          "baseline_us": 21.344000473618507,
+          "candidate_us": 34.84800085425377,
+          "inst": [
+            128,
+            64,
+            1,
+            2,
+            2,
+            true,
+            1
+          ],
+          "split": 4,
+          "idx": 5,
+          "max_esc": 13,
+          "registers_per_thread": 143
+        },
+        {
+          "ratio": 0.5487937781066546,
+          "baseline_us": 21.31200022995472,
+          "candidate_us": 38.83200138807297,
+          "inst": [
+            128,
+            64,
+            1,
+            1,
+            2,
+            true,
+            1
+          ],
+          "split": 4,
+          "idx": 4,
+          "max_esc": 13,
+          "registers_per_thread": 130
+        },
+        {
+          "ratio": 0.5356919690782327,
+          "baseline_us": 21.247999742627144,
+          "candidate_us": 39.5519994199276,
+          "inst": [
+            256,
+            64,
+            1,
+            2,
+            2,
+            true,
+            1
+          ],
+          "split": 4,
+          "idx": 9,
+          "max_esc": 13,
+          "registers_per_thread": 207
+        }
+      ],
+      "screen": [
+        {
+          "ratio": 0.23847867079261778,
+          "baseline_us": 21.328000351786613,
+          "candidate_us": 89.40800279378891,
+          "inst": [
+            64,
+            64,
+            1,
+            1,
+            2,
+            true,
+            1
+          ],
+          "split": 1,
+          "idx": 0,
+          "max_esc": 31,
+          "registers_per_thread": 98
+        },
+        {
+          "ratio": 0.40483287147015024,
+          "baseline_us": 21.247999742627144,
+          "candidate_us": 53.2160010188818,
+          "inst": [
+            64,
+            64,
+            1,
+            1,
+            2,
+            true,
+            1
+          ],
+          "split": 2,
+          "idx": 0,
+          "max_esc": 19,
+          "registers_per_thread": 98
+        },
+        {
+          "ratio": 0.35602814208769973,
+          "baseline_us": 21.344000473618507,
+          "candidate_us": 60.784000903367996,
+          "inst": [
+            64,
+            64,
+            1,
+            1,
+            2,
+            true,
+            1
+          ],
+          "split": 4,
+          "idx": 0,
+          "max_esc": 13,
+          "registers_per_thread": 98
+        },
+        {
+          "ratio": 0.3755395371935333,
+          "baseline_us": 22.1599992364645,
+          "candidate_us": 58.73600021004677,
+          "inst": [
+            64,
+            64,
+            1,
+            1,
+            2,
+            true,
+            1
+          ],
+          "split": 8,
+          "idx": 0,
+          "max_esc": 9,
+          "registers_per_thread": 98
+        },
+        {
+          "ratio": 0.2913906736656675,
+          "baseline_us": 21.215999498963356,
+          "candidate_us": 72.57599756121635,
+          "inst": [
+            64,
+            64,
+            1,
+            2,
+            2,
+            true,
+            1
+          ],
+          "split": 1,
+          "idx": 1,
+          "max_esc": 31,
+          "registers_per_thread": 111
+        },
+        {
+          "ratio": 0.4418582564988415,
+          "baseline_us": 21.440000273287296,
+          "candidate_us": 48.27199876308441,
+          "inst": [
+            64,
+            64,
+            1,
+            2,
+            2,
+            true,
+            1
+          ],
+          "split": 2,
+          "idx": 1,
+          "max_esc": 19,
+          "registers_per_thread": 111
+        },
+        {
+          "ratio": 0.3987541570625198,
+          "baseline_us": 21.27999998629093,
+          "candidate_us": 53.60000021755695,
+          "inst": [
+            64,
+            64,
+            1,
+            2,
+            2,
+            true,
+            1
+          ],
+          "split": 4,
+          "idx": 1,
+          "max_esc": 13,
+          "registers_per_thread": 111
+        },
+        {
+          "ratio": 0.392580031772924,
+          "baseline_us": 21.27999998629093,
+          "candidate_us": 53.999999538064,
+          "inst": [
+            64,
+            64,
+            1,
+            2,
+            2,
+            true,
+            1
+          ],
+          "split": 8,
+          "idx": 1,
+          "max_esc": 9,
+          "registers_per_thread": 111
+        },
+        {
+          "ratio": 0.3606306977888297,
+          "baseline_us": 21.184000186622143,
+          "candidate_us": 58.83200094103813,
+          "inst": [
+            64,
+            64,
+            2,
+            1,
+            2,
+            true,
+            1
+          ],
+          "split": 1,
+          "idx": 2,
+          "max_esc": 19,
+          "registers_per_thread": 98
+        },
+        {
+          "ratio": 0.3485544705916715,
+          "baseline_us": 21.376000717282295,
+          "candidate_us": 63.680000603199005,
+          "inst": [
+            64,
+            64,
+            2,
+            1,
+            2,
+            true,
+            1
+          ],
+          "split": 2,
+          "idx": 2,
+          "max_esc": 13,
+          "registers_per_thread": 98
+        },
+        {
+          "ratio": 0.36052524749536713,
+          "baseline_us": 21.328000351786613,
+          "candidate_us": 59.1839998960495,
+          "inst": [
+            64,
+            64,
+            2,
+            1,
+            2,
+            true,
+            1
+          ],
+          "split": 4,
+          "idx": 2,
+          "max_esc": 9,
+          "registers_per_thread": 98
+        },
+        {
+          "ratio": 0.2985832815445283,
+          "baseline_us": 21.263999864459038,
+          "candidate_us": 71.55200093984604,
+          "inst": [
+            64,
+            64,
+            2,
+            1,
+            2,
+            true,
+            1
+          ],
+          "split": 8,
+          "idx": 2,
+          "max_esc": 7,
+          "registers_per_thread": 98
+        },
+        {
+          "ratio": 0.41252704940092383,
+          "baseline_us": 21.3600005954504,
+          "candidate_us": 52.400000393390656,
+          "inst": [
+            64,
+            64,
+            2,
+            2,
+            2,
+            true,
+            1
+          ],
+          "split": 1,
+          "idx": 3,
+          "max_esc": 19,
+          "registers_per_thread": 111
+        },
+        {
+          "ratio": 0.4019153741187793,
+          "baseline_us": 21.51999995112419,
+          "candidate_us": 53.744001314044,
+          "inst": [
+            64,
+            64,
+            2,
+            2,
+            2,
+            true,
+            1
+          ],
+          "split": 2,
+          "idx": 3,
+          "max_esc": 13,
+          "registers_per_thread": 111
+        },
+        {
+          "ratio": 0.3936861699442227,
+          "baseline_us": 21.296000108122826,
+          "candidate_us": 54.687999188899994,
+          "inst": [
+            64,
+            64,
+            2,
+            2,
+            2,
+            true,
+            1
+          ],
+          "split": 4,
+          "idx": 3,
+          "max_esc": 9,
+          "registers_per_thread": 111
+        },
+        {
+          "ratio": 0.3125223214403194,
+          "baseline_us": 21.200000308454037,
+          "candidate_us": 68.28799843788147,
+          "inst": [
+            64,
+            64,
+            2,
+            2,
+            2,
+            true,
+            1
+          ],
+          "split": 8,
+          "idx": 3,
+          "max_esc": 7,
+          "registers_per_thread": 111
+        },
+        {
+          "ratio": 0.22021022123986458,
+          "baseline_us": 21.487999707460403,
+          "candidate_us": 98.88000041246414,
+          "inst": [
+            128,
+            64,
+            1,
+            1,
+            2,
+            true,
+            1
+          ],
+          "split": 1,
+          "idx": 4,
+          "max_esc": 31,
+          "registers_per_thread": 130
+        },
+        {
+          "ratio": 0.3810175074463191,
+          "baseline_us": 21.27999998629093,
+          "candidate_us": 56.44799955189228,
+          "inst": [
+            128,
+            64,
+            1,
+            1,
+            2,
+            true,
+            1
+          ],
+          "split": 2,
+          "idx": 4,
+          "max_esc": 19,
+          "registers_per_thread": 130
+        },
+        {
+          "ratio": 0.5487937781066546,
+          "baseline_us": 21.31200022995472,
+          "candidate_us": 38.83200138807297,
+          "inst": [
+            128,
+            64,
+            1,
+            1,
+            2,
+            true,
+            1
+          ],
+          "split": 4,
+          "idx": 4,
+          "max_esc": 13,
+          "registers_per_thread": 130
+        },
+        {
+          "ratio": 0.4487291252723594,
+          "baseline_us": 21.37599978595972,
+          "candidate_us": 47.08800092339516,
+          "inst": [
+            128,
+            64,
+            1,
+            1,
+            2,
+            true,
+            1
+          ],
+          "split": 8,
+          "idx": 4,
+          "max_esc": 9,
+          "registers_per_thread": 130
+        },
+        {
+          "ratio": 0.26165959155729923,
+          "baseline_us": 21.215999498963356,
+          "candidate_us": 81.82399719953537,
+          "inst": [
+            128,
+            64,
+            1,
+            2,
+            2,
+            true,
+            1
+          ],
+          "split": 1,
+          "idx": 5,
+          "max_esc": 31,
+          "registers_per_thread": 143
+        },
+        {
+          "ratio": 0.43779765104415697,
+          "baseline_us": 21.40800002962351,
+          "candidate_us": 49.40799996256828,
+          "inst": [
+            128,
+            64,
+            1,
+            2,
+            2,
+            true,
+            1
+          ],
+          "split": 2,
+          "idx": 5,
+          "max_esc": 19,
+          "registers_per_thread": 143
+        },
+        {
+          "ratio": 0.611277140122052,
+          "baseline_us": 21.344000473618507,
+          "candidate_us": 34.84800085425377,
+          "inst": [
+            128,
+            64,
+            1,
+            2,
+            2,
+            true,
+            1
+          ],
+          "split": 4,
+          "idx": 5,
+          "max_esc": 13,
+          "registers_per_thread": 143
+        },
+        {
+          "ratio": 0.4909242408482041,
+          "baseline_us": 21.536000072956085,
+          "candidate_us": 44.304000213742256,
+          "inst": [
+            128,
+            64,
+            1,
+            2,
+            2,
+            true,
+            1
+          ],
+          "split": 8,
+          "idx": 5,
+          "max_esc": 9,
+          "registers_per_thread": 143
+        },
+        {
+          "ratio": 0.37014864857759205,
+          "baseline_us": 21.487999707460403,
+          "candidate_us": 58.320000767707825,
+          "inst": [
+            128,
+            64,
+            2,
+            1,
+            2,
+            true,
+            1
+          ],
+          "split": 1,
+          "idx": 6,
+          "max_esc": 19,
+          "registers_per_thread": 130
+        },
+        {
+          "ratio": 0.3419095221692605,
+          "baseline_us": 21.43999934196472,
+          "candidate_us": 63.50399926304817,
+          "inst": [
+            128,
+            64,
+            2,
+            1,
+            2,
+            true,
+            1
+          ],
+          "split": 2,
+          "idx": 6,
+          "max_esc": 13,
+          "registers_per_thread": 130
+        },
+        {
+          "ratio": 0.36213669868981113,
+          "baseline_us": 21.199999377131462,
+          "candidate_us": 59.34400111436844,
+          "inst": [
+            128,
+            64,
+            2,
+            1,
+            2,
+            true,
+            1
+          ],
+          "split": 4,
+          "idx": 6,
+          "max_esc": 9,
+          "registers_per_thread": 130
+        },
+        {
+          "ratio": 0.3053041605036067,
+          "baseline_us": 21.247999742627144,
+          "candidate_us": 70.03199681639671,
+          "inst": [
+            128,
+            64,
+            2,
+            1,
+            2,
+            true,
+            1
+          ],
+          "split": 8,
+          "idx": 6,
+          "max_esc": 7,
+          "registers_per_thread": 130
+        },
+        {
+          "ratio": 0.4313621447788284,
+          "baseline_us": 21.23199962079525,
+          "candidate_us": 49.855999648571014,
+          "inst": [
+            128,
+            64,
+            2,
+            2,
+            2,
+            true,
+            1
+          ],
+          "split": 1,
+          "idx": 7,
+          "max_esc": 19,
+          "registers_per_thread": 143
+        },
+        {
+          "ratio": 0.39119821603718846,
+          "baseline_us": 21.391999907791615,
+          "candidate_us": 55.27999997138977,
+          "inst": [
+            128,
+            64,
+            2,
+            2,
+            2,
+            true,
+            1
+          ],
+          "split": 2,
+          "idx": 7,
+          "max_esc": 13,
+          "registers_per_thread": 143
+        },
+        {
+          "ratio": 0.3997582194935695,
+          "baseline_us": 21.232000552117825,
+          "candidate_us": 53.07199992239475,
+          "inst": [
+            128,
+            64,
+            2,
+            2,
+            2,
+            true,
+            1
+          ],
+          "split": 4,
+          "idx": 7,
+          "max_esc": 9,
+          "registers_per_thread": 143
+        },
+        {
+          "ratio": 0.32913594689412967,
+          "baseline_us": 21.23199962079525,
+          "candidate_us": 64.96000289916992,
+          "inst": [
+            128,
+            64,
+            2,
+            2,
+            2,
+            true,
+            1
+          ],
+          "split": 8,
+          "idx": 7,
+          "max_esc": 7,
+          "registers_per_thread": 143
+        },
+        {
+          "ratio": 0.17692578841486767,
+          "baseline_us": 21.40800002962351,
+          "candidate_us": 121.8239963054657,
+          "inst": [
+            256,
+            64,
+            1,
+            1,
+            2,
+            true,
+            1
+          ],
+          "split": 1,
+          "idx": 8,
+          "max_esc": 31,
+          "registers_per_thread": 194
+        },
+        {
+          "ratio": 0.3128958926778481,
+          "baseline_us": 21.407999098300934,
+          "candidate_us": 68.56000050902367,
+          "inst": [
+            256,
+            64,
+            1,
+            1,
+            2,
+            true,
+            1
+          ],
+          "split": 2,
+          "idx": 8,
+          "max_esc": 19,
+          "registers_per_thread": 194
+        },
+        {
+          "ratio": 0.48713387536252273,
+          "baseline_us": 21.536000072956085,
+          "candidate_us": 44.144000858068466,
+          "inst": [
+            256,
+            64,
+            1,
+            1,
+            2,
+            true,
+            1
+          ],
+          "split": 4,
+          "idx": 8,
+          "max_esc": 13,
+          "registers_per_thread": 194
+        },
+        {
+          "ratio": 0.41438905381589974,
+          "baseline_us": 21.631999872624874,
+          "candidate_us": 52.30399966239929,
+          "inst": [
+            256,
+            64,
+            1,
+            1,
+            2,
+            true,
+            1
+          ],
+          "split": 8,
+          "idx": 8,
+          "max_esc": 9,
+          "registers_per_thread": 194
+        },
+        {
+          "ratio": 0.2109745453518391,
+          "baseline_us": 21.136000752449036,
+          "candidate_us": 101.64799913764,
+          "inst": [
+            256,
+            64,
+            1,
+            2,
+            2,
+            true,
+            1
+          ],
+          "split": 1,
+          "idx": 9,
+          "max_esc": 31,
+          "registers_per_thread": 207
+        },
+        {
+          "ratio": 0.3697223228122497,
+          "baseline_us": 21.423999220132828,
+          "candidate_us": 58.14399942755699,
+          "inst": [
+            256,
+            64,
+            1,
+            2,
+            2,
+            true,
+            1
+          ],
+          "split": 2,
+          "idx": 9,
+          "max_esc": 19,
+          "registers_per_thread": 207
+        },
+        {
+          "ratio": 0.5356919690782327,
+          "baseline_us": 21.247999742627144,
+          "candidate_us": 39.5519994199276,
+          "inst": [
+            256,
+            64,
+            1,
+            2,
+            2,
+            true,
+            1
+          ],
+          "split": 4,
+          "idx": 9,
+          "max_esc": 13,
+          "registers_per_thread": 207
+        },
+        {
+          "ratio": 0.4496222073435541,
+          "baseline_us": 21.32799942046404,
+          "candidate_us": 48.048000782728195,
+          "inst": [
+            256,
+            64,
+            1,
+            2,
+            2,
+            true,
+            1
+          ],
+          "split": 8,
+          "idx": 9,
+          "max_esc": 9,
+          "registers_per_thread": 207
+        },
+        {
+          "ratio": 0.2975271284295145,
+          "baseline_us": 21.568000316619873,
+          "candidate_us": 72.30399921536446,
+          "inst": [
+            256,
+            64,
+            2,
+            1,
+            2,
+            true,
+            1
+          ],
+          "split": 1,
+          "idx": 10,
+          "max_esc": 19,
+          "registers_per_thread": 194
+        },
+        {
+          "ratio": 0.4804314523190726,
+          "baseline_us": 21.247999742627144,
+          "candidate_us": 44.863998889923096,
+          "inst": [
+            256,
+            64,
+            2,
+            1,
+            2,
+            true,
+            1
+          ],
+          "split": 2,
+          "idx": 10,
+          "max_esc": 13,
+          "registers_per_thread": 194
+        },
+        {
+          "ratio": 0.41310507314962663,
+          "baseline_us": 21.27999998629093,
+          "candidate_us": 51.80799961090088,
+          "inst": [
+            256,
+            64,
+            2,
+            1,
+            2,
+            true,
+            1
+          ],
+          "split": 4,
+          "idx": 10,
+          "max_esc": 9,
+          "registers_per_thread": 194
+        },
+        {
+          "ratio": 0.3682141294523881,
+          "baseline_us": 21.631999872624874,
+          "candidate_us": 58.97600017488003,
+          "inst": [
+            256,
+            64,
+            2,
+            1,
+            2,
+            true,
+            1
+          ],
+          "split": 8,
+          "idx": 10,
+          "max_esc": 7,
+          "registers_per_thread": 194
+        },
+        {
+          "ratio": 0.3331167697073723,
+          "baseline_us": 21.343999542295933,
+          "candidate_us": 64.96000289916992,
+          "inst": [
+            256,
+            64,
+            2,
+            2,
+            2,
+            true,
+            1
+          ],
+          "split": 1,
+          "idx": 11,
+          "max_esc": 19,
+          "registers_per_thread": 207
+        },
+        {
+          "ratio": 0.5366649650284399,
+          "baseline_us": 21.455999463796616,
+          "candidate_us": 40.3360016644001,
+          "inst": [
+            256,
+            64,
+            2,
+            2,
+            2,
+            true,
+            1
+          ],
+          "split": 2,
+          "idx": 11,
+          "max_esc": 13,
+          "registers_per_thread": 207
+        },
+        {
+          "ratio": 0.4502154930935325,
+          "baseline_us": 21.503999829292297,
+          "candidate_us": 48.287998884916306,
+          "inst": [
+            256,
+            64,
+            2,
+            2,
+            2,
+            true,
+            1
+          ],
+          "split": 4,
+          "idx": 11,
+          "max_esc": 9,
+          "registers_per_thread": 207
+        },
+        {
+          "ratio": 0.3904292691059588,
+          "baseline_us": 21.728000603616238,
+          "candidate_us": 55.93600124120712,
+          "inst": [
+            256,
+            64,
+            2,
+            2,
+            2,
+            true,
+            1
+          ],
+          "split": 8,
+          "idx": 11,
+          "max_esc": 7,
+          "registers_per_thread": 207
+        }
+      ]
+    }
+  ],
+  "pipeline": true,
+  "revision": 3,
+  "pipeline_source_sha256": "f62b226cddbf1cf59bd55059f7e58ed30b7fb4bdac0b2e2c240b7b949eddac2a",
+  "resource_info": [
+    {
+      "inst": [
+        64,
+        64,
+        1,
+        1,
+        2,
+        true,
+        1
+      ],
+      "registers": 98,
+      "local_bytes": 0
+    },
+    {
+      "inst": [
+        64,
+        64,
+        1,
+        2,
+        2,
+        true,
+        1
+      ],
+      "registers": 111,
+      "local_bytes": 0
+    },
+    {
+      "inst": [
+        64,
+        64,
+        2,
+        1,
+        2,
+        true,
+        1
+      ],
+      "registers": 98,
+      "local_bytes": 0
+    },
+    {
+      "inst": [
+        64,
+        64,
+        2,
+        2,
+        2,
+        true,
+        1
+      ],
+      "registers": 111,
+      "local_bytes": 0
+    },
+    {
+      "inst": [
+        128,
+        64,
+        1,
+        1,
+        2,
+        true,
+        1
+      ],
+      "registers": 130,
+      "local_bytes": 0
+    },
+    {
+      "inst": [
+        128,
+        64,
+        1,
+        2,
+        2,
+        true,
+        1
+      ],
+      "registers": 143,
+      "local_bytes": 0
+    },
+    {
+      "inst": [
+        128,
+        64,
+        2,
+        1,
+        2,
+        true,
+        1
+      ],
+      "registers": 130,
+      "local_bytes": 0
+    },
+    {
+      "inst": [
+        128,
+        64,
+        2,
+        2,
+        2,
+        true,
+        1
+      ],
+      "registers": 143,
+      "local_bytes": 0
+    },
+    {
+      "inst": [
+        256,
+        64,
+        1,
+        1,
+        2,
+        true,
+        1
+      ],
+      "registers": 194,
+      "local_bytes": 0
+    },
+    {
+      "inst": [
+        256,
+        64,
+        1,
+        2,
+        2,
+        true,
+        1
+      ],
+      "registers": 207,
+      "local_bytes": 0
+    },
+    {
+      "inst": [
+        256,
+        64,
+        2,
+        1,
+        2,
+        true,
+        1
+      ],
+      "registers": 194,
+      "local_bytes": 0
+    },
+    {
+      "inst": [
+        256,
+        64,
+        2,
+        2,
+        2,
+        true,
+        1
+      ],
+      "registers": 207,
+      "local_bytes": 0
+    }
+  ],
+  "sass_excerpt": "        /*1c60*/                   BSSY B1, 0x21e0 ;                                              /* 0x0000057000017945 */\n                                                                                                  /* 0x000fe80003800000 */\n        /*1c70*/                   ISETP.GE.AND P2, PT, R201, R194, PT ;                          /* 0x000000c2c900720c */\n                                                                                                  /* 0x000fc40003f46270 */\n        /*1c80*/                   HGMMA.64x256x16.F32.BF16 R24, R152, gdesc[UR12], R24 ;         /* 0x03e0000c98187df0 */\n                                                                                                  /* 0x000fe20008701818 */\n        /*1c90*/                   R2UR UR14, R170 ;                                              /* 0x00000000aa0e72ca */\n                                                                                                  /* 0x000fe400000e0000 */\n        /*1ca0*/                   R2UR UR15, R171 ;                                              /* 0x00000000ab0f72ca */\n                                                                                                  /* 0x000fe200000e0000 */\n        /*1cb0*/                   IMAD.MOV.U32 R171, RZ, RZ, 0x40000040 ;                        /* 0x40000040ffab7424 */\n                                                                                                  /* 0x000fe200078e00ff */\n        /*1cc0*/                   LOP3.LUT R170, R168.reuse, 0x4, RZ, 0xfc, !PT ;                /* 0x00000004a8aa7812 */\n                                                                                                  /* 0x040fe400078efcff */\n        /*1cd0*/                   LOP3.LUT R168, R168, 0x6, RZ, 0xfc, !PT ;                      /* 0x00000006a8a87812 */\n                                                                                                  /* 0x000fde00078efcff */\n        /*1ce0*/                   NOP ;                                                          /* 0x0000000000007918 */\n                                                                                                  /* 0x000fcc0000000000 */\n        /*1cf0*/                   HGMMA.64x256x16.F32.BF16 R24, R156, gdesc[UR12], R24 ;         /* 0x03e0000c9c187df0 */\n                                                                                                  /* 0x000fe20008701818 */\n        /*1d00*/                   R2UR UR14, R170 ;                                              /* 0x00000000aa0e72ca */\n                                                                                                  /* 0x000fe400000e0000 */\n        /*1d10*/                   R2UR UR15, R171 ;                                              /* 0x00000000ab0f72ca */\n                                                                                                  /* 0x000fde00000e0000 */\n        /*1d20*/                   NOP ;                                                          /* 0x0000000000007918 */\n                                                                                                  /* 0x000fd40000000000 */\n        /*1d30*/                   HGMMA.64x256x16.F32.BF16 R24, R160, gdesc[UR12], R24 ;         /* 0x03e0000ca0187df0 */\n                                                                                                  /* 0x000fe20008701818 */\n        /*1d40*/                   R2UR UR14, R168 ;                                              /* 0x00000000a80e72ca */\n                                                                                                  /* 0x000fe400000e0000 */\n        /*1d50*/                   R2UR UR15, R169 ;                                              /* 0x00000000a90f72ca */\n                                                                                                  /* 0x000fe400000e0000 */\n        /*1d60*/                   SHF.R.W.U32 R168, R20, 0x4, R20 ;                              /* 0x0000000414a87819 */\n                                                                                                  /* 0x000fc80000001e14 */\n        /*1d70*/                   LOP3.LUT R168, R168, 0x87878787, RZ, 0xc0, !PT ;               /* 0x87878787a8a87812 */\n                                                                                                  /* 0x000fde00078ec0ff */\n        /*1d80*/                   NOP ;                                                          /* 0x0000000000007918 */\n                                                                                                  /* 0x000fc80000000000 */\n        /*1d90*/                   HGMMA.64x256x16.F32.BF16 R24, R164, gdesc[UR12], R24, gsb0 ;   /* 0x03e0000ca4187df0 */\n                                                                                                  /* 0x000fe60008001818 */\n        /*1da0*/                   WARPGROUP.DEPBAR.LE gsb0, 0x0 ;                                /* 0x00008000000079c5 */\n                                                                                                  /* 0x000fe40000010000 */\n        /*1db0*/                   SHF.R.W.U32 R153, R21, 0x4, R21 ;                              /* 0x0000000415997819 */\n                                                                                                  /* 0x000fe40000001e15 */\n        /*1dc0*/                   SHF.R.W.U32 R154, R22, 0x4, R22 ;                              /* 0x00000004169a7819 */\n                                                                                                  /* 0x000fe40000001e16 */\n        /*1dd0*/                   SHF.R.W.U32 R158, R23, 0x4, R23 ;                              /* 0x00000004179e7819 */\n                                                                                                  /* 0x000fe40000001e17 */\n        /*1de0*/                   LOP3.LUT R152, R20, 0x87878787, RZ, 0xc0, !PT ;                /* 0x8787878714987812 */\n                                                                                                  /* 0x000fc400078ec0ff */\n        /*1df0*/                   LOP3.LUT R156, R22, 0x87878787, RZ, 0xc0, !PT ;                /* 0x87878787169c7812 */\n                                                                                                  /* 0x000fe400078ec0ff */\n        /*1e00*/                   LOP3.LUT R155, R21, 0x87878787, RZ, 0xc0, !PT ;                /* 0x87878787159b7812 */\n                                                                                                  /* 0x000fe200078ec0ff */\n        /*1e10*/                   VIADD R169, R152, UR8 ;                                        /* 0x0000000898a97c36 */\n                                                                                                  /* 0x000fe20008000000 */\n        /*1e20*/                   LOP3.LUT R159, R23, 0x87878787, RZ, 0xc0, !PT ;                /* 0x87878787179f7812 */\n                                                                                                  /* 0x000fe200078ec0ff */\n        /*1e30*/                   VIADD R177, R156, UR8 ;                                        /* 0x000000089cb17c36 */\n                                                                                                  /* 0x000fe20008000000 */\n        /*1e40*/                   LOP3.LUT R153, R153, 0x87878787, RZ, 0xc0, !PT ;               /* 0x8787878799997812 */\n                                                                                                  /* 0x000fe200078ec0ff */\n        /*1e50*/                   VIADD R155, R155, UR8 ;                                        /* 0x000000089b9b7c36 */\n                                                                                                  /* 0x000fe20008000000 */\n        /*1e60*/                   LOP3.LUT R157, R154, 0x87878787, RZ, 0xc0, !PT ;               /* 0x878787879a9d7812 */\n                                                                                                  /* 0x000fe200078ec0ff */\n        /*1e70*/                   VIADD R154, R168, UR8 ;                                        /* 0x00000008a89a7c36 */\n                                                                                                  /* 0x000fe20008000000 */\n        /*1e80*/                   LOP3.LUT R160, R158, 0x87878787, RZ, 0xc0, !PT ;               /* 0x878787879ea07812 */\n                                                                                                  /* 0x000fe200078ec0ff */\n        /*1e90*/                   VIADD R152, R153, UR8 ;                                        /* 0x0000000899987c36 */\n                                                                                                  /* 0x000fe20008000000 */\n        /*1ea0*/                   PRMT R176, R4, 0x5140, R177 ;                                  /* 0x0000514004b07816 */\n                                                                                                  /* 0x000fe200000000b1 */\n        /*1eb0*/                   VIADD R158, R157, UR8 ;                                        /* 0x000000089d9e7c36 */\n                                                                                                  /* 0x000fe20008000000 */\n        /*1ec0*/                   PRMT R170, R9.reuse, 0x5140, R154.reuse ;                      /* 0x0000514009aa7816 */\n                                                                                                  /* 0x140fe2000000009a */\n        /*1ed0*/                   VIADD R160, R160, UR8 ;                                        /* 0x00000008a0a07c36 */\n                                                                                                  /* 0x000fe20008000000 */\n        /*1ee0*/                   PRMT R171, R9, 0x7362, R154 ;                                  /* 0x0000736209ab7816 */\n                                                                                                  /* 0x000fe2000000009a */\n        /*1ef0*/                   VIADD R159, R159, UR8 ;                                        /* 0x000000089f9f7c36 */\n                                                                                                  /* 0x000fe20008000000 */\n        /*1f00*/                   PRMT R172, R10.reuse, 0x5140, R155.reuse ;                     /* 0x000051400aac7816 */\n                                                                                                  /* 0x140fe2000000009b */\n        /*1f10*/                   IMAD.MOV.U32 R154, RZ, RZ, R170 ;                              /* 0x000000ffff9a7224 */\n                                                                                                  /* 0x000fe200078e00aa */\n        /*1f20*/                   PRMT R173, R10, 0x7362, R155 ;                                 /* 0x000073620aad7816 */\n                                                                                                  /* 0x000fe2000000009b */\n        /*1f30*/                   IMAD.MOV.U32 R155, RZ, RZ, R171 ;                              /* 0x000000ffff9b7224 */\n                                                                                                  /* 0x000fe200078e00ab */\n        /*1f40*/                   PRMT R174, R11.reuse, 0x5140, R152 ;                           /* 0x000051400bae7816 */\n                                                                                                  /* 0x040fe20000000098 */\n        /*1f50*/                   IMAD.MOV.U32 R156, RZ, RZ, R172 ;                              /* 0x000000ffff9c7224 */\n                                                                                                  /* 0x000fe200078e00ac */\n        /*1f60*/                   PRMT R175, R11, 0x7362, R152 ;                                 /* 0x000073620baf7816 */\n                                                                                                  /* 0x000fe20000000098 */\n        /*1f70*/                   IMAD.MOV.U32 R157, RZ, RZ, R173 ;                              /* 0x000000ffff9d7224 */\n                                                                                                  /* 0x000fe200078e00ad */\n        /*1f80*/                   PRMT R177, R4, 0x7362, R177 ;                                  /* 0x0000736204b17816 */\n                                                                                                  /* 0x000fc400000000b1 */\n        /*1f90*/                   PRMT R178, R5.reuse, 0x5140, R158.reuse ;                      /* 0x0000514005b27816 */\n                                                                                                  /* 0x140fe4000000009e */",
+  "source_sha256": "6faa2ae8519e3b9c19b27c2fdf47a2a057c7be89c72583ecfd270175c2144ae7"
+}
